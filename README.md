@@ -1,6 +1,6 @@
 # mealdang_mvp
 
-A new Flutter project.
+this is mealdang_mvp project.
 
 ## Getting Started
 
