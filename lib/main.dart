@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'MealdangListview.dart';
 import 'style/font.dart';
+// import 'package:mealdang_mvp/ButtonWidget/buttonwidget.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MealdangListview(),
+      home: MealdangCategory(),
     );
   }
 }
@@ -33,7 +34,29 @@ class _MealdangCategoryState extends State<MealdangCategory> {
       appBar: AppBar(
         title: Text('밀당',
             style: TextStyle(fontFamily: MyFontFamily.BMJUA, fontSize: 38)),
+        centerTitle: true,
         backgroundColor: Colors.amber[400],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(child: Text('Drawer Header'),
+              decoration: BoxDecoration(color: Colors.amber),),
+            ListTile(
+              title: Text('Item 1'),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Item 2'),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            )
+          ],
+        ),
       ),
       body: Container(
         child: Padding(
@@ -76,42 +99,42 @@ class _MealdangCategoryState extends State<MealdangCategory> {
                   ),
                   Container(
                       child: Column(
-                    children: [
-                      Transform.scale(
-                        scale: 3,
-                        child: IconButton(
-                            icon: Image.asset(
-                              'images/ChineseFood_icon/jajangmyeon.png',
-                            ),
-                            onPressed: () {}),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text('중식',
-                          style: TextStyle(
-                              fontFamily: MyFontFamily.BMJUA, fontSize: 30)),
-                    ],
-                  )),
+                        children: [
+                          Transform.scale(
+                            scale: 3,
+                            child: IconButton(
+                                icon: Image.asset(
+                                  'images/ChineseFood_icon/jajangmyeon.png',
+                                ),
+                                onPressed: () {}),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text('중식',
+                              style: TextStyle(
+                                  fontFamily: MyFontFamily.BMJUA, fontSize: 30)),
+                        ],
+                      )),
                   Container(
                       child: Column(
-                    children: [
-                      Transform.scale(
-                        scale: 3,
-                        child: IconButton(
-                            icon: Image.asset(
-                              'images/JapaneseFood_icon/sushi.png',
-                            ),
-                            onPressed: () {}),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text('일식',
-                          style: TextStyle(
-                              fontFamily: MyFontFamily.BMJUA, fontSize: 30)),
-                    ],
-                  ))
+                        children: [
+                          Transform.scale(
+                            scale: 3,
+                            child: IconButton(
+                                icon: Image.asset(
+                                  'images/JapaneseFood_icon/sushi.png',
+                                ),
+                                onPressed: () {}),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text('일식',
+                              style: TextStyle(
+                                  fontFamily: MyFontFamily.BMJUA, fontSize: 30)),
+                        ],
+                      ))
                 ],
               ),
               SizedBox(
@@ -122,61 +145,61 @@ class _MealdangCategoryState extends State<MealdangCategory> {
                 children: [
                   Container(
                       child: Column(
-                    children: [
-                      Transform.scale(
-                        scale: 3,
-                        child: IconButton(
-                            icon: Image.asset(
-                              'images/WesternFood_icon/steak.png',
-                            ),
-                            onPressed: () {}),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text('양식',
-                          style: TextStyle(
-                              fontFamily: MyFontFamily.BMJUA, fontSize: 30)),
-                    ],
-                  )),
+                        children: [
+                          Transform.scale(
+                            scale: 3,
+                            child: IconButton(
+                                icon: Image.asset(
+                                  'images/WesternFood_icon/steak.png',
+                                ),
+                                onPressed: () {}),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text('양식',
+                              style: TextStyle(
+                                  fontFamily: MyFontFamily.BMJUA, fontSize: 30)),
+                        ],
+                      )),
                   Container(
                       child: Column(
-                    children: [
-                      Transform.scale(
-                        scale: 3,
-                        child: IconButton(
-                            icon: Image.asset(
-                              'images/LateNightMeal_icon/chicken.png',
-                            ),
-                            onPressed: () {}),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text('야식',
-                          style: TextStyle(
-                              fontFamily: MyFontFamily.BMJUA, fontSize: 30)),
-                    ],
-                  )),
+                        children: [
+                          Transform.scale(
+                            scale: 3,
+                            child: IconButton(
+                                icon: Image.asset(
+                                  'images/LateNightMeal_icon/chicken.png',
+                                ),
+                                onPressed: () {}),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text('야식',
+                              style: TextStyle(
+                                  fontFamily: MyFontFamily.BMJUA, fontSize: 30)),
+                        ],
+                      )),
                   Container(
                       child: Column(
-                    children: [
-                      Transform.scale(
-                        scale: 3,
-                        child: IconButton(
-                            icon: Image.asset(
-                              'images/CarbSnack_icon/tteokbokki.png',
-                            ),
-                            onPressed: () {}),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text('분식',
-                          style: TextStyle(
-                              fontFamily: MyFontFamily.BMJUA, fontSize: 30)),
-                    ],
-                  )),
+                        children: [
+                          Transform.scale(
+                            scale: 3,
+                            child: IconButton(
+                                icon: Image.asset(
+                                  'images/CarbSnack_icon/tteokbokki.png',
+                                ),
+                                onPressed: () {}),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text('분식',
+                              style: TextStyle(
+                                  fontFamily: MyFontFamily.BMJUA, fontSize: 30)),
+                        ],
+                      )),
                 ],
               )
             ],
@@ -186,4 +209,3 @@ class _MealdangCategoryState extends State<MealdangCategory> {
     );
   }
 }
-
