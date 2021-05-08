@@ -24,6 +24,8 @@ dependencies:
   flutter:
     sdk: flutter
   imagebutton : ^0.0.6
+  flutter_svg : ^0.22.0
+  intl : ^0.17.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -47,15 +49,20 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - images/
-     - images/KoreanFood_icon/
-     - images/ChineseFood_icon/
-     - images/JapaneseFood_icon/
-     - images/WesternFood_icon/
-     - images/LateNightMeal_icon/
-     - images/CarbSnack_icon/
+     - assets/images/Category_icon/KoreanFood_icon/
+     - assets/images/Category_icon/ChineseFood_icon/
+     - assets/images/Category_icon/JapaneseFood_icon/
+     - assets/images/Category_icon/WesternFood_icon/
+     - assets/images/Category_icon/LateNightMeal_icon/
+     - assets/images/Category_icon/CarbSnack_icon/
 
-
+     - assets/images/FoodPictures/KoreanFood_list/
+     - assets/images/FoodPictures/ChineseFood_list/
+     - assets/images/FoodPictures/JapaneseFood_list/
+     - assets/images/FoodPictures/WesternFood_list/
+     - assets/images/FoodPictures/LateNightMeal_list/
+     - assets/images/FoodPictures/CarbSnack_list/
+     - assets/svg/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

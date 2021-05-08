@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'style/font.dart';
 
 class MealdangCategory extends StatefulWidget {
+  MealdangCategory({Key key}) : super(key: key);
   @override
   _MealdangCategoryState createState() => _MealdangCategoryState();
 }
@@ -64,7 +65,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
                           scale: 3,
                           child: IconButton(
                               icon: Image.asset(
-                                'images/KoreanFood_icon/bibimbap.png',
+                                'assets/images/Category_icon/KoreanFood_icon/bibimbap.png',
                               ),
                               onPressed: () {
                                 Navigator.of(context).pushNamed('/mealdangListview');
@@ -86,7 +87,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
                             scale: 3,
                             child: IconButton(
                                 icon: Image.asset(
-                                  'images/ChineseFood_icon/jajangmyeon.png',
+                                  'assets/images/Category_icon/ChineseFood_icon/jajangmyeon.png',
                                 ),
                                 onPressed: () {}),
                           ),
@@ -105,7 +106,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
                             scale: 3,
                             child: IconButton(
                                 icon: Image.asset(
-                                  'images/JapaneseFood_icon/sushi.png',
+                                  'assets/images/Category_icon/JapaneseFood_icon/sushi.png',
                                 ),
                                 onPressed: () {}),
                           ),
@@ -132,7 +133,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
                             scale: 3,
                             child: IconButton(
                                 icon: Image.asset(
-                                  'images/WesternFood_icon/steak.png',
+                                  'assets/images/Category_icon/WesternFood_icon/steak.png',
                                 ),
                                 onPressed: () {}),
                           ),
@@ -151,7 +152,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
                             scale: 3,
                             child: IconButton(
                                 icon: Image.asset(
-                                  'images/LateNightMeal_icon/chicken.png',
+                                  'assets/images/Category_icon/LateNightMeal_icon/chicken.png',
                                 ),
                                 onPressed: () {}),
                           ),
@@ -170,7 +171,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
                             scale: 3,
                             child: IconButton(
                                 icon: Image.asset(
-                                  'images/CarbSnack_icon/tteokbokki.png',
+                                  'assets/images/Category_icon/CarbSnack_icon/tteokbokki.png',
                                 ),
                                 onPressed: () {}),
                           ),
