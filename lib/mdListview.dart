@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mealdang_mvp/MealdangPractice.dart';
 import 'style/font.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
-import 'package:mealdang_mvp/MealdangPractice.dart';
+import 'package:mealdang_mvp/detail_page/productInfo.dart';
 
 class MealdangListview extends StatefulWidget {
   @override
@@ -82,7 +81,7 @@ Widget _myListView(BuildContext context) {
           // Navigator.of(context).pushNamed('/mealdangPractice'); PushName으로는 데이터 전달이 안되서 push형태로 해봄
           Navigator.push(context,
               MaterialPageRoute(builder: (BuildContext context) {
-            return MealdangPractice(
+            return ProductInfo(
               data: datas[index],
             );
           }));

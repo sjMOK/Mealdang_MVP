@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mealdangpage/widget/basicInfo.dart';
-import 'package:mealdangpage/widget/reviewInfo.dart';
-import 'package:mealdangpage/widget/scoreInfo.dart';
+import 'basicInfo.dart';
+import 'scoreInfo.dart';
+import 'reviewInfo.dart';
 
 class InfoListView extends StatelessWidget {
   @override

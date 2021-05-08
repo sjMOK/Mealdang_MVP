@@ -1,34 +1,14 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:mealdangpage/widget/Buywebview.dart';
-import 'package:mealdangpage/widget/InfoListView.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:mealdang_mvp/detail_page/buyWebview.dart';
+import 'package:mealdang_mvp/detail_page/infoListview.dart';
 
-
-
-
-void main() {
-  runApp(MyApp());
-}
 class ProductInfo extends StatefulWidget {
+  Map<String, String> data;
+  ProductInfo({Key key, this.data}) : super(key: key);
+
   @override
   _ProductInfoState createState() => _ProductInfoState();
 }
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.amber,
-      ),
-      home: ProductInfo(),
-    );
-  }
-}
-
-
 
 class _ProductInfoState extends State<ProductInfo> {
 

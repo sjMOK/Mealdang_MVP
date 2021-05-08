@@ -16,9 +16,9 @@ class BasicInfo extends StatelessWidget {
                   SizedBox(height: 6),
                   Container(height:10,width: 350,child: Divider(color: Colors.grey[300],thickness: 2.0,)),
             ],
-          )
-        ]
-      ) 
+          ),
+        ],
+      ),
     );
   }
 }

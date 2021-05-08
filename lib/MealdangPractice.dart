@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'MealdangListview.dart';
+import 'mdListview.dart';
 import 'style/font.dart';
 import 'main.dart';
-import 'package:mealdang_mvp/MealdangCategory.dart';
+import 'package:mealdang_mvp/mdCategory.dart';
 
 class MealdangPractice extends StatefulWidget {
   Map<String, String> data;
@@ -16,7 +16,6 @@ class MealdangPractice extends StatefulWidget {
 class _MealdangPracticeState extends State<MealdangPractice> {
   Widget _myDetailView(BuildContext context) {
     return Container(
-      // child: Image.asset(widget.data["images"]),
       child: Hero(
         tag: widget.data["cid"],
         child: Image.asset(

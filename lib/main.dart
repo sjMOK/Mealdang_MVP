@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mealdang_mvp/MealdangListview.dart';
-//import 'MealdangListview.dart';
-import 'MealdangCategory.dart';
-// import 'package:mealdang_mvp/ButtonWidget/buttonwidget.dart';
-import 'package:mealdang_mvp/MealdangPractice.dart';
+import 'package:mealdang_mvp/mdListview.dart';
+import 'package:mealdang_mvp/mdCategory.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -18,9 +16,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/mealdangCategory' : (context) => MealdangCategory(), 
         '/mealdangListview' : (context) => MealdangListview(),
-        '/mealdangPractice' : (context) => MealdangPractice(),
       },
-      //home: MealdangCategory(),
     );
   }
 }

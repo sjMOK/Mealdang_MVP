@@ -43,7 +43,6 @@ class _MealdangCategoryState extends State<MealdangCategory> {
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 40, horizontal: 60),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
                 height: 80,
