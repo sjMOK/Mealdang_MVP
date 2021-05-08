@@ -17,19 +17,39 @@ class _MealdangListviewState extends State<MealdangListview> {
   void initState() {
     super.initState();
     datas = [
-      {
-        "cid" : "1",
-        "title": "프레시지 밀푀유나베",
-        "price": "20000",
-        "review": "7",
-        "image": "assets/images/FoodPictures/KoreanFood_list/Fresheasy_1.jpeg"
-      },
+    {
+    "cid" : "1",
+    "title": "[프레시지] 우삼겹 순두부찌개",
+    "price": "7900",
+    "review": "7",
+    "image": "assets/images/FoodPictures/KoreanFood_list/KoreanFood_1.jpeg",
+    "Url" : "https://fresheasy.co.kr/goods/view?no=260"
+    },
       {
         "cid" : "2",
-        "title": "마이셰프 쿠킹박스",
-        "price": "18000",
-        "review": "16",
-        "image": "assets/images/Category_icon/KoreanFood_icon/bibimbap.png"
+        "title": "[프레시지] 장흥회관 낙지곱창전골",
+        "price": "25900",
+        "review": "7",
+        "image": "assets/images/FoodPictures/KoreanFood_list/KoreanFood_2.jpeg",
+        "Url" : "https://fresheasy.co.kr/goods/view?no=635"
+
+      },
+      {
+        "cid" : "3",
+        "title": "[마이셰프] 인생 닭갈비(2인)",
+        "price": "11900",
+        "review": "7",
+        "image": "assets/images/FoodPictures/KoreanFood_list/KoreanFood_3.jpeg",
+        "Url" : "https://www.mychef.kr/goods/goods_view.php?goodsNo=1000001231"
+
+      },
+      {
+        "cid" : "4",
+        "title" : "[삼삼해물] 꽃개&새우 해물탕",
+        "price" : "15800",
+        "review" : "7",
+        "image" : "assets/images/FoodPictures/KoreanFood_list/KoreanFood_4.jpeg",
+        "Url" : "https://shopping.naver.com/fresh/homemeal/stores/100565794/products/4735056755?NaPm=ct%3Dkof823yo%7Cci%3D37a83728379270b3ecc0302ebc3deebe89a1e2a0%7Ctr%3Dslsl%7Csn%3D619584%7Chk%3D588da5f0f9c75e3e26b3bc6584bca65183eadfd9",
       },
     ];
   }
