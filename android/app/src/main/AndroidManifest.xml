@@ -2,7 +2,8 @@
     package="com.example.mealdang_mvp">
    <application
         android:label="mealdang_mvp"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
