@@ -10,11 +10,13 @@ class BuyWebview extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     print(givenUrl);
-    return Scaffold(
-      body:WebView(
-        initialUrl: givenUrl,//"https://fresheasy.co.kr/goods/view?no=260",
-        javascriptMode: JavascriptMode.unrestricted,
-        
-      ));
+    return SafeArea(
+      child: Scaffold(
+        body:WebView(
+          initialUrl: givenUrl,//"https://fresheasy.co.kr/goods/view?no=260",
+          javascriptMode: JavascriptMode.unrestricted,
+          
+        )),
+    );
   }
 }
