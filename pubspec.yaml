@@ -58,7 +58,7 @@ flutter:
      - assets/images/Category_icon/CarbSnack_icon/
 
      - assets/images/FoodPictures/KoreanFood_list/
-     # - assets/images/FoodPictures/ChineseFood_list/
+     - assets/images/FoodPictures/ChineseFood_list/
      # - assets/images/FoodPictures/JapaneseFood_list/
      # - assets/images/FoodPictures/WesternFood_list/
      # - assets/images/FoodPictures/LateNightMeal_list/

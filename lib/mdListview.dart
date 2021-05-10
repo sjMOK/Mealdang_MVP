@@ -58,6 +58,7 @@ class _MealdangListviewState extends State<MealdangListview> {
         "image" : "assets/images/FoodPictures/KoreanFood_list/KoreanFood_5.jpeg",
         "Url" : "https://foodasb.co.kr/product/%EB%A7%9B%EC%A7%91%ED%82%A4%ED%8A%B8-%EA%B8%B0%EC%8A%B9%EC%A0%84%EA%B3%A8-%EA%B3%B1%EC%B0%BD%EC%A0%84%EA%B3%A8-%EB%B0%80%ED%82%A4%ED%8A%B82%EC%9D%B8/25/category/49/display/1/",
       },
+
     ];
   }
 

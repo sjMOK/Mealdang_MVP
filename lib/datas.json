@@ -46,44 +46,43 @@ datas = [
 //중식 카테고리 밀키
 datas = [
 {
-"cid": "1",
-"title": "[프레시지] 우삼겹 순두부찌개",
-"price": "7900",
-"review": "7",
-"image": "assets/images/FoodPictures/KoreanFood_list/KoreanFood_1.jpeg",
-"Url": "https://fresheasy.co.kr/goods/view?no=260"
+"cid" : "1",
+"title": "[앙트레] 해물누룽지탕",
+"price": "15900",
+"review": "10",
+"image": "assets/images/FoodPictures/ChineseFood_list/ChineseFood_1.jpeg",
+"Url" : "https://shopping.naver.com/fresh/homemeal/stores/100101350/products/3492836799?NaPm=ct%3Dkohyowo0%7Cci%3Da3d339d64532a84d4c0ec2be685376c5003766ea%7Ctr%3Dslsl%7Csn%3D529390%7Chk%3Ddaef32891c025dfd08bf37661ada96a07d710d47"
 },
 {
-"cid": "2",
-"title": "[프레시지] 장흥회관 낙지곱창전골",
-"price": "25900",
-"review": "7",
-"image": "assets/images/FoodPictures/KoreanFood_list/KoreanFood_2.jpeg",
-"Url": "https://fresheasy.co.kr/goods/view?no=635"
-
+"cid" : "2",
+"title": "[마이셰프] 양장피 밀키트",
+"price": "13900",
+"review": "10",
+"image": "assets/images/FoodPictures/ChineseFood_list/ChineseFood_2.jpeg",
+"Url" : "https://shopping.naver.com/fresh/homemeal/stores/100073657/products/2246511992?NaPm=ct%3Dkohyzdzc%7Cci%3D94bf6787b1b357de0ed898ac95da9cdde01d02b3%7Ctr%3Dslsl%7Csn%3D458431%7Chk%3Dd80dea9b829de786620aeb35b309adda03d45374"
 },
 {
-"cid": "3",
-"title": "[마이셰프] 인생 닭갈비(2인)",
+"cid" : "3",
+"title": "[프로즌] 5분완성 마라탕(1인분)",
 "price": "11900",
-"review": "7",
-"image": "assets/images/FoodPictures/KoreanFood_list/KoreanFood_3.jpeg",
-"Url": "https://www.mychef.kr/goods/goods_view.php?goodsNo=1000001231"
+"review": "10",
+"image": "assets/images/FoodPictures/ChineseFood_list/ChineseFood3_.jpeg",
+"Url" : "https://smartstore.naver.com/frozenes/products/4596972442?NaPm=ct%3Dkohz96ls%7Cci%3Dabebd9ca8b22f1e8dd74d152ce0e50bb410c5d59%7Ctr%3Dslsl%7Csn%3D876417%7Chk%3D25a488336f821124427bb5c2de5dcd9cdf561ef9"
 },
 {
 "cid" : "4",
-"title": "[삼삼해물] 꽃개&새우 해물탕",
-"price": "15800",
-"review": "7",
-"image": "assets/images/FoodPictures/KoreanFood_list/KoreanFood_4.jpeg",
-"Url" : "https://shopping.naver.com/fresh/homemeal/stores/100565794/products/4735056755?NaPm=ct%3Dkof823yo%7Cci%3D37a83728379270b3ecc0302ebc3deebe89a1e2a0%7Ctr%3Dslsl%7Csn%3D619584%7Chk%3D588da5f0f9c75e3e26b3bc6584bca65183eadfd9",
+"title": "[프레시지] 지동관 깐쇼새우",
+"price": "10900",
+"review": "10",
+"image": "assets/images/FoodPictures/ChineseFood_list/ChineseFood4_.jpeg",
+"Url" : "https://shopping.naver.com/fresh/homemeal/stores/100069073/products/5301576002?NaPm=ct%3Dkohzpa2w%7Cci%3D9274866c18d6fd1d365fb72455080d8e0b0fcf4b%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3Dfe5007cc35c2d17424ef68f89d3c43569f87a337"
 },
 {
-"cid": "5",
-"title": "[푸드어셈블] 기승전골 곱창전골(2인)",
-"price": "25900",
-"review": "7",
-"image": "assets/images/FoodPictures/KoreanFood_list/KoreanFood_5.jpeg",
-"Url": "https://foodasb.co.kr/product/%EB%A7%9B%EC%A7%91%ED%82%A4%ED%8A%B8-%EA%B8%B0%EC%8A%B9%EC%A0%84%EA%B3%A8-%EA%B3%B1%EC%B0%BD%EC%A0%84%EA%B3%A8-%EB%B0%80%ED%82%A4%ED%8A%B82%EC%9D%B8/25/category/49/display/1/",
+"cid" : "5",
+"title": "[아내의 쉐프] 사천식 고추잡채",
+"price": "10900",
+"review": "10",
+"image": "assets/images/FoodPictures/ChineseFood_list/ChineseFood_5.jpeg",
+"Url" : "https://shopping.naver.com/fresh/homemeal/stores/100073444/products/2257507014?NaPm=ct%3Dkohzrp9s%7Cci%3D98099f62d821d4d6739900aec5ca43abe5221c8a%7Ctr%3Dslsl%7Csn%3D398462%7Chk%3D3f0f535862e9f1f36eb2f779c409042d5573481d"
 },
 ],
