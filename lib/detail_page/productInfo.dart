@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mealdang_mvp/detail_page/buyWebview.dart';
 import 'package:mealdang_mvp/detail_page/infoListview.dart';
+import 'package:mealdang_mvp/style/font.dart';
 class ProductInfo extends StatefulWidget {
   Map<String, String> data;
   ProductInfo({Key key, this.data}) : super(key:key);
@@ -13,7 +14,8 @@ class _ProductInfoState extends State<ProductInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:Text('밀당'),
+        title:Text(widget.data["title"] ,style: TextStyle(fontFamily: MyFontFamily.BMJUA, fontSize: 22,color: Colors.black)),
+      backgroundColor: Colors.amber[400],
         centerTitle: true,
       ),
       body: InfoListView(widget.data),
