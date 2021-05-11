@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mealdang_mvp/mdListview.dart';
+
 class InfoListView extends StatefulWidget {
   Map<String, String> datas;
   // InfoListView(data, {Key key, this.datas}) : super(key:key);

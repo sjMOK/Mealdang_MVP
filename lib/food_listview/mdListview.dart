@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'style/font.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:mealdang_mvp/detail_page/productInfo.dart';
-import 'package:mealdang_mvp/foodData.dart' as foodData;
+import 'package:mealdang_mvp/food_listview/foodData.dart' as foodData;
+import 'package:mealdang_mvp/style/font.dart';
 
 class MealdangListview extends StatefulWidget {
   @override

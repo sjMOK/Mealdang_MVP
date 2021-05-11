@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:mealdang_mvp/detail_page/buyWebview.dart';
 import 'package:mealdang_mvp/detail_page/infoListview.dart';
 import 'package:mealdang_mvp/style/font.dart';
 
