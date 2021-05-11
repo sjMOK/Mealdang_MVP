@@ -17,15 +17,7 @@ class BuyWebview extends StatelessWidget{
         body: InAppWebView(
           initialUrlRequest: URLRequest(url: Uri.parse(givenUrl))
         )       
-        // body:WebView(
-        //   initialUrl: givenUrl, //givenUrl,"https://fresheasy.co.kr/goods/view?no=260",
-        //   onWebViewCreated: (WebViewController webViewController){
-        //     _webviewController = webViewController;
-        //     _webviewController.evaluateJavascript('window.function()');
-        //   },
-        //   javascriptMode: JavascriptMode.unrestricted,
-          
-        // )
+
       ),
     );
   }
