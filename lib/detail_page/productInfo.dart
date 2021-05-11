@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:mealdang_mvp/detail_page/buyWebview.dart';
 import 'package:mealdang_mvp/detail_page/infoListview.dart';
 import 'package:mealdang_mvp/style/font.dart';
 
@@ -37,11 +36,9 @@ class _ProductInfoState extends State<ProductInfo> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => SafeArea(
-                            child: Container(
-                                child: InAppWebView(
-                                    initialUrlRequest: URLRequest(
-                                        url:
-                                            Uri.parse(widget.data["Url"])))))));
+                            child: InAppWebView(
+                                initialUrlRequest: URLRequest(
+                                    url: Uri.parse(widget.data["Url"]))))));
               },
               style: ElevatedButton.styleFrom(primary: Colors.amber))),
     );
