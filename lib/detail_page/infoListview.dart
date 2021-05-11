@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mealdang_mvp/mdListview.dart';
 import 'package:mealdang_mvp/style/font.dart';
 
 class InfoListView extends StatefulWidget {
   Map<String, String> datas;
 
-  // InfoListView(data, {Key key, this.datas}) : super(key:key);
   @override
   InfoListView(Map<String, String> data) {
     this.datas = data;
@@ -68,8 +66,8 @@ class _InfoListViewState extends State<InfoListView> {
                                     color: Colors.red,
                                     size: 20.0,
                                   ),
-                                  Text(widget.datas["rating"]),
-                                  Text(data),
+                                  Text(widget.datas["rating"] + ' '),
+                                  Text(widget.datas["review"]),
                                 ]),
                               )
                             ],

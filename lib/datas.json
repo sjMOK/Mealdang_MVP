@@ -43,7 +43,7 @@ datas = [
 "Url": "https://foodasb.co.kr/product/%EB%A7%9B%EC%A7%91%ED%82%A4%ED%8A%B8-%EA%B8%B0%EC%8A%B9%EC%A0%84%EA%B3%A8-%EA%B3%B1%EC%B0%BD%EC%A0%84%EA%B3%A8-%EB%B0%80%ED%82%A4%ED%8A%B82%EC%9D%B8/25/category/49/display/1/",
 },
 ];
-//중식 카테고리 밀키
+//중식 카테고리 밀키트
 datas = [
 {
 "cid" : "1",
@@ -86,7 +86,7 @@ datas = [
 "Url" : "https://shopping.naver.com/fresh/homemeal/stores/100073444/products/2257507014?NaPm=ct%3Dkohzrp9s%7Cci%3D98099f62d821d4d6739900aec5ca43abe5221c8a%7Ctr%3Dslsl%7Csn%3D398462%7Chk%3D3f0f535862e9f1f36eb2f779c409042d5573481d"
 },
 ],
-//양식 밀키
+//양식 밀키트
 datas = [
 {
 "cid" : "1",
