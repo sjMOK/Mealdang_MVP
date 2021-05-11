@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:mealdang_mvp/detail_page/buyWebview.dart';
 import 'package:mealdang_mvp/detail_page/infoListview.dart';
 import 'package:mealdang_mvp/style/font.dart';
@@ -24,9 +25,13 @@ class _ProductInfoState extends State<ProductInfo> {
         child:ElevatedButton(
           child:Text('구매하기',style:TextStyle(fontWeight:FontWeight.bold)),
           onPressed: (){
+            
+          
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context)=>BuyWebview(widget.data["Url"]))
+              MaterialPageRoute(builder: (context)=>  InAppWebView(
+              initialUrlRequest: URLRequest(url: Uri.parse(widget.data["Url"]))
+            ))
             );
           },
           style: ElevatedButton.styleFrom(
