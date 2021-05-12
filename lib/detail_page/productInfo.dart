@@ -36,9 +36,11 @@ class _ProductInfoState extends State<ProductInfo> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => SafeArea(
-                            child: InAppWebView(
-                                initialUrlRequest: URLRequest(
-                                    url: Uri.parse(widget.data["Url"]))))));
+                            child: SafeArea(
+                                child: InAppWebView(
+                                    initialUrlRequest: URLRequest(
+                                        url: Uri.parse(widget.data["Url"]))),
+                                top: true))));
               },
               style: ElevatedButton.styleFrom(primary: Colors.amber))),
     );
