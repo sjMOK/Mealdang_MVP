@@ -12,6 +12,9 @@ class MealdangCategory extends StatefulWidget {
 class _MealdangCategoryState extends State<MealdangCategory> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final _height = size.height;
+    final _width = size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -48,7 +51,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
           padding: EdgeInsets.symmetric(vertical: 40, horizontal: 60),
           child: Column(
             children: [
-              SizedBox(height: 60),
+              SizedBox(height: _height * 0.08),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -58,7 +61,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
                 ],
               ),
               SizedBox(
-                height: 140,
+                height: _height * 0.2,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

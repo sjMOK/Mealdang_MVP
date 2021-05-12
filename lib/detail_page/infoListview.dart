@@ -18,9 +18,10 @@ class _InfoListViewState extends State<InfoListView> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final height = size.height;
-    final width = size.width;
+    final _height = size.height;
+    final _width = size.width;
     return Container(
+<<<<<<< HEAD
       child: ListView.builder(
         itemBuilder: (context, int index) {
           return Container(
@@ -155,12 +156,120 @@ class _InfoListViewState extends State<InfoListView> {
                           Container(
                             height: 10,
                             width: 420,
+=======
+        child: ListView.builder(
+      itemBuilder: (context, int index) {
+        return Container(
+            width: _width,
+            child: Column(
+              //사진이랑 음식 기본정보 들어가는 컨테이너
+              children: <Widget>[
+                Container(
+                  width: _width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          SizedBox(height: 12.0),
+                          Hero(
+                            tag: widget.datas["cid"],
+                            child: Image.asset(
+                              widget.datas["image"],
+                              width: _width * 0.4, //150,
+                              height: _width * 0.4, //150
+                            ),
+                          ),
+                          SizedBox(height: _height * 0.013),
+                          Container(
+                            height: _height * 0.013,
+                            width: _width - 20,
+                            child: Divider(
+                              color: Colors.grey[300],
+                              thickness: 2.0,
+                            ),
+                          ),
+                          SizedBox(height: _height * 0.013),
+                          Container(
+                            width: _width, //MediaQuery적용하기
+                            child: Column(
+                              children: [
+                                Text(widget.datas["title"],
+                                    style: TextStyle(
+                                      fontFamily: MyFontFamily.BMJUA,
+                                      fontSize: 16,
+                                    )),
+                                SizedBox(
+                                  height: _height * 0.02,
+                                ),
+                                Container(
+                                  width: size.width,
+                                  child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.red,
+                                          size: _width * 0.05,
+                                        ),
+                                        SizedBox(
+                                          width: _width * 0.005,
+                                        ),
+                                        Text(widget.datas["rating"] + ' '),
+                                        Text(
+                                          "(" + widget.datas["review"] + "개)",
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.grey[600]),
+                                        ),
+                                        SizedBox(
+                                          width: _width * 0.01,
+                                        ),
+                                        Text(
+                                          "/",
+                                          style: TextStyle(
+                                              color: Colors.grey, fontSize: 20),
+                                        ),
+                                        SizedBox(
+                                          width: _width * 0.01,
+                                        ),
+                                        Text(_setPriceFormat(
+                                            widget.datas["price"])),
+                                        Text(
+                                          " " + widget.datas["person"],
+                                          style: TextStyle(fontSize: 12),
+                                        ),
+                                      ]),
+                                )
+                              ],
+                            ),
+                          ),
+                          //Container(color:Colors.red[50],width: 300,height: 100,), //제품정보)
+                          SizedBox(height: 6),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                    //별점이랑 점수 들어가는 컨테이너
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                      Column(
+                        children: [
+                          Container(
+                            height: _height * 0.01,
+                            width: _width - 20,
+>>>>>>> refs/remotes/origin/master
                             child: Divider(
                               color: Colors.grey[300],
                               thickness: 2.0,
                             ),
                           ),
                           Container(
+<<<<<<< HEAD
                             width: 350, // MediaQuery적용하기
                             height: 200,
                             // color: Colors.red,
@@ -169,6 +278,17 @@ class _InfoListViewState extends State<InfoListView> {
                                 Column(
                                   children: [
                                     SizedBox(height: 70),
+=======
+                            width: _width, // MediaQuery적용하기
+                            height: _height * 0.35,
+                            // color: Colors.red,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Column(
+                                  children: [
+                                    SizedBox(height: _height * 0.11),
+>>>>>>> refs/remotes/origin/master
                                     Text(
                                       widget.datas["rating"],
                                       style: TextStyle(
@@ -186,11 +306,19 @@ class _InfoListViewState extends State<InfoListView> {
                                         color: Colors.amber,
                                       ),
                                       itemCount: 5,
+<<<<<<< HEAD
                                       itemSize: 20.0,
                                     ),
                                   ],
                                 ),
                                 SizedBox(width: 40),
+=======
+                                      itemSize: _height * 0.032,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(width: _width * 0.08),
+>>>>>>> refs/remotes/origin/master
                                 Text(
                                   "|",
                                   style: TextStyle(
@@ -198,11 +326,19 @@ class _InfoListViewState extends State<InfoListView> {
                                       color: Colors.amber[700],
                                       fontWeight: FontWeight.w200),
                                 ),
+<<<<<<< HEAD
                                 SizedBox(width: 30),
                                 Column(
                                   children: [
                                     SizedBox(
                                       height: 50,
+=======
+                                SizedBox(width: _width * 0.08),
+                                Column(
+                                  children: [
+                                    SizedBox(
+                                      height: _height * 0.065,
+>>>>>>> refs/remotes/origin/master
                                     ),
                                     Row(
                                       children: [
@@ -211,7 +347,11 @@ class _InfoListViewState extends State<InfoListView> {
                                       ],
                                     ),
                                     SizedBox(
+<<<<<<< HEAD
                                       height: 10,
+=======
+                                      height: _height * 0.016,
+>>>>>>> refs/remotes/origin/master
                                     ),
                                     Row(
                                       children: [
@@ -220,7 +360,11 @@ class _InfoListViewState extends State<InfoListView> {
                                       ],
                                     ),
                                     SizedBox(
+<<<<<<< HEAD
                                       height: 10,
+=======
+                                      height: _height * 0.016,
+>>>>>>> refs/remotes/origin/master
                                     ),
                                     Row(
                                       children: [
@@ -229,7 +373,11 @@ class _InfoListViewState extends State<InfoListView> {
                                       ],
                                     ),
                                     SizedBox(
+<<<<<<< HEAD
                                       height: 10,
+=======
+                                      height: _height * 0.016,
+>>>>>>> refs/remotes/origin/master
                                     ),
                                     Row(
                                       children: [
@@ -238,7 +386,11 @@ class _InfoListViewState extends State<InfoListView> {
                                       ],
                                     ),
                                     SizedBox(
+<<<<<<< HEAD
                                       height: 10,
+=======
+                                      height: _height * 0.016,
+>>>>>>> refs/remotes/origin/master
                                     ),
                                     Row(
                                       children: [
@@ -251,6 +403,7 @@ class _InfoListViewState extends State<InfoListView> {
                               ],
                             ),
                           ), //별점 및 점수 집계)
+<<<<<<< HEAD
                           SizedBox(height: 6),
                           Container(
                             height: 10,
@@ -291,6 +444,41 @@ class _InfoListViewState extends State<InfoListView> {
         itemCount: 1,
       ),
     );
+=======
+                          SizedBox(height: _height * 0.01),
+                          Container(
+                              height: 10,
+                              width: _width - 20,
+                              child: Divider(
+                                color: Colors.grey[300],
+                                thickness: 2.0,
+                              )),
+                        ],
+                      )
+                    ])),
+                Container(
+                    //리뷰들어가는 컨테이너
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                      Column(
+                        children: [
+                          SizedBox(height: 6),
+                          Container(
+                            color: Colors.red[50],
+                            width: 300,
+                            height: 1000,
+                          ), //제품정보)
+                          SizedBox(height: 6),
+                        ],
+                      )
+                    ]))
+              ],
+            ));
+      },
+      itemCount: 1,
+    ));
+>>>>>>> refs/remotes/origin/master
   }
 
   DropdownButton dropdownButton() {
