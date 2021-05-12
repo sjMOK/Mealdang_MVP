@@ -108,14 +108,6 @@ class _InfoListViewState extends State<InfoListView> {
                         //Container(color:Colors.red[50],width: 300,height: 100,), //제품정보)
                         SizedBox(height: 6),
                         Container(
-<<<<<<< HEAD
-                            height: 10,
-                            width: width - 30,
-                            child: Divider(
-                              color: Colors.grey[300],
-                              thickness: 2.0,
-                            )),
-=======
                           height: 10,
                           width: 400,
                           child: Divider(
@@ -123,7 +115,6 @@ class _InfoListViewState extends State<InfoListView> {
                             thickness: 2.0,
                           ),
                         ),
->>>>>>> refs/remotes/origin/master
                       ],
                     ),
                   ],
@@ -136,31 +127,6 @@ class _InfoListViewState extends State<InfoListView> {
                     Row(mainAxisAlignment: MainAxisAlignment.start, children: [
               Column(
                 children: [
-<<<<<<< HEAD
-=======
-                  Container(
-                    width: 400, //MediaQuery 적용하기
-                    child: Row(
-                      children: [
-                        Text(
-                          "    리뷰  ",
-                          style: TextStyle(
-                            fontFamily: MyFontFamily.BMJUA,
-                            fontSize: 16,
-                          ),
-                        ),
-                        Text(
-                          widget.datas["review"],
-                          style: TextStyle(
-                              fontFamily: MyFontFamily.BMJUA,
-                              fontSize: 20,
-                              color: Colors.amber[900]),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 6),
->>>>>>> refs/remotes/origin/master
                   Container(
                     height: 10,
                     width: 420,
