@@ -27,6 +27,7 @@ class _ProductInfoState extends State<ProductInfo> {
       ),
       body: InfoListView(widget.data),
       bottomNavigationBar: Padding(
+<<<<<<< HEAD
           padding: EdgeInsets.all(8.0),
           child: ElevatedButton(
               child: Text(
@@ -51,6 +52,34 @@ class _ProductInfoState extends State<ProductInfo> {
                 );
               },
               style: ElevatedButton.styleFrom(primary: Colors.amber))),
+=======
+        padding: EdgeInsets.all(8.0),
+        child: ElevatedButton(
+          child: Text(
+            '구매하기',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Scaffold(
+                  backgroundColor: Colors.white,
+                  body: SafeArea(
+                    child: InAppWebView(
+                      initialUrlRequest: URLRequest(
+                        url: Uri.parse(widget.data["Url"]),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
+          style: ElevatedButton.styleFrom(primary: Colors.amber),
+        ),
+      ),
+>>>>>>> refs/remotes/origin/master
     );
   }
 }

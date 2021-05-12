@@ -10,13 +10,6 @@ class MealdangCategory extends StatefulWidget {
 }
 
 class _MealdangCategoryState extends State<MealdangCategory> {
-  List<Map<String, String>> _categoryList = [];
-
-  void initState() {
-    super.initState();
-    _categoryList.addAll(categories.categoryData);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,26 +48,13 @@ class _MealdangCategoryState extends State<MealdangCategory> {
           padding: EdgeInsets.symmetric(vertical: 40, horizontal: 60),
           child: Column(
             children: [
-              SizedBox(height: 60),/*
-              SizedBox(
-                height: 80,
-              ),
-              Container(
-                  child: Text("밀키트 카테고리 선택",
-                      style: TextStyle(
-                          fontFamily: MyFontFamily.BMJUA, fontSize: 20))),
-              SizedBox(
-                height: 100,
-              ),*/
+              SizedBox(height: 60),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _catergoryContainer(
-                      context, _categoryList[0]['path'], _categoryList[0]['name']),
-                  _catergoryContainer(
-                      context, _categoryList[1]['path'], _categoryList[1]['name']),
-                  _catergoryContainer(
-                      context, _categoryList[2]['path'], _categoryList[2]['name']),
+                  _catergoryContainer(context, 'koreanFood'),
+                  _catergoryContainer(context, 'chineseFood'),
+                  _catergoryContainer(context, 'japaneseFood'),
                 ],
               ),
               SizedBox(
@@ -83,14 +63,11 @@ class _MealdangCategoryState extends State<MealdangCategory> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _catergoryContainer(
-                      context, _categoryList[3]['path'], _categoryList[3]['name']),
-                  _catergoryContainer(
-                      context, _categoryList[4]['path'], _categoryList[4]['name']),
-                  _catergoryContainer(
-                      context, _categoryList[5]['path'], _categoryList[5]['name']),
+                  _catergoryContainer(context, 'westernFood'),
+                  _catergoryContainer(context, 'lateNightFood'),
+                  _catergoryContainer(context, 'snackFood'),
                 ],
-              )
+              ),
             ],
           ),
         ),
@@ -98,8 +75,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
     );
   }
 
-  Container _catergoryContainer(
-      BuildContext context, String path, String name) {
+  Container _catergoryContainer(BuildContext context, String categoryKey) {
     return Container(
       child: Column(
         children: [
@@ -107,7 +83,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
             scale: 3,
             child: IconButton(
               icon: Image.asset(
-                path, // 아이콘 이미지 경로
+                categories.categoryData[categoryKey]['path'], // 아이콘 이미지 경로
               ),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
@@ -117,7 +93,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
           ),
           SizedBox(height: 30),
           Text(
-            name, // 카테고리 이름
+            categories.categoryData[categoryKey]['name'], // 카테고리 이름
             style: TextStyle(
               fontFamily: MyFontFamily.BMJUA,
               fontSize: 30,
