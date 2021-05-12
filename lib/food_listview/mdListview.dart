@@ -47,6 +47,9 @@ class _MealdangListviewState extends State<MealdangListview> {
     return ListView.separated(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       itemBuilder: (BuildContext context, int index) {
+        final size = MediaQuery.of(context).size;
+        final _height = size.height;
+        final _width = size.width;
         return GestureDetector(
           onTap: () {
             Navigator.of(context).push(
@@ -66,14 +69,14 @@ class _MealdangListviewState extends State<MealdangListview> {
                     tag: _foodList[index]["cid"],
                     child: Image.asset(
                       _foodList[index]["image"],
-                      width: 120,
-                      height: 120,
+                      width: _width * 0.32,
+                      height: _width * 0.32,
                     ),
                   ),
                 ),
                 Expanded(
                   child: Container(
-                    height: 120,
+                    height: _height * 0.2,
                     padding: const EdgeInsets.only(left: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +87,7 @@ class _MealdangListviewState extends State<MealdangListview> {
                             style: TextStyle(
                                 fontFamily: MyFontFamily.BMJUA, fontSize: 15)),
                         SizedBox(
-                          height: 30,
+                          height: _height * 0.05, //30,
                         ),
                         Text(
                           _setPriceFormat(_foodList[index]["price"]),
@@ -98,17 +101,30 @@ class _MealdangListviewState extends State<MealdangListview> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              Icon(Icons.star,color: Colors.amber[600],),
-                              Text(_foodList[index]["rating"],style: TextStyle(fontWeight: FontWeight.bold),),
-                              SizedBox(width: 8,),
+                              Icon(
+                                Icons.star,
+                                color: Colors.amber[600],
+                              ),
+                              Text(
+                                _foodList[index]["rating"],
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(width: _width * 0.01),
                               // SvgPicture.asset(
                               //   "assets/svg/review.svg",
                               //   width: 20,
                               //   height: 20,
                               // ),
-                              Icon(Icons.messenger_outline_rounded,color: Colors.orange[800],size: 20,),
-                              SizedBox(width: 8),
-                              Text(_foodList[index]["review"],style: TextStyle(fontWeight: FontWeight.bold),),
+                              Icon(
+                                Icons.messenger_outline_rounded,
+                                color: Colors.orange[800],
+                                size: _height * 0.035,
+                              ),
+                              SizedBox(width: _width * 0.01),
+                              Text(
+                                _foodList[index]["review"],
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
                             ],
                           ),
                         ),

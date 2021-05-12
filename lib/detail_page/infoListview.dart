@@ -35,6 +35,7 @@ class _InfoListViewState extends State<InfoListView> {
                     children: [
                       Column(
                         children: [
+                          SizedBox(height: 12.0),
                           Hero(
                             tag: widget.datas["cid"],
                             child: Image.asset(
@@ -43,16 +44,16 @@ class _InfoListViewState extends State<InfoListView> {
                               height: _width * 0.4, //150
                             ),
                           ),
-                          SizedBox(height: 10),
+                          SizedBox(height: _height * 0.013),
                           Container(
-                            height: 10,
+                            height: _height * 0.013,
                             width: _width - 20,
                             child: Divider(
                               color: Colors.grey[300],
                               thickness: 2.0,
                             ),
                           ),
-                          SizedBox(height: 6),
+                          SizedBox(height: _height * 0.013),
                           Container(
                             width: _width, //MediaQuery적용하기
                             child: Column(
@@ -63,7 +64,7 @@ class _InfoListViewState extends State<InfoListView> {
                                       fontSize: 16,
                                     )),
                                 SizedBox(
-                                  height: 15,
+                                  height: _height * 0.02,
                                 ),
                                 Container(
                                   width: size.width,
@@ -74,10 +75,10 @@ class _InfoListViewState extends State<InfoListView> {
                                         Icon(
                                           Icons.star,
                                           color: Colors.red,
-                                          size: 20.0,
+                                          size: _width * 0.05,
                                         ),
                                         SizedBox(
-                                          width: 2,
+                                          width: _width * 0.005,
                                         ),
                                         Text(widget.datas["rating"] + ' '),
                                         Text(
@@ -87,7 +88,7 @@ class _InfoListViewState extends State<InfoListView> {
                                               color: Colors.grey[600]),
                                         ),
                                         SizedBox(
-                                          width: 10,
+                                          width: _width * 0.01,
                                         ),
                                         Text(
                                           "/",
@@ -95,7 +96,7 @@ class _InfoListViewState extends State<InfoListView> {
                                               color: Colors.grey, fontSize: 20),
                                         ),
                                         SizedBox(
-                                          width: 10,
+                                          width: _width * 0.01,
                                         ),
                                         Text(_setPriceFormat(
                                             widget.datas["price"])),
@@ -123,7 +124,7 @@ class _InfoListViewState extends State<InfoListView> {
                       Column(
                         children: [
                           Container(
-                            height: 10,
+                            height: _height * 0.01,
                             width: _width - 20,
                             child: Divider(
                               color: Colors.grey[300],
@@ -132,14 +133,14 @@ class _InfoListViewState extends State<InfoListView> {
                           ),
                           Container(
                             width: _width, // MediaQuery적용하기
-                            height: 200,
+                            height: _height * 0.35,
                             // color: Colors.red,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Column(
                                   children: [
-                                    SizedBox(height: 70),
+                                    SizedBox(height: _height * 0.11),
                                     Text(
                                       widget.datas["rating"],
                                       style: TextStyle(
@@ -157,11 +158,11 @@ class _InfoListViewState extends State<InfoListView> {
                                         color: Colors.amber,
                                       ),
                                       itemCount: 5,
-                                      itemSize: 20.0,
+                                      itemSize: _height * 0.032,
                                     ),
                                   ],
                                 ),
-                                SizedBox(width: 40),
+                                SizedBox(width: _width * 0.08),
                                 Text(
                                   "|",
                                   style: TextStyle(
@@ -169,11 +170,11 @@ class _InfoListViewState extends State<InfoListView> {
                                       color: Colors.amber[700],
                                       fontWeight: FontWeight.w200),
                                 ),
-                                SizedBox(width: 30),
+                                SizedBox(width: _width * 0.08),
                                 Column(
                                   children: [
                                     SizedBox(
-                                      height: 50,
+                                      height: _height * 0.065,
                                     ),
                                     Row(
                                       children: [
@@ -182,7 +183,7 @@ class _InfoListViewState extends State<InfoListView> {
                                       ],
                                     ),
                                     SizedBox(
-                                      height: 10,
+                                      height: _height * 0.016,
                                     ),
                                     Row(
                                       children: [
@@ -191,7 +192,7 @@ class _InfoListViewState extends State<InfoListView> {
                                       ],
                                     ),
                                     SizedBox(
-                                      height: 10,
+                                      height: _height * 0.016,
                                     ),
                                     Row(
                                       children: [
@@ -200,7 +201,7 @@ class _InfoListViewState extends State<InfoListView> {
                                       ],
                                     ),
                                     SizedBox(
-                                      height: 10,
+                                      height: _height * 0.016,
                                     ),
                                     Row(
                                       children: [
@@ -209,7 +210,7 @@ class _InfoListViewState extends State<InfoListView> {
                                       ],
                                     ),
                                     SizedBox(
-                                      height: 10,
+                                      height: _height * 0.016,
                                     ),
                                     Row(
                                       children: [
@@ -222,7 +223,7 @@ class _InfoListViewState extends State<InfoListView> {
                               ],
                             ),
                           ), //별점 및 점수 집계)
-                          SizedBox(height: 6),
+                          SizedBox(height: _height * 0.01),
                           Container(
                               height: 10,
                               width: _width - 20,
