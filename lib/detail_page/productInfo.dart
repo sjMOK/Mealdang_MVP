@@ -33,19 +33,8 @@ class _ProductInfoState extends State<ProductInfo> {
                 '구매하기',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-<<<<<<< HEAD
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => SafeArea(
-                            child: SafeArea(
-                                child: InAppWebView(
-                                    initialUrlRequest: URLRequest(
-                                        url: Uri.parse(widget.data["Url"]))),
-                                top: true))));
-=======
-              onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                Navigator.push(context, MaterialPageRoute(builder: (context) =>
                   Scaffold(
                     backgroundColor: Colors.white,
                       body: SafeArea(
@@ -58,7 +47,6 @@ class _ProductInfoState extends State<ProductInfo> {
                     ),
                   ),
                 );
->>>>>>> refs/remotes/origin/master
               },
               style: ElevatedButton.styleFrom(primary: Colors.amber))),
     );
