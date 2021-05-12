@@ -5,7 +5,9 @@ import 'package:mealdang_mvp/style/font.dart';
 
 class ProductInfo extends StatefulWidget {
   Map<String, String> data;
+
   ProductInfo({Key key, this.data}) : super(key: key);
+
   @override
   _ProductInfoState createState() => _ProductInfoState();
 }
@@ -31,6 +33,7 @@ class _ProductInfoState extends State<ProductInfo> {
                 '구매하기',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
+<<<<<<< HEAD
               onPressed: () {
                 Navigator.push(
                     context,
@@ -41,6 +44,21 @@ class _ProductInfoState extends State<ProductInfo> {
                                     initialUrlRequest: URLRequest(
                                         url: Uri.parse(widget.data["Url"]))),
                                 top: true))));
+=======
+              onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                  Scaffold(
+                    backgroundColor: Colors.white,
+                      body: SafeArea(
+                        child: InAppWebView(
+                          initialUrlRequest: URLRequest(
+                            url: Uri.parse(widget.data["Url"]),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+>>>>>>> refs/remotes/origin/master
               },
               style: ElevatedButton.styleFrom(primary: Colors.amber))),
     );
