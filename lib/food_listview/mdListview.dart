@@ -57,7 +57,7 @@ class _MealdangListviewState extends State<MealdangListview> {
           },
           child: Container(
             color: Colors.transparent, //상품 어디를 눌러도 OnTap가능하게만듬
-            padding: const EdgeInsets.symmetric(vertical: 10),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
             child: Row(
               children: <Widget>[
                 ClipRRect(

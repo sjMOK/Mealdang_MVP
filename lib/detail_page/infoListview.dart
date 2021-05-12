@@ -15,6 +15,9 @@ class InfoListView extends StatefulWidget {
 class _InfoListViewState extends State<InfoListView> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final height = size.height;
+    final width = size.width;
     return Container(
         child: ListView.builder(
       itemBuilder: (context, int index) {
@@ -34,14 +37,14 @@ class _InfoListViewState extends State<InfoListView> {
                           tag: widget.datas["cid"],
                           child: Image.asset(
                             widget.datas["image"],
-                            width: 150,
-                            height: 150,
+                            width: width * 0.4, //150,
+                            height: width * 0.4, //150
                           ),
                         ),
                         SizedBox(height: 10),
                         Container(
                             height: 10,
-                            width: 350,
+                            width: width - 30, //350,
                             child: Divider(
                               color: Colors.grey[300],
                               thickness: 2.0,
@@ -77,7 +80,7 @@ class _InfoListViewState extends State<InfoListView> {
                         SizedBox(height: 6),
                         Container(
                             height: 10,
-                            width: 350,
+                            width: width - 30,
                             child: Divider(
                               color: Colors.grey[300],
                               thickness: 2.0,
@@ -94,7 +97,6 @@ class _InfoListViewState extends State<InfoListView> {
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               Column(
                 children: [
-                  SizedBox(height: 6),
                   Container(
                     color: Colors.red[50],
                     width: 300,
