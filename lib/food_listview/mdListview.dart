@@ -95,16 +95,20 @@ class _MealdangListviewState extends State<MealdangListview> {
                         ),
                         Expanded(
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              SvgPicture.asset(
-                                "assets/svg/review.svg",
-                                width: 13,
-                                height: 13,
-                              ),
-                              SizedBox(width: 5),
-                              Text(_foodList[index]["review"]),
+                              Icon(Icons.star,color: Colors.amber[600],),
+                              Text(_foodList[index]["rating"],style: TextStyle(fontWeight: FontWeight.bold),),
+                              SizedBox(width: 8,),
+                              // SvgPicture.asset(
+                              //   "assets/svg/review.svg",
+                              //   width: 20,
+                              //   height: 20,
+                              // ),
+                              Icon(Icons.messenger_outline_rounded,color: Colors.orange[800],size: 20,),
+                              SizedBox(width: 8),
+                              Text(_foodList[index]["review"],style: TextStyle(fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
