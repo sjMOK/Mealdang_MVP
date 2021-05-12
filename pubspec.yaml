@@ -64,7 +64,6 @@ flutter:
      - assets/images/FoodPictures/WesternFood_list/
      # - assets/images/FoodPictures/LateNightMeal_list/
      # - assets/images/FoodPictures/CarbSnack_list/
-     - assets/svg/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
