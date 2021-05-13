@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mealdang_mvp/style/font.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
+import 'package:mealdang_mvp/reviewBoxContainer.dart';
 class InfoListView extends StatefulWidget {
   Map<String, String> datas;
 
@@ -15,6 +15,7 @@ class InfoListView extends StatefulWidget {
 }
 
 class _InfoListViewState extends State<InfoListView> {
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -264,18 +265,23 @@ class _InfoListViewState extends State<InfoListView> {
                         ],
                       )
                     ])),
-                Container(
-                  //리뷰들어가는 컨테이너
-                  height: _height * 0.1,
-                  width: _width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      dropdownButton(),
-                      dropdownButton(),
-                      dropdownButton(),
-                    ],
-                  ),
+                Column(
+                  children: [
+                    Container(
+                      //리뷰들어가는 컨테이너
+                      height: _height * 0.1,
+                      width: _width,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          dropdownButton(),
+                          dropdownButton(),
+                          dropdownButton(),
+                        ],
+                      ),
+                    ),
+                    ReviewBox(),
+                  ],
                 ),
               ],
             ),
@@ -310,6 +316,7 @@ class _InfoListViewState extends State<InfoListView> {
     final oCcy = new NumberFormat("#,###", "ko_KR");
     return "${oCcy.format(int.parse(priceString))}원";
   } // 가격 만원단위 형변환
+
 }
 
 Widget reviewScoreBox(BuildContext context) {
@@ -330,6 +337,3 @@ Widget reviewScoreBox(BuildContext context) {
   ]);
 }
 
-Container reviewBox(){
-  return Container();
-}
