@@ -24,266 +24,268 @@ class _InfoListViewState extends State<InfoListView> {
       child: ListView.builder(
         itemBuilder: (context, int index) {
           return Container(
-              width: _width,
-              child: Column(
-                //사진이랑 음식 기본정보 들어가는 컨테이너
-                children: <Widget>[
-                  Container(
-                    width: _width,
+            width: _width,
+            child: Column(
+              //사진이랑 음식 기본정보 들어가는 컨테이너
+              children: <Widget>[
+                Container(
+                  width: _width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          SizedBox(height: 12.0),
+                          Hero(
+                            tag: widget.datas["cid"],
+                            child: Image.asset(
+                              widget.datas["image"],
+                              width: _width * 0.4, //150,
+                              height: _width * 0.4, //150
+                            ),
+                          ),
+                          SizedBox(height: _height * 0.013),
+                          Container(
+                            height: _height * 0.013,
+                            width: _width - 20,
+                            child: Divider(
+                              color: Colors.grey[300],
+                              thickness: 2.0,
+                            ),
+                          ),
+                          SizedBox(height: _height * 0.013),
+                          Container(
+                            width: _width,
+                            child: Column(
+                              children: [
+                                Text(widget.datas["title"],
+                                    style: TextStyle(
+                                      fontFamily: MyFontFamily.BMJUA,
+                                      fontSize: 16,
+                                    )),
+                                SizedBox(
+                                  height: _height * 0.02,
+                                ),
+                                Container(
+                                  width: size.width,
+                                  child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.red,
+                                          size: _width * 0.05,
+                                        ),
+                                        SizedBox(
+                                          width: _width * 0.005,
+                                        ),
+                                        Text(widget.datas["rating"] + ' '),
+                                        Text(
+                                          "(" + widget.datas["review"] + "개)",
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.grey[600]),
+                                        ),
+                                        SizedBox(
+                                          width: _width * 0.01,
+                                        ),
+                                        Text(
+                                          "/",
+                                          style: TextStyle(
+                                              color: Colors.grey, fontSize: 20),
+                                        ),
+                                        SizedBox(
+                                          width: _width * 0.01,
+                                        ),
+                                        Text(_setPriceFormat(
+                                            widget.datas["price"])),
+                                        Text(
+                                          " " + widget.datas["person"],
+                                          style: TextStyle(fontSize: 12),
+                                        ),
+                                      ]),
+                                )
+                              ],
+                            ),
+                          ),
+                          //Container(color:Colors.red[50],width: 300,height: 100,), //제품정보)
+                          SizedBox(height: 6),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                    //별점이랑 점수 들어가는 컨테이너
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          children: [
-                            SizedBox(height: 12.0),
-                            Hero(
-                              tag: widget.datas["cid"],
-                              child: Image.asset(
-                                widget.datas["image"],
-                                width: _width * 0.4, //150,
-                                height: _width * 0.4, //150
-                              ),
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                      Column(
+                        children: [
+                          Container(
+                            height: _height * 0.01,
+                            width: _width - 20,
+                            child: Divider(
+                              color: Colors.grey[300],
+                              thickness: 2.0,
                             ),
-                            SizedBox(height: _height * 0.013),
-                            Container(
-                              height: _height * 0.013,
-                              width: _width - 20,
-                              child: Divider(
-                                color: Colors.grey[300],
-                                thickness: 2.0,
-                              ),
+                          ),
+                          SizedBox(height: _height * 0.01),
+                          Container(
+                            width: _width,
+                            child: Row(
+                              children: [
+                                Text(
+                                  "    리뷰   ",
+                                  style: TextStyle(
+                                      fontFamily: MyFontFamily.BMJUA,
+                                      fontSize: 20),
+                                ),
+                                Text(
+                                  widget.datas["review"],
+                                  style: TextStyle(
+                                      fontFamily: MyFontFamily.BMJUA,
+                                      fontSize: 20,
+                                      color: Colors.amber[900]),
+                                ),
+                              ],
                             ),
-                            SizedBox(height: _height * 0.013),
-                            Container(
-                              width: _width,
-                              child: Column(
-                                children: [
-                                  Text(widget.datas["title"],
+                          ),
+                          SizedBox(height: _height * 0.01),
+                          Container(
+                            height: _height * 0.01,
+                            width: _width - 20,
+                            child: Divider(
+                              color: Colors.grey[300],
+                              thickness: 2.0,
+                            ),
+                          ),
+                          Container(
+                            width: _width,
+                            height: _height * 0.25,
+                            // color: Colors.red,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Column(
+                                  children: [
+                                    SizedBox(height: _height * 0.1),
+                                    Text(
+                                      widget.datas["rating"],
                                       style: TextStyle(
                                         fontFamily: MyFontFamily.BMJUA,
-                                        fontSize: 16,
-                                      )),
-                                  SizedBox(
-                                    height: _height * 0.02,
-                                  ),
-                                  Container(
-                                    width: size.width,
-                                    child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.star,
-                                            color: Colors.red,
-                                            size: _width * 0.05,
-                                          ),
-                                          SizedBox(
-                                            width: _width * 0.005,
-                                          ),
-                                          Text(widget.datas["rating"] + ' '),
-                                          Text(
-                                            "(" + widget.datas["review"] + "개)",
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.grey[600]),
-                                          ),
-                                          SizedBox(
-                                            width: _width * 0.01,
-                                          ),
-                                          Text(
-                                            "/",
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 20),
-                                          ),
-                                          SizedBox(
-                                            width: _width * 0.01,
-                                          ),
-                                          Text(_setPriceFormat(
-                                              widget.datas["price"])),
-                                          Text(
-                                            " " + widget.datas["person"],
-                                            style: TextStyle(fontSize: 12),
-                                          ),
-                                        ]),
-                                  )
-                                ],
-                              ),
+                                        fontSize: 50,
+                                      ),
+                                    ),
+                                    RatingBarIndicator(
+                                      rating:
+                                          double.parse(widget.datas["rating"]),
+                                      itemPadding: EdgeInsets.symmetric(
+                                          vertical: 5, horizontal: 0),
+                                      itemBuilder: (context, index) => Icon(
+                                        Icons.star,
+                                        color: Colors.amber,
+                                      ),
+                                      itemCount: 5,
+                                      itemSize: _height * 0.032,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(width: _width * 0.08),
+                                Text(
+                                  "|",
+                                  style: TextStyle(
+                                      fontSize: 100,
+                                      color: Colors.amber[700],
+                                      fontWeight: FontWeight.w200),
+                                ),
+                                SizedBox(width: _width * 0.08),
+                                Column(
+                                  children: [
+                                    SizedBox(
+                                      height: _height * 0.065,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text("5점  "),
+                                        reviewBox(context),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: _height * 0.016,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text("4점  "),
+                                        reviewBox(context),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: _height * 0.016,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text("3점  "),
+                                        reviewBox(context),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: _height * 0.016,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text("2점  "),
+                                        reviewBox(context),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: _height * 0.016,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text("1점  "),
+                                        reviewBox(context),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              ],
                             ),
-                            //Container(color:Colors.red[50],width: 300,height: 100,), //제품정보)
-                            SizedBox(height: 6),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ), //별점 및 점수 집계)
+                          SizedBox(height: _height * 0.01),
+                          Container(
+                              height: 10,
+                              width: _width - 20,
+                              child: Divider(
+                                color: Colors.grey[300],
+                                thickness: 2.0,
+                              )),
+                        ],
+                      )
+                    ])),
+                Container(
+                  //리뷰들어가는 컨테이너
+                  width: _width,
+                  height: 100,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      dropdownButton(),
+                      dropdownButton(),
+                      dropdownButton(),
+                    ],
                   ),
-                  Container(
-                      //별점이랑 점수 들어가는 컨테이너
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                        Column(
-                          children: [
-                            Container(
-                              height: _height * 0.01,
-                              width: _width - 20,
-                              child: Divider(
-                                color: Colors.grey[300],
-                                thickness: 2.0,
-                              ),
-                            ),
-                            SizedBox(height: _height * 0.01),
-                            Container(
-                              width: _width,
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "    리뷰   ",
-                                    style: TextStyle(
-                                        fontFamily: MyFontFamily.BMJUA,
-                                        fontSize: 20),
-                                  ),
-                                  Text(
-                                    widget.datas["review"],
-                                    style: TextStyle(
-                                        fontFamily: MyFontFamily.BMJUA,
-                                        fontSize: 20,
-                                        color: Colors.amber[900]),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: _height * 0.01),
-                            Container(
-                              height: _height * 0.01,
-                              width: _width - 20,
-                              child: Divider(
-                                color: Colors.grey[300],
-                                thickness: 2.0,
-                              ),
-                            ),
-                            Container(
-                              width: _width, // MediaQuery적용하기
-                              height: _height * 0.35,
-                              // color: Colors.red,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Column(
-                                    children: [
-                                      SizedBox(height: _height * 0.11),
-                                      Text(
-                                        widget.datas["rating"],
-                                        style: TextStyle(
-                                          fontFamily: MyFontFamily.BMJUA,
-                                          fontSize: 50,
-                                        ),
-                                      ),
-                                      RatingBarIndicator(
-                                        rating: double.parse(
-                                            widget.datas["rating"]),
-                                        itemPadding: EdgeInsets.symmetric(
-                                            vertical: 5, horizontal: 0),
-                                        itemBuilder: (context, index) => Icon(
-                                          Icons.star,
-                                          color: Colors.amber,
-                                        ),
-                                        itemCount: 5,
-                                        itemSize: _height * 0.032,
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(width: _width * 0.08),
-                                  Text(
-                                    "|",
-                                    style: TextStyle(
-                                        fontSize: 100,
-                                        color: Colors.amber[700],
-                                        fontWeight: FontWeight.w200),
-                                  ),
-                                  SizedBox(width: _width * 0.08),
-                                  Column(
-                                    children: [
-                                      SizedBox(
-                                        height: _height * 0.065,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text("5점  "),
-                                          reviewBox(context),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: _height * 0.016,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text("4점  "),
-                                          reviewBox(context),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: _height * 0.016,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text("3점  "),
-                                          reviewBox(context),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: _height * 0.016,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text("2점  "),
-                                          reviewBox(context),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: _height * 0.016,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text("1점  "),
-                                          reviewBox(context),
-                                        ],
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ), //별점 및 점수 집계)
-                            SizedBox(height: _height * 0.01),
-                            Container(
-                                height: 10,
-                                width: _width - 20,
-                                child: Divider(
-                                  color: Colors.grey[300],
-                                  thickness: 2.0,
-                                )),
-                          ],
-                        )
-                      ])),
-                  Container(
-                      //리뷰들어가는 컨테이너
-                    width: _width,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        dropdownButton(),
-                        dropdownButton(),
-                        dropdownButton(),
-                      ],
-                    ),
-                  )
-                ],
-              ));
+                ),
+              ],
+            ),
+          );
         },
         itemCount: 1,
       ),
     );
   }
+
   DropdownButton dropdownButton() {
     String valueChoose;
     List listItem = ["Item 1", "Item 2", "Item 3"];
@@ -327,7 +329,6 @@ Widget reviewBox(BuildContext context) {
     )
   ]);
 }
-
 
 Widget reviewListview(BuildContext context) {
   return ListView.separated(
