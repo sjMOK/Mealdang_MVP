@@ -109,7 +109,7 @@ class _MealdangListviewState extends State<MealdangListview> {
                                 _foodList[index]["rating"],
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              SizedBox(width: _width * 0.01),
+                              SizedBox(width: _width * 0.02),
                               // SvgPicture.asset(
                               //   "assets/svg/review.svg",
                               //   width: 20,
@@ -118,7 +118,7 @@ class _MealdangListviewState extends State<MealdangListview> {
                               Icon(
                                 Icons.messenger_outline_rounded,
                                 color: Colors.orange[800],
-                                size: _height * 0.035,
+                                size: _height * 0.025,
                               ),
                               SizedBox(width: _width * 0.01),
                               Text(

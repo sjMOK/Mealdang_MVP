@@ -57,21 +57,13 @@ flutter:
     - assets/images/Category_icon/LateNightMeal_icon/
     - assets/images/Category_icon/CarbSnack_icon/
 
-<<<<<<< HEAD
-     - assets/images/FoodPictures/KoreanFood_list/
-     - assets/images/FoodPictures/ChineseFood_list/
-     # - assets/images/FoodPictures/JapaneseFood_list/
-     - assets/images/FoodPictures/WesternFood_list/
-     # - assets/images/FoodPictures/LateNightMeal_list/
-     # - assets/images/FoodPictures/CarbSnack_list/
-=======
     - assets/images/FoodPictures/KoreanFood_list/
     - assets/images/FoodPictures/ChineseFood_list/
-    # - assets/images/FoodPictures/JapaneseFood_list/
+     # - assets/images/FoodPictures/JapaneseFood_list/
     - assets/images/FoodPictures/WesternFood_list/
-    # - assets/images/FoodPictures/LateNightMeal_list/
-    # - assets/images/FoodPictures/CarbSnack_list/
->>>>>>> refs/remotes/origin/master
+     # - assets/images/FoodPictures/LateNightMeal_list/
+     # - assets/images/FoodPictures/CarbSnack_list/
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
