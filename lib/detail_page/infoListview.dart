@@ -209,7 +209,7 @@ class _InfoListViewState extends State<InfoListView> {
                                     Row(
                                       children: [
                                         Text("5점  "),
-                                        reviewBox(context),
+                                        reviewScoreBox(context),
                                       ],
                                     ),
                                     SizedBox(
@@ -218,7 +218,7 @@ class _InfoListViewState extends State<InfoListView> {
                                     Row(
                                       children: [
                                         Text("4점  "),
-                                        reviewBox(context),
+                                        reviewScoreBox(context),
                                       ],
                                     ),
                                     SizedBox(
@@ -227,7 +227,7 @@ class _InfoListViewState extends State<InfoListView> {
                                     Row(
                                       children: [
                                         Text("3점  "),
-                                        reviewBox(context),
+                                        reviewScoreBox(context),
                                       ],
                                     ),
                                     SizedBox(
@@ -236,7 +236,7 @@ class _InfoListViewState extends State<InfoListView> {
                                     Row(
                                       children: [
                                         Text("2점  "),
-                                        reviewBox(context),
+                                        reviewScoreBox(context),
                                       ],
                                     ),
                                     SizedBox(
@@ -245,7 +245,7 @@ class _InfoListViewState extends State<InfoListView> {
                                     Row(
                                       children: [
                                         Text("1점  "),
-                                        reviewBox(context),
+                                        reviewScoreBox(context),
                                       ],
                                     ),
                                   ],
@@ -312,7 +312,7 @@ class _InfoListViewState extends State<InfoListView> {
   } // 가격 만원단위 형변환
 }
 
-Widget reviewBox(BuildContext context) {
+Widget reviewScoreBox(BuildContext context) {
   return Stack(children: [
     Container(
       decoration:
@@ -328,4 +328,8 @@ Widget reviewBox(BuildContext context) {
       height: 15,
     )
   ]);
+}
+
+Container reviewBox(){
+  return Container();
 }
