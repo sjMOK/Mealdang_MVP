@@ -76,7 +76,7 @@ class _MealdangListviewState extends State<MealdangListview> {
                 ),
                 Expanded(
                   child: Container(
-                    height: _height * 0.2,
+                    height: _height * 0.15, //원래 _height *0.2 였던 것을 0.15로 바꿈
                     padding: const EdgeInsets.only(left: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
