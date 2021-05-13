@@ -35,7 +35,7 @@ class _MealdangListviewState extends State<MealdangListview> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('안녕3',
+        title: Text('밀당',
             style: TextStyle(fontFamily: MyFontFamily.BMJUA, fontSize: 38)),
         backgroundColor: Colors.amber[400],
       ),
