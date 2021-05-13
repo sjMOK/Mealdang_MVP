@@ -266,8 +266,8 @@ class _InfoListViewState extends State<InfoListView> {
                     ])),
                 Container(
                   //리뷰들어가는 컨테이너
+                  height: _height * 0.1,
                   width: _width,
-                  height: 100,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -328,24 +328,4 @@ Widget reviewBox(BuildContext context) {
       height: 15,
     )
   ]);
-}
-
-Widget reviewListview(BuildContext context) {
-  return ListView.separated(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      itemBuilder: (BuildContext context, int index) {
-        return Container(
-          width: 10,
-          height: 10,
-          color: Colors.black,
-          child: Text("1"),
-        );
-      },
-      separatorBuilder: (BuildContext context, int index) {
-        return Container(
-          height: 1,
-          color: Colors.black.withOpacity(0.4),
-        ); //구분 색깔 지정
-      },
-      itemCount: 10);
 }
