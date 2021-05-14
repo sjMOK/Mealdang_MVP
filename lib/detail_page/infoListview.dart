@@ -281,6 +281,8 @@ class _InfoListViewState extends State<InfoListView> {
                       ),
                     ),
                     ReviewBox(),
+                    Divider(color: Colors.grey,thickness: 3,),
+                    ReviewBox(),
                   ],
                 ),
               ],
