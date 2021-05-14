@@ -267,19 +267,7 @@ class _InfoListViewState extends State<InfoListView> {
                     ])),
                 Column(
                   children: [
-                    Container(
-                      //리뷰들어가는 컨테이너
-                      height: _height * 0.1,
-                      width: _width,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          dropdownButton(),
-                          dropdownButton(),
-                          dropdownButton(),
-                        ],
-                      ),
-                    ),
+                    //리뷰 작성된 것들 들어가는 곳
                     ReviewBox(),
                     Divider(color: Colors.grey,thickness: 3,),
                     ReviewBox(),
@@ -291,26 +279,6 @@ class _InfoListViewState extends State<InfoListView> {
         },
         itemCount: 1,
       ),
-    );
-  }
-
-  DropdownButton dropdownButton() {
-    String valueChoose;
-    List listItem = ["Item 1", "Item 2", "Item 3"];
-    return DropdownButton(
-      hint: Text("입맛 !"),
-      value: valueChoose,
-      onChanged: (newValue) {
-        setState(() {
-          valueChoose = newValue;
-        });
-      },
-      items: listItem.map((valueItem) {
-        return DropdownMenuItem(
-          value: valueItem,
-          child: Text(valueItem),
-        );
-      }).toList(),
     );
   }
 
