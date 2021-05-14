@@ -9,6 +9,7 @@ class ReviewBox extends StatelessWidget {
     return Container(
       width: _width,
       height: _height*0.4,
+      // color: Colors.blue,
       child: Column(
         children: [
           Container(
@@ -18,7 +19,7 @@ class ReviewBox extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(backgroundColor: Colors.black),
-                SizedBox(width: _width*0.02),
+                SizedBox(width: _width*0.03),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -48,8 +49,47 @@ class ReviewBox extends StatelessWidget {
           ),
           Container(
             // 리뷰 작성 된 곳
+            width: _width-36,
+            height: _height*0.2,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Image.asset("assets/images/ReviewIconImage/smile.png",scale: 15),
+                    Image.asset("assets/images/ReviewIconImage/sad.png",scale: 15),
+                    Image.asset("assets/images/ReviewIconImage/fork.png",scale: 15),
+                  ],
+                ),
+                SizedBox(width: _width*0.05,),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      width: _width*0.7,
+                      height: _height*0.04,
+                      color: Colors.black,
+                    ),
+                    Container(
+                      width: _width*0.7,
+                      height: _height*0.04,
+                      color: Colors.orange,
+                    ),
+                    Container(
+                      width: _width*0.7,
+                      height: _height*0.04,
+                      color: Colors.red,
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
+
         ],
+
       ),
     );
   }
