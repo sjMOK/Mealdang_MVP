@@ -20,7 +20,12 @@ class _MealdangCategoryState extends State<MealdangCategory> {
       appBar: AppBar(
         title: Text('밀당',
             style: TextStyle(fontFamily: MyFontFamily.BMJUA, fontSize: 38)),
-        actions:[IconButton(icon: IconButton(icon: Icon(Icons.search),), onPressed: (){})],
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {},
+          ),
+        ],
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: Colors.amber[400],
