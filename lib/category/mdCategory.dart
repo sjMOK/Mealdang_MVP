@@ -14,7 +14,6 @@ class _MealdangCategoryState extends State<MealdangCategory> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final _height = size.height;
-    final _width = size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
