@@ -1,14 +1,15 @@
-List<Map<String, String>> foodData = [
+List<Map<String, dynamic>> productData = [
   {
-    "cid": "1",
-    "title": "[프레시지] 우삼겹 순두부찌개",
-    "person" : "(2인분)",
-    "price": "7900",
-    "review": "7",
-    "rating" : "4.6",
-    "image": "assets/images/FoodPictures/KoreanFood_list/KoreanFood_1.jpeg",
-    "Url": "https://fresheasy.co.kr/goods/view?no=260"
+    'id': 1,
+    'name': '우삼겹 순두부찌개',
+    'company_name': '[프레시지]',
+    'serving_size' : 2,
+    'price': 7900,
+    'discounted_price': 7000,
+    'image_path': 'assets/images/FoodPictures/KoreanFood_list/KoreanFood_1.jpeg',
+    'page_url': 'https://fresheasy.co.kr/goods/view?no=260'
   },
+  /*
   {
     "cid": "2",
     "title": "[프레시지] 장흥회관 낙지곱창전골",
@@ -51,4 +52,15 @@ List<Map<String, String>> foodData = [
     "Url":
         "https://foodasb.co.kr/product/%EB%A7%9B%EC%A7%91%ED%82%A4%ED%8A%B8-%EA%B8%B0%EC%8A%B9%EC%A0%84%EA%B3%A8-%EA%B3%B1%EC%B0%BD%EC%A0%84%EA%B3%A8-%EB%B0%80%ED%82%A4%ED%8A%B82%EC%9D%B8/25/category/49/display/1/",
   },
+  */
+];
+
+
+List<Map<String, dynamic>> reviewData = [
+  {
+    'product_id': 1,
+    'id': 1,
+    'content': '정말 맛있어요~',
+    'rating': 4.5
+  }
 ];
