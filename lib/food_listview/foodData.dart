@@ -1,5 +1,6 @@
-List<Map<String, String>> foodData = [
+List<Map<String, dynamic>> productData = [
   {
+<<<<<<< HEAD
     "cid": "1",
     "title": "[프레시지] 우삼겹 순두부찌개",
     "person" : "(2인분)",
@@ -8,7 +9,18 @@ List<Map<String, String>> foodData = [
     "rating" : "4.6",
     "image": "assets/images/FoodPictures/KoreanFood_list/KoreanFood_1.jpeg",
     "Url": "https://shopping.naver.com/fresh/homemeal/stores/100069073/products/3492801815?NaPm=ct%3Dkop4p57k%7Cci%3D0a7e60524ac853fc3d9b0d65e74c5db3c165ad92%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3Da0b07c2bbb5199ddf222f0b9b13b1e1dec98ce7e"
+=======
+    'id': 1,
+    'name': '우삼겹 순두부찌개',
+    'company_name': '[프레시지]',
+    'serving_size' : 2,
+    'price': 7900,
+    'discounted_price': 7000,
+    'image_path': 'assets/images/FoodPictures/KoreanFood_list/KoreanFood_1.jpeg',
+    'page_url': 'https://fresheasy.co.kr/goods/view?no=260'
+>>>>>>> testing
   },
+  /*
   {
     "cid": "2",
     "title": "[프레시지] 장흥회관 낙지곱창전골",
@@ -49,4 +61,15 @@ List<Map<String, String>> foodData = [
     "image": "assets/images/FoodPictures/KoreanFood_list/KoreanFood_5.jpeg",
     "Url": "https://smartstore.naver.com/foodasb/products/4797604813?NaPm=ct%3Dkop4quxs%7Cci%3D222bf9f8130744f85e0a40f13e2d1b43b8202748%7Ctr%3Dslsl%7Csn%3D549704%7Chk%3Dbb7027185587782c2a57a6d4be1fc3add841ce64",
   },
+  */
+];
+
+
+List<Map<String, dynamic>> reviewData = [
+  {
+    'product_id': 1,
+    'id': 1,
+    'content': '정말 맛있어요~',
+    'rating': 4.5
+  }
 ];
