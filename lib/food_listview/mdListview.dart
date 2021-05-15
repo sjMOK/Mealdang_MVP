@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:mealdang_mvp/detail_page/productInfo.dart';
 import 'package:mealdang_mvp/food_listview/foodData.dart' as foodData;
