@@ -3,6 +3,8 @@ import 'package:intl/intl.dart';
 import 'package:mealdang_mvp/style/font.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mealdang_mvp/reviewBoxContainer.dart';
+import 'package:mealdang_mvp/detail_page/reviewPage.dart' as review;
+
 class InfoListView extends StatefulWidget {
   Map<String, String> datas;
 
@@ -15,7 +17,6 @@ class InfoListView extends StatefulWidget {
 }
 
 class _InfoListViewState extends State<InfoListView> {
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -37,12 +38,15 @@ class _InfoListViewState extends State<InfoListView> {
                       Column(
                         children: [
                           SizedBox(height: 12.0),
-                          Hero(
-                            tag: widget.datas["cid"],
-                            child: Image.asset(
-                              widget.datas["image"],
-                              width: _width * 0.4, //150,
-                              height: _width * 0.4, //150
+                          ClipRRect(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            child: Hero(
+                              tag: widget.datas["cid"],
+                              child: Image.asset(
+                                widget.datas["image"],
+                                width: _width * 0.6,
+                                height: _width * 0.6,
+                              ),
                             ),
                           ),
                           SizedBox(height: _height * 0.013),
@@ -70,42 +74,40 @@ class _InfoListViewState extends State<InfoListView> {
                                 Container(
                                   width: size.width,
                                   child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.red,
-                                          size: _width * 0.05,
-                                        ),
-                                        SizedBox(
-                                          width: _width * 0.005,
-                                        ),
-                                        Text(widget.datas["rating"] + ' '),
-                                        Text(
-                                          "(" + widget.datas["review"] + "개)",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              color: Colors.grey[600]),
-                                        ),
-                                        SizedBox(
-                                          width: _width * 0.01,
-                                        ),
-                                        Text(
-                                          "/",
-                                          style: TextStyle(
-                                              color: Colors.grey, fontSize: 20),
-                                        ),
-                                        SizedBox(
-                                          width: _width * 0.01,
-                                        ),
-                                        Text(_setPriceFormat(
-                                            widget.datas["price"])),
-                                        Text(
-                                          " " + widget.datas["person"],
-                                          style: TextStyle(fontSize: 12),
-                                        ),
-                                      ]),
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.red,
+                                        size: _width * 0.05,
+                                      ),
+                                      SizedBox(
+                                        width: _width * 0.005,
+                                      ),
+                                      Text(widget.datas["rating"] + ' '),
+                                      Text(
+                                        "(" + widget.datas["review"] + "개)",
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.grey[600]),
+                                      ),
+                                      SizedBox(width: _width * 0.01),
+                                      Text(
+                                        "/",
+                                        style: TextStyle(
+                                            color: Colors.grey, fontSize: 20),
+                                      ),
+                                      SizedBox(
+                                        width: _width * 0.01,
+                                      ),
+                                      Text(_setPriceFormat(
+                                          widget.datas["price"])),
+                                      Text(
+                                        " " + widget.datas["person"],
+                                        style: TextStyle(fontSize: 12),
+                                      ),
+                                    ],
+                                  ),
                                 )
                               ],
                             ),
@@ -133,29 +135,37 @@ class _InfoListViewState extends State<InfoListView> {
                             ),
                           ),
                           SizedBox(height: _height * 0.01),
-                          Container(
-                            width: _width,
-                            child: Row(
-                              children: [
-                                Text(
-                                  "    리뷰   ",
-                                  style: TextStyle(
-                                      fontFamily: MyFontFamily.BMJUA,
-                                      fontSize: 20),
-                                ),
-                                Text(
-                                  widget.datas["review"],
-                                  style: TextStyle(
-                                      fontFamily: MyFontFamily.BMJUA,
-                                      fontSize: 20,
-                                      color: Colors.amber[900]),
-                                ),
-                              ],
+                          InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => review.ReviewPage()));
+                            },
+                            child: Container(
+                              width: _width,
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "    리뷰   ",
+                                    style: TextStyle(
+                                        fontFamily: MyFontFamily.BMJUA,
+                                        fontSize: 20),
+                                  ),
+                                  Text(
+                                    widget.datas["review"],
+                                    style: TextStyle(
+                                        fontFamily: MyFontFamily.BMJUA,
+                                        fontSize: 20,
+                                        color: Colors.amber[900]),
+                                  ),
+                                  SizedBox(
+                                    width: _width - _width * 0.28,
+                                  ),
+                                  Icon(Icons.arrow_forward_ios_sharp)
+                                ],
+                              ),
                             ),
                           ),
-                          SizedBox(height: _height * 0.01),
                           Container(
-                            height: _height * 0.01,
                             width: _width - 20,
                             child: Divider(
                               color: Colors.grey[300],
@@ -164,14 +174,11 @@ class _InfoListViewState extends State<InfoListView> {
                           ),
                           Container(
                             width: _width,
-                            height: _height * 0.25,
-                            // color: Colors.red,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Column(
                                   children: [
-                                    SizedBox(height: _height * 0.1),
                                     Text(
                                       widget.datas["rating"],
                                       style: TextStyle(
@@ -204,9 +211,6 @@ class _InfoListViewState extends State<InfoListView> {
                                 SizedBox(width: _width * 0.08),
                                 Column(
                                   children: [
-                                    SizedBox(
-                                      height: _height * 0.065,
-                                    ),
                                     Row(
                                       children: [
                                         Text("5점  "),
@@ -254,24 +258,32 @@ class _InfoListViewState extends State<InfoListView> {
                               ],
                             ),
                           ), //별점 및 점수 집계)
-                          SizedBox(height: _height * 0.01),
                           Container(
-                              height: 10,
-                              width: _width - 20,
-                              child: Divider(
-                                color: Colors.grey[300],
-                                thickness: 2.0,
-                              )),
+                            width: _width - 20,
+                            child: Divider(
+                              color: Colors.grey[300],
+                              thickness: 2.0,
+                            ),
+                          ),
                         ],
                       )
                     ])),
-                Column(
-                  children: [
-                    //리뷰 작성된 것들 들어가는 곳
-                    ReviewBox(),
-                    Divider(color: Colors.grey,thickness: 3,),
-                    ReviewBox(),
-                  ],
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => review.ReviewPage()));
+                  },
+                  child: Column(
+                    children: [
+                      //리뷰 작성된 것들 들어가는 곳 ,2개까지만 노출시키기 !!
+                      ReviewBox(),
+                      Divider(
+                        color: Colors.grey,
+                        thickness: 3,
+                      ),
+                      ReviewBox(),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -290,20 +302,21 @@ class _InfoListViewState extends State<InfoListView> {
 }
 
 Widget reviewScoreBox(BuildContext context) {
-  return Stack(children: [
-    Container(
-      decoration:
-          BoxDecoration(border: Border.all(color: Colors.black, width: 1)),
-      width: 100,
-      height: 15,
-    ),
-    Container(
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.black, width: 1),
-          color: Colors.amber),
-      width: 100 * 0.2,
-      height: 15,
-    )
-  ]);
+  return Stack(
+    children: [
+      Container(
+        decoration:
+            BoxDecoration(border: Border.all(color: Colors.black, width: 1)),
+        width: 100,
+        height: 15,
+      ),
+      Container(
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.black, width: 1),
+            color: Colors.amber),
+        width: 100 * 0.2,
+        height: 15,
+      ),
+    ],
+  );
 }
-
