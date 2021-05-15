@@ -1,15 +1,5 @@
 List<Map<String, dynamic>> productData = [
   {
-<<<<<<< HEAD
-    "cid": "1",
-    "title": "[프레시지] 우삼겹 순두부찌개",
-    "person" : "(2인분)",
-    "price": "7900",
-    "review": "7",
-    "rating" : "4.6",
-    "image": "assets/images/FoodPictures/KoreanFood_list/KoreanFood_1.jpeg",
-    "Url": "https://shopping.naver.com/fresh/homemeal/stores/100069073/products/3492801815?NaPm=ct%3Dkop4p57k%7Cci%3D0a7e60524ac853fc3d9b0d65e74c5db3c165ad92%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3Da0b07c2bbb5199ddf222f0b9b13b1e1dec98ce7e"
-=======
     'id': 1,
     'name': '우삼겹 순두부찌개',
     'company_name': '[프레시지]',
@@ -18,7 +8,6 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': 7000,
     'image_path': 'assets/images/FoodPictures/KoreanFood_list/KoreanFood_1.jpeg',
     'page_url': 'https://fresheasy.co.kr/goods/view?no=260'
->>>>>>> testing
   },
   /*
   {
