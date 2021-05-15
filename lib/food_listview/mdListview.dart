@@ -10,7 +10,7 @@ class MealdangListview extends StatefulWidget {
 }
 
 class _MealdangListviewState extends State<MealdangListview> {
-  List<Map<String, String>> _foodList = productData;
+  List<Map<String, dynamic>> _foodList = foodData;
 
   @override
   Widget build(BuildContext context) {
