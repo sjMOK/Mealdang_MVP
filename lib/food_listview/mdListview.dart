@@ -111,32 +111,10 @@ class _MealdangListviewState extends State<MealdangListview> {
                           color: Colors.orange[800],
                           size: height * 0.025,
                         ),
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Icon(
-                                Icons.star,
-                                color: Colors.amber[600],
-                              ),
-                              Text(
-                                _foodList[index]["rating"],
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(width: width * 0.02),
-                              Icon(
-                                Icons.messenger_outline_rounded,
-                                color: Colors.orange[800],
-                                size: height * 0.025,
-                              ),
-                              SizedBox(width: width * 0.01),
-                              Text(
-                                _foodList[index]["review"],
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
+                        SizedBox(width: width * 0.01),
+                        Text(
+                          _foodList[index]["review"],
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
