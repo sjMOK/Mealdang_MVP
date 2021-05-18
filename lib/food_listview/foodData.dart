@@ -821,14 +821,5 @@ List<Map<String, dynamic>> productData = [
 ];
 
 List<Map<String, dynamic>> reviewData = [
-<<<<<<< HEAD
-  {
-    'product_id': 1,
-    'id': 1,
-    'content': '정말 맛있어요~',
-    'rating': 4
-  }
-=======
   {'product_id': 1, 'id': 1, 'content': '정말 맛있어요~', 'rating': 4}
->>>>>>> DataWork
 ];
