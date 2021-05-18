@@ -19,7 +19,14 @@ class _MealdangCategoryState extends State<MealdangCategory> {
       appBar: AppBar(
         title: Text('밀당',
             style: TextStyle(fontFamily: MyFontFamily.BMJUA, fontSize: 38)),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {},
+          ),
+        ],
         centerTitle: true,
+        elevation: 0.0,
         backgroundColor: Colors.amber[400],
       ),
       drawer: Drawer(
@@ -50,7 +57,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
           padding: EdgeInsets.symmetric(vertical: 40, horizontal: 60),
           child: Column(
             children: [
-              SizedBox(height: _height * 0.08),
+              SizedBox(height: _height * 0.18),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
