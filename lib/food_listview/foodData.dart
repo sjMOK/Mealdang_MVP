@@ -503,7 +503,7 @@ List<Map<String, dynamic>> productData = [
   },
   {
     'id': 36,
-    'category': 'japanese Food',
+    'category': 'japaneseFood',
     'name': '소고기 스키야키',
     'company_name': '파파쿡',
     'serving_size': 2,

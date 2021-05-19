@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future<Database> database = initDatabase();
-
+    
     return FutureBuilder(
         future: Future.delayed(Duration(seconds: 2)),
         builder: (context, AsyncSnapshot snapshot){

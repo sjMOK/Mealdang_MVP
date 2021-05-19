@@ -8,7 +8,7 @@ Future<Database> initDatabase() async {
   String path = join(databasesPath, 'mealdang_database.db');
   print(path);
 
-  //await deleteDatabase(path);
+  await deleteDatabase(path);
   return openDatabase(
     path,
     version: 1,
@@ -33,28 +33,19 @@ Future<Database> initDatabase() async {
           'FOREIGN KEY (product_id) REFERENCES Product(id) ON DELETE NO ACTION'
           ')');
       print('database oncreate finish');
+
+      for (var product in productData) 
+        await db.insert('Product', product);
     },
   );
-}
-
-void insertDatabase(Future<Database> database) async {
-  /*var databasesPath = await getDatabasesPath();
-  String path = join(databasesPath, 'mealdang_database.db');
-  
-  final Database db = await openDatabase(path, version: 1);*/
-
-  Database db = await database;
-
-  for (var product in productData) {
-    await db.insert('Product', product);
-  }
 }
 
 Future<List<Product>> getProducts(
     Future<Database> database, String categoryName) async {
   Database db = await database;
   final List<Map<String, dynamic>> maps = await db.rawQuery('SELECT * FROM Product WHERE category= "$categoryName"');
-  print(maps.length);
+  
+  print('${maps.length} $categoryName rows returned');
   return List.generate(maps.length, (i) {
     var map = maps[i];
     return Product(

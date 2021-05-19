@@ -5,6 +5,7 @@ import 'package:mealdang_mvp/food_listview/foodData.dart';
 import 'package:mealdang_mvp/style/font.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/food_listview/product.dart';
+import 'package:mealdang_mvp/db.dart';
 
 class MealdangListview extends StatefulWidget {
   final String categoryName;
@@ -23,7 +24,7 @@ class _MealdangListviewState extends State<MealdangListview> {
   @override
   void initState() {
     super.initState();
-    products = getProducts();
+    products = getProducts(widget.db, widget.categoryName);
   }
 
   @override
@@ -168,25 +169,4 @@ class _MealdangListviewState extends State<MealdangListview> {
     final oCcy = new NumberFormat("#,###", "ko_KR");
     return "${oCcy.format(int.parse(priceString))}원";
   } // 가격 만원단위 형변환
-
-  Future<List<Product>> getProducts() async {
-    Database db = await widget.db;
-    String categoryName = widget.categoryName;
-    final List<Map<String, dynamic>> maps = await db
-        .rawQuery('SELECT * FROM Product WHERE category= "$categoryName"');
-    print(maps.length);
-    return List.generate(maps.length, (i) {
-      var map = maps[i];
-      return Product(
-        id: map['id'],
-        category: map['category'],
-        name: map['name'],
-        servingSize: map['serving_size'],
-        price: map['price'],
-        discountedPrice: map['discounted_price'],
-        imagePath: map['image_path'],
-        pageUrl: map['page_url'],
-      );
-    });
-  }
 }
