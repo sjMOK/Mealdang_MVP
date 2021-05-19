@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mealdang_mvp/food_listview/mdListview.dart';
 import '../style/font.dart';
-import 'package:mealdang_mvp/category/categoryData.dart' as categories;
+import 'package:mealdang_mvp/category/categoryData.dart';
+import 'package:sqflite/sqflite.dart';
 
 class MealdangCategory extends StatefulWidget {
-  MealdangCategory({Key key}) : super(key: key);
+  //MealdangCategory({Key key}) : super(key: key);
+  final Future<Database> db;
+  MealdangCategory(this.db);
+
   @override
   _MealdangCategoryState createState() => _MealdangCategoryState();
 }
@@ -84,7 +88,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
     );
   }
 
-  Container _catergoryContainer(BuildContext context, String categoryKey) {
+  Container _catergoryContainer(BuildContext context, String categoryName) {
     return Container(
       child: Column(
         children: [
@@ -92,17 +96,17 @@ class _MealdangCategoryState extends State<MealdangCategory> {
             scale: 3,
             child: IconButton(
               icon: Image.asset(
-                categories.categoryData[categoryKey]['path'], // 아이콘 이미지 경로
+                categoryData[categoryName]['path'], // 아이콘 이미지 경로
               ),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => MealdangListview()));
+                    builder: (context) => MealdangListview(categoryName, widget.db)));
               },
             ),
           ),
           SizedBox(height: 30),
           Text(
-            categories.categoryData[categoryKey]['name'], // 카테고리 이름
+            categoryData[categoryName]['name'], // 카테고리 이름
             style: TextStyle(
               fontFamily: MyFontFamily.BMJUA,
               fontSize: 30,

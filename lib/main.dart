@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:mealdang_mvp/category/mdCategory.dart';
+import 'package:mealdang_mvp/db.dart';
+import 'package:sqflite/sqflite.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Future<Database> database = initDatabase();
+
     return FutureBuilder(
         future: Future.delayed(Duration(seconds: 2)),
-        builder: (context, AsyncSnapshot snapshot) {
+        builder: (context, AsyncSnapshot snapshot){
           if (snapshot.connectionState == ConnectionState.waiting) {
             return MaterialApp(home: Splash());
           } else {
-            return MaterialApp(home: MealdangCategory());
+            return MaterialApp(home: MealdangCategory(database));
           }
         });
     // return MaterialApp(
