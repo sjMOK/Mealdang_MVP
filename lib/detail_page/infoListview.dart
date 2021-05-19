@@ -143,23 +143,27 @@ class _InfoListViewState extends State<InfoListView> {
                             child: Container(
                               width: _width,
                               child: Row(
-                                children: [
-                                  Text(
-                                    "    리뷰   ",
-                                    style: TextStyle(
-                                        fontFamily: MyFontFamily.BMJUA,
-                                        fontSize: 20),
+                                children: <Widget>[
+                                  Container(
+                                    width: _width * 0.15,
+                                    child: Text(
+                                      "    리뷰   ",
+                                      style: TextStyle(
+                                          fontFamily: MyFontFamily.BMJUA,
+                                          fontSize: 20),
+                                    ),
                                   ),
-                                  Text(
-                                    widget.datas["review"],
-                                    style: TextStyle(
-                                        fontFamily: MyFontFamily.BMJUA,
-                                        fontSize: 20,
-                                        color: Colors.amber[900]),
+                                  Container(
+                                    width: _width * 0.3,
+                                    child: Text(
+                                      widget.datas["review"],
+                                      style: TextStyle(
+                                          fontFamily: MyFontFamily.BMJUA,
+                                          fontSize: 20,
+                                          color: Colors.amber[900]),
+                                    ),
                                   ),
-                                  SizedBox(
-                                    width: _width - _width * 0.28,
-                                  ),
+                                  SizedBox(width: _width * 0.45),
                                   Icon(Icons.arrow_forward_ios_sharp)
                                 ],
                               ),
