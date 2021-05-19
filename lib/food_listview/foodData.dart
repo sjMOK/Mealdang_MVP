@@ -445,7 +445,7 @@ List<Map<String, dynamic>> productData = [
     'price': 17900,
     'discounted_price': null,
     'image_path':
-        'assets\images\FoodPictures\JapaneseFood_list\JapaneseFood_1.jpeg',
+        'assets/images/FoodPictures/JapaneseFood_list/JapaneseFood_1.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/2263949782?NaPm=ct%3Dkopaziwg%7Cci%3D4e8af63309ca1397f8cd5529e872487e82d2cadf%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3Dd6230bcfb315164360b2c198dcb0f6fbd9264daa'
   },
@@ -458,7 +458,7 @@ List<Map<String, dynamic>> productData = [
     'price': 17900,
     'discounted_price': null,
     'image_path':
-        'assets\images\FoodPictures\JapaneseFood_list\JapaneseFood_2.jpeg',
+        'assets/images/FoodPictures/JapaneseFood_list/JapaneseFood_2.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/5440904250?NaPm=ct%3Dkopavcfs%7Cci%3Da30a4e6e5d6302aa67501030f3e55e42b54bf780%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3D112e4cd08937d5105d16d66263387c6944119db5'
   },
@@ -471,7 +471,7 @@ List<Map<String, dynamic>> productData = [
     'price': 10900,
     'discounted_price': null,
     'image_path':
-        'assets\images\FoodPictures\JapaneseFood_list\JapaneseFood_3.jpeg',
+        'assets/images/FoodPictures/JapaneseFood_list/JapaneseFood_3.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/3492778070?NaPm=ct%3Dkopb1jfk%7Cci%3Dfb454e8c117362f8ef5e4f61512f51aee6c4118d%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3D08e909a9644cf39bee18c9950c87b2ba40d8fa3d'
   },
@@ -484,7 +484,7 @@ List<Map<String, dynamic>> productData = [
     'price': 15900,
     'discounted_price': 14310,
     'image_path':
-        'assets\images\FoodPictures\JapaneseFood_list\JapaneseFood_4.jpeg',
+        'assets/images/FoodPictures/JapaneseFood_list/JapaneseFood_4.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/2707922784?NaPm=ct%3Dkos7v4yw%7Cci%3D57eceaa8dde1a4e8ef36df95e365f18c64cc6c5e%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3D33b300f1f2c8f6547a1504de9d121973b6c7a4d7'
   },
@@ -497,7 +497,7 @@ List<Map<String, dynamic>> productData = [
     'price': 17900,
     'discounted_price': 15210,
     'image_path':
-        'assets\images\FoodPictures\JapaneseFood_list\JapaneseFood_5.jpeg',
+        'assets/images/FoodPictures/JapaneseFood_list/JapaneseFood_5.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/3393831752?NaPm=ct%3Dkos82j68%7Cci%3D85dcf52c409ca973c57431fe4ecff77cff664337%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3Db38b71d94c4bd8253d615f78210bde613b5c6a38'
   },
@@ -510,7 +510,7 @@ List<Map<String, dynamic>> productData = [
     'price': 21900,
     'discounted_price': 18900,
     'image_path':
-        'assets\images\FoodPictures\JapaneseFood_list\JapaneseFood_6.jpeg',
+        'assets/images/FoodPictures/JapaneseFood_list/JapaneseFood_6.jpeg',
     'page_url':
         'https://smartstore.naver.com/friendsfood/products/2354876276?NaPm=ct%3Dkos86iow%7Cci%3D4a982e7553e397cdad59095d8dcead2f44c3f37b%7Ctr%3Dslsl%7Csn%3D521132%7Chk%3Dc309a6b69835da9c5cd7ab2fcaf8697616144742'
   },
@@ -523,7 +523,7 @@ List<Map<String, dynamic>> productData = [
     'price': 12000,
     'discounted_price': 8900,
     'image_path':
-        'assets\images\FoodPictures\JapaneseFood_list\JapaneseFood_7.jpeg',
+        'assets/images/FoodPictures/JapaneseFood_list/JapaneseFood_7.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100073444/products/3068291435?NaPm=ct%3Dkos8grio%7Cci%3D539981673aacf8b10ab6680233594b59a0ec70ed%7Ctr%3Dslsl%7Csn%3D398462%7Chk%3D8d334a21de5ba739bf1203d4d8fefde3d5c6f666'
   },
@@ -536,7 +536,7 @@ List<Map<String, dynamic>> productData = [
     'price': 18900,
     'discounted_price': null,
     'image_path':
-        'assets\images\FoodPictures\JapaneseFood_list\JapaneseFood_8.jpeg',
+        'assets/images/FoodPictures/JapaneseFood_list/JapaneseFood_8.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100103056/products/5279375183?NaPm=ct%3Dkos8oi2g%7Cci%3D198185b64fb5757c9378ae1861a3d063ba94f09e%7Ctr%3Dslsl%7Csn%3D549704%7Chk%3De57a9aee12f3b44b4f26409baeeb378075706c48'
   },
@@ -549,7 +549,7 @@ List<Map<String, dynamic>> productData = [
     'price': 8900,
     'discounted_price': null,
     'image_path':
-        'assets\images\FoodPictures\JapaneseFood_list\JapaneseFood_9.jpeg',
+        'assets/images/FoodPictures/JapaneseFood_list/JapaneseFood_9.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100073657/products/4843507972?NaPm=ct%3Dkos8s25k%7Cci%3Daf8ed5c975b38095ea8b92d40dd78f02c664e4ee%7Ctr%3Dslsl%7Csn%3D458431%7Chk%3D51d857c47c7f9c81d4c37a15069619b3727728aa'
   },
@@ -562,7 +562,7 @@ List<Map<String, dynamic>> productData = [
     'price': 11000,
     'discounted_price': 9900,
     'image_path':
-        'assets\images\FoodPictures\JapaneseFood_list\JapaneseFood_10.jpeg',
+        'assets/images/FoodPictures/JapaneseFood_list/JapaneseFood_10.jpeg',
     'page_url':
         'https://smartstore.naver.com/momscooking/products/4901251142?NaPm=ct%3Dkos8yieo%7Cci%3Dae0f98959d38ea68039efededd0f04bf1bc1df8d%7Ctr%3Dslsl%7Csn%3D1221302%7Chk%3D5a38e8e26fba15474318f09ff78ef3aa43343b25'
   },
@@ -576,7 +576,7 @@ List<Map<String, dynamic>> productData = [
     'price': 25900,
     'discounted_price': null,
     'image_path':
-        'assets\images\FoodPictures\LateNightFood_list\LateNightFood_1.jpeg',
+        'assets/images/FoodPictures/LateNightFood_list/LateNightFood_1.jpeg',
     'page_url':
         'https://smartstore.naver.com/foodasb/products/4797604813?NaPm=ct%3Dkos9g6zc%7Cci%3D584fad09bf4d4577801c94819b3bd854c3c89805%7Ctr%3Dslsl%7Csn%3D549704%7Chk%3D92f9a2ff6833cbc990e6b30eb68257c90dc1ae09'
   },
@@ -589,7 +589,7 @@ List<Map<String, dynamic>> productData = [
     'price': 7900,
     'discounted_price': null,
     'image_path':
-        'assets\images\FoodPictures\LateNightFood_list\LateNightFood_2.jpeg',
+        'assets/images/FoodPictures/LateNightFood_list/LateNightFood_2.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/4689675420?NaPm=ct%3Dkos9p3yw%7Cci%3Ddc7a759021a9042b8429ff226d0b8e6d9e80d7c4%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3D3a3998998eaa25182f8d377e27aaf6b9c93d1cf5'
   },
@@ -602,7 +602,7 @@ List<Map<String, dynamic>> productData = [
     'price': 22000,
     'discounted_price': 18900,
     'image_path':
-        'assets\images\FoodPictures\LateNightFood_list\LateNightFood_3.jpeg',
+        'assets/images/FoodPictures/LateNightFood_list/LateNightFood_3.jpeg',
     'page_url':
         'https://smartstore.naver.com/ssaengdori/products/4467060596?NaPm=ct%3Dkos9u5ao%7Cci%3D3fea0ebb3dc0595eec95b90fe33455963ec93638%7Ctr%3Dslsl%7Csn%3D924495%7Chk%3Df2b1656fcfd06c34b62c9b4b7285624c842dfdf9'
   },
@@ -615,7 +615,7 @@ List<Map<String, dynamic>> productData = [
     'price': 16000,
     'discounted_price': 13000,
     'image_path':
-        'assets\images\FoodPictures\LateNightFood_list\LateNightFood_4.jpeg',
+        'assets/images/FoodPictures/LateNightFood_list/LateNightFood_4.jpeg',
     'page_url':
         'https://smartstore.naver.com/harin2ne/products/570172510?NaPm=ct%3Dkosa4hzc%7Cci%3D0yS0002j6o9uEcbA61iw%7Ctr%3Dpla%7Chk%3D6b6ee8498541c57c44bbfe56757639c2ffbf55a4'
   },
@@ -628,7 +628,7 @@ List<Map<String, dynamic>> productData = [
     'price': 3900,
     'discounted_price': null,
     'image_path':
-        'assets\images\FoodPictures\LateNightFood_list\LateNightFood_5.jpeg',
+        'assets/images/FoodPictures/LateNightFood_list/LateNightFood_5.jpeg',
     'page_url':
         'https://smartstore.naver.com/jok_many/products/4427455923?NaPm=ct%3Dkosahqu0%7Cci%3Dcef742fabda6393b327a288649e1d185876bd235%7Ctr%3Dslsl%7Csn%3D897695%7Chk%3Dacc59538aac4cc8c3d069e963c1bdddf6d9c58f9'
   },
@@ -641,7 +641,7 @@ List<Map<String, dynamic>> productData = [
     'price': 5900,
     'discounted_price': null,
     'image_path':
-        'assets\images\FoodPictures\LateNightFood_list\LateNightFood_6.jpeg',
+        'assets/images/FoodPictures/LateNightFood_list/LateNightFood_6.jpeg',
     'page_url':
         'https://smartstore.naver.com/jok_many/products/4558056227?NaPm=ct%3Dkosakc74%7Cci%3Dc6be453985b937e9fd89b86cdeb23a9fb88ac48f%7Ctr%3Dslsl%7Csn%3D897695%7Chk%3D962296582cfe9425c6c635caf9b15d86c78860f1'
   },
@@ -654,7 +654,7 @@ List<Map<String, dynamic>> productData = [
     'price': 7900,
     'discounted_price': 5900, //메뉴선택에따라 금액 부가됨
     'image_path':
-        'assets\images\FoodPictures\LateNightFood_list\LateNightFood_7.jpeg',
+        'assets/images/FoodPictures/LateNightFood_list/LateNightFood_7.jpeg',
     'page_url':
         'https://smartstore.naver.com/thankyoufarmers/products/3893958953?NaPm=ct%3Dkosauzoo%7Cci%3D3fed0c003569a177a533e51fdc87631a23666a81%7Ctr%3Dslsl%7Csn%3D590530%7Chk%3Da6ecdc4d850458dbcee98930bb7a8b76492b0610'
   },
@@ -667,7 +667,7 @@ List<Map<String, dynamic>> productData = [
     'price': 9900,
     'discounted_price': 6900,
     'image_path':
-        'assets\images\FoodPictures\LateNightFood_list\LateNightFood_8.jpeg',
+        'assets/images/FoodPictures/LateNightFood_list/LateNightFood_8.jpeg',
     'page_url':
         'https://smartstore.naver.com/pigfarm_s/products/4825208972?NaPm=ct%3Dkosek11c%7Cci%3D44a6bbe42124e23ac932eb5d14da004894407ed0%7Ctr%3Dslsl%7Csn%3D1051960%7Chk%3D79b653a41d7ebe63da352a15e31aeb222cd2a7c1'
   },
@@ -680,7 +680,7 @@ List<Map<String, dynamic>> productData = [
     'price': 12000,
     'discounted_price': 9900,
     'image_path':
-        'assets\images\FoodPictures\LateNightFood_list\LateNightFood_9.jpeg',
+        'assets/images/FoodPictures/LateNightFood_list/LateNightFood_9.jpeg',
     'page_url':
         'https://smartstore.naver.com/udfc1991/products/3011990630?NaPm=ct%3Dkosbpnuo%7Cci%3Dc143e0350f90adb089c7699b4f71b59c747aac14%7Ctr%3Dslsl%7Csn%3D501263%7Chk%3Dbaa76f529bf52776726930e2078db21570a74147'
   },
@@ -693,7 +693,7 @@ List<Map<String, dynamic>> productData = [
     'price': 4900,
     'discounted_price': 3900,
     'image_path':
-        'assets\images\FoodPictures\LateNightFood_list\LateNightFood_10.jpeg',
+        'assets/images/FoodPictures/LateNightFood_list/LateNightFood_10.jpeg',
     'page_url':
         'https://smartstore.naver.com/_foodsignal/products/4749364200?NaPm=ct%3Dkosbywew%7Cci%3Da8acd53ab32e40ff8d0e4ebadfc1477d273bc315%7Ctr%3Dslsl%7Csn%3D813167%7Chk%3D1a3633669de0d7ab0682b4c44cc1e46937815d5b'
   },
@@ -706,7 +706,7 @@ List<Map<String, dynamic>> productData = [
     'serving_size': 2,
     'price': 13900,
     'discounted_price': null,
-    'image_path': 'assets\images\FoodPictures\SnackFood\SnackFood_1.jpeg',
+    'image_path': 'assets/images/FoodPictures/SnackFood/SnackFood_1.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100359417/products/5490000146?NaPm=ct%3Dkoscd3zk%7Cci%3D7365ff32ab8a47229159176bf1f1a0046f2d07af%7Ctr%3Dslsl%7Csn%3D523150%7Chk%3D28e97c011d846b45c4af6399d9060a83f5e7aaa7'
   },
@@ -718,7 +718,7 @@ List<Map<String, dynamic>> productData = [
     'serving_size': 4,
     'price': 22800,
     'discounted_price': 20520,
-    'image_path': 'assets\images\FoodPictures\SnackFood\SnackFood_2.jpeg',
+    'image_path': 'assets/images/FoodPictures/SnackFood/SnackFood_2.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/3588934498?NaPm=ct%3Dkoscqz7s%7Cci%3D034937028405fa9ff59ed8475f98ce54b5867638%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3D72217f22e0e0682ad5d321b294136216d20425d0'
   },
@@ -730,7 +730,7 @@ List<Map<String, dynamic>> productData = [
     'serving_size': 1,
     'price': 4500,
     'discounted_price': 3800, //로제떡볶이 선택하면 500원 추가됌
-    'image_path': 'assets\images\FoodPictures\SnackFood\SnackFood_3.jpeg',
+    'image_path': 'assets/images/FoodPictures/SnackFood/SnackFood_3.jpeg',
     'page_url':
         'https://smartstore.naver.com/gomssine/products/4953281698?NaPm=ct%3Dkoscunxk%7Cci%3D75c0323f4476c5ab5dc7c194249933c2d17253b9%7Ctr%3Dslsl%7Csn%3D1163457%7Chk%3D3065ef12e98849c7d4b8f5f610ccf9ac2bacba98'
   },
@@ -742,7 +742,7 @@ List<Map<String, dynamic>> productData = [
     'serving_size': null,
     'price': 6000,
     'discounted_price': 3900,
-    'image_path': 'assets\images\FoodPictures\SnackFood\SnackFood_4.jpeg',
+    'image_path': 'assets/images/FoodPictures/SnackFood/SnackFood_4.jpeg',
     'page_url':
         'https://smartstore.naver.com/bnpfood/products/4423947780?NaPm=ct%3Dkosd2q20%7Cci%3D80f515a8e9d60e95afe56b690d3899f517bbf29b%7Ctr%3Dslsl%7Csn%3D912045%7Chk%3Dae46403eb43a326f91363829b6bdeb60d726915b'
   },
@@ -754,7 +754,7 @@ List<Map<String, dynamic>> productData = [
     'serving_size': 1,
     'price': 4950,
     'discounted_price': null,
-    'image_path': 'assets\images\FoodPictures\SnackFood\SnackFood_5.jpeg',
+    'image_path': 'assets/images/FoodPictures/SnackFood/SnackFood_5.jpeg',
     'page_url':
         'https://smartstore.naver.com/8dobiz/products/218741783?n_media=11068&n_query=%EB%96%A1%EB%B3%B6%EC%9D%B4&n_rank=1&n_ad_group=grp-a001-02-000000020365230&n_ad=nad-a001-02-000000127099299&n_campaign_type=2&n_mall_pid=218741783&n_ad_group_type=2&NaPm=ct%3Dkosdg1zs%7Cci%3D0zq0001t%5FU9uJZJhTKYm%7Ctr%3Dpla%7Chk%3Decb4315340f2e51c8e19464ef737aab0a29ecaca'
   },
@@ -766,7 +766,7 @@ List<Map<String, dynamic>> productData = [
     'serving_size': null,
     'price': 17800,
     'discounted_price': 9900,
-    'image_path': 'assets\images\FoodPictures\SnackFood\SnackFood_6.jpeg',
+    'image_path': 'assets/images/FoodPictures/SnackFood/SnackFood_6.jpeg',
     'page_url':
         'https://smartstore.naver.com/udfc1991/products/4741430645?NaPm=ct%3Dkosdl5mw%7Cci%3D0ze0001ba%2D9uhyPJbLkB%7Ctr%3Dpla%7Chk%3D5f58a67a5de2fff8dfef628e6131a804b9bd52af'
   },
@@ -778,7 +778,7 @@ List<Map<String, dynamic>> productData = [
     'serving_size': null,
     'price': 6900,
     'discounted_price': null,
-    'image_path': 'assets\images\FoodPictures\SnackFood\SnackFood_7.jpeg',
+    'image_path': 'assets/images/FoodPictures/SnackFood/SnackFood_7.jpeg',
     'page_url':
         'https://smartstore.naver.com/latin/products/4569010470?NaPm=ct%3Dkosdry8g%7Cci%3D773aba032b68476f37b3f300856c58b4c70ffc95%7Ctr%3Dslsl%7Csn%3D502016%7Chk%3D69ebc7067f16e7bf746cbb067fa1caeee961b7dd'
   },
@@ -790,7 +790,7 @@ List<Map<String, dynamic>> productData = [
     'serving_size': 2,
     'price': 11900,
     'discounted_price': null,
-    'image_path': 'assets\images\FoodPictures\SnackFood\SnackFood_8.jpeg',
+    'image_path': 'assets/images/FoodPictures/SnackFood/SnackFood_8.jpeg',
     'page_url':
         'https://smartstore.naver.com/foodasb/products/4684795005?NaPm=ct%3Dkosdybeg%7Cci%3D1e956218c2dcbaba399ece6ccd0ee76027736504%7Ctr%3Dslsl%7Csn%3D549704%7Chk%3D8da9483c86d17974d9e24e6a31140773b9ffbdf6'
   },
@@ -802,7 +802,7 @@ List<Map<String, dynamic>> productData = [
     'serving_size': 2,
     'price': 12900,
     'discounted_price': null,
-    'image_path': 'assets\images\FoodPictures\SnackFood\SnackFood_9.jpeg',
+    'image_path': 'assets/images/FoodPictures/SnackFood/SnackFood_9.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/5441760030?NaPm=ct%3Dkoseaho8%7Cci%3D12a475debdc67af03c5901f1e1e6614e5d327056%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3D4fe79b293b92a91285f5fcc1264f7b2bc3f76e23'
   },
@@ -814,7 +814,7 @@ List<Map<String, dynamic>> productData = [
     'serving_size': 2,
     'price': 9900,
     'discounted_price': null,
-    'image_path': 'assets\images\FoodPictures\SnackFood\SnackFood_10.jpeg',
+    'image_path': 'assets/images/FoodPictures/SnackFood/SnackFood_10.jpeg',
     'page_url':
         'https://smartstore.naver.com/elandparkfood/products/4079851993?NaPm=ct%3Dkosedt9s%7Cci%3Dcc0af708b3d673f858f838fee06f636d189df3ec%7Ctr%3Dslsl%7Csn%3D523150%7Chk%3D6e5b559b9f2190b50c8d6d1f580e2d71c63bfca5'
   },

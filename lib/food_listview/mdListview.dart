@@ -3,14 +3,28 @@ import 'package:intl/intl.dart';
 import 'package:mealdang_mvp/detail_page/productInfo.dart';
 import 'package:mealdang_mvp/food_listview/foodData.dart';
 import 'package:mealdang_mvp/style/font.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:mealdang_mvp/food_listview/product.dart';
 
 class MealdangListview extends StatefulWidget {
+  final String categoryName;
+  final Future<Database> db;
+
+  const MealdangListview(this.categoryName, this.db);
+
   @override
   _MealdangListviewState createState() => _MealdangListviewState();
 }
 
 class _MealdangListviewState extends State<MealdangListview> {
   List<Map<String, dynamic>> _foodList = foodData;
+  Future<List<Product>> products;
+
+  @override
+  void initState() {
+    super.initState();
+    products = getProducts();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,31 +43,50 @@ class _MealdangListviewState extends State<MealdangListview> {
     final double _width = size.width;
     final double _height = size.height;
 
-    return ListView.separated(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      itemBuilder: (BuildContext context, int index) {
-        return GestureDetector(
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (BuildContext context) {
-                return ProductInfo(data: _foodList[index]);
-              }),
-            );
-          },
-          child: _itemContainer(index, _width, _height),
-        );
-      },
-      itemCount: _foodList.length,
-      separatorBuilder: (BuildContext context, int index) {
-        return Container(
-          height: 1,
-          color: Colors.black.withOpacity(0.4),
-        ); //구분 색깔 지정
-      },
-    );
+    return FutureBuilder(
+        future: products,
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+              return CircularProgressIndicator();
+            case ConnectionState.waiting:
+              return CircularProgressIndicator();
+            case ConnectionState.active:
+              return CircularProgressIndicator();
+            case ConnectionState.done:
+              if (snapshot.hasData) {
+                return ListView.separated(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  itemBuilder: (BuildContext context, int index) {
+                    Product product = snapshot.data[index];
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (BuildContext context) {
+                            return ProductInfo(data: _foodList[index]);
+                          }),
+                        );
+                      },
+                      child: _itemContainer(product, index, _width, _height),
+                    );
+                  },
+                  itemCount: snapshot.data.length,
+                  separatorBuilder: (BuildContext context, int index) {
+                    return Container(
+                      height: 1,
+                      color: Colors.black.withOpacity(0.4),
+                    ); //구분 색깔 지정
+                  },
+                );
+              } else
+                return Text('No Data');
+          }
+          return CircularProgressIndicator();
+        });
   }
 
-  Container _itemContainer(int index, double width, double height) {
+  Container _itemContainer(
+      Product product, int index, double width, double height) {
     return Container(
       color: Colors.transparent, //상품 어디를 눌러도 OnTap가능하게만듬
       padding: const EdgeInsets.symmetric(vertical: 10),
@@ -62,9 +95,11 @@ class _MealdangListviewState extends State<MealdangListview> {
           ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(10)),
             child: Hero(
-              tag: _foodList[index]["cid"],
+              //tag: _foodList[index]["cid"],
+              tag: product.id,
               child: Image.asset(
-                _foodList[index]["image"],
+                //_foodList[index]["image"],
+                product.imagePath,
                 width: width * 0.32,
                 height: width * 0.32,
               ),
@@ -78,7 +113,7 @@ class _MealdangListviewState extends State<MealdangListview> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(_foodList[index]["title"],
+                  Text(product.name,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                           fontFamily: MyFontFamily.BMJUA, fontSize: 15)),
@@ -86,7 +121,7 @@ class _MealdangListviewState extends State<MealdangListview> {
                     height: height * 0.05, //30,
                   ),
                   Text(
-                    _setPriceFormat(_foodList[index]["price"]),
+                    _setPriceFormat(product.price.toString()),
                     style: TextStyle(
                         fontFamily: MyFontFamily.BMJUA,
                         fontSize: 20,
@@ -102,7 +137,7 @@ class _MealdangListviewState extends State<MealdangListview> {
                           color: Colors.amber[600],
                         ),
                         Text(
-                          _foodList[index]["rating"],
+                          'raiting', //_foodList[index]["rating"],
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         SizedBox(width: width * 0.02),
@@ -113,7 +148,8 @@ class _MealdangListviewState extends State<MealdangListview> {
                         ),
                         SizedBox(width: width * 0.01),
                         Text(
-                          _foodList[index]["review"],
+                          'review',
+                          //_foodList[index]["review"],
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -132,4 +168,25 @@ class _MealdangListviewState extends State<MealdangListview> {
     final oCcy = new NumberFormat("#,###", "ko_KR");
     return "${oCcy.format(int.parse(priceString))}원";
   } // 가격 만원단위 형변환
+
+  Future<List<Product>> getProducts() async {
+    Database db = await widget.db;
+    String categoryName = widget.categoryName;
+    final List<Map<String, dynamic>> maps = await db
+        .rawQuery('SELECT * FROM Product WHERE category= "$categoryName"');
+    print(maps.length);
+    return List.generate(maps.length, (i) {
+      var map = maps[i];
+      return Product(
+        id: map['id'],
+        category: map['category'],
+        name: map['name'],
+        servingSize: map['serving_size'],
+        price: map['price'],
+        discountedPrice: map['discounted_price'],
+        imagePath: map['image_path'],
+        pageUrl: map['page_url'],
+      );
+    });
+  }
 }
