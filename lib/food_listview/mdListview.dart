@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:mealdang_mvp/food_listview/foodData.dart';
 import 'package:mealdang_mvp/food_listview/product.dart';
-import 'package:mealdang_mvp/detail_page/productInfo.dart';
+import 'package:mealdang_mvp/detail_page/productDetail.dart';
 import 'package:mealdang_mvp/style/font.dart';
 import 'package:mealdang_mvp/db.dart';
 
@@ -20,7 +19,6 @@ class MealdangListview extends StatefulWidget {
 }
 
 class _MealdangListviewState extends State<MealdangListview> {
-  List<Map<String, dynamic>> _foodList = foodData;
   Future<List<Product>> _products;
 
   @override
@@ -62,7 +60,7 @@ class _MealdangListviewState extends State<MealdangListview> {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) =>
-                            ProductInfo(product),
+                            ProductDetail(product),
                       ),
                     );
                   },
@@ -111,7 +109,7 @@ class _MealdangListviewState extends State<MealdangListview> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(product.name,
+                  Text('[${product.companyName}] ${product.name}',
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                           fontFamily: MyFontFamily.BMJUA, fontSize: 15)),

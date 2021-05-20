@@ -2,23 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:mealdang_mvp/food_listview/product.dart';
 import 'package:mealdang_mvp/style/font.dart';
-import 'package:mealdang_mvp/food_listview/foodData.dart';
 import 'package:intl/intl.dart';
 import 'package:mealdang_mvp/detail_page/reviewPage.dart' as review;
 import 'package:mealdang_mvp/reviewBoxContainer.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class ProductInfo extends StatefulWidget {
+class ProductDetail extends StatefulWidget {
   final Product product;
 
   //ProductInfo({Key key, this.data}) : super(key: key);
-  ProductInfo(this.product);
+  ProductDetail(this.product);
 
   @override
-  _ProductInfoState createState() => _ProductInfoState();
+  _ProductDetailState createState() => _ProductDetailState();
 }
 
-class _ProductInfoState extends State<ProductInfo> {
+class _ProductDetailState extends State<ProductDetail> {
   double _height;
   double _width;
 
@@ -28,7 +27,7 @@ class _ProductInfoState extends State<ProductInfo> {
     _height = media.size.height;
     _width = media.size.width;
     Product product = widget.product;
-    var food = foodData[0];
+    
     return Scaffold(
       appBar: AppBar(
         title: Text('[${product.companyName}] ${product.name}',
