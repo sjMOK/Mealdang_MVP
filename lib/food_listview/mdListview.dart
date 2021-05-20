@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:mealdang_mvp/detail_page/productInfo.dart';
-import 'package:mealdang_mvp/food_listview/foodData.dart';
-import 'package:mealdang_mvp/style/font.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:mealdang_mvp/food_listview/foodData.dart';
 import 'package:mealdang_mvp/food_listview/product.dart';
+import 'package:mealdang_mvp/detail_page/productInfo.dart';
+import 'package:mealdang_mvp/style/font.dart';
 import 'package:mealdang_mvp/db.dart';
 
-class MealdangListview extends StatefulWidget {
-  final String categoryName;
-  final Future<Database> db;
+import '../db.dart';
 
-  const MealdangListview(this.categoryName, this.db);
+class MealdangListview extends StatefulWidget {
+  final Future<Database> database;
+  final String categoryName;
+
+  MealdangListview(this.database, this.categoryName);
 
   @override
   _MealdangListviewState createState() => _MealdangListviewState();
@@ -19,20 +21,22 @@ class MealdangListview extends StatefulWidget {
 
 class _MealdangListviewState extends State<MealdangListview> {
   List<Map<String, dynamic>> _foodList = foodData;
-  Future<List<Product>> products;
+  Future<List<Product>> _products;
 
   @override
   void initState() {
     super.initState();
-    products = getProducts(widget.db, widget.categoryName);
+    _products = getProducts(widget.database, widget.categoryName);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('밀당',
-            style: TextStyle(fontFamily: MyFontFamily.BMJUA, fontSize: 38)),
+        title: Text(
+          '밀당',
+          style: TextStyle(fontFamily: MyFontFamily.BMJUA, fontSize: 38),
+        ),
         backgroundColor: Colors.amber[400],
       ),
       body: _myListView(),
@@ -45,45 +49,40 @@ class _MealdangListviewState extends State<MealdangListview> {
     final double _height = size.height;
 
     return FutureBuilder(
-        future: products,
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.none:
-              return CircularProgressIndicator();
-            case ConnectionState.waiting:
-              return CircularProgressIndicator();
-            case ConnectionState.active:
-              return CircularProgressIndicator();
-            case ConnectionState.done:
-              if (snapshot.hasData) {
-                return ListView.separated(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  itemBuilder: (BuildContext context, int index) {
-                    Product product = snapshot.data[index];
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(builder: (BuildContext context) {
-                            return ProductInfo(data: _foodList[index]);
-                          }),
-                        );
-                      },
-                      child: _itemContainer(product, index, _width, _height),
+      future: _products,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          if (snapshot.hasData) {
+            return ListView.separated(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              itemBuilder: (context, index) {
+                Product product = snapshot.data[index];
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ProductInfo(product),
+                      ),
                     );
                   },
-                  itemCount: snapshot.data.length,
-                  separatorBuilder: (BuildContext context, int index) {
-                    return Container(
-                      height: 1,
-                      color: Colors.black.withOpacity(0.4),
-                    ); //구분 색깔 지정
-                  },
+                  child: _itemContainer(product, index, _width, _height),
                 );
-              } else
-                return Text('No Data');
-          }
+              },
+              itemCount: snapshot.data.length,
+              separatorBuilder: (BuildContext context, int index) {
+                return Container(
+                  height: 1,
+                  color: Colors.black.withOpacity(0.4),
+                ); //구분 색깔 지정
+              },
+            );
+          } else
+            return Text('No Data');
+        } else
           return CircularProgressIndicator();
-        });
+      },
+    );
   }
 
   Container _itemContainer(
@@ -96,10 +95,8 @@ class _MealdangListviewState extends State<MealdangListview> {
           ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(10)),
             child: Hero(
-              //tag: _foodList[index]["cid"],
               tag: product.id,
               child: Image.asset(
-                //_foodList[index]["image"],
                 product.imagePath,
                 width: width * 0.32,
                 height: width * 0.32,
@@ -108,7 +105,7 @@ class _MealdangListviewState extends State<MealdangListview> {
           ),
           Expanded(
             child: Container(
-              height: height * 0.15, //원래 height *0.2 였던 것을 0.15로 바꿈
+              height: height * 0.15,
               padding: const EdgeInsets.only(left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,7 +116,7 @@ class _MealdangListviewState extends State<MealdangListview> {
                       style: TextStyle(
                           fontFamily: MyFontFamily.BMJUA, fontSize: 15)),
                   SizedBox(
-                    height: height * 0.05, //30,
+                    height: height * 0.05,
                   ),
                   Text(
                     _setPriceFormat(product.price.toString()),

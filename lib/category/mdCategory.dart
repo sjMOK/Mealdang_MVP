@@ -5,9 +5,8 @@ import 'package:mealdang_mvp/category/categoryData.dart';
 import 'package:sqflite/sqflite.dart';
 
 class MealdangCategory extends StatefulWidget {
-  //MealdangCategory({Key key}) : super(key: key);
-  final Future<Database> db;
-  MealdangCategory(this.db);
+  final Future<Database> database;
+  MealdangCategory(this.database);
 
   @override
   _MealdangCategoryState createState() => _MealdangCategoryState();
@@ -16,8 +15,9 @@ class MealdangCategory extends StatefulWidget {
 class _MealdangCategoryState extends State<MealdangCategory> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final _height = size.height;
+    final _size = MediaQuery.of(context).size;
+    final _height = _size.height;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -65,9 +65,9 @@ class _MealdangCategoryState extends State<MealdangCategory> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _catergoryContainer(context, 'koreanFood'),
-                  _catergoryContainer(context, 'chineseFood'),
-                  _catergoryContainer(context, 'japaneseFood'),
+                  _catergoryContainer('koreanFood'),
+                  _catergoryContainer('chineseFood'),
+                  _catergoryContainer('japaneseFood'),
                 ],
               ),
               SizedBox(
@@ -76,9 +76,9 @@ class _MealdangCategoryState extends State<MealdangCategory> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _catergoryContainer(context, 'westernFood'),
-                  _catergoryContainer(context, 'lateNightFood'),
-                  _catergoryContainer(context, 'snackFood'),
+                  _catergoryContainer('westernFood'),
+                  _catergoryContainer('lateNightFood'),
+                  _catergoryContainer('snackFood'),
                 ],
               ),
             ],
@@ -88,7 +88,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
     );
   }
 
-  Container _catergoryContainer(BuildContext context, String categoryName) {
+  Container _catergoryContainer(String categoryName) {
     return Container(
       child: Column(
         children: [
@@ -96,11 +96,15 @@ class _MealdangCategoryState extends State<MealdangCategory> {
             scale: 3,
             child: IconButton(
               icon: Image.asset(
-                categoryData[categoryName]['path'], // 아이콘 이미지 경로
+                categoryData[categoryName]['img_path'], // 아이콘 이미지 경로
               ),
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => MealdangListview(categoryName, widget.db)));
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        MealdangListview(widget.database, categoryName),
+                  ),
+                );
               },
             ),
           ),

@@ -41,9 +41,9 @@ Future<Database> initDatabase() async {
 }
 
 Future<List<Product>> getProducts(
-    Future<Database> database, String categoryName) async {
-  Database db = await database;
-  final List<Map<String, dynamic>> maps = await db.rawQuery('SELECT * FROM Product WHERE category= "$categoryName"');
+    Future<Database> db, String categoryName) async {
+  Database database = await db;
+  final List<Map<String, dynamic>> maps = await database.rawQuery('SELECT * FROM Product WHERE category= "$categoryName"');
   
   print('${maps.length} $categoryName rows returned');
   return List.generate(maps.length, (i) {
@@ -52,6 +52,7 @@ Future<List<Product>> getProducts(
       id: map['id'],
       category: map['category'],
       name: map['name'],
+      companyName: map['company_name'],
       servingSize: map['serving_size'],
       price: map['price'],
       discountedPrice: map['discounted_price'],
