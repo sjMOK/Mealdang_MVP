@@ -86,7 +86,7 @@ class _ReviewPageState extends State<ReviewPage> {
                           Row(
                             children: [
                               Text("5점  "),
-                              reviewScoreBox(context),
+                              reviewScoreBox(),
                             ],
                           ),
                           SizedBox(
@@ -95,7 +95,7 @@ class _ReviewPageState extends State<ReviewPage> {
                           Row(
                             children: [
                               Text("4점  "),
-                              reviewScoreBox(context),
+                              reviewScoreBox(),
                             ],
                           ),
                           SizedBox(
@@ -104,7 +104,7 @@ class _ReviewPageState extends State<ReviewPage> {
                           Row(
                             children: [
                               Text("3점  "),
-                              reviewScoreBox(context),
+                              reviewScoreBox(),
                             ],
                           ),
                           SizedBox(
@@ -113,7 +113,7 @@ class _ReviewPageState extends State<ReviewPage> {
                           Row(
                             children: [
                               Text("2점  "),
-                              reviewScoreBox(context),
+                              reviewScoreBox(),
                             ],
                           ),
                           SizedBox(
@@ -122,7 +122,7 @@ class _ReviewPageState extends State<ReviewPage> {
                           Row(
                             children: [
                               Text("1점  "),
-                              reviewScoreBox(context),
+                              reviewScoreBox(),
                             ],
                           ),
                         ],
@@ -192,7 +192,7 @@ class _ReviewPageState extends State<ReviewPage> {
   }
 }
 
-Widget reviewScoreBox(BuildContext context) {
+Widget reviewScoreBox() {
   return Stack(
     children: [
       Container(
