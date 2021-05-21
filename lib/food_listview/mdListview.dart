@@ -59,8 +59,7 @@ class _MealdangListviewState extends State<MealdangListview> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) =>
-                            ProductDetail(product),
+                        builder: (context) => ProductDetail(product),
                       ),
                     );
                   },
@@ -87,7 +86,7 @@ class _MealdangListviewState extends State<MealdangListview> {
       Product product, int index, double width, double height) {
     return Container(
       color: Colors.transparent, //상품 어디를 눌러도 OnTap가능하게만듬
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 9),
       child: Row(
         children: <Widget>[
           ClipRRect(
@@ -103,7 +102,7 @@ class _MealdangListviewState extends State<MealdangListview> {
           ),
           Expanded(
             child: Container(
-              height: height * 0.15,
+              height: width * 0.30,
               padding: const EdgeInsets.only(left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -114,41 +113,38 @@ class _MealdangListviewState extends State<MealdangListview> {
                       style: TextStyle(
                           fontFamily: MyFontFamily.BMJUA, fontSize: 15)),
                   SizedBox(
-                    height: height * 0.05,
+                    height: height * 0.04,
                   ),
-                  Text(
-                    _setPriceFormat(product.price.toString()),
-                    style: TextStyle(
-                        fontFamily: MyFontFamily.BMJUA,
-                        fontSize: 20,
-                        color: Colors.red[600]),
-                  ),
+                  _denotePrice(product.price, product.discountedPrice),
                   Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Icon(
-                          Icons.star,
-                          color: Colors.amber[600],
-                        ),
-                        Text(
-                          'raiting', //_foodList[index]["rating"],
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(width: width * 0.02),
-                        Icon(
-                          Icons.messenger_outline_rounded,
-                          color: Colors.orange[800],
-                          size: height * 0.025,
-                        ),
-                        SizedBox(width: width * 0.01),
-                        Text(
-                          'review',
-                          //_foodList[index]["review"],
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                    child: Container(
+                      height: height * 0.1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Icon(
+                            Icons.star,
+                            color: Colors.amber[600],
+                          ),
+                          Text(
+                            'raiting', //_foodList[index]["rating"],
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(width: width * 0.02),
+                          Icon(
+                            Icons.messenger_outline_rounded,
+                            color: Colors.orange[800],
+                            size: height * 0.025,
+                          ),
+                          SizedBox(width: width * 0.01),
+                          Text(
+                            'review',
+                            //_foodList[index]["review"],
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -164,4 +160,44 @@ class _MealdangListviewState extends State<MealdangListview> {
     final oCcy = new NumberFormat("#,###", "ko_KR");
     return "${oCcy.format(int.parse(priceString))}원";
   } // 가격 만원단위 형변환
+
+  Container _denotePrice(int realprice, int discountprice) {
+    String realPrice = _setPriceFormat(realprice.toString());
+    if (discountprice == null) {
+      return Container(
+        child: Text(
+          realPrice,
+          style: TextStyle(
+              fontFamily: MyFontFamily.BMJUA,
+              fontSize: 20,
+              color: Colors.red[600]),
+        ),
+      );
+    } else {
+      String discountPrice = _setPriceFormat(discountprice.toString());
+      return Container(
+          child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            realPrice,
+            style: TextStyle(
+                fontFamily: MyFontFamily.BMJUA,
+                fontSize: 15,
+                color: Colors.grey[400],
+                decoration: TextDecoration.lineThrough),
+          ),
+          Text(
+            discountPrice,
+            style: TextStyle(
+                fontFamily: MyFontFamily.BMJUA,
+                fontSize: 20,
+                color: Colors.red[600]),
+          ),
+        ],
+      ));
+
+      //return _setPriceFormat(discountprice.toString());
+    }
+  }
 }
