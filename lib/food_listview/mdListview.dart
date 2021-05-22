@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/food_listview/product.dart';
 import 'package:mealdang_mvp/detail_page/productDetail.dart';
 import 'package:mealdang_mvp/style/font.dart';
 import 'package:mealdang_mvp/db.dart';
-
-import '../db.dart';
+import 'package:mealdang_mvp/utils/util.dart';
 
 class MealdangListview extends StatefulWidget {
   final Future<Database> database;
@@ -156,13 +154,8 @@ class _MealdangListviewState extends State<MealdangListview> {
     );
   }
 
-  String _setPriceFormat(String priceString) {
-    final oCcy = new NumberFormat("#,###", "ko_KR");
-    return "${oCcy.format(int.parse(priceString))}원";
-  } // 가격 만원단위 형변환
-
   Container _denotePrice(int realprice, int discountprice) {
-    String realPrice = _setPriceFormat(realprice.toString());
+    String realPrice = setPriceFormat(realprice);
     if (discountprice == null) {
       return Container(
         child: Text(
@@ -174,30 +167,29 @@ class _MealdangListviewState extends State<MealdangListview> {
         ),
       );
     } else {
-      String discountPrice = _setPriceFormat(discountprice.toString());
+      String discountPrice = setPriceFormat(discountprice);
       return Container(
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            realPrice,
-            style: TextStyle(
-                fontFamily: MyFontFamily.BMJUA,
-                fontSize: 15,
-                color: Colors.grey[400],
-                decoration: TextDecoration.lineThrough),
-          ),
-          Text(
-            discountPrice,
-            style: TextStyle(
-                fontFamily: MyFontFamily.BMJUA,
-                fontSize: 20,
-                color: Colors.red[600]),
-          ),
-        ],
-      ));
-
-      //return _setPriceFormat(discountprice.toString());
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              realPrice,
+              style: TextStyle(
+                  fontFamily: MyFontFamily.BMJUA,
+                  fontSize: 15,
+                  color: Colors.grey[400],
+                  decoration: TextDecoration.lineThrough),
+            ),
+            Text(
+              discountPrice,
+              style: TextStyle(
+                  fontFamily: MyFontFamily.BMJUA,
+                  fontSize: 20,
+                  color: Colors.red[600]),
+            ),
+          ],
+        ),
+      );
     }
   }
 }

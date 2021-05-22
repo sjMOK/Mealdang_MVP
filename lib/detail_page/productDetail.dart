@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:mealdang_mvp/food_listview/product.dart';
 import 'package:mealdang_mvp/style/font.dart';
-import 'package:intl/intl.dart';
+//import 'package:intl/intl.dart';
 import 'package:mealdang_mvp/detail_page/reviewPage.dart' as review;
 import 'package:mealdang_mvp/reviewBoxContainer.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:mealdang_mvp/utils/util.dart';
 
 class ProductDetail extends StatefulWidget {
   final Product product;
@@ -153,7 +154,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 style: TextStyle(color: Colors.grey, fontSize: 20),
               ),
               SizedBox(width: _width * 0.01),
-              Text(_setPriceFormat(product.price)),
+              Text(setPriceFormat(product.price)),
               Text(
                 ' ${product.servingSize}인분',
                 style: TextStyle(fontSize: 12),
@@ -316,8 +317,8 @@ class _ProductDetailState extends State<ProductDetail> {
     );
   }
 
-  String _setPriceFormat(int price) {
-    final oCcy = new NumberFormat("#,###", "ko_KR");
-    return "${oCcy.format(price)}원";
-  } // 가격 만원단위 형변환
+  // String _setPriceFormat(int price) {
+  //   final oCcy = new NumberFormat("#,###", "ko_KR");
+  //   return "${oCcy.format(price)}원";
+  // } // 가격 만원단위 형변환
 }
