@@ -786,40 +786,40 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 1,
     'id': 1,
-    'spciy_level': 1,
+    'spicy_level': 1,
     'salty_level': 2,
     'sweet_level': 2,
     'content_good': '신라면도 잘 못먹는 저한테는 맵기도 적절하고 간도 잘 되어있었어요 ~!',
     'content_bad': '양이 조금은 아쉽긴 하네요 ..',
     'content_kick': '보통 순두부찌개에 계란 넣으면 맛있듯이 여기에도 계란 넣으면 맛있어요 ㅎㅎ',
-    'rating':5
+    'rating': 5
   },
   {
     'product_id': 1,
     'id': 2,
-    'spciy_level': 3,
+    'spicy_level': 3,
     'salty_level': 2,
     'sweet_level': 2,
     'content_good': '동봉되어있는 땡초 다 넣고 추가로 집에있는 청양고추 더 넣었어요 !! 조금 매콤하니 입맛에 딱 맞네요',
     'content_bad': '저같이 매운거에 미친 사람들은 좀 매콤한 맛이 덜하긴 하네요',
     'content_kick': '매운거 정말 잘 먹는다 하시면 청양고추 1~2개정도 더 썰어서 넣어보세요 ~',
-    'rating':4
+    'rating': 4
   },
   {
     'product_id': 1,
     'id': 3,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 3,
     'sweet_level': 1,
     'content_good': '레시피대로 끓일 때 혹시나 싱거울까봐 물 조금 덜 넣었어요 짜게먹는 저희 집한테는 물 100ml적게 넣은게 신의 한수네요ㅎ',
     'content_bad': '아이스박스가 터지고 배송이 조금 아쉬웠습니다 ㅜ',
     'content_kick': '제공되는 파 이외의 집에 대파있으시면 대파 좀 썰어서 넣어서 드시면 짱이에요 ㅎ',
-    'rating':4
+    'rating': 4
   },
   {
     'product_id': 1,
     'id': 4,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 2,
     'sweet_level': 2,
     'content_good': '뭐 특출나게 매운걸 좋아한다거나 짜게먹는다거나 이런거 없는데 제 입맛에 엄청 무난했음',
@@ -830,7 +830,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 1,
     'id': 5,
-    'spciy_level': 3,
+    'spicy_level': 3,
     'salty_level': 3,
     'sweet_level': 1,
     'content_good': '재료나 이런건 부족하진 않은 것 같아요',
@@ -841,18 +841,18 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 1,
     'id': 6,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 1,
     'sweet_level': 3,
     'content_good': '재료도 신선하고 배송도 빠르고 전체적으로 만족하네요',
     'content_bad': '제 입맛엔 조금 자극적이어서 설탕 좀 뿌려서 끓였더니 딱이네요 ㅎ',
     'content_kick': '너무 자극적이다 싶으시면 끓을 때 설탕 1 티스푼 넣어서 드셔보세용 ~',
-    'rating':4
+    'rating': 4
   },
   {
     'product_id': 1,
     'id': 7,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 3,
     'sweet_level': 2,
     'content_good': '재료 사오기도 귀찮고 재료 사도 1인분씩 안파니까 한번 해먹으려면 재로도 엄청 남는데 딱 좋네요 ~ 간도 적절하구요',
@@ -863,40 +863,40 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 1,
     'id': 8,
-    'spciy_level': 3,
+    'spicy_level': 3,
     'salty_level': 3,
     'sweet_level': 3,
     'content_good': '칭찬할 거는 배송 빨리오고 정갈하게 야채 정리해서 온다는것 ??',
     'content_bad': '자극적으로 먹는 입장으로는 밍밍하고 싱겁고 그러네요 기존 레시피대로했는데도 불구하고 ..;',
     'content_kick': '엄청 자극적으로 먹는 사람은 그냥 다른거 시키는 게 맞는 것 같네요 ~',
-    'rating':2
+    'rating': 2
   },
   {
     'product_id': 1,
     'id': 9,
-    'spciy_level': 3,
+    'spicy_level': 3,
     'salty_level': 2,
     'sweet_level': 2,
     'content_good': '간 적절하고 첫 입 먹었을 때는 완전 맛있다고 생각했어요 포장도 잘 되어있고 배송도 빠르고요',
     'content_bad': '계속 먹다보니 매콤하지 못해서 좀 느끼하네요 ',
     'content_kick': '느끼할 떄 쯤에 청양고추 썷어서 넣어보세요 괜찮네요 ㅎ',
-    'rating':4
+    'rating': 4
   },
   {
     'product_id': 1,
     'id': 10,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 2,
     'sweet_level': 1,
     'content_good': '집에 혼자서 사는 입장에 양도 딱 적당하고 간도 딱 맞네요 흠 잡을 곳 없어요 ',
     'content_bad': '저희집에는 배송이 좀 늦었네요 그게 아쉬워요 ㅜ',
     'content_kick': '집에 쫄면 있으시면 넣어서 드셔보세요 순쫄이라고 있는데 엄청 맛있어요 ㅎㅎㅎ',
-    'rating':5
+    'rating': 5
   },
   {
     'product_id': 2, //프레시지 장흥회관 낙지곱창전골 리뷰
     'id': 1,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 2,
     'sweet_level': 1,
     'content_good': '무난한 제 입맛에는 딱 좋았어요 간도 딱맞구 2인분이라고 적혀있는데 3명이서 먹어도 될만큼 양도 많네요 ㅎㅎㅎ',
@@ -907,40 +907,40 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 2,
     'id': 2,
-    'spciy_level': 3,
+    'spicy_level': 3,
     'salty_level': 2,
     'sweet_level': 2,
     'content_good': '양도 적절하구요 낙지하고 곱창도 신선해보이네요 포장도 깔끔하고 배송도 빨랐습니다',
     'content_bad': '불닭 몇 개든 거뜬히 먹는 저로서는 매운맛이 많이 부족해서 청양고춧가루 듬뿍과 청양고추도 넣었습니다 이러니 제 입맛에 딱 맞네요 ㅎ',
     'content_kick': '저처럼 매운거 좋아하시는 분들은 고춧가루하고 청양고추 좀 넣어서 드셔보세요 매콤한게 딱 술안주입니다 ㅎ',
-    'rating':4
+    'rating': 4
   },
   {
     'product_id': 2,
     'id': 3,
-    'spciy_level': 1,
+    'spicy_level': 1,
     'salty_level': 1,
     'sweet_level': 1,
     'content_good': '포장이 정갈하고 낙지곱창전골 하나 먹으려면 준비해야할게 엄청 많은데 딱 정량으로 오니까 남는거 없이 좋았어요 ㅎ',
     'content_bad': '기존에 식사를 굉장히 심심하게 먹는 사람인데 저한테는 너무 자극적이네요 맵고 짜요 ㅜㅜ 레시피대로 요리했는데도 불구하구 .. 일회용 쓰레기가 너무 많이나와요ㅜㅜ',
     'content_kick': '저처럼 보통 음식 심심하게 드시는 분들은 기존레시피보다 물 100mL정도 더 넣어서 드셔보세요 그럼 괜찮아질거에요',
-    'rating':3
+    'rating': 3
   },
   {
     'product_id': 2,
     'id': 4,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 2,
     'sweet_level': 2,
     'content_good': '포장 깔끔하구 야채도 신선하고 낙지,곱창도 배송치고 신선하네요 ㅎㅎ 맛도 저한테는 딱 맞았어요 !!!',
     'content_bad': '일회용 쓰레기가 많이나오네요 개선 해주셨으면 좋겠어요 !!',
     'content_kick': '다 넣고 끓이시고 나서 기름 조금 뜨는데 기름진거 싫으신 분들 살짝 기름 걷어주시면 담백하게 드실 수 있어요 !!',
-    'rating':5
+    'rating': 5
   },
   {
     'product_id': 2,
     'id': 5,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 2,
     'sweet_level': 1,
     'content_good': '이런거 하나 먹으려면 밖에서 외식해야하는데 집에서 외식하는 느낌나네요 양도 딱 3인가족이서 먹기 적당해요',
@@ -951,18 +951,18 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 2,
     'id': 6,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 3,
     'sweet_level': 1,
     'content_good': '곱창 신선한게 눈에 보이고 낙지 엄청 통통하네요 ㅎㅎㅎ 조리하기 전에서부터 기분이 좋아지는 구성이네요',
     'content_bad': '이건 제 실수이긴한데 냉장이아니고 냉동제품이네요 다들 참고해서 주문하세요~~',
     'content_kick': '기존대로 다 드시고 마지막에 라면사리 넣고 드시면 정말 맛있어요 :D',
-    'rating':5
+    'rating': 5
   },
   {
     'product_id': 2,
     'id': 7,
-    'spciy_level': 3,
+    'spicy_level': 3,
     'salty_level': 3,
     'sweet_level': 2,
     'content_good': '배송도 빠르고 야채도 잘 정돈된 상태고 냉동상태로 왔어요',
@@ -973,7 +973,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 2,
     'id': 8,
-    'spciy_level': 1,
+    'spicy_level': 1,
     'salty_level': 3,
     'sweet_level': 1,
     'content_good': '배송올 떄까지 냉동상태 훌륭하게 유지되고 신선도도 좋아요 !! 맛도 꽤 괜찮았어요 !!',
@@ -984,29 +984,139 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 2,
     'id': 9,
-    'spciy_level': 1,
+    'spicy_level': 1,
     'salty_level': 2,
     'sweet_level': 2,
     'content_good': '야채 각자 소분해서 포장 잘 되어있고 낙지나 곱창도 냉동치고는 상태가 좋네요 ',
     'content_bad': '제 입에는 좀 맵더라구요 양념은 이미 다 넣어버린 상태여서 물 좀 더 넣고 끓였어요 이러니 입에 맞네요',
     'content_kick': '의외로 전골이 매운탕 느낌이 들어서 미나리 넣어보니까 맛있네요 한번 도전해보세요 ~^^',
-    'rating':4
+    'rating': 4
   },
   {
     'product_id': 2,
     'id': 10,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 2,
     'sweet_level': 1,
     'content_good': '완전 짱 맛있어요 제가 좋아하는 곱창과 낙지조합에 진한 국물까지 .. 먹으면서 소주 생각 엄청났는데 참느라 혼났네요ㅜ',
     'content_bad': '딱히 없는데 굳이 쓰라면 포장쓰레기가 나오는 편이네요 !',
     'content_kick': '후추 좋아하시는분들 꼭 후추 뿌려서 드세요 신세계입니다 ㅎㅎㅎ',
-    'rating':5
+    'rating': 5
+  },
+  {
+    'product_id': 3,
+    'id': 1,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 3,
+    'content_good': '양도 두 명이서 먹기 딱 적당했어요 배송도 예상보다 빨리 왔어요 맛도 제 입맛에는 괜찮았습니다 ',
+    'content_bad': '음식에 단 느낌이 있는게 좋아서 그런지 단 맛은 조금 아쉬웠네요 ',
+    'content_kick': '닭갈비 살짝 달콤한 느낌 좋아하시는 분들은 집에 있는 매실액이나 물엿 조금 추가해서 드셔보세요 입맛에 딱 맞을거에요 ~',
+    'rating': 4
+  },
+  {
+    'product_id': 3,
+    'id': 2,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '전체적으로 맛 괜찮았습니다 집에서 먹는 닭갈비 치고 이정도로 맛 내는 곳은 못본 것 같네요',
+    'content_bad': '배송이 조금 늦었어요 조금 신경써주셨으면 좋겠습니다',
+    'content_kick': '라면 좋아하시는 분들 라면 따로 물에 삶아서 물기빼고 마지막에 양념과 비벼드세요 완전 맛있어요 ㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 3,
+    'id': 3,
+    'spicy_level': 2,
+    'salty_level': 1,
+    'sweet_level': 1,
+    'content_good': '두 명이서 충분히 먹을정도의 양으로 포장도 각자 소분되어서 잘 왔어요 배송도 빨랐습니다 !!',
+    'content_bad': '평소에 자극적인거 잘 못먹는데 조금 자극적이네요 그래서 저는 따로 집에 있는 양배추 더 넣어서 중화시켜서 먹었어요 그리고 떡 양이 좀 아쉽네요 ..',
+    'content_kick': '저처럼 자극적이지 않은거 좋아하는 분들이면 양배추 더 넣어서 드시거나 떡 더 추가해서 드시면 맛있게 드실 것 같아요 ㅎ',
+    'rating': 4
+  },
+  {
+    'product_id': 3,
+    'id': 4,
+    'spicy_level': 3,
+    'salty_level': 3,
+    'sweet_level': 1,
+    'content_good': '닭하고 야채들은 신선해보이고 좋았습니다 포장도 깔끔하게 잘 왔어요',
+    'content_bad': '제 입맛에는 영 안맞네요 달기만하고 매콤한 건 딱히 없네요 애들이나 좋아할 것 같아요',
+    'content_kick': '저하고 비슷한 분들은 저처럼 청양고추 1~2개 정도 넣으시고 드시면 그나마 괜찮을 것 같네요',
+    'rating': 3
+  },
+  {
+    'product_id': 3,
+    'id': 5,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '어제 아침11시정도에 시켰는데 오늘 오후1시정도에 왔네요 배송 빠르구 구성품 상태 좋아요 !! 제 입맛에는 매콤하고 달달했어요 ㅎㅎ 꽤 괜찮네요',
+    'content_bad': '단 맛이 있어서그런지 먹다보니 좀 물렸어요',
+    'content_kick': '물릴때 혹여나 집에 쟁여두시는 불닭소스 있으시면 반정도 넣고 드시면 완전 불닭이에요 ㅎㅎㅎ 한번 꼭 넣어서 드셔보세요 !',
+    'rating': 4
+  },
+  {
+    'product_id': 3,
+    'id': 6,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '맛있었어용 매운거 못먹는데 딱 저한테 매콤한 정도고 달달하니 잘 넘어가네요 ㅎㅎ',
+    'content_bad': '딱히 없었던 것 같아요 !!',
+    'content_kick': '닭 조금 남겨주고 닭 잘게 짜르고 밥하고 참기름하고 양념하고 같이 볶아서 드시면 완전 짱입니다 !',
+    'rating': 5
+  },
+  {
+    'product_id': 3,
+    'id': 7,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 3,
+    'content_good': '재료 손질 다 되어있어서 시간 굳었네요 너무 편해요~~',
+    'content_bad': '다른 댓글들 보니 달달하다는게 많던데 저는 단 느낌을 못받았네요 ?? 저한테도 달달했으면 맛있었을텐데요',
+    'content_kick': '단 맛을 위해서 큰 고구마 2개정도 썰어서 넣었습니다 이제야 제가 좋아하는 닭갈비가 됐네요 ㅎ',
+    'rating': 4
+  },
+  {
+    'product_id': 3,
+    'id': 8,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '배송 빠르고 재료도 신선하게 잘 왔어요 맛도 전체적으로 괜찮았습니다',
+    'content_bad': '조금 아쉬운 것은 매콤한게 적었습니다 칼칼하게 먹고싶었는데요ㅜ',
+    'content_kick': '저같은 경우는 청양고추 1개 넣었고 우동사리도 같이 먹었습니다 맛있네요',
+    'rating': 4
+  },
+  {
+    'product_id': 3,
+    'id': 9,
+    'spicy_level': 2,
+    'salty_level': 3,
+    'sweet_level': 1,
+    'content_good': '배송해서 도착했을 때 아이스팩이 하나도 안녹을 정도로 신선하게 왔어요 맛도 훌륭했습니다 !!',
+    'content_bad': '살짝 달아서 반이상 먹으니 좀 물렸어요',
+    'content_kick': '물릴때 집에 상추에다가 쌈장과 마늘고추 이용해서 먹으면 딱 맛있어요 ㅎㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 3,
+    'id': 10,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '완전 제 입맛에는 딱 맞았어용 매운거 잘 못먹는데 살짝 매콤하니 충분히 먹을 수 있는 정도였고 달달하기도하구요 ㅎㅎ',
+    'content_bad': '딱히 흠잡을 곳은 없었던 것 같네요 !!',
+    'content_kick': '다 드시고 볶음밥 해드실때 집에 모짜렐라 치즈 있으시면 넣어서 드셔보세요 완전 꿀맛입니다 :D',
+    'rating': 5
   },
   {
     'product_id': 31,
     'id': 1,
-    'spciy_level': 3,
+    'spicy_level': 3,
     'salty_level': 2,
     'sweet_level': 2,
     'content_good':
@@ -1018,19 +1128,19 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 31,
     'id': 2,
-    'spciy_level': 1,
+    'spicy_level': 1,
     'salty_level': 3,
     'sweet_level': 2,
     'content_good':
         '가족들 모두 만족하고 맛있게 먹었습니다! 고기도 실하고 야채들도 푸짐하네요!! 기회되면 또 시켜먹을거에용~~~',
     'content_bad': '단점은 없습니당!',
-    'content_kick': '비오는날먹으면 뜨끈한 국물이 더욱 야무지네요ㅎㅎ.. 죽까지 꼭해먹으세요!!!',
+    'content_kick': '비오는날먹으면 뜨끈한 국물이 더욱 야무지네요ㅎㅎ.. 죽까지 꼭 해 먹으세요!!!',
     'rating': 5
   },
   {
     'product_id': 31,
     'id': 3,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 2,
     'sweet_level': 1,
     'content_good':
@@ -1042,7 +1152,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 31,
     'id': 4,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 1,
     'sweet_level': 1,
     'content_good': '포장은 꼼꼼하게 개별 포장되어있어요!, 재료나 소스가 다 되어있어서 식당에서 먹는 맛이 나네요!!',
@@ -1053,7 +1163,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 31,
     'id': 5,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 2,
     'sweet_level': 2,
     'content_good': '국물이 맛있고 설명서가 있어서 요리하기엔 편해요. 배송도 괜찮았습니다.',
@@ -1064,7 +1174,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 31,
     'id': 6,
-    'spciy_level': 3,
+    'spicy_level': 3,
     'salty_level': 3,
     'sweet_level': 1,
     'content_good': '밀푀유나베 처음 먹어봤는데 샤브샤브같이 맛있어요!!!!! 육수도 맘에들고요!!!',
@@ -1075,7 +1185,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 31,
     'id': 7,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 3,
     'sweet_level': 1,
     'content_good': '남편이 먹고싶다해서 주문했는데 배송은 꽤 빠르게 받았고요! 맛도 괜찮습니다.!!',
@@ -1086,7 +1196,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 31,
     'id': 8,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 3,
     'sweet_level': 2,
     'content_good':
@@ -1098,7 +1208,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 31,
     'id': 9,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 1,
     'sweet_level': 1,
     'content_good':
@@ -1110,7 +1220,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 31,
     'id': 10,
-    'spciy_level': 1,
+    'spicy_level': 1,
     'salty_level': 2,
     'sweet_level': 2,
     'content_good': '프레시지는 못해도 기본은 넘는거 같아요1. 대충 조리했는데 음식이 예쁘게 완성됐어요!',
@@ -1121,7 +1231,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 32, //고래사 어묵우동 리뷰
     'id': 11,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 2,
     'sweet_level': 2,
     'content_good': '어묵은 역시 고래사인거같네요! 편리하고 맛있었어요!',
@@ -1132,7 +1242,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 32,
     'id': 12,
-    'spciy_level': 3,
+    'spicy_level': 3,
     'salty_level': 2,
     'sweet_level': 2,
     'content_good': '캠핑장에서 먹을라고 샀는데, 진짜 맛있네요. 다음 캠핑때도 꼭 챙겨야겠어요',
@@ -1143,7 +1253,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 32,
     'id': 13,
-    'spciy_level': 1,
+    'spicy_level': 1,
     'salty_level': 2,
     'sweet_level': 1,
     'content_good': '2인분인데 양이 괜찮은거같습니다. 해먹기도 간편하고요! 담겨온 재료만으로도 아들이랑 한끼 때웠어요!',
@@ -1154,7 +1264,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 32,
     'id': 14,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 3,
     'sweet_level': 1,
     'content_good': '술안주로 같이 먹어봤는데요 맛있습니당. 양도 꽤 괜찮고요!!',
@@ -1165,7 +1275,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 32,
     'id': 15,
-    'spciy_level': 3,
+    'spicy_level': 3,
     'salty_level': 3,
     'sweet_level': 3,
     'content_good': '어묵이 쫄깃하고 맛있습니다!! 포장도 꼼꼼하고요 국물도 시원해요!',
@@ -1176,7 +1286,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 32,
     'id': 16,
-    'spciy_level': 1,
+    'spicy_level': 1,
     'salty_level': 2,
     'sweet_level': 2,
     'content_good': '고래사 어묵은 항상 먹어도 맛있고요 ㅋㅋ 욱수도 달콤 짭조름한게 나쁘지 않아요!',
@@ -1187,7 +1297,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 32,
     'id': 17,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 3,
     'sweet_level': 2,
     'content_good': '간편하게 먹기 좋은거 같아요. 오뎅도 괜찮습니다.',
@@ -1198,7 +1308,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 32,
     'id': 18,
-    'spciy_level': 3,
+    'spicy_level': 3,
     'salty_level': 2,
     'sweet_level': 3,
     'content_good': '물양까지 꼼꼼히 알려주시고 요린이가 요리하기에 적당해요!. 맛도 있고요!!',
@@ -1209,7 +1319,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 32,
     'id': 19,
-    'spciy_level': 1,
+    'spicy_level': 1,
     'salty_level': 2,
     'sweet_level': 2,
     'content_good': '일식집에서 먹는 맛이에요. 포장상태도 괜찮고요. 부모님한테도 한번 보내드려야겠어요~',
@@ -1220,7 +1330,7 @@ List<Map<String, dynamic>> reviewData = [
   {
     'product_id': 32,
     'id': 20,
-    'spciy_level': 2,
+    'spicy_level': 2,
     'salty_level': 3,
     'sweet_level': 2,
     'content_good': '우삼겹이랑 어묵우동이랑 의외로 궁합이 괜찮네요!. 어묵 퀄도 좋고요.',
