@@ -24,11 +24,11 @@ class _ProductDetailState extends State<ProductDetail> {
 
   @override
   Widget build(BuildContext context) {
-    MediaQueryData media = MediaQuery.of(context);
-    _height = media.size.height;
-    _width = media.size.width;
+    MediaQueryData _media = MediaQuery.of(context);
+    _height = _media.size.height;
+    _width = _media.size.width;
     Product product = widget.product;
-    
+
     return Scaffold(
       appBar: AppBar(
         title: Text('[${product.companyName}] ${product.name}',
@@ -39,7 +39,7 @@ class _ProductDetailState extends State<ProductDetail> {
         backgroundColor: Colors.amber[400],
         centerTitle: true,
       ),
-      body: _scroll(product), 
+      body: _scroll(product),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.all(8.0),
         child: ElevatedButton(
@@ -77,28 +77,15 @@ class _ProductDetailState extends State<ProductDetail> {
           width: _width * 0.95,
           child: Column(
             children: [
-              SizedBox(height: 12.0),
               _productImg(product),
-              Divider(
-                color: Colors.grey[300],
-                thickness: 2.0,
-              ),
+              _divider(),
               _productInfo(product),
               //Container(color:Colors.red[50],width: 300,height: 100,), //제품정보)
-              Divider(
-                color: Colors.grey[300],
-                thickness: 2.0,
-              ),
+              _divider(),
               _reviewInkwellContainer(),
-              Divider(
-                color: Colors.grey[300],
-                thickness: 2.0,
-              ),
+              _divider(),
               _ratingContainer(),
-              Divider(
-                color: Colors.grey[300],
-                thickness: 2.0,
-              ),
+              _divider(),
               _reviewSection(),
             ],
           ),
@@ -107,8 +94,16 @@ class _ProductDetailState extends State<ProductDetail> {
     );
   }
 
+  Widget _divider() {
+    return Divider(
+      color: Colors.grey[300],
+      thickness: 2.0,
+    );
+  }
+
   Widget _productImg(Product product) {
     return Container(
+      padding: EdgeInsets.only(top: 12),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(10)),
         child: Hero(
@@ -234,15 +229,15 @@ class _ProductDetailState extends State<ProductDetail> {
             ),
             Column(
               children: [
-                reviewScoreBox(5),
+                _reviewScoreBox(5),
                 SizedBox(height: _height * 0.016),
-                reviewScoreBox(4),
+                _reviewScoreBox(4),
                 SizedBox(height: _height * 0.016),
-                reviewScoreBox(3),
+                _reviewScoreBox(3),
                 SizedBox(height: _height * 0.016),
-                reviewScoreBox(2),
+                _reviewScoreBox(2),
                 SizedBox(height: _height * 0.016),
-                reviewScoreBox(1),
+                _reviewScoreBox(1),
               ],
             )
           ],
@@ -251,7 +246,7 @@ class _ProductDetailState extends State<ProductDetail> {
     );
   }
 
-  Widget reviewScoreBox(int score) {
+  Widget _reviewScoreBox(int score) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -316,9 +311,4 @@ class _ProductDetailState extends State<ProductDetail> {
       }).toList(),
     );
   }
-
-  // String _setPriceFormat(int price) {
-  //   final oCcy = new NumberFormat("#,###", "ko_KR");
-  //   return "${oCcy.format(price)}원";
-  // } // 가격 만원단위 형변환
 }
