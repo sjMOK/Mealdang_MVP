@@ -98,57 +98,54 @@ class _MealdangListviewState extends State<MealdangListview> {
               ),
             ),
           ),
-          Expanded(
-            child: Container(
-              height: width * 0.30,
-              padding: const EdgeInsets.only(left: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('[${product.companyName}] ${product.name}',
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          fontFamily: MyFontFamily.BMJUA, fontSize: 15)),
-                  SizedBox(
-                    height: height * 0.04,
+          Container(
+            height: width * 0.30,
+            padding: const EdgeInsets.only(left: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  '[${product.companyName}] ${product.name}',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontFamily: MyFontFamily.BMJUA,
+                    fontSize: 15,
                   ),
-                  _denotePrice(product.price, product.discountedPrice),
-                  Expanded(
-                    child: Container(
-                      height: height * 0.1,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Icon(
-                            Icons.star,
-                            color: Colors.amber[600],
-                          ),
-                          Text(
-                            'raiting', //_foodList[index]["rating"],
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(width: width * 0.02),
-                          Icon(
-                            Icons.messenger_outline_rounded,
-                            color: Colors.orange[800],
-                            size: height * 0.025,
-                          ),
-                          SizedBox(width: width * 0.01),
-                          Text(
-                            'review',
-                            //_foodList[index]["review"],
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ],
+                ),
+                SizedBox(height: height * 0.04),
+                _denotePrice(product.price, product.discountedPrice),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Icon(
+                        Icons.star,
+                        color: Colors.amber[600],
                       ),
-                    ),
+                      Text(
+                        '4.7', //_foodList[index]["rating"],
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(width: width * 0.02),
+                      Icon(
+                        Icons.messenger_outline_rounded,
+                        color: Colors.orange[800],
+                        size: height * 0.025,
+                      ),
+                      SizedBox(width: width * 0.01),
+                      Text(
+                        '13',
+                        //_foodList[index]["review"],
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          )
+          ),
         ],
       ),
     );
