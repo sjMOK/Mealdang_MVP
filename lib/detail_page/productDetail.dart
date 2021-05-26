@@ -82,9 +82,9 @@ class _ProductDetailState extends State<ProductDetail> {
               _productInfo(product),
               //Container(color:Colors.red[50],width: 300,height: 100,), //제품정보)
               _divider(),
-              _reviewInkwellContainer(),
+              _reviewInfo(),
               _divider(),
-              _ratingContainer(),
+              _ratingInfo(),
               _divider(),
               _reviewSection(),
             ],
@@ -161,7 +161,7 @@ class _ProductDetailState extends State<ProductDetail> {
     );
   }
 
-  Widget _reviewInkwellContainer() {
+  Widget _reviewInfo() {
     return Container(
       child: InkWell(
         onTap: () {
@@ -190,7 +190,7 @@ class _ProductDetailState extends State<ProductDetail> {
     );
   }
 
-  Widget _ratingContainer() {
+  Widget _ratingInfo() {
     return Container(
       child: IntrinsicHeight(
         child: Row(
