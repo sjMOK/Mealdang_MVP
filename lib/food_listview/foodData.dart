@@ -1,50 +1,3 @@
-List<Map<String, String>> foodData = [
-  {
-    "cid": "2",
-    "title": "[프레시지] 장흥회관 낙지곱창전골",
-    "person": "(2인분)",
-    "price": "26900",
-    "review": "7",
-    "rating": "4.4",
-    "image": "assets/images/FoodPictures/KoreanFood/KoreanFood_2.jpeg",
-    "Url":
-        "https://shopping.naver.com/fresh/homemeal/stores/100069073/products/5301558235?NaPm=ct%3Dkop4q2e0%7Cci%3D3f0e2038ced5b70522a266b6cbf8935cb7144718%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3D0c72e350c4aa5a128d112c3e46d15c1c062df302"
-  },
-  {
-    "cid": "3",
-    "title": "[마이셰프] 인생 닭갈비",
-    "person": "(2인분)",
-    "price": "11900",
-    "review": "7",
-    "rating": "4.6",
-    "image": "assets/images/FoodPictures/KoreanFood/KoreanFood_3.jpeg",
-    "Url":
-        "https://shopping.naver.com/fresh/homemeal/stores/100073657/products/4858796389?NaPm=ct%3Dkop4nyrs%7Cci%3D3b7ea4f7052a4f76a20c8a2f60a2c32d0250a879%7Ctr%3Dslsl%7Csn%3D458431%7Chk%3D18680b5651286d29ededff914faec71a2aad7598"
-  },
-  {
-    "cid": "4",
-    "title": "[삼삼해물] 꽃개&새우 해물탕",
-    "person": "(2인분)",
-    "price": "15800",
-    "review": "7",
-    "rating": "4.3",
-    "image": "assets/images/FoodPictures/KoreanFood/KoreanFood_4.jpeg",
-    "Url":
-        "https://shopping.naver.com/fresh/homemeal/stores/100565794/products/4735056755?NaPm=ct%3Dkof823yo%7Cci%3D37a83728379270b3ecc0302ebc3deebe89a1e2a0%7Ctr%3Dslsl%7Csn%3D619584%7Chk%3D588da5f0f9c75e3e26b3bc6584bca65183eadfd9",
-  },
-  {
-    "cid": "5",
-    "title": "[푸드어셈블] 기승전골 곱창전골",
-    "person": "(2인분)",
-    "price": "25900",
-    "review": "7",
-    "rating": "4.5",
-    "image": "assets/images/FoodPictures/KoreanFood/KoreanFood_5.jpeg",
-    "Url":
-        "https://shopping.naver.com/fresh/homemeal/stores/100103056/products/3486202527?NaPm=ct%3Dkopew668%7Cci%3Ddb6b3aa92e39efcdbaab3a347eeb3d73fc6bc542%7Ctr%3Dslsl%7Csn%3D549704%7Chk%3D1baa6fbda6a1ae251b900f7e1720c1cfc875c105",
-  },
-];
-
 List<Map<String, dynamic>> productData = [
   {
     'id': 1,
@@ -143,30 +96,6 @@ List<Map<String, dynamic>> productData = [
         'https://shopping.naver.com/fresh/homemeal/stores/100101350/products/4699538776?NaPm=ct%3Dkope4jko%7Cci%3D53381f448e0044c835699ccaf12e390af95370f6%7Ctr%3Dslsl%7Csn%3D529390%7Chk%3Dc47cf095d1e5020071c04b474736d5401d0b9a9f'
   },
   {
-    'id': 9,
-    'category': 'koreanFood',
-    'name': '화요옥 (얼큰) 꽃만두전골',
-    'company_name': '푸드어셈블',
-    'serving_size': 2,
-    'price': 15900,
-    'discounted_price': null,
-    'image_path': 'assets/images/FoodPictures/KoreanFood/KoreanFood_9.jpeg',
-    'page_url':
-        'https://shopping.naver.com/fresh/homemeal/stores/100103056/products/4901254379?NaPm=ct%3Dkope97s8%7Cci%3D9ac7ef3bb83cff97454b2e453cc39698274aafd3%7Ctr%3Dslsl%7Csn%3D549704%7Chk%3D246c6a23035a0f7b608f0c9a516687c2028c5b84'
-  },
-  {
-    'id': 10,
-    'category': 'koreanFood',
-    'name': '안방에서 즐기는 ~ 안동시장 찜닭',
-    'company_name': '아내의쉐프',
-    'serving_size': 2,
-    'price': 18000,
-    'discounted_price': 12900,
-    'image_path': 'assets/images/FoodPictures/KoreanFood/KoreanFood_10.jpeg',
-    'page_url':
-        'https://shopping.naver.com/fresh/homemeal/stores/100073444/products/2600529037?NaPm=ct%3Dkopebbeg%7Cci%3D4121a529d32020a63914031d384c9e07d05606d9%7Ctr%3Dslsl%7Csn%3D398462%7Chk%3D63ef6dfed036175cac565206610eb4cdd2e52f2b'
-  },
-  {
     'id': 11,
     'category': 'chineseFood',
     'name': '해물누룽지탕',
@@ -261,30 +190,6 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/FoodPictures/ChineseFood/ChineseFood_8.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/5301760615?NaPm=ct%3Dkopf1tvk%7Cci%3D6cf69d20face2d4fdeda0d5fd40660591e70413c%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3Dcdcb43b6ef53ab4e48bf16ac99d68ff8950bc0d9'
-  },
-  {
-    'id': 19,
-    'category': 'chineseFood',
-    'name': '어향가지 밀키트',
-    'company_name': '프레시지',
-    'serving_size': 2,
-    'price': 15900,
-    'discounted_price': null,
-    'image_path': 'assets/images/FoodPictures/ChineseFood/ChineseFood_9.jpeg',
-    'page_url':
-        'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/5390746157?NaPm=ct%3Dkopfh0y0%7Cci%3Ddff5174e4363e6a797c44c1181dfb7cdb64746b4%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3Dd9fb4fd2c93fd2288e405d94bf297854525a27b2'
-  },
-  {
-    'id': 20,
-    'category': 'chineseFood',
-    'name': '새우 완자탕',
-    'company_name': '식스레시피',
-    'serving_size': 2,
-    'price': 9900,
-    'discounted_price': 8900,
-    'image_path': 'assets/images/FoodPictures/ChineseFood/ChineseFood_10.jpeg',
-    'page_url':
-        'https://shopping.naver.com/fresh/homemeal/stores/100068524/products/4952400382?NaPm=ct%3Dkopfiszk%7Cci%3Dd3459c503a0f289011d3185cd45a50dacc4bc9fc%7Ctr%3Dslsl%7Csn%3D448202%7Chk%3D6fbe2aed09df0124ad98fda47117c7fbe6afd040'
   },
   {
     'id': 21,
@@ -383,30 +288,6 @@ List<Map<String, dynamic>> productData = [
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/2972607714?NaPm=ct%3Dkopfyy08%7Cci%3Ddcb62e52c325873dcd06bf40cee52f79eced7588%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3D0485781b62eb54e35e30ca8c6899892b2286e9c4'
   },
   {
-    'id': 29,
-    'category': 'westernFood',
-    'name': '레드와인스테이크',
-    'company_name': '마이셰프',
-    'serving_size': 2,
-    'price': 23000,
-    'discounted_price': 16900,
-    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_9.jpeg',
-    'page_url':
-        'https://smartstore.naver.com/recipebox_mychef/products/3069582988?NaPm=ct%3Dkopg06rc%7Cci%3D8f6805faeafa3a54ff4838b88e0d7fe137626093%7Ctr%3Dslsl%7Csn%3D458431%7Chk%3Dc1e7259052723c66176a083bfc1bee48b431df1e'
-  },
-  {
-    'id': 30,
-    'category': 'westernFood',
-    'name': '보일링 랍스터 크랩 밀키트',
-    'company_name': '피셔맨즈',
-    'serving_size': 2,
-    'price': 72000,
-    'discounted_price': 55000,
-    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_10.jpeg',
-    'page_url':
-        'https://smartstore.naver.com/fishermans/products/5253312263?NaPm=ct%3Dkopg2adk%7Cci%3D71644013ccac3644b9538dc92a3914af50deb085%7Ctr%3Dslsl%7Csn%3D1201396%7Chk%3D61a24d614325802fc449af784435ecdd8979b970'
-  },
-  {
     'id': 31,
     'category': 'japaneseFood',
     'name': '밀푀유나베',
@@ -502,32 +383,6 @@ List<Map<String, dynamic>> productData = [
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100103056/products/5279375183?NaPm=ct%3Dkos8oi2g%7Cci%3D198185b64fb5757c9378ae1861a3d063ba94f09e%7Ctr%3Dslsl%7Csn%3D549704%7Chk%3De57a9aee12f3b44b4f26409baeeb378075706c48'
   },
-  {
-    'id': 39,
-    'category': 'japaneseFood',
-    'name': '냄비가득 5분 가쓰오 어묵우동',
-    'company_name': '마이셰프',
-    'serving_size': 2,
-    'price': 8900,
-    'discounted_price': null,
-    'image_path': 'assets/images/FoodPictures/JapaneseFood/JapaneseFood_9.jpeg',
-    'page_url':
-        'https://shopping.naver.com/fresh/homemeal/stores/100073657/products/4843507972?NaPm=ct%3Dkos8s25k%7Cci%3Daf8ed5c975b38095ea8b92d40dd78f02c664e4ee%7Ctr%3Dslsl%7Csn%3D458431%7Chk%3D51d857c47c7f9c81d4c37a15069619b3727728aa'
-  },
-  {
-    'id': 40,
-    'category': 'japaneseFood',
-    'name': '해물가득 오꼬노미야끼 밀키트',
-    'company_name': '마이스푼',
-    'serving_size': 2,
-    'price': 11000,
-    'discounted_price': 9900,
-    'image_path':
-        'assets/images/FoodPictures/JapaneseFood/JapaneseFood_10.jpeg',
-    'page_url':
-        'https://smartstore.naver.com/momscooking/products/4901251142?NaPm=ct%3Dkos8yieo%7Cci%3Dae0f98959d38ea68039efededd0f04bf1bc1df8d%7Ctr%3Dslsl%7Csn%3D1221302%7Chk%3D5a38e8e26fba15474318f09ff78ef3aa43343b25'
-  },
-  //야식
   {
     'id': 41,
     'category': 'lateNightFood',
@@ -633,33 +488,6 @@ List<Map<String, dynamic>> productData = [
         'https://smartstore.naver.com/pigfarm_s/products/4825208972?NaPm=ct%3Dkosek11c%7Cci%3D44a6bbe42124e23ac932eb5d14da004894407ed0%7Ctr%3Dslsl%7Csn%3D1051960%7Chk%3D79b653a41d7ebe63da352a15e31aeb222cd2a7c1'
   },
   {
-    'id': 49,
-    'category': 'lateNightFood',
-    'name': '소곱창 대창 막창 염통 대파김치 소스포함 곱창파는 청년들',
-    'company_name': '곱창파는 청년들',
-    'serving_size': null, // 댓글 참고하면 1~2인분정도되는듯
-    'price': 12000,
-    'discounted_price': 9900,
-    'image_path':
-        'assets/images/FoodPictures/LateNightFood/LateNightFood_9.jpeg',
-    'page_url':
-        'https://smartstore.naver.com/udfc1991/products/3011990630?NaPm=ct%3Dkosbpnuo%7Cci%3Dc143e0350f90adb089c7699b4f71b59c747aac14%7Ctr%3Dslsl%7Csn%3D501263%7Chk%3Dbaa76f529bf52776726930e2078db21570a74147'
-  },
-  {
-    'id': 50,
-    'category': 'lateNightFood',
-    'name': '양념 벌집 국내산 돼지 껍데기 200g',
-    'company_name': '집에서먹자',
-    'serving_size': 1,
-    'price': 4900,
-    'discounted_price': 3900,
-    'image_path':
-        'assets/images/FoodPictures/LateNightFood/LateNightFood_10.jpeg',
-    'page_url':
-        'https://smartstore.naver.com/_foodsignal/products/4749364200?NaPm=ct%3Dkosbywew%7Cci%3Da8acd53ab32e40ff8d0e4ebadfc1477d273bc315%7Ctr%3Dslsl%7Csn%3D813167%7Chk%3D1a3633669de0d7ab0682b4c44cc1e46937815d5b'
-  },
-  //분식
-  {
     'id': 51,
     'category': 'snackFood',
     'name': '즉석 떡볶이와 트리플 튀김',
@@ -754,30 +582,6 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/FoodPictures/SnackFood/SnackFood_8.jpeg',
     'page_url':
         'https://smartstore.naver.com/foodasb/products/4684795005?NaPm=ct%3Dkosdybeg%7Cci%3D1e956218c2dcbaba399ece6ccd0ee76027736504%7Ctr%3Dslsl%7Csn%3D549704%7Chk%3D8da9483c86d17974d9e24e6a31140773b9ffbdf6'
-  },
-  {
-    'id': 59,
-    'category': 'snackFood',
-    'name': '호로록 로제 떡볶이 ',
-    'company_name': '프레시지',
-    'serving_size': 2,
-    'price': 12900,
-    'discounted_price': null,
-    'image_path': 'assets/images/FoodPictures/SnackFood/SnackFood_9.jpeg',
-    'page_url':
-        'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/5441760030?NaPm=ct%3Dkoseaho8%7Cci%3D12a475debdc67af03c5901f1e1e6614e5d327056%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3D4fe79b293b92a91285f5fcc1264f7b2bc3f76e23'
-  },
-  {
-    'id': 60,
-    'category': 'snackFood',
-    'name': '애슐리 오리지널 까르보나라 떡볶이',
-    'company_name': '애슐리 쉐프박스',
-    'serving_size': 2,
-    'price': 9900,
-    'discounted_price': null,
-    'image_path': 'assets/images/FoodPictures/SnackFood/SnackFood_10.jpeg',
-    'page_url':
-        'https://smartstore.naver.com/elandparkfood/products/4079851993?NaPm=ct%3Dkosedt9s%7Cci%3Dcc0af708b3d673f858f838fee06f636d189df3ec%7Ctr%3Dslsl%7Csn%3D523150%7Chk%3D6e5b559b9f2190b50c8d6d1f580e2d71c63bfca5'
   },
 ];
 
