@@ -936,7 +936,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 5
   },
   {
-    'product_id': 31,
+    'product_id': 25,
     'id': 1,
     'spicy_level': 3,
     'salty_level': 2,
@@ -948,7 +948,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 5
   },
   {
-    'product_id': 31,
+    'product_id': 25,
     'id': 2,
     'spicy_level': 1,
     'salty_level': 3,
@@ -960,7 +960,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 5
   },
   {
-    'product_id': 31,
+    'product_id': 25,
     'id': 3,
     'spicy_level': 2,
     'salty_level': 2,
@@ -972,7 +972,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 31,
+    'product_id': 25,
     'id': 4,
     'spicy_level': 2,
     'salty_level': 1,
@@ -983,7 +983,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 31,
+    'product_id': 25,
     'id': 5,
     'spicy_level': 2,
     'salty_level': 2,
@@ -994,7 +994,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 3
   },
   {
-    'product_id': 31,
+    'product_id': 25,
     'id': 6,
     'spicy_level': 3,
     'salty_level': 3,
@@ -1005,7 +1005,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 31,
+    'product_id': 25,
     'id': 7,
     'spicy_level': 2,
     'salty_level': 3,
@@ -1016,7 +1016,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 31,
+    'product_id': 25,
     'id': 8,
     'spicy_level': 2,
     'salty_level': 3,
@@ -1028,7 +1028,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 31,
+    'product_id': 25,
     'id': 9,
     'spicy_level': 2,
     'salty_level': 1,
@@ -1040,7 +1040,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 31,
+    'product_id': 25,
     'id': 10,
     'spicy_level': 1,
     'salty_level': 2,
@@ -1051,7 +1051,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 32, //고래사 어묵우동 리뷰
+    'product_id': 26,
     'id': 11,
     'spicy_level': 2,
     'salty_level': 2,
@@ -1062,7 +1062,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 5
   },
   {
-    'product_id': 32,
+    'product_id': 26,
     'id': 12,
     'spicy_level': 3,
     'salty_level': 2,
@@ -1073,7 +1073,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 5
   },
   {
-    'product_id': 32,
+    'product_id': 26,
     'id': 13,
     'spicy_level': 1,
     'salty_level': 2,
@@ -1084,7 +1084,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 32,
+    'product_id': 26,
     'id': 14,
     'spicy_level': 2,
     'salty_level': 3,
@@ -1095,7 +1095,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 32,
+    'product_id': 26,
     'id': 15,
     'spicy_level': 3,
     'salty_level': 3,
@@ -1106,7 +1106,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 5
   },
   {
-    'product_id': 32,
+    'product_id': 26,
     'id': 16,
     'spicy_level': 1,
     'salty_level': 2,
@@ -1117,7 +1117,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 32,
+    'product_id': 26,
     'id': 17,
     'spicy_level': 2,
     'salty_level': 3,
@@ -1128,7 +1128,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 32,
+    'product_id': 26,
     'id': 18,
     'spicy_level': 3,
     'salty_level': 2,
@@ -1139,7 +1139,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 32,
+    'product_id': 26,
     'id': 19,
     'spicy_level': 1,
     'salty_level': 2,
@@ -1150,7 +1150,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 32,
+    'product_id': 26,
     'id': 20,
     'spicy_level': 2,
     'salty_level': 3,
