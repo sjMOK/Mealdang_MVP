@@ -61,3 +61,46 @@ Future<List<Product>> getProducts(
     );
   });
 }
+
+Future<List<Product>> getAllProducts(Future<Database> db) async{
+  Database database = await db;
+
+  final List<Map<String, dynamic>> maps = await database.rawQuery('SELECT * FROM Product');
+
+  print('${maps.length} rows returned');
+  return List.generate(maps.length, (i) {
+    var map = maps[i];
+    return Product(
+      id: map['id'],
+      category: map['category'],
+      name: map['name'],
+      companyName: map['company_name'],
+      servingSize: map['serving_size'],
+      price: map['price'],
+      discountedPrice: map['discounted_price'],
+      imagePath: map['image_path'],
+      pageUrl: map['page_url'],
+    );
+  });
+}
+
+Future<List<Product>> getSearchingProducts(Future<Database> db, String text) async{
+  Database database = await db;
+  final List<Map<String, dynamic>> maps = await database.rawQuery('SELECT * FROM Product WHERE name LIKE "%$text%"');
+
+  //print('${maps.length} $text like rows returned');
+  return List.generate(maps.length, (i) {
+    var map = maps[i];
+    return Product(
+      id: map['id'],
+      category: map['category'],
+      name: map['name'],
+      companyName: map['company_name'],
+      servingSize: map['serving_size'],
+      price: map['price'],
+      discountedPrice: map['discounted_price'],
+      imagePath: map['image_path'],
+      pageUrl: map['page_url'],
+    );
+  });
+}
