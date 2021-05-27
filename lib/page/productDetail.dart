@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:mealdang_mvp/food_listview/product.dart';
+import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/style/font.dart';
 //import 'package:intl/intl.dart';
-import 'package:mealdang_mvp/detail_page/reviewPage.dart' as review;
+import 'package:mealdang_mvp/page/reviewPage.dart' as review;
 import 'package:mealdang_mvp/reviewBoxContainer.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mealdang_mvp/utils/util.dart';

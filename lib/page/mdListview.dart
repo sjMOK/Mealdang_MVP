@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:mealdang_mvp/food_listview/product.dart';
-import 'package:mealdang_mvp/detail_page/productDetail.dart';
+import 'package:mealdang_mvp/data/product.dart';
+import 'package:mealdang_mvp/page/productDetail.dart';
 import 'package:mealdang_mvp/style/font.dart';
-import 'package:mealdang_mvp/db.dart';
+import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 
 class MealdangListview extends StatefulWidget {

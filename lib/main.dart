@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mealdang_mvp/category/mdCategory.dart';
-import 'package:mealdang_mvp/db.dart';
+import 'package:mealdang_mvp/database/db.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:mealdang_mvp/mealdangHome.dart';
+import 'package:mealdang_mvp/page/mealdangHome.dart';
 
 void main() => runApp(MyApp());
 

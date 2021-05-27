@@ -1,7 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:mealdang_mvp/food_listview/FoodData.dart';
-import 'package:mealdang_mvp/food_listview/product.dart';
+import 'package:mealdang_mvp/data/ProductData.dart';
+import 'package:mealdang_mvp/data/product.dart';
 
 Future<Database> initDatabase() async {
   var databasesPath = await getDatabasesPath();

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mealdang_mvp/database/db.dart';
-import 'package:mealdang_mvp/food_listview/mdListview.dart';
+import 'package:mealdang_mvp/page/mdListview.dart';
 import '../style/font.dart';
-import 'package:mealdang_mvp/category/categoryData.dart';
+import 'package:mealdang_mvp/data/categoryData.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:mealdang_mvp/food_listview/product.dart';
 
 class MealdangCategory extends StatefulWidget {
   final Future<Database> database;

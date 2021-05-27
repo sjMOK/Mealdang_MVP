@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mealdang_mvp/category/mdCategory.dart';
+import 'package:mealdang_mvp/page/mdCategory.dart';
 import 'package:mealdang_mvp/database/db.dart';
-import 'package:mealdang_mvp/food_listview/mdListview.dart';
 import 'package:mealdang_mvp/style/font.dart';
-import 'package:mealdang_mvp/category/categoryData.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:mealdang_mvp/food_listview/product.dart';
+import 'package:mealdang_mvp/data/product.dart';
 
 class MealdangHome extends StatefulWidget {
   final Future<Database> database;
