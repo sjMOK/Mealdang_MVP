@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mealdang_mvp/category/mdCategory.dart';
 import 'package:mealdang_mvp/db.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:mealdang_mvp/mealdangHome.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return MaterialApp(home: Splash());
         } else {
-          return MaterialApp(home: MealdangCategory(database));
+          return MaterialApp(home: MealdangHome(database));
+          //return MaterialApp(home: MealdangCategory(database));
         }
       },
     );
