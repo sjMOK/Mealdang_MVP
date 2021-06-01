@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mealdang_mvp/food_listview/mdListview.dart';
+import 'package:provider/provider.dart';
 import '../style/font.dart';
 import 'package:mealdang_mvp/category/categoryData.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:mealdang_mvp/db.dart';
 
 class MealdangCategory extends StatefulWidget {
   final Future<Database> database;
@@ -13,11 +15,15 @@ class MealdangCategory extends StatefulWidget {
 }
 
 class _MealdangCategoryState extends State<MealdangCategory> {
+  void dispose() {
+    super.dispose();
+    Future<Database> db = closeDb();
+  }
+
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
     final _height = _size.height;
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(

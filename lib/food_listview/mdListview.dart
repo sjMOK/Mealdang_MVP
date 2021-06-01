@@ -20,7 +20,6 @@ class MealdangListview extends StatefulWidget {
 
 class _MealdangListviewState extends State<MealdangListview> {
   Future<List<Product>> _products;
-
   @override
   void initState() {
     super.initState();
@@ -37,11 +36,11 @@ class _MealdangListviewState extends State<MealdangListview> {
         ),
         backgroundColor: Colors.amber[400],
       ),
-      body: _myListView(),
+      body: _myListView(widget.database),
     );
   }
 
-  Widget _myListView() {
+  Widget _myListView(Future<Database> database) {
     final Size size = MediaQuery.of(context).size;
     final double _width = size.width;
     final double _height = size.height;
@@ -59,7 +58,8 @@ class _MealdangListviewState extends State<MealdangListview> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => ProductDetail(product),
+                        builder: (context) =>
+                            ProductDetail(widget.database, product),
                       ),
                     );
                   },
@@ -187,12 +187,24 @@ class _MealdangListviewState extends State<MealdangListview> {
                 color: Colors.grey[400],
                 decoration: TextDecoration.lineThrough),
           ),
-          Text(
-            discountPrice,
-            style: TextStyle(
-                fontFamily: MyFontFamily.BMJUA,
-                fontSize: 20,
-                color: Colors.red[600]),
+          Row(
+            children: [
+              Text(
+                discountPrice,
+                style: TextStyle(
+                    fontFamily: MyFontFamily.BMJUA,
+                    fontSize: 20,
+                    color: Colors.red[600]),
+              ),
+              Text(
+                " (25%)",
+                style: TextStyle(
+                  fontFamily: MyFontFamily.BMJUA,
+                  fontSize: 14,
+                  color: Colors.red[600],
+                ),
+              ),
+            ],
           ),
         ],
       ));

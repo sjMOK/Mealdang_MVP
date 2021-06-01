@@ -1,7 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:mealdang_mvp/food_listview/review.dart';
 
-class ReviewBox extends StatelessWidget {
+class ReviewBox extends StatefulWidget {
+  Review review;
+  int separator;
+  ReviewBox(this.review, this.separator);
+  Text textEffectPDetail(String text) {
+    if (this.separator == 1)
+      return Text(
+        "$text",
+        maxLines: 2,
+        style: TextStyle(fontSize: 16),
+        overflow: TextOverflow.ellipsis,
+      );
+    return Text(
+      "$text",
+      style: TextStyle(fontSize: 16),
+    );
+  }
+
+  @override
+  _ReviewBoxState createState() => _ReviewBoxState();
+}
+
+class _ReviewBoxState extends State<ReviewBox> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -23,28 +46,28 @@ class ReviewBox extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "부드러운해삼1201",
+                      "${widget.review.id}}",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                     ),
                     Row(
                       children: [
                         Text(
-                          "매운맛/",
+                          "매운맛:${widget.review.spciyLevel}",
                           style: TextStyle(fontSize: 10),
                         ),
                         Text(
-                          "짠맛/",
+                          "짠맛:${widget.review.saltyLevel}",
                           style: TextStyle(fontSize: 10),
                         ),
                         Text(
-                          "단맛",
+                          "단맛:${widget.review.sweetLevel}",
                           style: TextStyle(fontSize: 10),
                         ),
                       ],
                     ),
                     RatingBarIndicator(
-                      rating: 3,
+                      rating: widget.review.rating.toDouble(),
                       itemPadding:
                           EdgeInsets.symmetric(vertical: 3, horizontal: 0),
                       itemBuilder: (context, index) => Icon(
@@ -61,8 +84,7 @@ class ReviewBox extends StatelessWidget {
           ),
           Container(
             // 리뷰 작성 된 곳
-            width: _width - _width*0.1,
-            height: _height * 0.2,
+            width: _width - _width * 0.1,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -79,18 +101,14 @@ class ReviewBox extends StatelessWidget {
                           width: _width * 0.04,
                         ),
                         Container(
-                          width: _width * 0.7,
-                          height: _height * 0.06,
-                          // color: Colors.amber,
-                          child: Text(
-                            "112312312321323213123123141452161271521321315123111231231232132321312312314145216127152132131512311123123123213232131231231414521612715213213151231",
-                            style: TextStyle(fontSize: 16),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
+                            width: _width * 0.7,
+                            height: _height * 0.08,
+                            // color: Colors.amber,
+                            child: widget
+                                .textEffectPDetail(widget.review.contentGood)),
                       ],
                     ),
+                    SizedBox(height: _height * 0.03),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -100,18 +118,14 @@ class ReviewBox extends StatelessWidget {
                           width: _width * 0.04,
                         ),
                         Container(
-                          width: _width * 0.7,
-                          height: _height * 0.06,
-                          // color: Colors.orange,
-                          child: Text(
-                            "12345123451234512345123451234512345123451234512123451234512345123451234512345123451234512345123451212345",
-                            style: TextStyle(fontSize: 16),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
+                            width: _width * 0.7,
+                            height: _height * 0.08,
+                            // color: Colors.orange,
+                            child: widget
+                                .textEffectPDetail(widget.review.contentBad)),
                       ],
                     ),
+                    SizedBox(height: _height * 0.03),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -121,16 +135,11 @@ class ReviewBox extends StatelessWidget {
                           width: _width * 0.04,
                         ),
                         Container(
-                          width: _width * 0.7,
-                          height: _height * 0.06,
-                          // color: Colors.red,
-                          child: Text(
-                            "1234512345123451234512345123451234512345123451212345123451234512345123451234512345123451234512345121234512345123451234512345123451234512345123451234512123451234512345123451234512345123451234512345123451212345",
-                            style: TextStyle(fontSize: 16),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
+                            width: _width * 0.7,
+                            height: _height * 0.08,
+                            // color: Colors.red,
+                            child: widget
+                                .textEffectPDetail(widget.review.contentKick)),
                       ],
                     )
                   ],
