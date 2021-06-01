@@ -50,7 +50,7 @@ List<Map<String, dynamic>> productData = [
   {
     'id': 5,
     'category': 'koreanFood',
-    'name': '기승전골 대창전',
+    'name': '기승전골 대창전골',
     'company_name': '푸드어셈블',
     'serving_size': 2,
     'price': 25900,
