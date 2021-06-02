@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mealdang_mvp/page/mdCategory.dart';
-import 'package:mealdang_mvp/database/db.dart';
-import 'package:mealdang_mvp/style/font.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:mealdang_mvp/data/product.dart';
+import 'package:mealdang_mvp/style/font.dart';
+import 'package:mealdang_mvp/page/mdCategory.dart';
+import 'package:mealdang_mvp/page/searchPage.dart';
 
 class MealdangHome extends StatefulWidget {
   final Future<Database> database;
@@ -14,21 +13,18 @@ class MealdangHome extends StatefulWidget {
 }
 
 class _MealdangHomeState extends State<MealdangHome> {
-  Future<List<Product>> _products;
-  final List<Widget> _widgetOptions = <Widget>[];
+  List<Widget> _widgetOptions;
   int _selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
-
-    _products = getAllProducts(widget.database);
-    _widgetOptions.addAll([
+    _widgetOptions = [
       MealdangCategory(widget.database),
-      Text('search', style: TextStyle(fontSize: 32)),
-      Text('manual', style: TextStyle(fontSize: 32)),
-      Text('servey', style: TextStyle(fontSize: 32)),
-    ]);
+      SearchPage(widget.database),
+      Center(child: Text('manual', style: TextStyle(fontSize: 32))),
+      Center(child: Text('servey', style: TextStyle(fontSize: 32))),
+    ];
   }
 
   void _onItemTapped(int index) {
@@ -39,68 +35,75 @@ class _MealdangHomeState extends State<MealdangHome> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text(
-          '밀당',
-          style: TextStyle(
-            fontFamily: MyFontFamily.BMJUA,
-            fontSize: 38,
+    return WillPopScope(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text(
+            '밀당',
+            style: TextStyle(
+              fontFamily: MyFontFamily.BMJUA,
+              fontSize: 38,
+              color: const Color.fromRGBO(255, 156, 30, 1),
+            ),
           ),
+          actions: [
+            IconButton(
+              icon: Icon(
+                Icons.search,
+                color: const Color.fromRGBO(255, 156, 30, 1),
+              ),
+              onPressed: () {
+                setState(() {
+                  _selectedIndex = 1;
+                });
+              },
+            ),
+          ],
+          centerTitle: true,
+          elevation: 0.0,
+          backgroundColor: Colors.white,
         ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              setState(() {
-                _selectedIndex = 1;
-              });
-            },
-          ),
-        ],
-        centerTitle: true,
-        elevation: 0.0,
-        backgroundColor: Colors.amber[400],
+        body: IndexedStack(
+          index: _selectedIndex,
+          children: _widgetOptions,
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+              ),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.search,
+              ),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.description,
+              ),
+              label: 'Manual',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.email,
+              ),
+              label: 'Servey',
+            ),
+          ],
+          selectedItemColor: const Color.fromRGBO(255, 156, 30, 1),
+          unselectedItemColor: Colors.grey,
+          selectedIconTheme: IconThemeData(color: const Color.fromRGBO(255, 156, 30, 1)),
+          unselectedIconTheme: IconThemeData(color: Colors.grey),
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
       ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: Colors.grey,
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-              color: Colors.grey,
-            ),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.description,
-              color: Colors.grey,
-            ),
-            label: 'Manual',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.email,
-              color: Colors.grey,
-            ),
-            label: 'Servey',
-          ),
-        ],
-        selectedItemColor: Colors.amber,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-      ),
+      onWillPop: () {},
     );
   }
 }
