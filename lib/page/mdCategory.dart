@@ -13,41 +13,51 @@ class MealdangCategory extends StatefulWidget {
 }
 
 class _MealdangCategoryState extends State<MealdangCategory> {
+  @override
+  void initState() {
+    super.initState();
+    print('Category initState()');
+  }
+
+  void dispose() {
+    super.dispose();
+    print('Category dispose()');
+  }
 
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
     final _height = _size.height;
     return Container(
-        child: Padding(
-          padding: //EdgeInsets.symmetric(vertical: 40, horizontal: 60),
-              EdgeInsets.symmetric(vertical: 0, horizontal: 60),
-          child: Column(
-            children: [
-              SizedBox(height: _height * 0.18),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _catergoryContainer('koreanFood'),
-                  _catergoryContainer('chineseFood'),
-                  _catergoryContainer('japaneseFood'),
-                ],
-              ),
-              SizedBox(
-                height: _height * 0.2,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _catergoryContainer('westernFood'),
-                  _catergoryContainer('lateNightFood'),
-                  _catergoryContainer('snackFood'),
-                ],
-              ),
-            ],
-          ),
+      child: Padding(
+        padding: //EdgeInsets.symmetric(vertical: 40, horizontal: 60),
+            EdgeInsets.symmetric(vertical: 0, horizontal: 60),
+        child: Column(
+          children: [
+            SizedBox(height: _height * 0.18),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _catergoryContainer('koreanFood'),
+                _catergoryContainer('chineseFood'),
+                _catergoryContainer('japaneseFood'),
+              ],
+            ),
+            SizedBox(
+              height: _height * 0.2,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _catergoryContainer('westernFood'),
+                _catergoryContainer('lateNightFood'),
+                _catergoryContainer('snackFood'),
+              ],
+            ),
+          ],
         ),
-      );
+      ),
+    );
   }
 
   Container _catergoryContainer(String categoryName) {

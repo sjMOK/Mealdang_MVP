@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     Future<Database> database = initDatabase();
 
     return FutureBuilder(
-      future: Future.delayed(Duration(seconds: 0)),
+      future: Future.delayed(Duration(seconds: 1)),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return MaterialApp(home: Splash());
