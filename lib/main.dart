@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/page/mealdangHome.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -17,7 +21,6 @@ class MyApp extends StatelessWidget {
           return MaterialApp(home: Splash());
         } else {
           return MaterialApp(home: MealdangHome(database));
-          //return MaterialApp(home: MealdangCategory(database));
         }
       },
     );

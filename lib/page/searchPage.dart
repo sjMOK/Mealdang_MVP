@@ -42,19 +42,21 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
 
-    return Container(
-      width: _width * 0.95,
-      child: Column(
-        children: <Widget>[
-          TextField(
-            controller: _controller,
-            decoration: InputDecoration(hintText: '검색어를 입력하세요'),
-          ),
-          SizedBox(height: 10),
-          Expanded(
-            child: _scroll(),
-          ),
-        ],
+    return Center(
+      child: Container(
+        width: _width * 0.95,
+        child: Column(
+          children: <Widget>[
+            TextField(
+              controller: _controller,
+              decoration: InputDecoration(hintText: '검색어를 입력하세요'),
+            ),
+            SizedBox(height: 10),
+            Expanded(
+              child: _scroll(),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -72,7 +74,7 @@ class _SearchPageState extends State<SearchPage> {
                     padding: EdgeInsets.symmetric(vertical: 10),
                     child: Row(
                       children: <Widget>[
-                        Icon(Icons.search, color: Colors.grey),
+                        Icon(Icons.search, color: Color.fromRGBO(255, 156, 30, 1)),
                         SizedBox(width: 20),
                         Expanded(
                           child: Text(
