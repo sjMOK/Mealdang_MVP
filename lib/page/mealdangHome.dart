@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mealdang_mvp/page/mdCategory.dart';
-import 'package:mealdang_mvp/database/db.dart';
-import 'package:mealdang_mvp/style/font.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:mealdang_mvp/data/product.dart';
+import 'package:mealdang_mvp/style/font.dart';
+import 'package:mealdang_mvp/page/mdCategory.dart';
+import 'package:mealdang_mvp/page/searchPage.dart';
 
 class MealdangHome extends StatefulWidget {
   final Future<Database> database;
@@ -14,21 +13,19 @@ class MealdangHome extends StatefulWidget {
 }
 
 class _MealdangHomeState extends State<MealdangHome> {
-  Future<List<Product>> _products;
-  final List<Widget> _widgetOptions = <Widget>[];
+  List<Widget> _widgetOptions;
   int _selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
 
-    _products = getAllProducts(widget.database);
-    _widgetOptions.addAll([
+    _widgetOptions = [
       MealdangCategory(widget.database),
-      Text('search', style: TextStyle(fontSize: 32)),
+      SearchPage(widget.database),
       Text('manual', style: TextStyle(fontSize: 32)),
       Text('servey', style: TextStyle(fontSize: 32)),
-    ]);
+    ];
   }
 
   void _onItemTapped(int index) {
