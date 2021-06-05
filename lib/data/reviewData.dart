@@ -1888,123 +1888,8 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 25,
-    'id': 1,
-    'spicy_level': 3,
-    'salty_level': 2,
-    'sweet_level': 2,
-    'content_good':
-        '국물이 너무 맛있습니다~! 밀키트라서 큰 기대 안하고 주문했는데 상상이상의 퀄리티 음식이 돼서 깜짝 놀랐어요!! 음식 잘 못하는데 레시피 보고 따라하기 쉬웠어요 ㅎㅎ',
-    'content_bad': '야채 상태가 조금만더 싱싱했으면 좋을것 같아요!!',
-    'content_kick': '그냥 주어진 레시피대로 해먹는게 제일 맛있어요!!!',
-    'rating': 5
-  },
-  {
-    'product_id': 25,
-    'id': 2,
-    'spicy_level': 1,
-    'salty_level': 3,
-    'sweet_level': 2,
-    'content_good':
-        '가족들 모두 만족하고 맛있게 먹었습니다! 고기도 실하고 야채들도 푸짐하네요!! 기회되면 또 시켜먹을거에용~~~',
-    'content_bad': '단점은 없습니당!',
-    'content_kick': '비오는날먹으면 뜨끈한 국물이 더욱 야무지네요ㅎㅎ.. 죽까지 꼭 해 먹으세요!!!',
-    'rating': 5
-  },
-  {
-    'product_id': 25,
-    'id': 3,
-    'spicy_level': 2,
-    'salty_level': 2,
-    'sweet_level': 1,
-    'content_good':
-        '채소들도 좋고 똥손인 제가 이런 음식을 탄생시킬수 있다는게 놀랍습니다. 연로하신 아버지가 감동하셨습니다. 감사합니다.',
-    'content_bad': '배송이 조오오오금 느린게 아쉽습니다..',
-    'content_kick': '다먹고, 볶음밥까지 해먹으면 화룡점정입니다.',
-    'rating': 4
-  },
-  {
-    'product_id': 25,
-    'id': 4,
-    'spicy_level': 2,
-    'salty_level': 1,
-    'sweet_level': 1,
-    'content_good': '포장은 꼼꼼하게 개별 포장되어있어요!, 재료나 소스가 다 되어있어서 식당에서 먹는 맛이 나네요!!',
-    'content_bad': '육수가 조금 짠거 같네용..',
-    'content_kick': '집들이 할때 이용하면 좋을거 같고, 집에있는 야채들 추가해서 먹으면 더 좋아요!',
-    'rating': 4
-  },
-  {
-    'product_id': 25,
-    'id': 5,
-    'spicy_level': 2,
-    'salty_level': 2,
-    'sweet_level': 2,
-    'content_good': '국물이 맛있고 설명서가 있어서 요리하기엔 편해요. 배송도 괜찮았습니다.',
-    'content_bad': '고기상태가 아쉬웠어요. 고기 싱싱했으면 더 좋을거 같습니다. 그리고 둘이서 먹기엔 조금 아쉬운 양이네요',
-    'content_kick': '고기상태 안좋으면 집에있는 고기로 넣어서 다시 해드시는게 좋을거 같아요.',
-    'rating': 3
-  },
-  {
-    'product_id': 25,
-    'id': 6,
-    'spicy_level': 3,
-    'salty_level': 3,
-    'sweet_level': 1,
-    'content_good': '밀푀유나베 처음 먹어봤는데 샤브샤브같이 맛있어요!!!!! 육수도 맘에들고요!!!',
-    'content_bad': '깻잎 상태가 별로였어요 ㅠㅠㅠㅠ..',
-    'content_kick': '각자가 선호하는 야채 곁들여서 조리하면 좀더 완성적인 음식이 나올거같네용!',
-    'rating': 4
-  },
-  {
-    'product_id': 25,
-    'id': 7,
-    'spicy_level': 2,
-    'salty_level': 3,
-    'sweet_level': 1,
-    'content_good': '남편이 먹고싶다해서 주문했는데 배송은 꽤 빠르게 받았고요! 맛도 괜찮습니다.!!',
-    'content_bad': '2인분이라기엔 조금 모자란거 같아요.',
-    'content_kick': '칼국수랑 밥이랑 다른 사리들 추가해서 먹으면 괜찮아요!',
-    'rating': 4
-  },
-  {
-    'product_id': 25,
-    'id': 8,
-    'spicy_level': 2,
-    'salty_level': 3,
-    'sweet_level': 2,
-    'content_good':
-        '편하게 집에서 먹을수 있어서 좋았습니당. 포장도 딱딱 편하게 잘돼있고요!! 다음에는 매운맛으로 시켜먹어볼라고요!',
-    'content_bad': '포장 쓰레기가 꽤 생기는게 아쉽긴해요!!',
-    'content_kick': '레시피대로 먹고 대식가 이시면 죽까지 해드세용!!',
-    'rating': 4
-  },
-  {
-    'product_id': 25,
-    'id': 9,
-    'spicy_level': 2,
-    'salty_level': 1,
-    'sweet_level': 1,
-    'content_good':
-        '남자인 제가 첨 해보는데도 어렵지 않게 만들 수 있게 설명도 잘 돼있어요!. 와이프가 너무 좋아했습니다.',
-    'content_bad': '육수가 짜서 덜고 물을 더 넣어서 조리했어요..',
-    'content_kick': '요리를 많이 안해봐서..ㅎ 그냥 레시피대로 했는데 맛납니다.',
-    'rating': 4
-  },
-  {
-    'product_id': 25,
-    'id': 10,
-    'spicy_level': 1,
-    'salty_level': 2,
-    'sweet_level': 2,
-    'content_good': '프레시지는 못해도 기본은 넘는거 같아요1. 대충 조리했는데 음식이 예쁘게 완성됐어요!',
-    'content_bad': '야채양이 너무 적은거같아요.',
-    'content_kick': '고기 좋아하시는 분들은 고기 좀더 준비하시는게 좋을거같아요!',
-    'rating': 4
-  },
-  {
-    'product_id': 26,
-    'id': 11,
+    'product_id': 18,
+    'id': 171,
     'spicy_level': 2,
     'salty_level': 2,
     'sweet_level': 2,
@@ -2014,8 +1899,8 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 5
   },
   {
-    'product_id': 26,
-    'id': 12,
+    'product_id': 18,
+    'id': 172,
     'spicy_level': 3,
     'salty_level': 2,
     'sweet_level': 2,
@@ -2025,8 +1910,8 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 5
   },
   {
-    'product_id': 26,
-    'id': 13,
+    'product_id': 18,
+    'id': 173,
     'spicy_level': 1,
     'salty_level': 2,
     'sweet_level': 1,
@@ -2036,8 +1921,8 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 26,
-    'id': 14,
+    'product_id': 18,
+    'id': 174,
     'spicy_level': 2,
     'salty_level': 3,
     'sweet_level': 1,
@@ -2047,8 +1932,8 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 26,
-    'id': 15,
+    'product_id': 18,
+    'id': 175,
     'spicy_level': 3,
     'salty_level': 3,
     'sweet_level': 3,
@@ -2058,8 +1943,8 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 5
   },
   {
-    'product_id': 26,
-    'id': 16,
+    'product_id': 18,
+    'id': 176,
     'spicy_level': 1,
     'salty_level': 2,
     'sweet_level': 2,
@@ -2069,8 +1954,8 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 26,
-    'id': 17,
+    'product_id': 18,
+    'id': 177,
     'spicy_level': 2,
     'salty_level': 3,
     'sweet_level': 2,
@@ -2080,8 +1965,8 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 26,
-    'id': 18,
+    'product_id': 18,
+    'id': 178,
     'spicy_level': 3,
     'salty_level': 2,
     'sweet_level': 3,
@@ -2091,8 +1976,8 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 26,
-    'id': 19,
+    'product_id': 18,
+    'id': 179,
     'spicy_level': 1,
     'salty_level': 2,
     'sweet_level': 2,
@@ -2102,8 +1987,8 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 4
   },
   {
-    'product_id': 26,
-    'id': 20,
+    'product_id': 18,
+    'id': 180,
     'spicy_level': 2,
     'salty_level': 3,
     'sweet_level': 2,
@@ -2111,5 +1996,566 @@ List<Map<String, dynamic>> reviewData = [
     'content_bad': '제가 짜게 먹어서 그런진 모르겠는데 약간 싱거워요..ㅠ',
     'content_kick': '저는 우동사리 추가해서 먹었는데 2명에서 괜찮게 먹었네요',
     'rating': 4
+  },
+  {
+    'product_id': 19,
+    'id': 181,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '오랜만에 집에서 고급요리 배달시켜서 먹는 기분이었어요 조리법도 간편하고 구매해서 먹기 괜찮네',
+    'content_bad': '배송이 조금 느렸던게 아쉬웠어요',
+    'content_kick': '조리법대로 먹는게 젤 맛있는 것 같아요 !!',
+    'rating': 5
+  },
+  {
+    'product_id': 19,
+    'id': 182,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '야끼소바치고 가격도 싸고 전체적으로 맛도 괜찮았어요 !!',
+    'content_bad': '야끼소바라서 단 맛이 있을 것이라고 예상했는데 제 예상보다는 단 맛이 좀 더 강했네요 단 맛 싫어해서 좀 아쉬웠어용',
+    'content_kick': '양념을 좀 줄이거나 야채나 내용물을 추가로 더 넣으면 괜찮을거 같아요 ',
+    'rating': 4
+  },
+  {
+    'product_id': 19,
+    'id': 183,
+    'spicy_level': 1,
+    'salty_level': 1,
+    'sweet_level': 2,
+    'content_good': '구성도 괜찮고 배송도 빨랐어요 ~!',
+    'content_bad': '저한테는 쫌 짰네요 그게 아쉬웠어요 ㅜ',
+    'content_kick': '짠 거 싫어하시면 양념 양을 줄이시면 괜찮을 것 같아요 !',
+    'rating': 4
+  },
+  {
+    'product_id': 19,
+    'id': 184,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '완전 맛있어요 !! 양도 많고 둘이서 맛나게 먹었어요 :)',
+    'content_bad': '딱히 아쉬웠던 것은 없었어요 ~',
+    'content_kick': '고기 좋아하시면 차돌박이 더 넣어서 먹으면 맛있을 것 같아요 ㅎㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 19,
+    'id': 185,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '배송도 빠르고 상품도 꼼꼼하게 모두 잘 왔어요 ~ 맛도 괜찮았어요',
+    'content_bad': '양이 꽤 되서 먹다보니 좀 니글거렸어요 매콤한 맛이었으면 괜찮을 것 같네요',
+    'content_kick': '먹다가 느끼하시면 청양고추 썰어서 같이 드셔보시면 괜찮아요',
+    'rating': 4
+  },
+  {
+    'product_id': 19,
+    'id': 186,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '고기상태도 좋고 메밀 상태도 좋고 메밀 맛이 좋아요 !!',
+    'content_bad': '그 새싹순인가 야채가 안왔네요 담엔 잘 챙겨주시길 바래요 ㅜ !!',
+    'content_kick': '소바 삶으실 때 소금 좀 넣으면 찰기있고 괜찮아져요 ~!',
+    'rating': 5
+  },
+  {
+    'product_id': 19,
+    'id': 187,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '야끼소바 밖에서 한번 먹으려면 비싸서 많이 못 먹었는데 싸게 먹을 수 있어서 좋았어요 ㅎ',
+    'content_bad': '고기양이 조금 적어서 아쉽긴하네요 ^^',
+    'content_kick': '저는 고기를 좋아해서 대패삼겹살 좀 더 넣어먹었어요 :D',
+    'rating': 5
+  },
+  {
+    'product_id': 19,
+    'id': 188,
+    'spicy_level': 2,
+    'salty_level': 3,
+    'sweet_level': 2,
+    'content_good': '먹고싶을 때 냉장고에 넣어놨다가 빼서 먹을 수 있는 편리함이 너무 좋은 것 같아요 ㅎㅎ',
+    'content_bad': '저한테는 좀 싱거웠어요 그게 좀 아쉬웠어요',
+    'content_kick': '자극적으로 드시는 분들은 추가로 간 하시는게 좋을 것 같아요 ~',
+    'rating': 4
+  },
+  {
+    'product_id': 19,
+    'id': 189,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 3,
+    'content_good': '잘 먹었습니다 ~ 택배도 잘 받았고 구성도 깔끔하게 잘 왔어요 !!',
+    'content_bad': '아쉬웠던 좀 먹다보니 느끼하다는거 ?',
+    'content_kick': '김치랑 먹으니까 느끼한거 좀 풀리네요 ㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 19,
+    'id': 190,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '맛있어요 ㅎㅎ 제가 따로 요리하듯이 먹었는데 기본보다 더 맛있었어요 ㅎㅎㅎ',
+    'content_bad': '아쉬웠던 것은 없었어요 ~!!',
+    'content_kick': '저는 고기볶기전에 파기름 내고 고기볶았어요 그러니까 풍미가 완전 짱이에요 !',
+    'rating': 5
+  },
+  {
+    'product_id': 20,
+    'id': 191,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '배송도 빠르고 포장도 잘 되어있었습니다 ㅎㅎ 맛도 괜찮고 양도 풍부했습니다 ~',
+    'content_bad': '제가 그래도 매운걸 좋아하다보니까 많이 먹으니 느끼할 수 밖에없더라구요 ㅎㅎ.. 그게 좀 아쉽긴했네요 ㅎ',
+    'content_kick': '저는 느끼했을 때 스리라차(칠리)소스 따로 고기 찍어먹으니 확실히 낫더라구요 !! 여러분들도 참고하세요 ~',
+    'rating': 5
+  },
+  {
+    'product_id': 20,
+    'id': 192,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '오랜만에 맛있는 샤브샤브 먹었네요 👏 국물맛도 진했고 양도 꽤 많았습니다 잘 먹었습니다 👍',
+    'content_bad': '아쉬운점은 딱히 발견하지 못했던 것 같아요 ~!',
+    'content_kick': '고기나 야채 등 드시고 싶은 것들 추가로 먹으면 더 맛있을 것 같아요 😃',
+    'rating': 5
+  },
+  {
+    'product_id': 20,
+    'id': 193,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '너무 맛있었어요 🔥🔥 야채나 고기 상태도 신선하고 좋았어요 ㅎㅎㅎ 잘 먹었습니다',
+    'content_bad': '양이 조금 아쉽긴했어요 ㅎㅎ.. 성인 남자 둘이서 먹기에는 부족했다는 ...',
+    'content_kick': '샤브샤브엔 칼국수죠 생칼국수 사리 따로 구매하셔서 드시면 완전 맛있어요 !!',
+    'rating': 5
+  },
+  {
+    'product_id': 20,
+    'id': 194,
+    'spicy_level': 2,
+    'salty_level': 1,
+    'sweet_level': 1,
+    'content_good': '배송 잘 받았구요 포장도 잘 되어있어요 전체적으로 괜찮았습니다',
+    'content_bad': '저한테는 조금 짜긴 했어요 제가 평소에 심심하게 먹는 거 생각해주세요 ..ㅎ',
+    'content_kick': '육수에 양념을 조금 덜 넣으면 저같은 사람들한테는 잘 맞을 것 같아요',
+    'rating': 4
+  },
+  {
+    'product_id': 20,
+    'id': 195,
+    'spicy_level': 2,
+    'salty_level': 3,
+    'sweet_level': 2,
+    'content_good': '소고기 샤브샤브에 배추 들어가있는데 그 배추에서 나오는 단 맛이 너무 좋았어요 ♥️😍',
+    'content_bad': '포장이 살짝 뜯어져와서 조금 아쉽긴 했네요 ㅎ..',
+    'content_kick': '배추 좋아해서 저는 집에 배추 추가로 더 넣어서 먹었어요 :D',
+    'rating': 5
+  },
+  {
+    'product_id': 20,
+    'id': 196,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '간편하고 음식물쓰레기도 안나오고 좋으네요',
+    'content_bad': '대신에 일회용쓰레기가 좀 많이 나와서 이게 아쉽네요',
+    'content_kick': '조리법대로 해먹는게 제일 괜찮은 것 같아요',
+    'rating': 4
+  },
+  {
+    'product_id': 20,
+    'id': 197,
+    'spicy_level': 3,
+    'salty_level': 3,
+    'sweet_level': 1,
+    'content_good': '배송도 괜찮았고 야채나 포장상태도 좋았어요 신선도면이나 배송속도면에서는 다른업체들이 프레시지를 못따라가는 것 같네요',
+    'content_bad': '아쉬웠던 건 자극적인 제 입맛에는 많이 심심하게 느껴졌네요',
+    'content_kick': '각자 입맛대로 소금간이나 매콤하게 드시려면 청양고추 등 커스터마이징을 좀 해야할 것 같아요',
+    'rating': 3
+  },
+  {
+    'product_id': 20,
+    'id': 198,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '좋은 점 굳이 뽑자면 배송 빠르게 왔다는 점입니다.',
+    'content_bad': '버섯 상태나 숙주 상태가 완전 엉망이네요 관리를 똑바로해서 보내줘야지 이런 식으로 하면 손님들 다 빠져나갈 거에요 저는 다시는 안먹습니다',
+    'content_kick': '딱히 생각나는 거 없어',
+    'rating': 1
+  },
+  {
+    'product_id': 20,
+    'id': 199,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '맛도 좋고 양도 많아서 두명이서 먹기에 너무 좋았어요 😄 원래 샤브샤브에는 야채 종류가 많아야 맛있는데 야채종류도 많아요 ㅎㅎㅎ',
+    'content_bad': '은근히 국물에서 단 맛 올라오는데 저게 조금 아쉬웠네요 ㅜ',
+    'content_kick': '다 먹고 죽 해먹으면 맛있어요 👍',
+    'rating': 5
+  },
+  {
+    'product_id': 20,
+    'id': 200,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '제 입맛에 완전 안성맞춤입니다 ㅎ!! 맛도 좋고 영양도 짱인 샤브샤브 담에 또 시켜먹을게요 ~~',
+    'content_bad': '아쉬운 점은 따로 없었어요 ^^',
+    'content_kick': '조리법대로 해서 먹는게 젤 맛있는 것 같네요 ~',
+    'rating': 5
+  },
+  {
+    'product_id': 21,
+    'id': 201,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '매콤 밀푀유나베라 매울까봐 걱정했는데 제 입맛에 딱 맞았어요 !! 고기,야채 상태도 좋았습니다 👍👍',
+    'content_bad': '배송이 조금 늦어서 아쉬웠어요 ~',
+    'content_kick': '땅콩소스 따로 사서 먹으면 맛있어요 ㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 21,
+    'id': 202,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '배송 잘 받았고 야채나 고기 상태는 신선하네요',
+    'content_bad': '매콤 밀푀유나베라 기대했는데 제 입맛엔 하나도 매콤하지 않았어요 그게 아쉽네요',
+    'content_kick': '칼국수 넣어먹으면 맛있어요',
+    'rating': 3
+  },
+  {
+    'product_id': 21,
+    'id': 203,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '항상 오리지널 밀푀유나베만 먹었는데 이번에 한번 시켜서 먹어보니 또 다른 맛으로 맛있네요 ㅎㅎ 잘 먹었습니다',
+    'content_bad': '음 .. 배송이 냉장과 냉동을 같이 주문하면 같이와서 가끔씩 냉장밀키트에 야채가 얼어요 그게 아쉬웠어요',
+    'content_kick': '고기나 야채 추가로 구비해서 먹으면 더 맛있게 즐길 수 있어요 !!',
+    'rating': 5
+  },
+  {
+    'product_id': 21,
+    'id': 204,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '배송 잘 받았습니다 포장도 꼼꼼히 잘 되어있네요',
+    'content_bad': '저한테는 좀 맵더라구요 저희 남편은 잘 먹는데 저한테는 많이 매웠어용 ㅜ',
+    'content_kick': '매운거 좋아하시는 분은 이 상품,매운거 싫어하시면 오리지널로 드시는게 좋을 듯 하네요',
+    'rating': 4
+  },
+  {
+    'product_id': 21,
+    'id': 205,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '맛있네요 많이 매콤하진 않았지만 딱 적당히 느끼하지 않을 정도로 매콤해서 좋았어요~',
+    'content_bad': '배송이 오래 걸려서 오래 기다리느라 혼났네요 ㅜ',
+    'content_kick': '칼국수 사리 넣어먹으면 맛있습니다 ㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 21,
+    'id': 205,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '배송은 잘 받았고 야채나 고기상태는 좋네요',
+    'content_bad': '다른 분들은 이게 왜 맛있다고하는지 모르겠는데 라면스프맛이 엄청 나는데요 ? 다시다를 엄청 쓰는 것 같은데 너무 별로였어요',
+    'content_kick': '굳이 생각 안해봤어요 다 먹지도 않아서요',
+    'rating': 2
+  },
+  {
+    'product_id': 21,
+    'id': 206,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '완전 맛있었어요 😍 밀푀유나베 집에서 해먹기 힘든데 키트로 나오니 너무 좋아요 😇',
+    'content_bad': '아쉬웠던 점은 딱히 없었습니다 !',
+    'content_kick': '마지막에 죽 해먹는게 그렇게 맛있더군요 👏👏',
+    'rating': 5
+  },
+  {
+    'product_id': 21,
+    'id': 207,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '맛있었어요 ㅜ 매운거 좋아하는데 잘 못먹어서 동봉되어있는 청양고추 반만 넣고 소스도 2/3만 넣어서 먹으니까 맛있었어요',
+    'content_bad': '아쉬웠던 것은 깻잎 상태가 별로네요ㅜ 그래서 따로 사서 준비했어요',
+    'content_kick': '원래 들어있는 깻잎 양도 적은 편이라 여러분들도 따로 구비해서 사놓는게 좋을 것 같아요 ㅎ',
+    'rating': 4
+  },
+  {
+    'product_id': 21,
+    'id': 208,
+    'spicy_level': 3,
+    'salty_level': 3,
+    'sweet_level': 2,
+    'content_good': '배송하고 물품들 잘 받았습니다 어제 오후에 주문했는데 오늘 낮 정도에 왔네요',
+    'content_bad': '자극적으로 먹는 저한테는 좀 많이 싱겁더라구요 조미료 맛 좋아하긴 한데 싱거웠어요',
+    'content_kick': '저는 따로 간을 추가로 하고 청양고추도 추가로 넣었어요 이러니까 좀 괜찮아졌네요',
+    'rating': 4
+  },
+  {
+    'product_id': 21,
+    'id': 209,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '너무 맛있게 잘 먹었습니다 ~ 버섯 상태도 좋고 배추나 고기상태도 너무 좋았어요 ㅎㅎㅎ~',
+    'content_bad': '아쉬웠던 것은 택배를 던지셔서 배송박스가 조금 찌그러진 점 ??',
+    'content_kick': '칠리소스 따로 구비해서 고기하고 야채찍어먹으면 맛있어욯ㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 21,
+    'id': 210,
+    'spicy_level': 2,
+    'salty_level': 1,
+    'sweet_level': 2,
+    'content_good': '배송 잘 받았습니다 신선도 괜찮고 편하게 키트로 저녀준비할 수 있다는게 좋네요 ~',
+    'content_bad': '아쉬웠던 것은 저한텐 짰어요ㅜ',
+    'content_kick': '저는 추가로 물 더 붓고 먹었더니 딱 맞더라구요 다행이에요',
+    'rating': 4
+  },
+  {
+    'product_id': 22,
+    'id': 211,
+    'spicy_level': 2,
+    'salty_level': 3,
+    'sweet_level': 2,
+    'content_good': '전체적으로 다 좋았습니다 배송도 빨리 왔고 포장도 꼼꼼하게 잘 왔네요 좋았습니다 🔥',
+    'content_bad': '좀 아쉬웠던 것은 살짝 간이 약했어요 ',
+    'content_kick': '두부 따로 넣어서 드시면 맛있어요 !!',
+    'rating': 5
+  },
+  {
+    'product_id': 22,
+    'id': 212,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '고기가 엄청 신선하고 야채도 신선해서 좋았어요 재구매 항상하는데 너무 맛있네요~!',
+    'content_bad': '이번 배송은 하루 더 늦게왔네요 주문이 밀려서 어쩔수 없지만 괜찮습니다 ..ㅎ',
+    'content_kick': '팽이버섯 추가로 넣어서 샤브샤브식으로 먹으면 맛있어요 👍',
+    'rating': 5
+  },
+  {
+    'product_id': 22,
+    'id': 213,
+    'spicy_level': 1,
+    'salty_level': 1,
+    'sweet_level': 1,
+    'content_good': '배송 빠르고 택배 빠진 거 하나없이 잘 왔습니다',
+    'content_bad': '저한테는 많이 짰어요 안에 들어있는 만능소스? 가 저한테는 좀 많이 짜더라구요 ㅜ',
+    'content_kick': '캠핑이나 집들이에서 먹으면 좋아요 ㅎㅎ',
+    'rating': 4
+  },
+  {
+    'product_id': 22,
+    'id': 214,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '너무 맛있게 잘 먹었습니다 !! 야채상태 좋고 고기 신선도도 너무 좋아요 제 입맛에도 딱 맞아서 좋았어요 ㅎ',
+    'content_bad': '아쉬웠던 것은 만능소스에서 조미료 맛이 좀 난다 ? 이 정도네요 ',
+    'content_kick': '조미료 맛 싫어하시는 분들은 양념소스를 좀만 넣고 간장하고 설탕으로 간 하시면 좋을 것 같아요~!',
+    'rating': 5
+  },
+  {
+    'product_id': 22,
+    'id': 215,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '오랜만에 외식하는 기분으로 잘 먹었습니다 ~! 양도 많고 신선도도 좋았어요',
+    'content_bad': '매콤한거 좋아하는 사람인데 스키야키만 먹으니까 좀 물리더라구요 자극적인 맛도 있었으면 좋겠어요',
+    'content_kick': '저는 식초,간장,청양고추 해서 소스 따로해서 만들어먹었어요 이렇게 먹으니까 질리지않고 맛있게 먹을 수 있었어요 ',
+    'rating': 5
+  },
+  {
+    'product_id': 22,
+    'id': 216,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '전체적으로 맛은 있었습니다 배송도 잘 왔고 상품에 대해 만족합니다',
+    'content_bad': '맛 정말 좋지만 조금 덜 달았으면 더 좋았을 것 같아요',
+    'content_kick': '단 맛을 상쇄시키고 싶으면 국간장을 추가로 한 숟갈 정도 넣어먹으면 될 것 같습니다',
+    'rating': 4
+  },
+  {
+    'product_id': 22,
+    'id': 217,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '매번 재구매해서 잘 먹구이써요 ! 잘 먹었습니다',
+    'content_bad': '요번에 고기가 힘줄??? 질긴게 좀 있어서 아쉬웠네용',
+    'content_kick': '다먹고 우동사리 넣어서 먹는게 제일 맛있는 것 같아요 bb',
+    'rating': 5
+  },
+  {
+    'product_id': 22,
+    'id': 218,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '배송하고 포장상태 꼼꼼히 검수해서 왔네요 좋았습니다',
+    'content_bad': '좀 달더라구요 달다보니까 물리기도하고 원래 음식에 단 맛 들어가는게 싫어서 아쉬웠네요',
+    'content_kick': '단 맛을 좀 줄이려면 짭짤하게 해야한다 하더라구요',
+    'rating': 4
+  },
+  {
+    'product_id': 22,
+    'id': 219,
+    'spicy_level': 3,
+    'salty_level': 3,
+    'sweet_level': 1,
+    'content_good': '야채나 고기 신선도는 좋았습니다',
+    'content_bad': '자극적으로 먹고 음식에 단 맛 들어가는 거 싫어하는 사람인데 이 음식은 저한테 최악이었습니다 일단 너무 달고요 그다음에 빨리 물려요 자극적인 맛이 덜 하다보니 니글거린다고 해야할 까요.. 너무 아쉬웠어요 재구매의사는 없을 것 같습니다',
+    'content_kick': '딱히 생각나는 것은 없어요',
+    'rating': 1
+  },
+  {
+    'product_id': 22,
+    'id': 220,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 3,
+    'content_good': '오랜만에 너무 맛있는 밀키트 찾았네요 너무 맛있고 또 시켜먹을거에요 !!!',
+    'content_bad': '포장이 살짝 뜯어져서 와서 아쉬웠네요 ㅜㅜ',
+    'content_kick': '다음에는 계란 노른자로 소스 만들어서 먹을 생각이에요 😄',
+    'rating': 5
+  },
+  {
+    'product_id': 23,
+    'id': 221,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '너무 시원하게 잘 먹었어요~ 메밀도 쫄깃쫄깃하고 간도 딱 맞고 너무 좋았습니다 :)',
+    'content_bad': '작년여름까지 잘 시켜먹다가 갑자기 가을에 판매중단되서 아쉬웠어요 ㅜㅜ',
+    'content_kick': '레시피대로 조리해먹는게 젤 맛있어요',
+    'rating': 5
+  },
+  {
+    'product_id': 23,
+    'id': 222,
+    'spicy_level': 1,
+    'salty_level': 1,
+    'sweet_level': 2,
+    'content_good': '메밀소바 집에서 먹기 쉽지않은데 키트로 편하게 주문해서 먹었어요 잘 먹었습니다~',
+    'content_bad': '기존 레시피대로 조리하면 저한테는 조금 짜더군요 그래서 전 따로 얼음물 추가해서 먹었습니다 ㅎㅎ',
+    'content_kick': '육수 살얼음형태로 만들어서 먹으면 맛있어요 ㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 23,
+    'id': 223,
+    'spicy_level': 1,
+    'salty_level': 3,
+    'sweet_level': 2,
+    'content_good': '여름 시원하게 나려고 메밀소바 시켜서 먹었어요 ㅎㅎ 조리법이나 배송 모두 만족합니다 ㅎ',
+    'content_bad': '육수가 조금 저한테 싱거운 느낌이 있었어요 ',
+    'content_kick': '저는 집에 쯔유가 있어서 육수에 간을 더 추가로 해서 먹었습니다 ㅎㅎ',
+    'rating': 4
+  },
+  {
+    'product_id': 23,
+    'id': 224,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '오랜만에 집에서 시원하게 메밀소바 먹었어요 간편하게 키트로 조리해서 먹었는데 맛도 제 입맛에 딱 맞아서 넘 좋았어요 ~!!',
+    'content_bad': '배송이 하루 미뤄져서 아쉬웠습니다 빨리 먹고 싶었는데 ..',
+    'content_kick': '돈까스하고 같이 먹으면 완전 일식집이에요🥰',
+    'rating': 5
+  },
+  {
+    'product_id': 23,
+    'id': 225,
+    'spicy_level': 2,
+    'salty_level': 3,
+    'sweet_level': 1,
+    'content_good': '배송하고 상품 잘 받았습니다 구성은 좋네요 푸짐하고요',
+    'content_bad': '저한테는 달고 싱거웠어요 간은 덜 되어있는데 육수는 달고 저한테는 안 맞았어요',
+    'content_kick': '생와사비 더 있으면 추가로 가미해서 먹으면 맛날 것 같아요',
+    'rating': 3
+  },
+  {
+    'product_id': 23,
+    'id': 226,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '정말 오랜만에 맛있는 메밀소바 먹은 것 같아요 면발도 너무 좋고 구성품도 푸짐하고 좋아요 가격도 싸고요',
+    'content_bad': '아쉬웠던 점은 딱히 없었던 것 같아요~!',
+    'content_kick': '저는 간 무를 너무 좋아해서 추가로 무 갈아서 먹었네요 ㅎㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 23,
+    'id': 227,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '메밀소바 정말 좋아하는데 키트로 먹었을 때 이정도 맛 나오는건 정말 놀라워요 정말 맛있습니다',
+    'content_bad': '와사비 특유의 매콤함 좋아하는데 와사비 양이 아쉽네요',
+    'content_kick': '생와사비를 추가로 더 넣어서 먹으면 맛있을 것 같아요 !~~~',
+    'rating': 5
+  },
+  {
+    'product_id': 23,
+    'id': 228,
+    'spicy_level': 2,
+    'salty_level': 1,
+    'sweet_level': 2,
+    'content_good': '시원하게 여름 나려고 주문해서 먹었어요 전체적으로 배송이나 구성품 모두 만족했습니다',
+    'content_bad': '아쉬웠던 것은 좀 짜더군요 ㅜㅜ',
+    'content_kick': '짜다고 느끼시면 정수물을 좀 넣어서 먹으면 괜찮을 것 같아요',
+    'rating': 4
+  },
+  {
+    'product_id': 23,
+    'id': 229,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '메밀소바 밖에서 사서 먹으면 보통 1인당 8900원 나오는데 여기는 2인분에 8900원이네요 너무 가성비있게 잘 먹었습니다',
+    'content_bad': '무 좋아하는데 무가 너무 적어서 아쉬웠어요 😂',
+    'content_kick': '무 좋아하시는 분들은 무를 집에서 갈아서 먹어도 괜찮을 것 같네요 ?!',
+    'rating': 5
+  },
+  {
+    'product_id': 23,
+    'id': 230,
+    'spicy_level': 3,
+    'salty_level': 3,
+    'sweet_level': 2,
+    'content_good': '밖에서도 자주먹는 메밀소바 처음으로 키트제품으로 사봤어요 구성품이나 배송속도도 좋았어요',
+    'content_bad': '쓴 맛이 나서 뭐때문인지 봤더니 무가 좀 맵고 쓰더라구요 ㅜㅜ',
+    'content_kick': '무 넣으시기전에 대충 맛 한번 보고 먹으면 실패하지 않을 것 같아요',
+    'rating': 3
   },
 ];
