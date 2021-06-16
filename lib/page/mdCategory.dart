@@ -20,8 +20,8 @@ class _MealdangCategoryState extends State<MealdangCategory> {
   }
 
   void dispose() {
-    super.dispose();
     print('Category dispose()');
+    super.dispose();
   }
 
   @override

@@ -31,6 +31,7 @@ class _MealdangHomeState extends State<MealdangHome> {
     setState(() {
       _selectedIndex = index;
     });
+    FocusScope.of(context).unfocus();
   }
 
   @override
