@@ -16,12 +16,14 @@ class _SearchPageState extends State<SearchPage>{
   List<Product> _products;
   List<Product> _searchingProducts;
   final TextEditingController _controller = TextEditingController();
+  FocusNode myFocusNode;
 
   @override
   void initState() {
     super.initState();
     _products = List.empty();
     _controller.addListener(_updateSearchResult);
+    myFocusNode = FocusNode();
   }
 
   void _updateSearchResult() async {
@@ -43,6 +45,7 @@ class _SearchPageState extends State<SearchPage>{
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
 
+<<<<<<< HEAD
     return GestureDetector(
       onTap: () {
         print('tapped');
@@ -64,6 +67,30 @@ class _SearchPageState extends State<SearchPage>{
               ),
             ],
           ),
+=======
+    return Center(
+      child: Container(
+        width: _width * 0.95,
+        child: Column(
+          children: <Widget>[
+            TextField(
+              focusNode: myFocusNode,
+              autofocus: true,
+              controller: _controller,
+              decoration: InputDecoration(hintText: '검색어를 입력하세요'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                myFocusNode.unfocus();
+              },
+              child: Text('btn'),
+            ),
+            SizedBox(height: 10),
+            Expanded(
+              child: _scroll(),
+            ),
+          ],
+>>>>>>> testing
         ),
       ),
     );
