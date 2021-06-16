@@ -193,102 +193,6 @@ List<Map<String, dynamic>> productData = [
   },
   {
     'id': 17,
-    'category': 'westernFood',
-    'name': '봉골레 크림 빠네 파스타',
-    'company_name': '애슐리 쉐프박스',
-    'serving_size': 2,
-    'price': 17900,
-    'discounted_price': null,
-    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_1.jpeg',
-    'page_url':
-        'https://smartstore.naver.com/elandparkfood/products/4872736184'
-  },
-  {
-    'id': 18,
-    'category': 'westernFood',
-    'name': '짐승파스타 월터 감바스',
-    'company_name': '푸드어셈블',
-    'serving_size': 2,
-    'price': 15900,
-    'discounted_price': null,
-    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_2.jpeg',
-    'page_url':
-        'https://shopping.naver.com/fresh/homemeal/stores/100103056/products/5404760975'
-  },
-  {
-    'id': 19,
-    'category': 'westernFood',
-    'name': '소고기 찹스테이크',
-    'company_name': '프레시지',
-    'serving_size': 2,
-    'price': 10900,
-    'discounted_price': null,
-    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_3.jpeg',
-    'page_url':
-        'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/2263984222'
-  },
-  {
-    'id': 20,
-    'category': 'westernFood',
-    'name': '블랙페퍼 스테이크',
-    'company_name': '아내의 쉐프',
-    'serving_size': 2,
-    'price': 21000,
-    'discounted_price': 12900,
-    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_4.jpeg',
-    'page_url':
-        'https://smartstore.naver.com/wifechef/products/4762670456'
-  },
-  {
-    'id': 21,
-    'category': 'westernFood',
-    'name': '불고기 빠네크림파스타',
-    'company_name': '푸드어셈블',
-    'serving_size': 2,
-    'price': 14900,
-    'discounted_price': null,
-    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_5.jpeg',
-    'page_url':
-        'https://smartstore.naver.com/foodasb/products/4516137985'
-  },
-  {
-    'id': 22,
-    'category': 'westernFood',
-    'name': '감바스 & 알리오 올리오 파스타 밀키트[곡물빵증정]',
-    'company_name': '아내의 쉐프',
-    'serving_size': 2,
-    'price': 14900,
-    'discounted_price': 12990,
-    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_6.jpeg',
-    'page_url':
-        'https://shopping.naver.com/fresh/homemeal/stores/100073444/products/2281473037'
-  },
-  {
-    'id': 23,
-    'category': 'westernFood',
-    'name': '치즈러버 멕시칸 포테이토',
-    'company_name': '애슐리 쉐프박스',
-    'serving_size': 2,
-    'price': 12900,
-    'discounted_price': 9900,
-    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_7.jpeg',
-    'page_url':
-        'https://shopping.naver.com/fresh/homemeal/stores/100359417/products/4596514722'
-  },
-  {
-    'id': 24,
-    'category': 'westernFood',
-    'name': '자이언트 미트볼 파스타',
-    'company_name': '프레시지',
-    'serving_size': 2,
-    'price': 12900,
-    'discounted_price': null,
-    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_8.jpeg',
-    'page_url':
-        'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/2972607714'
-  },
-  {
-    'id': 25,
     'category': 'japaneseFood',
     'name': '밀푀유나베',
     'company_name': '프레시지',
@@ -300,7 +204,7 @@ List<Map<String, dynamic>> productData = [
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/2263949782'
   },
   {
-    'id': 26,
+    'id': 18,
     'category': 'japaneseFood',
     'name': '고래사 어묵 우삼겹 우동전골',
     'company_name': '프레시지',
@@ -312,7 +216,7 @@ List<Map<String, dynamic>> productData = [
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/5440904250'
   },
   {
-    'id': 27,
+    'id': 19,
     'category': 'japaneseFood',
     'name': '소고기 야끼소바',
     'company_name': '프레시지',
@@ -324,7 +228,7 @@ List<Map<String, dynamic>> productData = [
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/3492778070'
   },
   {
-    'id': 28,
+    'id': 20,
     'category': 'japaneseFood',
     'name': '소고기 샤브샤브',
     'company_name': '프레시지',
@@ -336,7 +240,7 @@ List<Map<String, dynamic>> productData = [
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/2707922784'
   },
   {
-    'id': 29,
+    'id': 21,
     'category': 'japaneseFood',
     'name': '매콤 밀푀유나베',
     'company_name': '프레시지',
@@ -348,7 +252,7 @@ List<Map<String, dynamic>> productData = [
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/3393831752'
   },
   {
-    'id': 30,
+    'id': 22,
     'category': 'japaneseFood',
     'name': '소고기 스키야키',
     'company_name': '파파쿡',
@@ -360,7 +264,7 @@ List<Map<String, dynamic>> productData = [
         'https://smartstore.naver.com/friendsfood/products/2354876276'
   },
   {
-    'id': 31,
+    'id': 23,
     'category': 'japaneseFood',
     'name': '여름이 즐거운 메밀소바',
     'company_name': '아내의 쉐프',
@@ -372,7 +276,7 @@ List<Map<String, dynamic>> productData = [
         'https://shopping.naver.com/fresh/homemeal/stores/100073444/products/3068291435'
   },
   {
-    'id': 32,
+    'id': 24,
     'category': 'japaneseFood',
     'name': '채선당 프리미엄 샤브샤브',
     'company_name': '푸드어셈블',
@@ -382,6 +286,102 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/FoodPictures/JapaneseFood/JapaneseFood_8.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100103056/products/5279375183'
+  },
+  {
+    'id': 25,
+    'category': 'westernFood',
+    'name': '봉골레 크림 빠네 파스타',
+    'company_name': '애슐리 쉐프박스',
+    'serving_size': 2,
+    'price': 17900,
+    'discounted_price': null,
+    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_1.jpeg',
+    'page_url':
+    'https://smartstore.naver.com/elandparkfood/products/4872736184'
+  },
+  {
+    'id': 26,
+    'category': 'westernFood',
+    'name': '짐승파스타 월터 감바스',
+    'company_name': '푸드어셈블',
+    'serving_size': 2,
+    'price': 15900,
+    'discounted_price': null,
+    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_2.jpeg',
+    'page_url':
+    'https://shopping.naver.com/fresh/homemeal/stores/100103056/products/5404760975'
+  },
+  {
+    'id': 27,
+    'category': 'westernFood',
+    'name': '소고기 찹스테이크',
+    'company_name': '프레시지',
+    'serving_size': 2,
+    'price': 10900,
+    'discounted_price': null,
+    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_3.jpeg',
+    'page_url':
+    'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/2263984222'
+  },
+  {
+    'id': 28,
+    'category': 'westernFood',
+    'name': '블랙페퍼 스테이크',
+    'company_name': '아내의 쉐프',
+    'serving_size': 2,
+    'price': 21000,
+    'discounted_price': 12900,
+    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_4.jpeg',
+    'page_url':
+    'https://smartstore.naver.com/wifechef/products/4762670456'
+  },
+  {
+    'id': 29,
+    'category': 'westernFood',
+    'name': '불고기 빠네크림파스타',
+    'company_name': '푸드어셈블',
+    'serving_size': 2,
+    'price': 14900,
+    'discounted_price': null,
+    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_5.jpeg',
+    'page_url':
+    'https://smartstore.naver.com/foodasb/products/4516137985'
+  },
+  {
+    'id': 30,
+    'category': 'westernFood',
+    'name': '감바스 & 알리오 올리오 파스타 밀키트[곡물빵증정]',
+    'company_name': '아내의 쉐프',
+    'serving_size': 2,
+    'price': 14900,
+    'discounted_price': 12990,
+    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_6.jpeg',
+    'page_url':
+    'https://shopping.naver.com/fresh/homemeal/stores/100073444/products/2281473037'
+  },
+  {
+    'id': 31,
+    'category': 'westernFood',
+    'name': '치즈러버 멕시칸 포테이토',
+    'company_name': '애슐리 쉐프박스',
+    'serving_size': 2,
+    'price': 12900,
+    'discounted_price': 9900,
+    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_7.jpeg',
+    'page_url':
+    'https://shopping.naver.com/fresh/homemeal/stores/100359417/products/4596514722'
+  },
+  {
+    'id': 32,
+    'category': 'westernFood',
+    'name': '톳 간장소스 파스타',
+    'company_name': '레이식당',
+    'serving_size': 2,
+    'price': 14900,
+    'discounted_price': null,
+    'image_path': 'assets/images/FoodPictures/WesternFood/WesternFood_8.jpeg',
+    'page_url':
+    'https://smartstore.naver.com/jeju-rei/products/5404590885?NaPm=ct%3Dkpv2axig%7Cci%3De0884155fe7e495066a71203288408611dbd6c5b%7Ctr%3Dslsl%7Csn%3D3209109%7Chk%3D7e103c453392b9e261379e50125dfb27279dcebe'
   },
   {
     'id': 33,
