@@ -119,12 +119,14 @@ class _ProductDetailState extends State<ProductDetail> {
   }
 
   Widget _productInfo(Product product) {
-    String serving;
+    String serving = '';
+    int price = product.price;
 
-    if(product.servingSize == null)
-      serving = '';
-    else
+    if(product.servingSize != null)
       serving = '${product.servingSize}인분';
+
+    if(product.discountedPrice != null)
+      price =  product.discountedPrice;
       
     return Container(
       child: Column(
@@ -156,7 +158,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 style: TextStyle(color: Colors.grey, fontSize: 20),
               ),
               SizedBox(width: _width * 0.01),
-              Text(setPriceFormat(product.price)),
+              Text(setPriceFormat(price)),
               SizedBox(width: _width * 0.01),
               Text(
                 serving,
