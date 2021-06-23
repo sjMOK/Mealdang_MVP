@@ -41,14 +41,14 @@ class _IntroductionPageState extends State<IntroductionPage> {
             title: "밀당",
             body: "밀키트는 맛있습니다.",
             image: _buildImage(
-                'FoodPictures/KoreanFood/KoreanFood_1.jpeg', imgWidth),
+                'food_pictures/korean_food/KoreanFood_1.jpeg', imgWidth),
             decoration: pageDecoration,
           ),
           PageViewModel(
               title: "맛있으면",
               body: '"바나나"',
               image: _buildImage(
-                  'FoodPictures/KoreanFood/KoreanFood_2.jpeg', imgWidth),
+                  'food_pictures/korean_food/KoreanFood_2.jpeg', imgWidth),
               decoration: pageDecoration),
         ],
         onDone: () => _onIntroEnd(context),

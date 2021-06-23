@@ -73,7 +73,7 @@ class ReviewBox extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset("assets/images/ReviewIconImage/smile.png",
+                        Image.asset("assets/images/review_icon_image/smile.png",
                             scale: 15),
                         SizedBox(
                           width: _width * 0.04,
@@ -94,7 +94,7 @@ class ReviewBox extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset("assets/images/ReviewIconImage/sad.png",
+                        Image.asset("assets/images/review_icon_image/sad.png",
                             scale: 15),
                         SizedBox(
                           width: _width * 0.04,
@@ -115,7 +115,7 @@ class ReviewBox extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset("assets/images/ReviewIconImage/fork.png",
+                        Image.asset("assets/images/review_icon_image/fork.png",
                             scale: 15),
                         SizedBox(
                           width: _width * 0.04,
