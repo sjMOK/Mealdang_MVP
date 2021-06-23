@@ -1,43 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:mealdang_mvp/database/db.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/style/font.dart';
 import 'package:mealdang_mvp/page/mdCategory.dart';
 import 'package:mealdang_mvp/page/searchPage.dart';
 
 class MealdangHome extends StatefulWidget {
-  final Future<Database> database;
-  MealdangHome(this.database);
-
   @override
   _MealdangHomeState createState() => _MealdangHomeState();
 }
 
 class _MealdangHomeState extends State<MealdangHome> {
+  int _selectedIndex;
+  Future<Database> database;
   List<Widget> _widgetOptions;
-  int _selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
+
+    _selectedIndex = 0;
+    database = initDatabase();
     _widgetOptions = [
-      MealdangCategory(widget.database),
-      SearchPage(widget.database),
+      MealdangCategory(database),
+      Container(),
       Center(child: Text('manual', style: TextStyle(fontSize: 32))),
       Center(child: Text('servey', style: TextStyle(fontSize: 32))),
     ];
   }
 
   void _onItemTapped(int index) {
+    if(index==1){
+      print('search tapped');
+      Navigator.of(context).push(MaterialPageRoute(builder: (_) => SearchPage(database)));
+      return;
+    }
+  
     setState(() {
       _selectedIndex = index;
     });
-    FocusScope.of(context).unfocus();
+
+    //FocusScope.of(context).unfocus();
   }
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text(
@@ -55,9 +65,7 @@ class _MealdangHomeState extends State<MealdangHome> {
                 color: const Color.fromRGBO(255, 156, 30, 1),
               ),
               onPressed: () {
-                setState(() {
-                  _selectedIndex = 1;
-                });
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) => SearchPage(database)));
               },
             ),
           ],
