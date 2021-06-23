@@ -1,26 +1,26 @@
 const Map<String, Map<String, String>> categoryData = {
   'koreanFood': {
     'name': '한식',
-    'img_path': 'assets/images/Category_icon/KoreanFood_icon/bibimbap.png'
+    'img_path': 'assets/images/Category_icon/KoreanFood_icon/KoreanFood.png'
   },
   'chineseFood' : {
     'name' : '중식',
-    'img_path' : 'assets/images/Category_icon/ChineseFood_icon/jajangmyeon.png'
+    'img_path' : 'assets/images/Category_icon/ChineseFood_icon/ChineseFood.png'
   },
   'japaneseFood' : {
     'name' : '일식',
-    'img_path' : 'assets/images/Category_icon/JapaneseFood_icon/sushi.png'
+    'img_path' : 'assets/images/Category_icon/JapaneseFood_icon/JapaneseFood.png'
   },
   'westernFood' : {
     'name' : '양식',
-    'img_path' : 'assets/images/Category_icon/WesternFood_icon/steak.png'
+    'img_path' : 'assets/images/Category_icon/WesternFood_icon/WesternFood.png'
   },
   'lateNightFood' : {
     'name' : '야식',
-    'img_path' : 'assets/images/Category_icon/LateNightMeal_icon/chicken.png'
+    'img_path' : 'assets/images/Category_icon/LateNightMeal_icon/LateNightMeal.png'
   },
   'snackFood' : {
     'name' : '분식',
-    'img_path' : 'assets/images/Category_icon/CarbSnack_icon/tteokbokki.png'
+    'img_path' : 'assets/images/Category_icon/CarbSnack_icon/CarbSnack.png'
   },
 };
