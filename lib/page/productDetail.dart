@@ -119,6 +119,13 @@ class _ProductDetailState extends State<ProductDetail> {
   }
 
   Widget _productInfo(Product product) {
+    String serving;
+
+    if(product.servingSize == null)
+      serving = '';
+    else
+      serving = '${product.servingSize}인분';
+      
     return Container(
       child: Column(
         children: [
@@ -150,8 +157,9 @@ class _ProductDetailState extends State<ProductDetail> {
               ),
               SizedBox(width: _width * 0.01),
               Text(setPriceFormat(product.price)),
+              SizedBox(width: _width * 0.01),
               Text(
-                ' ${product.servingSize}인분',
+                serving,
                 style: TextStyle(fontSize: 12),
               ),
             ],
