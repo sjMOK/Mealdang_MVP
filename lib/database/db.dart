@@ -62,9 +62,6 @@ Future<List<Product>> getProducts(
 Future<List<Product>> getSearchingProducts(Future<Database> db, String text) async{
   Database database = await db;
 
-  if(text == '')
-    return List.empty();
-
   final List<Map<String, dynamic>> maps = await database.rawQuery("SELECT * FROM Product WHERE name LIKE '%$text%'");
   return List.generate(maps.length, (i) {
     var map = maps[i];
