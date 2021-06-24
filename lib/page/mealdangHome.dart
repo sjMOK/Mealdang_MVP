@@ -35,6 +35,8 @@ class _MealdangHomeState extends State<MealdangHome> {
 
   @override
   Widget build(BuildContext context) {
+    const Color mainColor = Color.fromRGBO(255, 156, 30, 1);
+
     return WillPopScope(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -44,14 +46,14 @@ class _MealdangHomeState extends State<MealdangHome> {
             style: TextStyle(
               fontFamily: MyFontFamily.BMJUA,
               fontSize: 38,
-              color: const Color.fromRGBO(255, 156, 30, 1),
+              color: mainColor,
             ),
           ),
           actions: [
             IconButton(
               icon: Icon(
                 Icons.search,
-                color: const Color.fromRGBO(255, 156, 30, 1),
+                color: mainColor,
               ),
               onPressed: () {
                 setState(() {
@@ -95,9 +97,9 @@ class _MealdangHomeState extends State<MealdangHome> {
               label: 'Servey',
             ),
           ],
-          selectedItemColor: const Color.fromRGBO(255, 156, 30, 1),
+          selectedItemColor: mainColor,
           unselectedItemColor: Colors.grey,
-          selectedIconTheme: IconThemeData(color: const Color.fromRGBO(255, 156, 30, 1)),
+          selectedIconTheme: IconThemeData(color: mainColor),
           unselectedIconTheme: IconThemeData(color: Colors.grey),
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
