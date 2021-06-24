@@ -73,7 +73,7 @@ class ReviewBox extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset("assets/images/ReviewIconImage/smile.png",
+                        Image.asset("assets/images/review_icon_image/smile.png",
                             scale: 15),
                         SizedBox(
                           width: _width * 0.04,
@@ -83,7 +83,7 @@ class ReviewBox extends StatelessWidget {
                           height: _height * 0.06,
                           // color: Colors.amber,
                           child: Text(
-                            "112312312321323213123123141452161271521321315123111231231232132321312312314145216127152132131512311123123123213232131231231414521612715213213151231",
+                            "레시피대로 끓일 때 혹시나 싱거울까봐 물 조금 덜 넣었어요 짜게먹는 저희 집한테는 물 100ml적게 넣은게 신의 한수네요ㅎ",
                             style: TextStyle(fontSize: 16),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -94,7 +94,7 @@ class ReviewBox extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset("assets/images/ReviewIconImage/sad.png",
+                        Image.asset("assets/images/review_icon_image/sad.png",
                             scale: 15),
                         SizedBox(
                           width: _width * 0.04,
@@ -104,7 +104,7 @@ class ReviewBox extends StatelessWidget {
                           height: _height * 0.06,
                           // color: Colors.orange,
                           child: Text(
-                            "12345123451234512345123451234512345123451234512123451234512345123451234512345123451234512345123451212345",
+                            "아이스박스가 터지고 배송이 조금 아쉬웠습니다 ㅜ",
                             style: TextStyle(fontSize: 16),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -115,7 +115,7 @@ class ReviewBox extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset("assets/images/ReviewIconImage/fork.png",
+                        Image.asset("assets/images/review_icon_image/fork.png",
                             scale: 15),
                         SizedBox(
                           width: _width * 0.04,
@@ -125,7 +125,7 @@ class ReviewBox extends StatelessWidget {
                           height: _height * 0.06,
                           // color: Colors.red,
                           child: Text(
-                            "1234512345123451234512345123451234512345123451212345123451234512345123451234512345123451234512345121234512345123451234512345123451234512345123451234512123451234512345123451234512345123451234512345123451212345",
+                            "제공되는 파 이외의 집에 대파있으시면 대파 좀 썰어서 넣어서 드시면 짱이에요 ㅎ",
                             style: TextStyle(fontSize: 16),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,

@@ -20,8 +20,8 @@ class _MealdangCategoryState extends State<MealdangCategory> {
   }
 
   void dispose() {
-    super.dispose();
     print('Category dispose()');
+    super.dispose();
   }
 
   @override
@@ -30,11 +30,10 @@ class _MealdangCategoryState extends State<MealdangCategory> {
     final _height = _size.height;
     return Container(
       child: Padding(
-        padding: //EdgeInsets.symmetric(vertical: 40, horizontal: 60),
-            EdgeInsets.symmetric(vertical: 0, horizontal: 60),
+        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 60),
         child: Column(
           children: [
-            SizedBox(height: _height * 0.18),
+            SizedBox(height: _height * 0.12),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

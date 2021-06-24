@@ -30,14 +30,16 @@ class _ProductDetailState extends State<ProductDetail> {
     Product product = widget.product;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('[${product.companyName}] ${product.name}',
             style: TextStyle(
                 fontFamily: MyFontFamily.BMJUA,
                 fontSize: 22,
-                color: Colors.black)),
-        backgroundColor: Colors.amber[400],
+                color: Colors.black),),
         centerTitle: true,
+        elevation: 2.0,
+        backgroundColor: Colors.white,
       ),
       body: _scroll(product),
       bottomNavigationBar: Padding(
@@ -119,6 +121,15 @@ class _ProductDetailState extends State<ProductDetail> {
   }
 
   Widget _productInfo(Product product) {
+    String serving = '';
+    int price = product.price;
+
+    if(product.servingSize != null)
+      serving = '${product.servingSize}인분';
+
+    if(product.discountedPrice != null)
+      price =  product.discountedPrice;
+      
     return Container(
       child: Column(
         children: [
@@ -149,9 +160,10 @@ class _ProductDetailState extends State<ProductDetail> {
                 style: TextStyle(color: Colors.grey, fontSize: 20),
               ),
               SizedBox(width: _width * 0.01),
-              Text(setPriceFormat(product.price)),
+              Text(setPriceFormat(price)),
+              SizedBox(width: _width * 0.01),
               Text(
-                ' ${product.servingSize}인분',
+                serving,
                 style: TextStyle(fontSize: 12),
               ),
             ],
