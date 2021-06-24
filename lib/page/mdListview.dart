@@ -28,12 +28,19 @@ class _MealdangListviewState extends State<MealdangListview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           '밀당',
-          style: TextStyle(fontFamily: MyFontFamily.BMJUA, fontSize: 38),
+          style: TextStyle(
+              fontFamily: MyFontFamily.BMJUA,
+              fontSize: 38,
+              color: const Color.fromRGBO(255, 156, 30, 1),
+            ),
         ),
-        backgroundColor: Colors.amber[400],
+        centerTitle: true,
+        elevation: 1.0,
+        backgroundColor: Colors.white,
       ),
       body: _myListView(),
     );
@@ -66,10 +73,7 @@ class _MealdangListviewState extends State<MealdangListview> {
               },
               itemCount: snapshot.data.length,
               separatorBuilder: (BuildContext context, int index) {
-                return Container(
-                  height: 1,
-                  color: Colors.black.withOpacity(0.4),
-                ); //구분 색깔 지정
+                return const Divider(color: Colors.grey);
               },
             );
           } else

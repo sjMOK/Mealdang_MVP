@@ -30,14 +30,16 @@ class _ProductDetailState extends State<ProductDetail> {
     Product product = widget.product;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('[${product.companyName}] ${product.name}',
             style: TextStyle(
                 fontFamily: MyFontFamily.BMJUA,
                 fontSize: 22,
-                color: Colors.black)),
-        backgroundColor: Colors.amber[400],
+                color: Colors.black),),
         centerTitle: true,
+        elevation: 2.0,
+        backgroundColor: Colors.white,
       ),
       body: _scroll(product),
       bottomNavigationBar: Padding(
