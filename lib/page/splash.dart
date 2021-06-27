@@ -11,8 +11,9 @@ class _SplashState extends State<Splash> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool _seen = prefs.getBool('seen');
 
-    if(_seen == null)
+    if (_seen == null) {
       _seen = false;
+    }
 
     if (_seen) {
       _handleStartScreen();
@@ -33,7 +34,7 @@ class _SplashState extends State<Splash> {
     super.initState();
     print('spalsh init');
 
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 3), () {
       checkFirstSeen();
     });
   }
@@ -41,9 +42,15 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Icon(Icons.apartment_outlined,
-            size: MediaQuery.of(context).size.width * 0.785),
+      body: Stack(
+        children: <Widget>[
+          // Container(
+          //   color: Colors.white,
+          // ),
+          Center(
+            child: Image.asset('assets/images/logo/md_logo_5.jpg'),
+          ),
+        ],
       ),
     );
   }

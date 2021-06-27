@@ -32,11 +32,13 @@ class _ProductDetailState extends State<ProductDetail> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('[${product.companyName}] ${product.name}',
-            style: TextStyle(
-                fontFamily: MyFontFamily.BMJUA,
-                fontSize: 22,
-                color: Colors.black),),
+        title: Text(
+          '[${product.companyName}] ${product.name}',
+          style: TextStyle(
+              fontFamily: MyFontFamily.BMJUA,
+              fontSize: 22,
+              color: Colors.black),
+        ),
         centerTitle: true,
         elevation: 2.0,
         backgroundColor: Colors.white,
@@ -66,7 +68,8 @@ class _ProductDetailState extends State<ProductDetail> {
               ),
             );
           },
-          style: ElevatedButton.styleFrom(primary: Colors.amber),
+          style: ElevatedButton.styleFrom(
+              primary: const Color.fromRGBO(255, 156, 30, 1)),
         ),
       ),
     );
@@ -124,12 +127,10 @@ class _ProductDetailState extends State<ProductDetail> {
     String serving = '';
     int price = product.price;
 
-    if(product.servingSize != null)
-      serving = '${product.servingSize}인분';
+    if (product.servingSize != null) serving = '${product.servingSize}인분';
 
-    if(product.discountedPrice != null)
-      price =  product.discountedPrice;
-      
+    if (product.discountedPrice != null) price = product.discountedPrice;
+
     return Container(
       child: Column(
         children: [
