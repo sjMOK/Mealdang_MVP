@@ -30,12 +30,13 @@ class _MealdangHomeState extends State<MealdangHome> {
   }
 
   void _onItemTapped(int index) {
-    if(index==1){
+    if (index == 1) {
       print('search tapped');
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => SearchPage(database)));
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (_) => SearchPage(database)));
       return;
     }
-  
+
     setState(() {
       _selectedIndex = index;
     });
@@ -67,7 +68,8 @@ class _MealdangHomeState extends State<MealdangHome> {
                 color: mainColor,
               ),
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) => SearchPage(database)));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => SearchPage(database)));
               },
             ),
           ],
