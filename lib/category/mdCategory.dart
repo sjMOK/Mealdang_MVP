@@ -15,11 +15,6 @@ class MealdangCategory extends StatefulWidget {
 }
 
 class _MealdangCategoryState extends State<MealdangCategory> {
-  void dispose() {
-    super.dispose();
-    Future<Database> db = closeDb();
-  }
-
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;

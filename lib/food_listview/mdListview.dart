@@ -8,6 +8,8 @@ import 'package:mealdang_mvp/db.dart';
 
 import '../db.dart';
 
+Future<List<Product>> _products;
+
 class MealdangListview extends StatefulWidget {
   final Future<Database> database;
   final String categoryName;
@@ -15,11 +17,13 @@ class MealdangListview extends StatefulWidget {
   MealdangListview(this.database, this.categoryName);
 
   @override
-  _MealdangListviewState createState() => _MealdangListviewState();
+  _MealdangListviewState createState() {
+    _products = getProducts(database, categoryName);
+    return _MealdangListviewState();
+  }
 }
 
 class _MealdangListviewState extends State<MealdangListview> {
-  Future<List<Product>> _products;
   @override
   void initState() {
     super.initState();

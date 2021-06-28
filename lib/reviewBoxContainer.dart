@@ -10,7 +10,7 @@ class ReviewBox extends StatefulWidget {
     if (this.separator == 1)
       return Text(
         "$text",
-        maxLines: 2,
+        maxLines: 3,
         style: TextStyle(fontSize: 16),
         overflow: TextOverflow.ellipsis,
       );
@@ -102,13 +102,13 @@ class _ReviewBoxState extends State<ReviewBox> {
                         ),
                         Container(
                             width: _width * 0.7,
-                            height: _height * 0.08,
+                            height: _height * 0.1,
                             // color: Colors.amber,
                             child: widget
                                 .textEffectPDetail(widget.review.contentGood)),
                       ],
                     ),
-                    SizedBox(height: _height * 0.03),
+                    SizedBox(height: _height * 0.04),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -119,13 +119,13 @@ class _ReviewBoxState extends State<ReviewBox> {
                         ),
                         Container(
                             width: _width * 0.7,
-                            height: _height * 0.08,
+                            height: _height * 0.1,
                             // color: Colors.orange,
                             child: widget
                                 .textEffectPDetail(widget.review.contentBad)),
                       ],
                     ),
-                    SizedBox(height: _height * 0.03),
+                    SizedBox(height: _height * 0.04),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -136,7 +136,7 @@ class _ReviewBoxState extends State<ReviewBox> {
                         ),
                         Container(
                             width: _width * 0.7,
-                            height: _height * 0.08,
+                            height: _height * 0.1,
                             // color: Colors.red,
                             child: widget
                                 .textEffectPDetail(widget.review.contentKick)),

@@ -80,7 +80,7 @@ Future<List<Product>> getProducts(
 Future<List<Review>> getReviews(Future<Database> db, int productid) async {
   Database database = await db;
   final List<Map<String, dynamic>> maps = await database
-      .rawQuery('SELECT*FROM REVIEW WHERE product_id="$productid"');
+      .rawQuery('SELECT * FROM REVIEW WHERE product_id="$productid"');
   print('${maps.length} $productid rows returned');
   return List.generate(maps.length, (i) {
     var map = maps[i];

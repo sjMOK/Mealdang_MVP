@@ -29,12 +29,10 @@ class _ProductDetailState extends State<ProductDetail> {
   Future<List<Review>> _review;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _review = getReviews(widget.database, widget.product.id);
   }
 
-  @override
   @override
   Widget build(BuildContext context) {
     MediaQueryData media = MediaQuery.of(context);
@@ -112,7 +110,9 @@ class _ProductDetailState extends State<ProductDetail> {
                 color: Colors.grey[300],
                 thickness: 2.0,
               ),
-              _reviewSection(product),
+              ReviewPartListview(widget.product, _ratingContainer(context),
+                  _review, widget.database),
+              //_reviewSection(product),
             ],
           ),
         ),
@@ -191,8 +191,8 @@ class _ProductDetailState extends State<ProductDetail> {
             child: InkWell(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => review.ReviewPage(
-                        widget.database, product.id, ratingContainer)));
+                    builder: (context) => review.ReviewPage(widget.database,
+                        product.id, ratingContainer, _review)));
               },
               child: Row(
                 children: [
@@ -309,17 +309,6 @@ class _ProductDetailState extends State<ProductDetail> {
     );
   }
 
-  Widget _reviewSection(Product product) {
-    FutureBuilder ratingContainer = _ratingContainer(context);
-    return InkWell(
-        onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => review.ReviewPage(
-                  widget.database, widget.product.id, ratingContainer)));
-        },
-        child: Container(child: _reviewPartListview(context)));
-  }
-
   FutureBuilder _reviewRating(BuildContext context) {
     List<int> arrayRating = [0, 0, 0, 0, 0, 0];
     return FutureBuilder(
@@ -365,57 +354,150 @@ class _ProductDetailState extends State<ProductDetail> {
     );
   }
 
-  FutureBuilder _reviewPartListview(BuildContext context) {
-    final partReview = 1;
-    return FutureBuilder(
-        future: _review,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.data.length != 0) {
-              print(snapshot.data);
-              return ListView.separated(
-                primary: false,
-                shrinkWrap: true,
-                padding: EdgeInsets.all(1),
-                itemBuilder: (context, index) {
-                  Review review = snapshot.data[index];
-                  return ReviewBox(review, partReview);
-                },
-                itemCount: 2,
-                separatorBuilder: (BuildContext context, index) {
-                  return Container(
-                      height: 1, color: Colors.black.withOpacity(0.4));
-                },
-              );
-            } else
-              return Text('아직 달린 댓글이 없습니다.');
-          } else
-            return CircularProgressIndicator();
-        });
-  }
-
-  DropdownButton dropdownButton() {
-    String valueChoose;
-    List listItem = ["Item 1", "Item 2", "Item 3"];
-    return DropdownButton(
-      hint: Text("입맛 !"),
-      value: valueChoose,
-      onChanged: (newValue) {
-        setState(() {
-          valueChoose = newValue;
-        });
-      },
-      items: listItem.map((valueItem) {
-        return DropdownMenuItem(
-          value: valueItem,
-          child: Text(valueItem),
-        );
-      }).toList(),
-    );
-  }
+  // FutureBuilder _reviewPartListview(BuildContext context) {
+  //   final partReview = 1;
+  //   return FutureBuilder(
+  //       future: _review,
+  //       builder: (context, snapshot) {
+  //         if (snapshot.connectionState == ConnectionState.done) {
+  //           if (snapshot.data.length != 0) {
+  //             print(snapshot.data);
+  //             return ListView.separated(
+  //               primary: false,
+  //               shrinkWrap: true,
+  //               padding: EdgeInsets.all(1),
+  //               itemBuilder: (context, index) {
+  //                 Review review = snapshot.data[index];
+  //                 return ReviewBox(review, partReview);
+  //               },
+  //               itemCount: 2,
+  //               separatorBuilder: (BuildContext context, index) {
+  //                 return Container(
+  //                     height: 1, color: Colors.black.withOpacity(0.4));
+  //               },
+  //             );
+  //           } else
+  //             return Text('아직 달린 댓글이 없습니다.');
+  //         } else
+  //           return CircularProgressIndicator();
+  //       });
+  // }
 
   String _setPriceFormat(int price) {
     final oCcy = new NumberFormat("#,###", "ko_KR");
     return "${oCcy.format(price)}원";
   } // 가격 만원단위 형변환
+}
+
+class ReviewPartListview extends StatefulWidget {
+  Product product;
+  FutureBuilder ratingContainer;
+  Future<List<Review>> _review;
+  Future<Database> database;
+  ReviewPartListview(
+      this.product, this.ratingContainer, this._review, this.database);
+  @override
+  _ReviewPartListviewState createState() => _ReviewPartListviewState();
+}
+
+class _ReviewPartListviewState extends State<ReviewPartListview> {
+  final partReview = 1;
+  List<int> score = [0, 0, 0];
+  List<int> filter = [0, 0, 0];
+  int change = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    return reviewPart();
+  }
+
+  // InkWell filteredReviewPart() {
+  //   List<Review> filteredData;
+  //   return InkWell(
+  //       onTap: () {
+  //         Navigator.of(context).push(MaterialPageRoute(
+  //             builder: (context) => review.ReviewPage(
+  //                 widget.database, widget.product.id, widget.ratingContainer)));
+  //       },
+  //       child: FutureBuilder(
+  //           future: widget._review,
+  //           builder: (context, snapshot) {
+  //             if (snapshot.connectionState == ConnectionState.done) {
+  //               if (snapshot.data.length != 0) {
+  //                 print(snapshot.data);
+  //                 return ListView.separated(
+  //                   primary: false,
+  //                   shrinkWrap: true,
+  //                   padding: EdgeInsets.all(1),
+  //                   //ignore: missing_return
+  //                   itemBuilder: (context, index) {
+  //                     Review review = snapshot.data[index];
+  //                     filter[0] = review.spciyLevel;
+  //                     filter[1] = review.saltyLevel;
+  //                     filter[2] = review.sweetLevel;
+  //                     if (filter == score) {
+  //                       return ReviewBox(review, partReview);
+  //                     }
+  //                   },
+
+  //                   itemCount: 2,
+  //                   separatorBuilder: (BuildContext context, index) {
+  //                     return Container(
+  //                         height: 1, color: Colors.black.withOpacity(0.4));
+  //                   },
+  //                 );
+  //               } else
+  //                 return Text('아직 달린 댓글이 없습니다.');
+  //             } else
+  //               return CircularProgressIndicator();
+  //           }));
+  // }
+
+  // Future<List<Review>> filterReview(List<int> score) async {
+  //   List<Review> filterReview;
+  //   for (Review review in await widget._review) {
+  //     if (score[0] != 4 && score[1] != 4 && score[2] != 4) {
+  //       if (score[0] == review.spciyLevel &&
+  //           score[1] == review.saltyLevel &&
+  //           score[2] == review.sweetLevel) {
+  //         filterReview.add(review);
+  //       }
+  //     } //
+  //   }
+  //   return filterReview;
+  // }
+
+  InkWell reviewPart() {
+    return InkWell(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => review.ReviewPage(widget.database,
+                  widget.product.id, widget.ratingContainer, widget._review)));
+        },
+        child: FutureBuilder(
+            future: widget._review,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                if (snapshot.data.length != 0) {
+                  print(snapshot.data);
+                  return ListView.separated(
+                    primary: false,
+                    shrinkWrap: true,
+                    padding: EdgeInsets.all(1),
+                    itemBuilder: (context, index) {
+                      Review review = snapshot.data[index];
+                      return ReviewBox(review, partReview);
+                    },
+                    itemCount: 2,
+                    separatorBuilder: (BuildContext context, index) {
+                      return Container(
+                          height: 1, color: Colors.black.withOpacity(0.4));
+                    },
+                  );
+                } else
+                  return Text('아직 달린 댓글이 없습니다.');
+              } else
+                return CircularProgressIndicator();
+            }));
+  }
 }
