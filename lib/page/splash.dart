@@ -48,7 +48,7 @@ class _SplashState extends State<Splash> {
             color: Colors.white,
           ),
           Center(
-            child: Image.asset('assets/images/logo/md_logo_5.jpg'),
+            child: Image.asset('assets/images/logo/logo_splash.jpg'),
           ),
         ],
       ),

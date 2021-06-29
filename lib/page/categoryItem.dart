@@ -33,14 +33,12 @@ class _CategoryItemState extends State<CategoryItem> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(
-          '밀당',
-          style: TextStyle(
-            fontFamily: MyFontFamily.BMJUA,
-            fontSize: 38,
-            color: const Color.fromRGBO(255, 156, 30, 1),
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Image.asset(
+            'assets/images/logo/logo_appbar.png',
+            height: 50,
+            fit: BoxFit.contain,
           ),
-        ),
         centerTitle: true,
         elevation: 1.0,
         backgroundColor: Colors.white,

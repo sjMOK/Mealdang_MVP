@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:mealdang_mvp/style/font.dart';
-import 'package:mealdang_mvp/page/mdCategory.dart';
+import 'package:mealdang_mvp/page/category.dart';
 import 'package:mealdang_mvp/page/searchPage.dart';
 
 class MealdangHome extends StatefulWidget {
@@ -22,7 +21,7 @@ class _MealdangHomeState extends State<MealdangHome> {
     _selectedIndex = 0;
     database = initDatabase();
     _widgetOptions = [
-      MealdangCategory(database),
+      Category(database),
       Container(),
       Center(child: Text('manual', style: TextStyle(fontSize: 32))),
       Center(child: Text('servey', style: TextStyle(fontSize: 32))),
@@ -53,14 +52,20 @@ class _MealdangHomeState extends State<MealdangHome> {
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text(
-            '밀당',
-            style: TextStyle(
-              fontFamily: MyFontFamily.BMJUA,
-              fontSize: 38,
-              color: mainColor,
-            ),
+          automaticallyImplyLeading: false,
+          title: Image.asset(
+            'assets/images/logo/logo_appbar.png',
+            height: 50,
+            fit: BoxFit.contain,
           ),
+          // title: Text(
+          //   '밀당',
+          //   style: TextStyle(
+          //     fontFamily: MyFontFamily.BMJUA,
+          //     fontSize: 38,
+          //     color: mainColor,
+          //   ),
+          // ),
           actions: [
             IconButton(
               icon: Icon(

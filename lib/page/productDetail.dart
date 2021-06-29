@@ -46,13 +46,12 @@ class _ProductDetailState extends State<ProductDetail> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(
-          '[${product.companyName}] ${product.name}',
-          style: TextStyle(
-              fontFamily: MyFontFamily.BMJUA,
-              fontSize: 22,
-              color: Colors.black),
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Image.asset(
+            'assets/images/logo/logo_appbar.png',
+            height: 50,
+            fit: BoxFit.contain,
+          ),
         centerTitle: true,
         elevation: 2.0,
         backgroundColor: Colors.white,
