@@ -6,6 +6,8 @@ import 'package:mealdang_mvp/style/font.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 
+Future<List<Product>> _products;
+
 class MealdangListview extends StatefulWidget {
   final Future<Database> database;
   final String categoryName;
@@ -13,12 +15,13 @@ class MealdangListview extends StatefulWidget {
   MealdangListview(this.database, this.categoryName);
 
   @override
-  _MealdangListviewState createState() => _MealdangListviewState();
+  _MealdangListviewState createState() {
+    _products = getProducts(database, categoryName);
+    return _MealdangListviewState();
+  }
 }
 
 class _MealdangListviewState extends State<MealdangListview> {
-  Future<List<Product>> _products;
-
   @override
   void initState() {
     super.initState();
@@ -33,20 +36,20 @@ class _MealdangListviewState extends State<MealdangListview> {
         title: Text(
           '밀당',
           style: TextStyle(
-              fontFamily: MyFontFamily.BMJUA,
-              fontSize: 38,
-              color: const Color.fromRGBO(255, 156, 30, 1),
-            ),
+            fontFamily: MyFontFamily.BMJUA,
+            fontSize: 38,
+            color: const Color.fromRGBO(255, 156, 30, 1),
+          ),
         ),
         centerTitle: true,
         elevation: 1.0,
         backgroundColor: Colors.white,
       ),
-      body: _myListView(),
+      body: _myListView(widget.database),
     );
   }
 
-  Widget _myListView() {
+  Widget _myListView(Future<Database> database) {
     final Size size = MediaQuery.of(context).size;
     final double _width = size.width;
     final double _height = size.height;
@@ -64,7 +67,8 @@ class _MealdangListviewState extends State<MealdangListview> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => ProductDetail(product),
+                        builder: (context) =>
+                            ProductDetail(widget.database, product),
                       ),
                     );
                   },

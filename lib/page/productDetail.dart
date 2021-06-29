@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:intl/intl.dart';
+
 import 'package:mealdang_mvp/data/product.dart';
+import 'package:mealdang_mvp/data/review.dart';
+import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/style/font.dart';
 //import 'package:intl/intl.dart';
 import 'package:mealdang_mvp/page/reviewPage.dart' as review;
-import 'package:mealdang_mvp/reviewBoxContainer.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:mealdang_mvp/page/reviewBoxContainer.dart';
+import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 
 class ProductDetail extends StatefulWidget {
+  final Future<Database> database;
   final Product product;
-
   //ProductInfo({Key key, this.data}) : super(key: key);
-  ProductDetail(this.product);
+  ProductDetail(
+    this.database,
+    this.product,
+  );
 
   @override
   _ProductDetailState createState() => _ProductDetailState();
@@ -21,6 +29,12 @@ class ProductDetail extends StatefulWidget {
 class _ProductDetailState extends State<ProductDetail> {
   double _height;
   double _width;
+  Future<List<Review>> _review;
+  @override
+  void initState() {
+    super.initState();
+    _review = getReviews(widget.database, widget.product.id);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,12 +100,23 @@ class _ProductDetailState extends State<ProductDetail> {
               _divider(),
               _productInfo(product),
               //Container(color:Colors.red[50],width: 300,height: 100,), //제품정보)
-              _divider(),
-              _reviewInfo(),
-              _divider(),
-              _ratingInfo(),
-              _divider(),
-              _reviewSection(),
+              Divider(
+                color: Colors.grey[300],
+                thickness: 2.0,
+              ),
+              _reviewInkwellContainer(product, context),
+              Divider(
+                color: Colors.grey[300],
+                thickness: 2.0,
+              ),
+              _ratingContainer(context),
+              Divider(
+                color: Colors.grey[300],
+                thickness: 2.0,
+              ),
+              ReviewPartListview(widget.product, _ratingContainer(context),
+                  _review, widget.database),
+              //_reviewSection(product),
             ],
           ),
         ),
@@ -151,7 +176,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 size: _width * 0.05,
               ),
               SizedBox(width: _width * 0.005),
-              Text('rating'),
+              Text('rating}'),
               Text(
                 'review',
                 style: TextStyle(fontSize: 12, color: Colors.grey[600]),
@@ -174,92 +199,109 @@ class _ProductDetailState extends State<ProductDetail> {
     );
   }
 
-  Widget _reviewInfo() {
-    return Container(
-      child: InkWell(
-        onTap: () {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => review.ReviewPage()));
-        },
-        child: Row(
-          children: [
-            Text(
-              "  리뷰  ",
-              style: TextStyle(fontFamily: MyFontFamily.BMJUA, fontSize: 20),
+  FutureBuilder _reviewInkwellContainer(Product product, BuildContext context) {
+    FutureBuilder ratingContainer = _ratingContainer(context);
+    return FutureBuilder(
+      future: _review,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return Container(
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => review.ReviewPage(widget.database,
+                        product.id, ratingContainer, _review)));
+              },
+              child: Row(
+                children: [
+                  Text(
+                    "  리뷰  ",
+                    style:
+                        TextStyle(fontFamily: MyFontFamily.BMJUA, fontSize: 20),
+                  ),
+                  Text(
+                    '${snapshot.data.length}',
+                    //widget.datas["review"],
+                    style: TextStyle(
+                        fontFamily: MyFontFamily.BMJUA,
+                        fontSize: 20,
+                        color: Colors.amber[900]),
+                  ),
+                  SizedBox(width: _width * 0.55),
+                  Icon(Icons.arrow_forward_ios_sharp)
+                ],
+              ),
             ),
-            Text(
-              '리뷰 갯수',
-              //widget.datas["review"],
-              style: TextStyle(
-                  fontFamily: MyFontFamily.BMJUA,
-                  fontSize: 20,
-                  color: Colors.amber[900]),
-            ),
-            SizedBox(width: _width * 0.55),
-            Icon(Icons.arrow_forward_ios_sharp)
-          ],
-        ),
-      ),
+          );
+        }
+        return CircularProgressIndicator();
+      },
     );
   }
 
-  Widget _ratingInfo() {
-    return Container(
-      child: IntrinsicHeight(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Column(
+  FutureBuilder _ratingContainer(BuildContext context) {
+    return FutureBuilder(
+      future: _review,
+      // ignore: missing_return
+      builder: (context, snapshot) {
+        if (snapshot.connectionState != ConnectionState.done) {
+          return CircularProgressIndicator();
+        }
+        int sum = 0;
+        double avg = 0;
+        if (snapshot.data.length != 0) {
+          for (var review in snapshot.data) {
+            sum = sum + review.rating;
+          }
+          avg = sum / snapshot.data.length;
+        }
+        return Container(
+          child: IntrinsicHeight(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  '3.0',
-                  //'widget.datas["rating"]',
-                  style: TextStyle(
-                    fontFamily: MyFontFamily.BMJUA,
-                    fontSize: 50,
-                  ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '$avg',
+                      //'widget.datas["rating"]',
+                      style: TextStyle(
+                        fontFamily: MyFontFamily.BMJUA,
+                        fontSize: 50,
+                      ),
+                    ),
+                    RatingBarIndicator(
+                      rating: avg,
+                      //double.parse(widget.datas["rating"]),
+                      itemPadding:
+                          EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+                      itemBuilder: (context, index) => Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      itemCount: 5,
+                      itemSize: _height * 0.032,
+                    ),
+                  ],
                 ),
-                RatingBarIndicator(
-                  rating: 3.0,
-                  //double.parse(widget.datas["rating"]),
-                  itemPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 0),
-                  itemBuilder: (context, index) => Icon(
-                    Icons.star,
-                    color: Colors.amber,
-                  ),
-                  itemCount: 5,
-                  itemSize: _height * 0.032,
+                VerticalDivider(
+                  color: Colors.amber[700],
+                  thickness: 1.5,
+                  indent: 5,
+                  endIndent: 5,
+                  width: _width * 0.2,
                 ),
+                _reviewRating(context),
               ],
             ),
-            VerticalDivider(
-              color: Colors.amber[700],
-              thickness: 1.5,
-              indent: 5,
-              endIndent: 5,
-              width: _width * 0.2,
-            ),
-            Column(
-              children: [
-                _reviewScoreBox(5),
-                SizedBox(height: _height * 0.016),
-                _reviewScoreBox(4),
-                SizedBox(height: _height * 0.016),
-                _reviewScoreBox(3),
-                SizedBox(height: _height * 0.016),
-                _reviewScoreBox(2),
-                SizedBox(height: _height * 0.016),
-                _reviewScoreBox(1),
-              ],
-            )
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 
-  Widget _reviewScoreBox(int score) {
+  Widget reviewScoreBox(int score, int all, int part) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -276,7 +318,7 @@ class _ProductDetailState extends State<ProductDetail> {
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.black, width: 1),
                   color: Colors.amber),
-              width: 100 * 0.2,
+              width: 100 * (part / all),
               height: 15,
             ),
           ],
@@ -285,43 +327,110 @@ class _ProductDetailState extends State<ProductDetail> {
     );
   }
 
-  Widget _reviewSection() {
-    return InkWell(
-      onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => review.ReviewPage()));
+  FutureBuilder _reviewRating(BuildContext context) {
+    List<int> arrayRating = [0, 0, 0, 0, 0, 0];
+    return FutureBuilder(
+      future: _review,
+      // ignore: missing_return
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          if (snapshot.data.length != 0) {
+            for (var review in snapshot.data) {
+              arrayRating[review.rating]++;
+            }
+            print(arrayRating[5]);
+            return Column(
+              children: [
+                reviewScoreBox(5, snapshot.data.length, arrayRating[5]),
+                SizedBox(height: _height * 0.016),
+                reviewScoreBox(4, snapshot.data.length, arrayRating[4]),
+                SizedBox(height: _height * 0.016),
+                reviewScoreBox(3, snapshot.data.length, arrayRating[3]),
+                SizedBox(height: _height * 0.016),
+                reviewScoreBox(2, snapshot.data.length, arrayRating[2]),
+                SizedBox(height: _height * 0.016),
+                reviewScoreBox(1, snapshot.data.length, arrayRating[1]),
+              ],
+            );
+          }
+          return Column(
+            children: [
+              reviewScoreBox(5, 1, arrayRating[5]),
+              SizedBox(height: _height * 0.016),
+              reviewScoreBox(4, 1, arrayRating[4]),
+              SizedBox(height: _height * 0.016),
+              reviewScoreBox(3, 1, arrayRating[3]),
+              SizedBox(height: _height * 0.016),
+              reviewScoreBox(2, 1, arrayRating[2]),
+              SizedBox(height: _height * 0.016),
+              reviewScoreBox(1, 1, arrayRating[1]),
+            ],
+          );
+        }
+        return CircularProgressIndicator();
       },
-      child: Column(
-        children: [
-          //리뷰 작성된 것들 들어가는 곳 ,2개까지만 노출시키기 !!
-          ReviewBox(),
-          Divider(
-            color: Colors.grey,
-            thickness: 3,
-          ),
-          ReviewBox(),
-        ],
-      ),
     );
   }
 
-  DropdownButton dropdownButton() {
-    String valueChoose;
-    List listItem = ["Item 1", "Item 2", "Item 3"];
-    return DropdownButton(
-      hint: Text("입맛 !"),
-      value: valueChoose,
-      onChanged: (newValue) {
-        setState(() {
-          valueChoose = newValue;
-        });
-      },
-      items: listItem.map((valueItem) {
-        return DropdownMenuItem(
-          value: valueItem,
-          child: Text(valueItem),
-        );
-      }).toList(),
-    );
+  String _setPriceFormat(int price) {
+    final oCcy = new NumberFormat("#,###", "ko_KR");
+    return "${oCcy.format(price)}원";
+  } // 가격 만원단위 형변환
+}
+
+class ReviewPartListview extends StatefulWidget {
+  Product product;
+  FutureBuilder ratingContainer;
+  Future<List<Review>> _review;
+  Future<Database> database;
+  ReviewPartListview(
+      this.product, this.ratingContainer, this._review, this.database);
+  @override
+  _ReviewPartListviewState createState() => _ReviewPartListviewState();
+}
+
+class _ReviewPartListviewState extends State<ReviewPartListview> {
+  final partReview = 1;
+  List<int> score = [0, 0, 0];
+  List<int> filter = [0, 0, 0];
+  int change = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    return reviewPart();
+  }
+
+  InkWell reviewPart() {
+    return InkWell(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => review.ReviewPage(widget.database,
+                  widget.product.id, widget.ratingContainer, widget._review)));
+        },
+        child: FutureBuilder(
+            future: widget._review,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                if (snapshot.data.length != 0) {
+                  print(snapshot.data);
+                  return ListView.separated(
+                    primary: false,
+                    shrinkWrap: true,
+                    padding: EdgeInsets.all(1),
+                    itemBuilder: (context, index) {
+                      Review review = snapshot.data[index];
+                      return ReviewBox(review, partReview);
+                    },
+                    itemCount: 2,
+                    separatorBuilder: (BuildContext context, index) {
+                      return Container(
+                          height: 1, color: Colors.black.withOpacity(0.4));
+                    },
+                  );
+                } else
+                  return Text('아직 달린 댓글이 없습니다.');
+              } else
+                return CircularProgressIndicator();
+            }));
   }
 }

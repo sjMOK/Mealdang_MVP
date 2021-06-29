@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mealdang_mvp/database/db.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/data/product.dart';
-import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/page/productDetail.dart';
 import 'package:mealdang_mvp/style/font.dart';
 
@@ -90,7 +90,7 @@ class _SearchPageState extends State<SearchPage> {
             Product product = _products[index];
             Navigator.of(context).push(
               MaterialPageRoute(builder: (context) {
-                return ProductDetail(product);
+                return ProductDetail(widget.database, product);
               }),
             );
           },
