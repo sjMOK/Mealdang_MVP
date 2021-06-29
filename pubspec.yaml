@@ -53,7 +53,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/Category_icon/
+    - assets/images/category_icon/
     - assets/images/review_icon_image/
     - assets/images/food_pictures/carb_snack/
     - assets/images/food_pictures/chinese_food/
