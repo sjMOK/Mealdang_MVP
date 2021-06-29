@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:mealdang_mvp/page/mealdangHome.dart';
 import 'package:flutter/services.dart';
 import 'package:mealdang_mvp/page/splash.dart';
@@ -34,8 +35,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
 // class Splash extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
@@ -47,4 +46,3 @@ class MyApp extends StatelessWidget {
 //     );
 //   }
 // }
-
