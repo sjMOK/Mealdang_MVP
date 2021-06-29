@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:mealdang_mvp/page/mdListview.dart';
+import 'package:mealdang_mvp/page/categoryItem.dart';
 import '../style/font.dart';
 import 'package:mealdang_mvp/data/categoryData.dart';
 import 'package:sqflite/sqflite.dart';
 
-class MealdangCategory extends StatefulWidget {
+class Category extends StatefulWidget {
   final Future<Database> database;
-  MealdangCategory(this.database);
+  Category(this.database);
 
   @override
-  _MealdangCategoryState createState() => _MealdangCategoryState();
+  _CategoryState createState() => _CategoryState();
 }
 
-class _MealdangCategoryState extends State<MealdangCategory> {
+class _CategoryState extends State<Category> {
   @override
   void initState() {
     super.initState();
@@ -73,7 +73,7 @@ class _MealdangCategoryState extends State<MealdangCategory> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) =>
-                        MealdangListview(widget.database, categoryName),
+                        CategoryItem(widget.database, categoryName),
                   ),
                 );
               },
