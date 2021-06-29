@@ -24,14 +24,14 @@ class _ReviewListviewState extends State<ReviewListview> {
 
   Future<List<Review>> filteringReview(List<int> filter) async {
     List<Review> filterReview = [];
-    int saltyGap, spciyGap, sweetGap;
+    int saltyGap, spicyGap, sweetGap;
     List<Map<String, dynamic>> mapping1 = [];
     int gap;
     for (Review review in await widget._review) {
       saltyGap = review.saltyLevel - filter[0];
-      spciyGap = review.spciyLevel - filter[1];
+      spicyGap = review.spicyLevel - filter[1];
       sweetGap = review.sweetLevel - filter[2];
-      gap = saltyGap.abs() + spciyGap.abs() + sweetGap.abs();
+      gap = saltyGap.abs() + spicyGap.abs() + sweetGap.abs();
       mapping1.add({'gap': gap, 'review': review});
     }
     mapping1.sort((a, b) => a['gap'].compareTo(b['gap']));

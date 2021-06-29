@@ -1,7 +1,7 @@
 class Review {
   int productid;
   int id;
-  int spciyLevel;
+  int spicyLevel;
   int saltyLevel;
   int sweetLevel;
   String contentGood;
@@ -11,7 +11,7 @@ class Review {
   Review(
       {this.productid,
       this.id,
-      this.spciyLevel,
+      this.spicyLevel,
       this.saltyLevel,
       this.sweetLevel,
       this.contentGood,

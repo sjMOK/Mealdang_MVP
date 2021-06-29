@@ -53,7 +53,7 @@ class _ReviewBoxState extends State<ReviewBox> {
                     Row(
                       children: [
                         Text(
-                          "매운맛:${widget.review.spciyLevel}",
+                          "매운맛:${widget.review.spicyLevel}",
                           style: TextStyle(fontSize: 10),
                         ),
                         Text(
@@ -85,67 +85,64 @@ class _ReviewBoxState extends State<ReviewBox> {
           Container(
             // 리뷰 작성 된 곳
             width: _width - _width * 0.1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset("assets/images/ReviewIconImage/smile.png",
-                            scale: 15),
-                        SizedBox(
-                          width: _width * 0.04,
-                        ),
-                        Container(
-                            width: _width * 0.7,
-                            height: _height * 0.1,
-                            // color: Colors.amber,
-                            child: widget
-                                .textEffectPDetail(widget.review.contentGood)),
-                      ],
-                    ),
-                    SizedBox(height: _height * 0.03),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset("assets/images/ReviewIconImage/sad.png",
-                            scale: 15),
-                        SizedBox(
-                          width: _width * 0.04,
-                        ),
-                        Container(
-                            width: _width * 0.7,
-                            height: _height * 0.1,
-                            // color: Colors.orange,
-                            child: widget
-                                .textEffectPDetail(widget.review.contentBad)),
-                      ],
-                    ),
-                    SizedBox(height: _height * 0.03),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset("assets/images/ReviewIconImage/fork.png",
-                            scale: 15),
-                        SizedBox(
-                          width: _width * 0.04,
-                        ),
-                        Container(
-                            width: _width * 0.7,
-                            height: _height * 0.1,
-                            // color: Colors.red,
-                            child: widget
-                                .textEffectPDetail(widget.review.contentKick)),
-                      ],
-                    )
-                  ],
-                ),
-              ],
-            ),
+            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset("assets/images/review_icon_image/smile.png",
+                          scale: 15),
+                      SizedBox(
+                        width: _width * 0.04,
+                      ),
+                      Container(
+                          width: _width * 0.7,
+                          height: _height * 0.1,
+                          // color: Colors.amber,
+                          child: widget
+                              .textEffectPDetail(widget.review.contentGood)),
+                    ],
+                  ),
+                  SizedBox(height: _height * 0.03),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset("assets/images/review_icon_image/sad.png",
+                          scale: 15),
+                      SizedBox(
+                        width: _width * 0.04,
+                      ),
+                      Container(
+                          width: _width * 0.7,
+                          height: _height * 0.1,
+                          // color: Colors.orange,
+                          child: widget
+                              .textEffectPDetail(widget.review.contentBad)),
+                    ],
+                  ),
+                  SizedBox(height: _height * 0.03),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset("assets/images/review_icon_image/fork.png",
+                          scale: 15),
+                      SizedBox(
+                        width: _width * 0.04,
+                      ),
+                      Container(
+                          width: _width * 0.7,
+                          height: _height * 0.1,
+                          // color: Colors.red,
+                          child: widget
+                              .textEffectPDetail(widget.review.contentKick)),
+                    ],
+                  )
+                ],
+              ),
+            ]),
           ),
         ],
       ),

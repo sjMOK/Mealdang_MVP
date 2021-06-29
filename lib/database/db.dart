@@ -28,12 +28,12 @@ Future<Database> initDatabase() async {
       await db.execute('CREATE TABLE REVIEW ('
           'id INTEGER ,' //PRIMARY KEY AUTOINCREMENT NOT NULL
           'product_id INTEGER NOT NULL,'
-          'spciy_level INTEGER NOT NULL,'
+          'spicy_level INTEGER NOT NULL,'
           'salty_level INTEGER NOT NULL,'
           'sweet_level INTEGER NOT NULL,'
-          'content_good TEXT NOT NULL,'
-          'content_bad TEXT NOT NULL,'
-          'content_kick TEXT NOT NULL,'
+          'content_good TEXT NULL,'
+          'content_bad TEXT NULL,'
+          'content_kick TEXT NULL,'
           'rating INTEGER NOT NULL,'
           'FOREIGN KEY (product_id) REFERENCES Product(id) ON DELETE NO ACTION'
           ')');
@@ -83,7 +83,7 @@ Future<List<Review>> getReviews(Future<Database> db, int productid) async {
     return Review(
       productid: map['product_id'],
       id: map['id'],
-      spciyLevel: map['spciy_level'],
+      spicyLevel: map['spicy_level'],
       saltyLevel: map['salty_level'],
       sweetLevel: map['sweet_level'],
       contentGood: map['content_good'],
