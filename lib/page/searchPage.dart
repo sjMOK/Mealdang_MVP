@@ -36,13 +36,10 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(
-          '밀당',
-          style: TextStyle(
-            fontFamily: MyFontFamily.BMJUA,
-            fontSize: 38,
-            color: const Color.fromRGBO(255, 156, 30, 1),
-          ),
+        title: Image.asset(
+          'assets/images/logo/logo_appbar.png',
+          height: 50,
+          fit: BoxFit.contain,
         ),
         centerTitle: true,
         elevation: 0.0,

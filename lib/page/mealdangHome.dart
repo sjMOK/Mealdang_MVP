@@ -58,14 +58,6 @@ class _MealdangHomeState extends State<MealdangHome> {
             height: 50,
             fit: BoxFit.contain,
           ),
-          // title: Text(
-          //   '밀당',
-          //   style: TextStyle(
-          //     fontFamily: MyFontFamily.BMJUA,
-          //     fontSize: 38,
-          //     color: mainColor,
-          //   ),
-          // ),
           actions: [
             IconButton(
               icon: Icon(
