@@ -44,9 +44,9 @@ class _SplashState extends State<Splash> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          // Container(
-          //   color: Colors.white,
-          // ),
+          Container(
+            color: Colors.white,
+          ),
           Center(
             child: Image.asset('assets/images/logo/md_logo_5.jpg'),
           ),
