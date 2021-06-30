@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mealdang_mvp/data/categoryData.dart';
+import 'package:mealdang_mvp/data/review.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/page/productDetail.dart';
@@ -34,7 +36,7 @@ class _MealdangListviewState extends State<MealdangListview> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          '밀당',
+          categoryData[widget.categoryName]["name"],
           style: TextStyle(
             fontFamily: MyFontFamily.BMJUA,
             fontSize: 38,
@@ -53,6 +55,7 @@ class _MealdangListviewState extends State<MealdangListview> {
     final Size size = MediaQuery.of(context).size;
     final double _width = size.width;
     final double _height = size.height;
+    Future<List<Review>> _reviews;
 
     return FutureBuilder(
       future: _products,
@@ -63,6 +66,7 @@ class _MealdangListviewState extends State<MealdangListview> {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               itemBuilder: (context, index) {
                 Product product = snapshot.data[index];
+                _reviews = getReviews(widget.database, product.id);
                 return GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(
@@ -72,7 +76,8 @@ class _MealdangListviewState extends State<MealdangListview> {
                       ),
                     );
                   },
-                  child: _itemContainer(product, index, _width, _height),
+                  child:
+                      _itemContainer(product, index, _width, _height, _reviews),
                 );
               },
               itemCount: snapshot.data.length,
@@ -88,8 +93,56 @@ class _MealdangListviewState extends State<MealdangListview> {
     );
   }
 
-  Container _itemContainer(
-      Product product, int index, double width, double height) {
+  Container _itemContainer(Product product, int index, double width,
+      double height, Future<List<Review>> reviews) {
+    Widget getAvg(Future<List<Review>> _reviews) {
+      return FutureBuilder(
+          future: _reviews,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasData) {
+                int sum = 0;
+                int cnt = 0;
+                double avg;
+                for (Review review in snapshot.data) {
+                  sum += review.rating;
+                  cnt++;
+                }
+                avg = sum / cnt;
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Icon(
+                      Icons.star,
+                      color: Colors.amber[600],
+                    ),
+                    Text(
+                      '$avg', //_foodList[index]["rating"],
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(width: width * 0.02),
+                    Icon(
+                      Icons.messenger_outline_rounded,
+                      color: Colors.orange[800],
+                      size: height * 0.025,
+                    ),
+                    SizedBox(width: width * 0.01),
+                    Text(
+                      '$cnt', //_foodList[index]["rating"],
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                );
+              }
+            }
+            return Text(
+              '0', //_foodList[index]["rating"],
+              style: TextStyle(fontWeight: FontWeight.bold),
+            );
+          });
+    }
+
     return Container(
       color: Colors.transparent, //상품 어디를 눌러도 OnTap가능하게만듬
       padding: const EdgeInsets.symmetric(vertical: 9),
@@ -125,32 +178,7 @@ class _MealdangListviewState extends State<MealdangListview> {
                   SizedBox(height: height * 0.04),
                   _denotePrice(product.price, product.discountedPrice),
                   Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Icon(
-                          Icons.star,
-                          color: Colors.amber[600],
-                        ),
-                        Text(
-                          '4.7', //_foodList[index]["rating"],
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(width: width * 0.02),
-                        Icon(
-                          Icons.messenger_outline_rounded,
-                          color: Colors.orange[800],
-                          size: height * 0.025,
-                        ),
-                        SizedBox(width: width * 0.01),
-                        Text(
-                          '13',
-                          //_foodList[index]["review"],
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
+                    child: getAvg(reviews),
                   ),
                 ],
               ),
