@@ -8,15 +8,15 @@ class Product {
   int discountedPrice;
   String imagePath;
   String pageUrl;
-
-  Product(
-      {this.id,
-      this.category,
-      this.name,
-      this.companyName,
-      this.servingSize,
-      this.price,
-      this.discountedPrice,
-      this.imagePath,
-      this.pageUrl});
+  Product({
+    this.id,
+    this.category,
+    this.name,
+    this.companyName,
+    this.servingSize,
+    this.price,
+    this.discountedPrice,
+    this.imagePath,
+    this.pageUrl,
+  });
 }

@@ -10,20 +10,20 @@ import 'package:mealdang_mvp/utils/util.dart';
 
 Future<List<Product>> _products;
 
-class MealdangListview extends StatefulWidget {
+class CategoryItem extends StatefulWidget {
   final Future<Database> database;
   final String categoryName;
 
-  MealdangListview(this.database, this.categoryName);
+  CategoryItem(this.database, this.categoryName);
 
   @override
-  _MealdangListviewState createState() {
+  _CategoryItemState createState() {
     _products = getProducts(database, categoryName);
-    return _MealdangListviewState();
+    return _CategoryItemState();
   }
 }
 
-class _MealdangListviewState extends State<MealdangListview> {
+class _CategoryItemState extends State<CategoryItem> {
   @override
   void initState() {
     super.initState();
@@ -35,13 +35,11 @@ class _MealdangListviewState extends State<MealdangListview> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(
-          categoryData[widget.categoryName]["name"],
-          style: TextStyle(
-            fontFamily: MyFontFamily.BMJUA,
-            fontSize: 38,
-            color: const Color.fromRGBO(255, 156, 30, 1),
-          ),
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Image.asset(
+          'assets/images/logo/logo_appbar.png',
+          height: 50,
+          fit: BoxFit.contain,
         ),
         centerTitle: true,
         elevation: 1.0,
