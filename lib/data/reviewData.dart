@@ -113,7 +113,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 5
   },
   {
-    'product_id': 2, //프레시지 장흥회관 낙지곱창전골 리뷰
+    'product_id': 2,
     'id': 11,
     'spicy_level': 2,
     'salty_level': 2,
@@ -2260,17 +2260,6 @@ List<Map<String, dynamic>> reviewData = [
     'content_bad': '저한테는 좀 맵더라구요 저희 남편은 잘 먹는데 저한테는 많이 매웠어용 ㅜ',
     'content_kick': '매운거 좋아하시는 분은 이 상품,매운거 싫어하시면 오리지널로 드시는게 좋을 듯 하네요',
     'rating': 4
-  },
-  {
-    'product_id': 21,
-    'id': 205,
-    'spicy_level': 3,
-    'salty_level': 2,
-    'sweet_level': 2,
-    'content_good': '맛있네요 많이 매콤하진 않았지만 딱 적당히 느끼하지 않을 정도로 매콤해서 좋았어요~',
-    'content_bad': '배송이 오래 걸려서 오래 기다리느라 혼났네요 ㅜ',
-    'content_kick': '칼국수 사리 넣어먹으면 맛있습니다 ㅎㅎ',
-    'rating': 5
   },
   {
     'product_id': 21,
