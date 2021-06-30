@@ -3,6 +3,7 @@ import 'package:sqflite/sqflite.dart';
 import '../data/review.dart';
 import 'reviewBoxContainer.dart';
 
+//futre<database> database 삭제하기
 class ReviewListview extends StatefulWidget {
   final Future<Database> database;
   final int productId;
