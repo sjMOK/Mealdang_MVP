@@ -46,7 +46,7 @@ class _ReviewBoxState extends State<ReviewBox> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "${widget.review.id}}",
+                      "${widget.review.id}",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                     ),
@@ -87,7 +87,7 @@ class _ReviewBoxState extends State<ReviewBox> {
             width: _width - _width * 0.1,
             child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
@@ -100,7 +100,6 @@ class _ReviewBoxState extends State<ReviewBox> {
                       ),
                       Container(
                           width: _width * 0.7,
-                          height: _height * 0.1,
                           // color: Colors.amber,
                           child: widget
                               .textEffectPDetail(widget.review.contentGood)),
@@ -117,7 +116,6 @@ class _ReviewBoxState extends State<ReviewBox> {
                       ),
                       Container(
                           width: _width * 0.7,
-                          height: _height * 0.1,
                           // color: Colors.orange,
                           child: widget
                               .textEffectPDetail(widget.review.contentBad)),
@@ -134,12 +132,12 @@ class _ReviewBoxState extends State<ReviewBox> {
                       ),
                       Container(
                           width: _width * 0.7,
-                          height: _height * 0.1,
                           // color: Colors.red,
                           child: widget
                               .textEffectPDetail(widget.review.contentKick)),
                     ],
-                  )
+                  ),
+                  SizedBox(height: _height * 0.03),
                 ],
               ),
             ]),
