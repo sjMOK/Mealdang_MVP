@@ -13,6 +13,8 @@ import 'package:mealdang_mvp/page/reviewBoxContainer.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 
+Future<List<Review>> _review;
+
 class ProductDetail extends StatefulWidget {
   final Future<Database> database;
   final Product product;
@@ -23,17 +25,27 @@ class ProductDetail extends StatefulWidget {
   );
 
   @override
-  _ProductDetailState createState() => _ProductDetailState();
+  _ProductDetailState createState() {
+    _review = getReviews(database, product.id);
+    return _ProductDetailState();
+  }
 }
 
 class _ProductDetailState extends State<ProductDetail> {
   double _height;
   double _width;
-  Future<List<Review>> _review;
+  List<Review> reviews;
+
   @override
   void initState() {
-    super.initState();
     _review = getReviews(widget.database, widget.product.id);
+
+    super.initState();
+  }
+
+  Future getFutureReview(Future<List<Review>> _review) async {
+    reviews = await _review;
+    return reviews;
   }
 
   @override
@@ -42,53 +54,85 @@ class _ProductDetailState extends State<ProductDetail> {
     _height = _media.size.height;
     _width = _media.size.width;
     Product product = widget.product;
-
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text(
-          '[${product.companyName}] ${product.name}',
-          style: TextStyle(
-              fontFamily: MyFontFamily.BMJUA,
-              fontSize: 22,
-              color: Colors.black),
-        ),
-        centerTitle: true,
-        elevation: 2.0,
         backgroundColor: Colors.white,
-      ),
-      body: _scroll(product),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: ElevatedButton(
-          child: Text(
-            '구매하기',
-            style: TextStyle(fontWeight: FontWeight.bold),
+        appBar: AppBar(
+          title: Text(
+            '[${product.companyName}] ${product.name}',
+            style: TextStyle(
+                fontFamily: MyFontFamily.BMJUA,
+                fontSize: 22,
+                color: Colors.black),
           ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Scaffold(
-                  backgroundColor: Colors.white,
-                  body: SafeArea(
-                    child: InAppWebView(
-                      initialUrlRequest: URLRequest(
-                        url: Uri.parse(product.pageUrl),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            );
-          },
-          style: ElevatedButton.styleFrom(
-              primary: const Color.fromRGBO(255, 156, 30, 1)),
+          centerTitle: true,
+          elevation: 2.0,
+          backgroundColor: Colors.white,
         ),
-      ),
-    );
+        body: _scroll(product),
+        bottomNavigationBar: GestureDetector(
+          child: Container(
+              height: _height * 0.07,
+              color: const Color.fromRGBO(255, 156, 30, 1),
+              child: InkWell(
+                  onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Scaffold(
+                            backgroundColor: Colors.white,
+                            body: SafeArea(
+                              child: InAppWebView(
+                                initialUrlRequest: URLRequest(
+                                  url: Uri.parse(product.pageUrl),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(0.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "구매하기",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ))),
+        ));
   }
 
+  // Container(
+  //       child: ElevatedButton(
+  //         child: Text(
+  //           '구매하기',
+  //           style: TextStyle(fontWeight: FontWeight.bold),
+  //         ),
+  // onPressed: () {
+  //   Navigator.push(
+  //     context,
+  //     MaterialPageRoute(
+  //       builder: (context) => Scaffold(
+  //         backgroundColor: Colors.white,
+  //         body: SafeArea(
+  //           child: InAppWebView(
+  //             initialUrlRequest: URLRequest(
+  //               url: Uri.parse(product.pageUrl),
+  //             ),
+  //           ),
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  //         },
+  //         style: ElevatedButton.styleFrom(
+  //           primary: const Color.fromRGBO(255, 156, 30, 1),
+  //           minimumSize: Size(double.infinity, _height * 0.02),
+  //         ),
+  //       ),
+  //     ),
   SingleChildScrollView _scroll(Product product) {
     return SingleChildScrollView(
       child: Center(
@@ -151,7 +195,6 @@ class _ProductDetailState extends State<ProductDetail> {
   Widget _productInfo(Product product) {
     String serving = '';
     int price = product.price;
-
     if (product.servingSize != null) serving = '${product.servingSize}인분';
 
     if (product.discountedPrice != null) price = product.discountedPrice;
@@ -176,11 +219,25 @@ class _ProductDetailState extends State<ProductDetail> {
                 size: _width * 0.05,
               ),
               SizedBox(width: _width * 0.005),
-              Text('rating}'),
-              Text(
-                'review',
-                style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-              ),
+              FutureBuilder(
+                  future: _review,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      int sum = 0;
+                      int cnt = 0;
+                      double avg = 0;
+                      if (snapshot.data.length != 0) {
+                        for (Review review in snapshot.data) {
+                          sum += review.rating;
+                          cnt++;
+                        }
+                        avg = sum / cnt;
+                        return Text("$avg($cnt)");
+                      }
+                      return Text("0");
+                    } else
+                      return CircularProgressIndicator();
+                  }),
               Text(
                 " / ",
                 style: TextStyle(color: Colors.grey, fontSize: 20),
@@ -209,8 +266,8 @@ class _ProductDetailState extends State<ProductDetail> {
             child: InkWell(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => review.ReviewPage(widget.database,
-                        product.id, ratingContainer, _review)));
+                    builder: (context) => review.ReviewPage(
+                        widget.database, product, ratingContainer, _review)));
               },
               child: Row(
                 children: [
@@ -227,7 +284,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         fontSize: 20,
                         color: Colors.amber[900]),
                   ),
-                  SizedBox(width: _width * 0.55),
+                  SizedBox(width: _width * 0.64),
                   Icon(Icons.arrow_forward_ios_sharp)
                 ],
               ),
@@ -371,11 +428,6 @@ class _ProductDetailState extends State<ProductDetail> {
       },
     );
   }
-
-  String _setPriceFormat(int price) {
-    final oCcy = new NumberFormat("#,###", "ko_KR");
-    return "${oCcy.format(price)}원";
-  } // 가격 만원단위 형변환
 }
 
 class ReviewPartListview extends StatefulWidget {
@@ -405,7 +457,7 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => review.ReviewPage(widget.database,
-                  widget.product.id, widget.ratingContainer, widget._review)));
+                  widget.product, widget.ratingContainer, widget._review)));
         },
         child: FutureBuilder(
             future: widget._review,
