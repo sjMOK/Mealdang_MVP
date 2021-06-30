@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/data/review.dart';
 import 'package:sqflite/sqlite_api.dart';
 import '../style/font.dart';
@@ -6,10 +7,10 @@ import 'package:mealdang_mvp/page/reviewListview.dart';
 
 class ReviewPage extends StatefulWidget {
   final Future<Database> database;
-  int id;
+  Product product;
   Widget ratingContainer;
   Future<List<Review>> _review;
-  ReviewPage(this.database, this.id, this.ratingContainer, this._review);
+  ReviewPage(this.database, this.product, this.ratingContainer, this._review);
   @override
   _ReviewPageState createState() => _ReviewPageState();
 }
@@ -28,7 +29,7 @@ class _ReviewPageState extends State<ReviewPage> {
         backgroundColor: Colors.amber[400],
         centerTitle: true,
         title: Text(
-          "상품 이름 리뷰",
+          widget.product.name + " 리뷰",
           style: TextStyle(
               fontFamily: MyFontFamily.BMJUA,
               fontSize: 22,
@@ -70,7 +71,7 @@ class _ReviewPageState extends State<ReviewPage> {
                   TextButton(
                       onPressed: () {
                         setState(() {
-                          ReviewListview(widget.database, widget.id,
+                          ReviewListview(widget.database, widget.product.id,
                               widget._review, filter);
                         });
                       },
@@ -78,32 +79,13 @@ class _ReviewPageState extends State<ReviewPage> {
                 ],
               ),
             ),
-            ReviewListview(widget.database, widget.id, widget._review, filter),
+            ReviewListview(
+                widget.database, widget.product.id, widget._review, filter),
           ],
         ),
       ),
     );
   }
-
-  // DropdownButton dropdownButton() {
-  //   String valueChoose;
-  //   List listItem = ["Item 1", "Item 2", "Item 3"];
-  //   return DropdownButton(
-  //     hint: Text("입맛 !"),
-  //     value: valueChoose,
-  //     onChanged: (newValue) {
-  //       setState(() {
-  //         valueChoose = newValue;
-  //       });
-  //     },
-  //     items: listItem.map((valueItem) {
-  //       return DropdownMenuItem(
-  //         value: valueItem,
-  //         child: Text(valueItem),
-  //       );
-  //     }).toList(),
-  //   );
-  // }
 
   Widget reviewScoreBox() {
     return Stack(
@@ -124,19 +106,18 @@ class _ReviewPageState extends State<ReviewPage> {
       ],
     );
   }
-}
 
-DropdownButton dropdownButton(String tasty, List<int> score) {
-  var valueChoose;
-  List listItem;
-  if (tasty == "spicy")
-    listItem = ["아이콘x1", "아이콘x2", "아이콘x3", "전체"];
-  else if (tasty == "salty")
-    listItem = ["아이콘x1", "짠아이콘x2", "아이콘x3", "전체"];
-  else
-    listItem = ["아이콘x1", "아이콘x2", "아이콘x3", "전체"];
-  return DropdownButton(
-      hint: Text(tasty),
+  DropdownButton dropdownButton(var tasty, List<int> score) {
+    var valueChoose;
+    List listItem;
+    if (tasty == "spicy")
+      listItem = ["맵아이콘x1", "아이콘x2", "아이콘x3", "전체"];
+    else if (tasty == "salty")
+      listItem = ["짠아이콘x1", "아이콘x2", "아이콘x3", "전체"];
+    else
+      listItem = ["단아이콘x1", "아이콘x2", "아이콘x3", "전체"];
+    return DropdownButton(
+      hint: Text("$tasty"),
       value: valueChoose,
       items: listItem.map(
         (valueItem) {
@@ -147,16 +128,22 @@ DropdownButton dropdownButton(String tasty, List<int> score) {
         },
       ).toList(),
       onChanged: (value) {
-        switch (tasty) {
-          case 'spicy':
-            score[0] = listItem.indexOf(value) + 1;
-            break;
-          case 'salty':
-            score[1] = listItem.indexOf(value) + 1;
-            break;
-          case 'sweety':
-            score[2] = listItem.indexOf(value) + 1;
-        }
+        setState(() {
+          valueChoose = "${listItem[listItem.indexOf(value)]}";
+          switch (tasty) {
+            case 'spicy':
+              score[0] = listItem.indexOf(value) + 1;
+              break;
+            case 'salty':
+              score[1] = listItem.indexOf(value) + 1;
+              break;
+            case 'sweety':
+              score[2] = listItem.indexOf(value) + 1;
+          }
+        });
+        print(valueChoose + "이거로 바뀌어야함");
         print(score);
-      });
+      },
+    );
+  }
 }
