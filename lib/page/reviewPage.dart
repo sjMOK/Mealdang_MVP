@@ -111,11 +111,11 @@ class _ReviewPageState extends State<ReviewPage> {
     var valueChoose;
     List listItem;
     if (tasty == "spicy")
-      listItem = ["맵아이콘x1", "아이콘x2", "아이콘x3", "전체"];
+      listItem = ["맵아이콘1", "아이콘x2", "아이콘x3", "전체"];
     else if (tasty == "salty")
-      listItem = ["짠아이콘x1", "아이콘x2", "아이콘x3", "전체"];
+      listItem = ["짠아이콘1", "아이콘x2", "아이콘x3", "전체"];
     else
-      listItem = ["단아이콘x1", "아이콘x2", "아이콘x3", "전체"];
+      listItem = ["단아이콘1", "아이콘x2", "아이콘x3", "전체"];
     return DropdownButton(
       hint: Text("$tasty"),
       value: valueChoose,
