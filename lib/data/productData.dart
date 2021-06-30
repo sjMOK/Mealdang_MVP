@@ -10,7 +10,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/korean_food/KoreanFood_1.jpeg',
     'page_url':
         'https://smartstore.naver.com/fresheasy/products/3492801816?NaPm=ct%3Dkopda9ao%7Cci%3D9c65b7193081b19180f5e04763c182fadb70adf0%7Ctr%3Dslsl%7Csn%3D446884%7Chk%3D50e1a2f281d528cc80f106ca4a71555dcd6c5b78',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.0
   },
   {
     'id': 2,
@@ -23,7 +24,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/korean_food/KoreanFood_2.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/5301558235',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.1
   },
   {
     'id': 3,
@@ -36,7 +38,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/korean_food/KoreanFood_3.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100073657/products/4858796389',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.3
   },
   {
     'id': 4,
@@ -48,7 +51,8 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': 15800,
     'image_path': 'assets/images/food_pictures/korean_food/KoreanFood_4.jpeg',
     'page_url': 'https://smartstore.naver.com/samsamheamul/products/4714276510',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.2
   },
   {
     'id': 5,
@@ -60,7 +64,8 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': null,
     'image_path': 'assets/images/food_pictures/korean_food/KoreanFood_5.jpeg',
     'page_url': 'https://smartstore.naver.com/foodasb/products/4797604813',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.5
   },
   {
     'id': 6,
@@ -72,7 +77,8 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': null,
     'image_path': 'assets/images/food_pictures/korean_food/KoreanFood_6.jpeg',
     'page_url': 'https://smartstore.naver.com/foodasb/products/4912014692',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.1
   },
   {
     'id': 7,
@@ -85,7 +91,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/korean_food/KoreanFood_7.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100248308/products/4774864842',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.7
   },
   {
     'id': 8,
@@ -98,7 +105,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/korean_food/KoreanFood_8.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100101350/products/4699538776',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.1
   },
   {
     'id': 9,
@@ -111,7 +119,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/chinese_food/ChineseFood_1.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100101350/products/3492836799',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.4
   },
   {
     'id': 10,
@@ -124,7 +133,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/chinese_food/ChineseFood_2.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100073657/products/2246511992',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.8
   },
   {
     'id': 11,
@@ -136,7 +146,8 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': null,
     'image_path': 'assets/images/food_pictures/chinese_food/ChineseFood_3.jpeg',
     'page_url': 'https://smartstore.naver.com/frozenes/products/4596972442',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.4
   },
   {
     'id': 12,
@@ -148,7 +159,8 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': null,
     'image_path': 'assets/images/food_pictures/chinese_food/ChineseFood_4.jpeg',
     'page_url': 'https://smartstore.naver.com/fresheasy/products/5301576003',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.5
   },
   {
     'id': 13,
@@ -160,7 +172,8 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': 10900,
     'image_path': 'assets/images/food_pictures/chinese_food/ChineseFood_5.jpeg',
     'page_url': 'https://smartstore.naver.com/wifechef/products/649530756',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.8
   },
   {
     'id': 14,
@@ -173,7 +186,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/chinese_food/ChineseFood_6.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/5301793406',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.4
   },
   {
     'id': 15,
@@ -186,7 +200,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/chinese_food/ChineseFood_7.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100103056/products/3486202527',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.5
   },
   {
     'id': 16,
@@ -199,7 +214,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/chinese_food/ChineseFood_8.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/5301760615',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.4
   },
   {
     'id': 17,
@@ -213,7 +229,8 @@ List<Map<String, dynamic>> productData = [
         'assets/images/food_pictures/japanese_food/JapaneseFood_1.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/2263949782',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.5
   },
   {
     'id': 18,
@@ -227,7 +244,8 @@ List<Map<String, dynamic>> productData = [
         'assets/images/food_pictures/japanese_food/JapaneseFood_2.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/5440904250',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.3
   },
   {
     'id': 19,
@@ -242,6 +260,8 @@ List<Map<String, dynamic>> productData = [
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/3492778070',
     'review_count': 10
+    ,
+    'rating' : 4.6
   },
   {
     'id': 20,
@@ -255,7 +275,8 @@ List<Map<String, dynamic>> productData = [
         'assets/images/food_pictures/japanese_food/JapaneseFood_4.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/2707922784',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.2
   },
   {
     'id': 21,
@@ -269,7 +290,8 @@ List<Map<String, dynamic>> productData = [
         'assets/images/food_pictures/japanese_food/JapaneseFood_5.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/3393831752',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.1
   },
   {
     'id': 22,
@@ -282,7 +304,8 @@ List<Map<String, dynamic>> productData = [
     'image_path':
         'assets/images/food_pictures/japanese_food/JapaneseFood_6.jpeg',
     'page_url': 'https://smartstore.naver.com/friendsfood/products/2354876276',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.3
   },
   {
     'id': 23,
@@ -296,7 +319,8 @@ List<Map<String, dynamic>> productData = [
         'assets/images/food_pictures/japanese_food/JapaneseFood_7.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100073444/products/3068291435',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.4
   },
   {
     'id': 24,
@@ -310,7 +334,8 @@ List<Map<String, dynamic>> productData = [
         'assets/images/food_pictures/japanese_food/JapaneseFood_8.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100103056/products/5279375183',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.4
   },
   {
     'id': 25,
@@ -323,7 +348,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/western_food/WesternFood_1.jpeg',
     'page_url':
         'https://smartstore.naver.com/elandparkfood/products/4872736184',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.2
   },
   {
     'id': 26,
@@ -336,7 +362,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/western_food/WesternFood_2.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100103056/products/5404760975',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.4
   },
   {
     'id': 27,
@@ -349,7 +376,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/western_food/WesternFood_3.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/2263984222',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.5
   },
   {
     'id': 28,
@@ -361,7 +389,8 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': 12900,
     'image_path': 'assets/images/food_pictures/western_food/WesternFood_4.jpeg',
     'page_url': 'https://smartstore.naver.com/wifechef/products/4762670456',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.5
   },
   {
     'id': 29,
@@ -373,7 +402,8 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': null,
     'image_path': 'assets/images/food_pictures/western_food/WesternFood_5.jpeg',
     'page_url': 'https://smartstore.naver.com/foodasb/products/4516137985',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.3
   },
   {
     'id': 30,
@@ -386,7 +416,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/western_food/WesternFood_6.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100073444/products/2281473037',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.5
   },
   {
     'id': 31,
@@ -399,7 +430,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/western_food/WesternFood_7.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100359417/products/4596514722',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.5
   },
   {
     'id': 32,
@@ -412,7 +444,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/western_food/WesternFood_8.jpeg',
     'page_url':
         'https://smartstore.naver.com/jeju-rei/products/5404590885?NaPm=ct%3Dkpv2axig%7Cci%3De0884155fe7e495066a71203288408611dbd6c5b%7Ctr%3Dslsl%7Csn%3D3209109%7Chk%3D7e103c453392b9e261379e50125dfb27279dcebe',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.4
   },
   {
     'id': 33,
@@ -439,7 +472,8 @@ List<Map<String, dynamic>> productData = [
         'assets/images/food_pictures/late_night_meal/LateNightFood_2.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/4689675420',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.1
   },
   {
     'id': 35,
@@ -452,7 +486,8 @@ List<Map<String, dynamic>> productData = [
     'image_path':
         'assets/images/food_pictures/late_night_meal/LateNightFood_3.jpeg',
     'page_url': 'https://smartstore.naver.com/ssaengdori/products/4467060596',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.4
   },
   {
     'id': 36,
@@ -465,7 +500,8 @@ List<Map<String, dynamic>> productData = [
     'image_path':
         'assets/images/food_pictures/late_night_meal/LateNightFood_4.jpeg',
     'page_url': 'https://smartstore.naver.com/harin2ne/products/570172510',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.5
   },
   {
     'id': 37,
@@ -478,7 +514,8 @@ List<Map<String, dynamic>> productData = [
     'image_path':
         'assets/images/food_pictures/late_night_meal/LateNightFood_5.jpeg',
     'page_url': 'https://smartstore.naver.com/jok_many/products/4427455923',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.3
   },
   {
     'id': 38,
@@ -491,7 +528,8 @@ List<Map<String, dynamic>> productData = [
     'image_path':
         'assets/images/food_pictures/late_night_meal/LateNightFood_6.jpeg',
     'page_url': 'https://smartstore.naver.com/jok_many/products/4558056227',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.5
   },
   {
     'id': 39,
@@ -505,7 +543,8 @@ List<Map<String, dynamic>> productData = [
         'assets/images/food_pictures/late_night_meal/LateNightFood_7.jpeg',
     'page_url':
         'https://smartstore.naver.com/thankyoufarmers/products/3893958953',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.4
   },
   {
     'id': 40,
@@ -518,7 +557,8 @@ List<Map<String, dynamic>> productData = [
     'image_path':
         'assets/images/food_pictures/late_night_meal/LateNightFood_8.jpeg',
     'page_url': 'https://smartstore.naver.com/pigfarm_s/products/4825208972',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.5
   },
   {
     'id': 41,
@@ -531,7 +571,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_1.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100359417/products/5490000146',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.4
   },
   {
     'id': 42,
@@ -544,7 +585,8 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_2.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/3588934498',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.2
   },
   {
     'id': 43,
@@ -556,7 +598,8 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': 3800,
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_3.jpeg',
     'page_url': 'https://smartstore.naver.com/gomssine/products/4953281698',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.3
   },
   {
     'id': 44,
@@ -568,7 +611,8 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': 3900,
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_4.jpeg',
     'page_url': 'https://smartstore.naver.com/bnpfood/products/4423947780',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.3
   },
   {
     'id': 45,
@@ -580,7 +624,8 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': null,
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_5.jpeg',
     'page_url': 'https://smartstore.naver.com/8dobiz/products/218741783',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 0.0
   },
   {
     'id': 46,
@@ -592,7 +637,8 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': 9900,
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_6.jpeg',
     'page_url': 'https://smartstore.naver.com/udfc1991/products/4741430645',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 0.0
   },
   {
     'id': 47,
@@ -604,7 +650,8 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': null,
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_7.jpeg',
     'page_url': 'https://smartstore.naver.com/latin/products/4569010470',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 0.0
   },
   {
     'id': 48,
@@ -616,6 +663,7 @@ List<Map<String, dynamic>> productData = [
     'discounted_price': null,
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_8.jpeg',
     'page_url': 'https://smartstore.naver.com/foodasb/products/4684795005',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 0.0
   }
 ];
