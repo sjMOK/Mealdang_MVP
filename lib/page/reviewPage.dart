@@ -18,7 +18,7 @@ class ReviewPage extends StatefulWidget {
 class _ReviewPageState extends State<ReviewPage> {
   double _width;
   double _height;
-  List<int> filter = [0, 0, 0];
+  List<int> filter = [4, 4, 4];
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -66,16 +66,10 @@ class _ReviewPageState extends State<ReviewPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   dropdownButton("spicy", filter),
+                  SizedBox(width: _width * 0.05),
                   dropdownButton("salty", filter),
+                  SizedBox(width: _width * 0.05),
                   dropdownButton("sweety", filter),
-                  TextButton(
-                      onPressed: () {
-                        setState(() {
-                          ReviewListview(widget.database, widget.product.id,
-                              widget._review, filter);
-                        });
-                      },
-                      child: Text("적용"))
                 ],
               ),
             ),
