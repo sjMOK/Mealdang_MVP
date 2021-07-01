@@ -4,6 +4,7 @@ import 'package:mealdang_mvp/data/review.dart';
 import 'package:sqflite/sqlite_api.dart';
 import '../style/font.dart';
 import 'package:mealdang_mvp/page/reviewListview.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReviewPage extends StatefulWidget {
   final Future<Database> database;
@@ -23,19 +24,7 @@ class _ReviewPageState extends State<ReviewPage> {
   List listSpicy = ["맵아이콘1", "맵아이콘x2", "맵아이콘x3", "전체"];
   List listSalty = ["짠아이콘1", "짠아이콘x2", "짠아이콘x3", "전체"];
   List listSweety = ["단아이콘1", "단아이콘x2", "단아이콘x3", "전체"];
-// AppBar(
-//           iconTheme: IconThemeData(color: Colors.black),
-//           title: Text(
-//             '[${product.companyName}] ${product.name}',
-//             style: TextStyle(
-//                 fontFamily: MyFontFamily.BMJUA,
-//                 fontSize: 22,
-//                 color: Colors.black),
-//           ),
-//           centerTitle: true,
-//           elevation: 2.0,
-//           backgroundColor: Colors.white,
-//         ),
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -49,7 +38,7 @@ class _ReviewPageState extends State<ReviewPage> {
           widget.product.name + " 리뷰",
           style: TextStyle(
               fontFamily: MyFontFamily.BMJUA,
-              fontSize: 22,
+              fontSize: 22.sp,
               color: Colors.black),
         ),
         backgroundColor: Colors.white,
@@ -65,9 +54,9 @@ class _ReviewPageState extends State<ReviewPage> {
           children: [
             Divider(
               color: Colors.grey[300],
-              thickness: 2.0,
+              thickness: 2.0.sp,
             ),
-            SizedBox(height: _height * 0.03),
+            SizedBox(height: 20.5.h),
             ratingContainer,
             Container(
               child: Row(
@@ -85,12 +74,15 @@ class _ReviewPageState extends State<ReviewPage> {
                       (var value) {
                         return DropdownMenuItem(
                           value: value,
-                          child: Text(value),
+                          child: Text(
+                            value,
+                            style: TextStyle(fontSize: 16.sp),
+                          ),
                         );
                       },
                     ).toList(),
                   ),
-                  SizedBox(width: _width * 0.05),
+                  SizedBox(width: 20.5.w),
                   DropdownButton(
                     value: selected[1],
                     onChanged: (var values) {
@@ -103,12 +95,15 @@ class _ReviewPageState extends State<ReviewPage> {
                       (var value) {
                         return DropdownMenuItem(
                           value: value,
-                          child: Text(value),
+                          child: Text(
+                            value,
+                            style: TextStyle(fontSize: 16.sp),
+                          ),
                         );
                       },
                     ).toList(),
                   ),
-                  SizedBox(width: _width * 0.05),
+                  SizedBox(width: 20.5.w),
                   DropdownButton(
                     value: selected[2],
                     onChanged: (var values) {
@@ -121,7 +116,10 @@ class _ReviewPageState extends State<ReviewPage> {
                       (var value) {
                         return DropdownMenuItem(
                           value: value,
-                          child: Text(value),
+                          child: Text(
+                            value,
+                            style: TextStyle(fontSize: 16.sp),
+                          ),
                         );
                       },
                     ).toList(),
@@ -141,51 +139,19 @@ class _ReviewPageState extends State<ReviewPage> {
     return Stack(
       children: [
         Container(
-          decoration:
-              BoxDecoration(border: Border.all(color: Colors.black, width: 1)),
-          width: 100,
-          height: 15,
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.black, width: 1.w)),
+          width: 100.w,
+          height: 15.h,
         ),
         Container(
           decoration: BoxDecoration(
-              border: Border.all(color: Colors.black, width: 1),
+              border: Border.all(color: Colors.black, width: 1.w),
               color: Colors.amber),
-          width: 100 * 0.2,
-          height: 15,
+          width: 20.w,
+          height: 15.h,
         ),
       ],
-    );
-  }
-
-  DropdownButton dropdownButton(
-      var tasty, List<int> score, List listItem, String selectedItem) {
-    return DropdownButton(
-      value: selectedItem,
-      onChanged: (var values) {
-        setState(() {
-          selectedItem = values;
-          switch (tasty) {
-            case 'spicy':
-              score[0] = listItem.indexOf(values) + 1;
-              break;
-            case 'salty':
-              score[1] = listItem.indexOf(values) + 1;
-              break;
-            case 'sweety':
-              score[2] = listItem.indexOf(values) + 1;
-          }
-        });
-        print(selectedItem + "이거로 바뀌어야함");
-        print(score);
-      },
-      items: listItem.map(
-        (var value) {
-          return DropdownMenuItem(
-            value: value,
-            child: Text(value),
-          );
-        },
-      ).toList(),
     );
   }
 }

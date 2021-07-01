@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mealdang_mvp/data/review.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReviewBox extends StatefulWidget {
   Review review;
@@ -10,13 +11,13 @@ class ReviewBox extends StatefulWidget {
     if (this.separator == 1)
       return Text(
         "$text",
-        maxLines: 3,
-        style: TextStyle(fontSize: 16),
+        maxLines: 2,
+        style: TextStyle(fontSize: 16.sp),
         overflow: TextOverflow.ellipsis,
       );
     return Text(
       "$text",
-      style: TextStyle(fontSize: 16),
+      style: TextStyle(fontSize: 16.sp),
     );
   }
 
@@ -27,42 +28,42 @@ class ReviewBox extends StatefulWidget {
 class _ReviewBoxState extends State<ReviewBox> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final _height = size.height;
-    final _width = size.width;
     return Container(
-      width: _width,
+      width: 411.w,
       child: Column(
         children: [
           Container(
             //프사,아이디,태그들 적는 곳
-            padding: EdgeInsets.all(18),
+            padding: EdgeInsets.fromLTRB(30.sp, 20.sp, 20.sp, 20.sp),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(backgroundColor: Colors.black),
-                SizedBox(width: _width * 0.03),
+                CircleAvatar(
+                  backgroundColor: Colors.black,
+                  radius: 23.w,
+                ),
+                SizedBox(width: 12.3.h),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "${widget.review.id}",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 15.sp),
                     ),
                     Row(
                       children: [
                         Text(
                           "매운맛:${widget.review.spicyLevel} ",
-                          style: TextStyle(fontSize: 10),
+                          style: TextStyle(fontSize: 11.sp),
                         ),
                         Text(
                           "짠맛:${widget.review.saltyLevel} ",
-                          style: TextStyle(fontSize: 10),
+                          style: TextStyle(fontSize: 11.sp),
                         ),
                         Text(
                           "단맛:${widget.review.sweetLevel}",
-                          style: TextStyle(fontSize: 10),
+                          style: TextStyle(fontSize: 11.sp),
                         ),
                       ],
                     ),
@@ -75,7 +76,7 @@ class _ReviewBoxState extends State<ReviewBox> {
                         color: Colors.amber,
                       ),
                       itemCount: 5,
-                      itemSize: _height * 0.02,
+                      itemSize: 13.66.sp,
                     ),
                   ],
                 )
@@ -84,8 +85,8 @@ class _ReviewBoxState extends State<ReviewBox> {
           ),
           Container(
             // 리뷰 작성 된 곳
-            width: _width - _width * 0.1,
-            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+            width: 410.w,
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,50 +95,50 @@ class _ReviewBoxState extends State<ReviewBox> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Image.asset("assets/images/review_icon_image/smile.png",
-                          scale: 15),
+                          scale: 20.sp),
                       SizedBox(
-                        width: _width * 0.04,
+                        width: 16.4.w,
                       ),
                       Container(
-                          width: _width * 0.7,
+                          width: 287.w,
                           // color: Colors.amber,
                           child: widget
                               .textEffectPDetail(widget.review.contentGood)),
                     ],
                   ),
-                  SizedBox(height: _height * 0.03),
+                  SizedBox(height: 20.5.h),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Image.asset("assets/images/review_icon_image/sad.png",
-                          scale: 15),
+                          scale: 20.sp),
                       SizedBox(
-                        width: _width * 0.04,
+                        width: 16.4.w,
                       ),
                       Container(
-                          width: _width * 0.7,
+                          width: 287.7.w,
                           // color: Colors.orange,
                           child: widget
                               .textEffectPDetail(widget.review.contentBad)),
                     ],
                   ),
-                  SizedBox(height: _height * 0.03),
+                  SizedBox(height: 20.5.h),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Image.asset("assets/images/review_icon_image/fork.png",
-                          scale: 15),
+                          scale: 20.sp),
                       SizedBox(
-                        width: _width * 0.04,
+                        width: 16.44.w,
                       ),
                       Container(
-                          width: _width * 0.7,
+                          width: 287.7.w,
                           // color: Colors.red,
                           child: widget
                               .textEffectPDetail(widget.review.contentKick)),
                     ],
                   ),
-                  SizedBox(height: _height * 0.03),
+                  SizedBox(height: 20.5.h),
                 ],
               ),
             ]),

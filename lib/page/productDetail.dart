@@ -9,6 +9,7 @@ import 'package:mealdang_mvp/page/reviewPage.dart';
 import 'package:mealdang_mvp/page/reviewBoxContainer.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/utils/util.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Future<List<Review>> _review;
 
@@ -59,7 +60,7 @@ class _ProductDetailState extends State<ProductDetail> {
             '[${product.companyName}] ${product.name}',
             style: TextStyle(
                 fontFamily: MyFontFamily.BMJUA,
-                fontSize: 22,
+                fontSize: 22.sp,
                 color: Colors.black),
           ),
           centerTitle: true,
@@ -69,36 +70,39 @@ class _ProductDetailState extends State<ProductDetail> {
         body: _scroll(product),
         bottomNavigationBar: GestureDetector(
           child: Container(
-              height: _height * 0.07,
-              color: const Color.fromRGBO(255, 156, 30, 1),
-              child: InkWell(
-                  onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Scaffold(
-                            backgroundColor: Colors.white,
-                            body: SafeArea(
-                              child: InAppWebView(
-                                initialUrlRequest: URLRequest(
-                                  url: Uri.parse(product.pageUrl),
-                                ),
-                              ),
-                            ),
-                          ),
+            height: 48.h,
+            color: const Color.fromRGBO(255, 156, 30, 1),
+            child: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Scaffold(
+                    backgroundColor: Colors.white,
+                    body: SafeArea(
+                      child: InAppWebView(
+                        initialUrlRequest: URLRequest(
+                          url: Uri.parse(product.pageUrl),
                         ),
                       ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(0.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "구매하기",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
                     ),
-                  ))),
+                  ),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "구매하기",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 18.sp),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
         ));
   }
 
@@ -106,8 +110,9 @@ class _ProductDetailState extends State<ProductDetail> {
     return SingleChildScrollView(
       child: Center(
         child: Container(
-          width: _width * 0.95,
+          width: 390.w,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _productImg(product),
               _divider(),
@@ -115,17 +120,17 @@ class _ProductDetailState extends State<ProductDetail> {
               //Container(color:Colors.red[50],width: 300,height: 100,), //제품정보)
               Divider(
                 color: Colors.grey[300],
-                thickness: 2.0,
+                thickness: 2.0.w,
               ),
               _reviewInkwellContainer(product, context),
               Divider(
                 color: Colors.grey[300],
-                thickness: 2.0,
+                thickness: 2.0.w,
               ),
               _ratingContainer(context),
               Divider(
                 color: Colors.grey[300],
-                thickness: 2.0,
+                thickness: 2.0.w,
               ),
               ReviewPartListview(widget.product, _ratingContainer(context),
                   _review, widget.database),
@@ -139,21 +144,21 @@ class _ProductDetailState extends State<ProductDetail> {
   Widget _divider() {
     return Divider(
       color: Colors.grey[300],
-      thickness: 2.0,
+      thickness: 2.0.w,
     );
   }
 
   Widget _productImg(Product product) {
     return Container(
-      padding: EdgeInsets.only(top: 12),
+      padding: EdgeInsets.only(top: 30.h),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(10)),
         child: Hero(
           tag: product.id,
           child: Image.asset(
             product.imagePath,
-            width: _width * 0.6,
-            height: _width * 0.6,
+            width: 246.w,
+            height: 246.w,
           ),
         ),
       ),
@@ -174,19 +179,19 @@ class _ProductDetailState extends State<ProductDetail> {
             '[${product.companyName}] ${product.name}',
             style: TextStyle(
               fontFamily: MyFontFamily.BMJUA,
-              fontSize: 16,
+              fontSize: 17.sp,
             ),
           ),
-          SizedBox(height: _height * 0.02),
+          SizedBox(height: 13.6.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
                 Icons.star,
                 color: Colors.red,
-                size: _width * 0.05,
+                size: 20.5.w,
               ),
-              SizedBox(width: _width * 0.005),
+              SizedBox(width: 2.w),
               FutureBuilder(
                   future: _review,
                   builder: (context, snapshot) {
@@ -200,23 +205,30 @@ class _ProductDetailState extends State<ProductDetail> {
                           cnt++;
                         }
                         avg = sum / cnt;
-                        return Text("$avg($cnt)");
+                        return Row(
+                          children: [
+                            Text("$avg($cnt)",
+                                style: TextStyle(fontSize: 16.sp)),
+                            Text(
+                              " / ",
+                              style: TextStyle(
+                                  color: Colors.grey, fontSize: 17.sp),
+                            ),
+                            SizedBox(width: 4.1.w),
+                            Text(setPriceFormat(price),
+                                style: TextStyle(fontSize: 16.sp)),
+                            SizedBox(width: 4.1.w),
+                            Text(
+                              "($serving)",
+                              style: TextStyle(fontSize: 16.sp),
+                            ),
+                          ],
+                        );
                       }
-                      return Text("0");
+                      return Text("0", style: TextStyle(fontSize: 16.sp));
                     } else
                       return CircularProgressIndicator();
                   }),
-              Text(
-                " / ",
-                style: TextStyle(color: Colors.grey, fontSize: 20),
-              ),
-              SizedBox(width: _width * 0.01),
-              Text(setPriceFormat(price)),
-              SizedBox(width: _width * 0.01),
-              Text(
-                serving,
-                style: TextStyle(fontSize: 12),
-              ),
             ],
           ),
         ],
@@ -241,19 +253,19 @@ class _ProductDetailState extends State<ProductDetail> {
                 children: [
                   Text(
                     "  리뷰  ",
-                    style:
-                        TextStyle(fontFamily: MyFontFamily.BMJUA, fontSize: 20),
+                    style: TextStyle(
+                        fontFamily: MyFontFamily.BMJUA, fontSize: 20.sp),
                   ),
                   Text(
                     '${snapshot.data.length}',
                     //widget.datas["review"],
                     style: TextStyle(
                         fontFamily: MyFontFamily.BMJUA,
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         color: Colors.amber[900]),
                   ),
-                  SizedBox(width: _width * 0.64),
-                  Icon(Icons.arrow_forward_ios_sharp)
+                  SizedBox(width: 263.w),
+                  Icon(Icons.arrow_forward_ios_sharp, size: 25.sp)
                 ],
               ),
             ),
@@ -293,29 +305,29 @@ class _ProductDetailState extends State<ProductDetail> {
                       //'widget.datas["rating"]',
                       style: TextStyle(
                         fontFamily: MyFontFamily.BMJUA,
-                        fontSize: 50,
+                        fontSize: 50.sp,
                       ),
                     ),
                     RatingBarIndicator(
                       rating: avg,
                       //double.parse(widget.datas["rating"]),
                       itemPadding:
-                          EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+                          EdgeInsets.symmetric(vertical: 5.h, horizontal: 0),
                       itemBuilder: (context, index) => Icon(
                         Icons.star,
                         color: Colors.amber,
                       ),
                       itemCount: 5,
-                      itemSize: _height * 0.032,
+                      itemSize: 21.sp,
                     ),
                   ],
                 ),
                 VerticalDivider(
-                  color: Colors.amber[700],
-                  thickness: 1.5,
-                  indent: 5,
-                  endIndent: 5,
-                  width: _width * 0.2,
+                  color: const Color.fromRGBO(255, 156, 30, 1),
+                  thickness: 1.5.w,
+                  indent: 5.h,
+                  endIndent: 5.h,
+                  width: 82.w,
                 ),
                 _reviewRating(context),
               ],
@@ -330,21 +342,21 @@ class _ProductDetailState extends State<ProductDetail> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text('$score점  '),
+        Text('$score점  ', style: TextStyle(fontSize: 15.sp)),
         Stack(
           children: [
             Container(
               decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 1)),
-              width: 100,
-              height: 15,
+                  border: Border.all(color: Colors.black, width: 1.w)),
+              width: 100.w,
+              height: 15.h,
             ),
             Container(
               decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 1),
-                  color: Colors.amber),
-              width: 100 * (part / all),
-              height: 15,
+                  border: Border.all(color: Colors.black, width: 1.w),
+                  color: const Color.fromRGBO(255, 156, 30, 1)),
+              width: 100 * (part / all).w,
+              height: 15.h,
             ),
           ],
         )
@@ -367,13 +379,13 @@ class _ProductDetailState extends State<ProductDetail> {
             return Column(
               children: [
                 reviewScoreBox(5, snapshot.data.length, arrayRating[5]),
-                SizedBox(height: _height * 0.016),
+                SizedBox(height: 10.9.h),
                 reviewScoreBox(4, snapshot.data.length, arrayRating[4]),
-                SizedBox(height: _height * 0.016),
+                SizedBox(height: 10.9.h),
                 reviewScoreBox(3, snapshot.data.length, arrayRating[3]),
-                SizedBox(height: _height * 0.016),
+                SizedBox(height: 10.9.h),
                 reviewScoreBox(2, snapshot.data.length, arrayRating[2]),
-                SizedBox(height: _height * 0.016),
+                SizedBox(height: 10.9.h),
                 reviewScoreBox(1, snapshot.data.length, arrayRating[1]),
               ],
             );
@@ -381,13 +393,13 @@ class _ProductDetailState extends State<ProductDetail> {
           return Column(
             children: [
               reviewScoreBox(5, 1, arrayRating[5]),
-              SizedBox(height: _height * 0.016),
+              SizedBox(height: 10.9.h),
               reviewScoreBox(4, 1, arrayRating[4]),
-              SizedBox(height: _height * 0.016),
+              SizedBox(height: 10.9.h),
               reviewScoreBox(3, 1, arrayRating[3]),
-              SizedBox(height: _height * 0.016),
+              SizedBox(height: 10.9.h),
               reviewScoreBox(2, 1, arrayRating[2]),
-              SizedBox(height: _height * 0.016),
+              SizedBox(height: 10.9.h),
               reviewScoreBox(1, 1, arrayRating[1]),
             ],
           );
@@ -438,7 +450,7 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
                       ListView.separated(
                         primary: false,
                         shrinkWrap: true,
-                        padding: EdgeInsets.all(1),
+                        padding: EdgeInsets.all(1.sp),
                         itemBuilder: (context, index) {
                           Review review = snapshot.data[index];
                           return ReviewBox(review, partReview);
@@ -446,7 +458,8 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
                         itemCount: 2,
                         separatorBuilder: (BuildContext context, index) {
                           return Container(
-                              height: 1, color: Colors.black.withOpacity(0.4));
+                              height: 1.h,
+                              color: Colors.black.withOpacity(0.4.sp));
                         },
                       ),
                       OutlinedButton.icon(
@@ -461,14 +474,16 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
                                     _review)),
                           );
                         },
-                        icon: Icon(Icons.add, size: 24, color: Colors.black),
+                        icon: Icon(Icons.add, size: 24.sp, color: Colors.black),
                         label: Text("리뷰 모두보기",
-                            style: TextStyle(color: Colors.black)),
+                            style: TextStyle(
+                                color: Colors.black, fontSize: 17.sp)),
                       ),
                     ],
                   );
                 } else
-                  return Text('아직 달린 댓글이 없습니다.');
+                  return Text('아직 달린 댓글이 없습니다.',
+                      style: TextStyle(fontSize: 17.sp));
               } else
                 return CircularProgressIndicator();
             }));

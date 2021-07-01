@@ -1,7 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Survey extends StatefulWidget {
   @override
@@ -11,24 +11,16 @@ class Survey extends StatefulWidget {
 class _SurveyState extends State<Survey> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    double ratio = MediaQuery.of(context).devicePixelRatio;
-    double height = size.height;
-    double width = size.width;
-
     return Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: height * 0.7,
-            width: width,
+            height: 454.h,
             color: Colors.red,
             //child: Image.asset("assets/images/logo/logo_splash.jpg"),
           ),
-          SizedBox(
-            height: height * 0.08,
-            width: width,
+          Expanded(
             child: ElevatedButton(
               style: TextButton.styleFrom(
                 shape: RoundedRectangleBorder(
@@ -45,7 +37,7 @@ class _SurveyState extends State<Survey> {
                         child: InAppWebView(
                           initialUrlRequest: URLRequest(
                             url: Uri.parse(
-                              'https://naver.com',
+                              'https://docs.google.com/forms/d/e/1FAIpQLScwNuDVNimw1J7rCHLzk-bAfzXPzevrTxwyKrvUfJXkUx2POQ/viewform',
                             ),
                           ),
                         ),
@@ -56,10 +48,10 @@ class _SurveyState extends State<Survey> {
               },
               child: Text(
                 "설문조사하고 스타벅스 받기",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.black, fontSize: 18.sp),
               ),
             ),
-          ),
+          )
         ],
       ),
     );

@@ -4,6 +4,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/page/productDetail.dart';
 import 'package:mealdang_mvp/style/font.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchPage extends StatefulWidget {
   final Future<Database> database;
@@ -31,15 +32,13 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
         title: Image.asset(
           'assets/images/logo/logo_appbar.png',
-          height: 50,
+          height: 50.h,
           fit: BoxFit.contain,
         ),
         centerTitle: true,
@@ -48,7 +47,7 @@ class _SearchPageState extends State<SearchPage> {
       ),
       body: Center(
         child: Container(
-          width: _width * 0.95,
+          width: 390.w,
           child: Column(
             children: <Widget>[
               TextField(
@@ -67,7 +66,7 @@ class _SearchPageState extends State<SearchPage> {
                 },
                 decoration: InputDecoration(hintText: '검색어를 입력하세요'),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.h),
               Expanded(
                 child: _buildListView(),
               ),
@@ -95,11 +94,11 @@ class _SearchPageState extends State<SearchPage> {
           child: Row(
             children: <Widget>[
               Icon(Icons.search, color: Color.fromRGBO(255, 156, 30, 1)),
-              SizedBox(width: 20),
+              SizedBox(width: 20.w),
               Expanded(
                 child: Text(
                   '${_products[index].name}',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16.sp),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),

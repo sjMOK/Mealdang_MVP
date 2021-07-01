@@ -41,6 +41,7 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
+    double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -48,7 +49,8 @@ class _SplashState extends State<Splash> {
             color: Colors.white,
           ),
           Center(
-            child: Image.asset('assets/images/logo/logo_splash.jpg'),
+            child: Image.asset('assets/images/logo/logo_splash.jpg',
+                width: _width, height: _width),
           ),
         ],
       ),
