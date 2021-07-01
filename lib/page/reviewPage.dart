@@ -19,6 +19,11 @@ class _ReviewPageState extends State<ReviewPage> {
   double _width;
   double _height;
   List<int> filter = [4, 4, 4];
+  List selected = ["전체", "전체", "전체"];
+  List listSpicy = ["맵아이콘1", "맵아이콘x2", "맵아이콘x3", "전체"];
+  List listSalty = ["짠아이콘1", "짠아이콘x2", "짠아이콘x3", "전체"];
+  List listSweety = ["단아이콘1", "단아이콘x2", "단아이콘x3", "전체"];
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -65,11 +70,59 @@ class _ReviewPageState extends State<ReviewPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  dropdownButton("spicy", filter),
+                  DropdownButton(
+                    value: selected[0],
+                    onChanged: (var values) {
+                      setState(() {
+                        selected[0] = values;
+                        filter[0] = listSpicy.indexOf(values) + 1;
+                      });
+                    },
+                    items: listSpicy.map(
+                      (var value) {
+                        return DropdownMenuItem(
+                          value: value,
+                          child: Text(value),
+                        );
+                      },
+                    ).toList(),
+                  ),
                   SizedBox(width: _width * 0.05),
-                  dropdownButton("salty", filter),
+                  DropdownButton(
+                    value: selected[1],
+                    onChanged: (var values) {
+                      setState(() {
+                        selected[1] = values;
+                        filter[1] = listSalty.indexOf(values) + 1;
+                      });
+                    },
+                    items: listSalty.map(
+                      (var value) {
+                        return DropdownMenuItem(
+                          value: value,
+                          child: Text(value),
+                        );
+                      },
+                    ).toList(),
+                  ),
                   SizedBox(width: _width * 0.05),
-                  dropdownButton("sweety", filter),
+                  DropdownButton(
+                    value: selected[2],
+                    onChanged: (var values) {
+                      setState(() {
+                        selected[2] = values;
+                        filter[2] = listSweety.indexOf(values) + 1;
+                      });
+                    },
+                    items: listSweety.map(
+                      (var value) {
+                        return DropdownMenuItem(
+                          value: value,
+                          child: Text(value),
+                        );
+                      },
+                    ).toList(),
+                  ),
                 ],
               ),
             ),
@@ -101,43 +154,35 @@ class _ReviewPageState extends State<ReviewPage> {
     );
   }
 
-  DropdownButton dropdownButton(var tasty, List<int> score) {
-    var valueChoose;
-    List listItem;
-    if (tasty == "spicy")
-      listItem = ["맵아이콘1", "아이콘x2", "아이콘x3", "전체"];
-    else if (tasty == "salty")
-      listItem = ["짠아이콘1", "아이콘x2", "아이콘x3", "전체"];
-    else
-      listItem = ["단아이콘1", "아이콘x2", "아이콘x3", "전체"];
+  DropdownButton dropdownButton(
+      var tasty, List<int> score, List listItem, String selectedItem) {
     return DropdownButton(
-      hint: Text("$tasty"),
-      value: valueChoose,
+      value: selectedItem,
+      onChanged: (var values) {
+        setState(() {
+          selectedItem = values;
+          switch (tasty) {
+            case 'spicy':
+              score[0] = listItem.indexOf(values) + 1;
+              break;
+            case 'salty':
+              score[1] = listItem.indexOf(values) + 1;
+              break;
+            case 'sweety':
+              score[2] = listItem.indexOf(values) + 1;
+          }
+        });
+        print(selectedItem + "이거로 바뀌어야함");
+        print(score);
+      },
       items: listItem.map(
-        (valueItem) {
+        (var value) {
           return DropdownMenuItem(
-            value: valueItem,
-            child: Text(valueItem),
+            value: value,
+            child: Text(value),
           );
         },
       ).toList(),
-      onChanged: (value) {
-        setState(() {
-          valueChoose = "${listItem[listItem.indexOf(value)]}";
-          switch (tasty) {
-            case 'spicy':
-              score[0] = listItem.indexOf(value) + 1;
-              break;
-            case 'salty':
-              score[1] = listItem.indexOf(value) + 1;
-              break;
-            case 'sweety':
-              score[2] = listItem.indexOf(value) + 1;
-          }
-        });
-        print(valueChoose + "이거로 바뀌어야함");
-        print(score);
-      },
     );
   }
 }
