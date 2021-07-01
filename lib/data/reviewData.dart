@@ -4955,27 +4955,27 @@ List<Map<String, dynamic>> reviewData = [
     'content_kick': '라면사리 넣어먹으면 맛있어요 ㅎ',
     'rating': 4
   },
-  // {
-  //   'product_id': 45,
-  //   'id': ,
-  //   'spicy_level': ,
-  //   'salty_level': ,
-  //   'sweet_level': ,
-  //   'content_good': '',
-  //   'content_bad': '',
-  //   'content_kick': '',
-  //   'rating':
-  // },
-  // {
-  //   'product_id': 45,
-  //   'id': ,
-  //   'spicy_level': ,
-  //   'salty_level': ,
-  //   'sweet_level': ,
-  //   'content_good': '',
-  //   'content_bad': '',
-  //   'content_kick': '',
-  //   'rating':
-  // },
+  {
+    'product_id': 45,
+    'id': 449,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '완전 맛있어요 항상 재주문해서 먹고 있어요 최곱니다 ㅎㅎㅎ~!',
+    'content_bad': '같이 주는 간장베이스가 조금 달아요 !',
+    'content_kick': '많이 달면 반만 넣어주라는데 매번 버리기 그래서 고추장 한스푼이랑 물 조금 더 넣고 어묵만 더 넣어주면 완성된 맛이 나옵니다 ㅎㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 45,
+    'id': 450,
+    'spicy_level': 2,
+    'salty_level': 3,
+    'sweet_level': 3,
+    'content_good': '우연히 알게된 국떡 넘 맛있어요 왜 이제 알았을까요 ㅜㅜ 요즘 매일매일 떡볶이 먹어요 ㅎㅎ 떡이 넘나 쫄깃하고 양념도 잘 베어 있어서 맛나요 ~!!',
+    'content_bad': '아쉬운 것은 딱히 없었어요 ~',
+    'content_kick': '전 쫄면사리 넣어먹었어요 쫄면 좋아하시는 분들은 너무 좋아하실 것 같네요 ~!',
+    'rating': 5
+  },
 ];
 
