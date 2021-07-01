@@ -4867,5 +4867,115 @@ List<Map<String, dynamic>> reviewData = [
     'content_kick': '딱히 생각나진 않아요 ㅜ',
     'rating': 2
   },
+  {
+    'product_id': 45,
+    'id': 441,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 3,
+    'content_good': '친구 추천으로 접해봤는데 너무너무 맛있어요 ㅎㅎㅎ 정말 이름답게 추억의 맛이에요 잘 먹었어요 ~~!',
+    'content_bad': '떡이 쫄깃하진 않고 좀 퍼지는 감이 있네요~',
+    'content_kick': '전 라면사리 넣어서 라볶이로 만들어서 먹었어요 라면 좋아하시는 분들한테는 최고에요 :)',
+    'rating': 5
+  },
+  {
+    'product_id': 45,
+    'id': 442,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 1,
+    'content_good': '국떡 오리지널 시켰습니다 배송도 빨랐고 가격대비 양도 꽤 많네요 ',
+    'content_bad': '저하고는 정말 안 맞는 제품이었어요 원래 매운 제품은 아니지만 전혀 맵지 않고요 단 맛이 너무너무 강해요 ㅜㅜ 저한테는 별로였어요',
+    'content_kick': '구성품에 단 소스가 있었는데 그거 양을 좀 조절해야할 것 같아요',
+    'rating': 3
+  },
+  {
+    'product_id': 45,
+    'id': 443,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '전체적으로 맛도 괜찮고 포장이나 내용물 양도 좋아서 만족했어요 !!',
+    'content_bad': '맛은 있는데 저하고 애들한테는 많이 매웠어요 ㅜㅜ !! 다른 리뷰에는 달다고해서 주문했는데 ..ㅜ',
+    'content_kick': '전 많이 매워서 물 좀 더 넣고 야채사리들 더 넣어 먹었어요 이러니 매운게 좀 없어지네요',
+    'rating': 4
+  },
+  {
+    'product_id': 45,
+    'id': 444,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 3,
+    'content_good': '제 입맛에 딱 맞는 떡볶이 찾아서 너무 좋았어요 ㅎㅎㅎ 적당히 매콤하고 달달하고 완전 좋아썽요~~!',
+    'content_bad': '어묵에서 살짝 비린내가 나는 거 같긴해요 ㅜㅜ',
+    'content_kick': '전 집에 수제어묵을 사다놓은게 있어서 추가로 넣어서 먹었어요 정말 잘 맞구 맛있네요 ㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 45,
+    'id': 445,
+    'spicy_level': 2,
+    'salty_level': 1,
+    'sweet_level': 2,
+    'content_good': '배송도 빨랐고 포장도 잘 되어있고 내용물도 많아서 좋았어요 ~~',
+    'content_bad': '저한테는 좀 자극적이었어요 간이 세다고 해야하나요 ? 그게 조금 아쉬웠네요 ~',
+    'content_kick': '조리법대로하면 저같이 간 약하게 드시는 분들은 짜게 느끼실 수 있어서 물을 200ml정도만 더 넣어 드시면 딱 맞아요~',
+    'rating': 4
+  },
+  {
+    'product_id': 45,
+    'id': 446,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '배송 빠르게 잘 받았습니다',
+    'content_bad': '떡이 심하게 싸구려에요 해동시키고 소스랑 같이 5분정도 끓였는데 떡이 완전 퍼져있네요 떡이 다른 제품들에 비해 상당히 가볍습니다.. ',
+    'content_kick': '소스맛은 괜찮아 다른 사리 넣어 드세여',
+    'rating': 1
+  },
+  {
+    'product_id': 45,
+    'id': 447,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 3,
+    'content_good': '맛 좋았어요 맵지 않은 걸 알고 있기도 했고 매운게 별로 안땡겨서 .. ㅎ 대신 단 맛이 엄청 나네요 전 이런 스타일 좋아해서 만족했습니다 ㅎㅎ!!',
+    'content_bad': '양이 조금 부실한 것 같긴 했어요 ',
+    'content_kick': '주먹밥이나 튀김들하고 같이 먹으면 맛있어요 ㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 45,
+    'id': 448,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 3,
+    'content_good': '저와 비슷한 입맛 가지신 분들한테는 정말 잘 맞을거에요 ~! 달달하기도 하고 매콤함도 조금 있고 넘 좋았어요 ㅎㅎㅎ',
+    'content_bad': '아쉬웠던 것은 오뎅이 비렸어요 ㅜ 생선 특유의 향이 나네요 ;;',
+    'content_kick': '라면사리 넣어먹으면 맛있어요 ㅎ',
+    'rating': 4
+  },
+  // {
+  //   'product_id': 45,
+  //   'id': ,
+  //   'spicy_level': ,
+  //   'salty_level': ,
+  //   'sweet_level': ,
+  //   'content_good': '',
+  //   'content_bad': '',
+  //   'content_kick': '',
+  //   'rating':
+  // },
+  // {
+  //   'product_id': 45,
+  //   'id': ,
+  //   'spicy_level': ,
+  //   'salty_level': ,
+  //   'sweet_level': ,
+  //   'content_good': '',
+  //   'content_bad': '',
+  //   'content_kick': '',
+  //   'rating':
+  // },
 ];
 
