@@ -23,7 +23,19 @@ class _ReviewPageState extends State<ReviewPage> {
   List listSpicy = ["맵아이콘1", "맵아이콘x2", "맵아이콘x3", "전체"];
   List listSalty = ["짠아이콘1", "짠아이콘x2", "짠아이콘x3", "전체"];
   List listSweety = ["단아이콘1", "단아이콘x2", "단아이콘x3", "전체"];
-
+// AppBar(
+//           iconTheme: IconThemeData(color: Colors.black),
+//           title: Text(
+//             '[${product.companyName}] ${product.name}',
+//             style: TextStyle(
+//                 fontFamily: MyFontFamily.BMJUA,
+//                 fontSize: 22,
+//                 color: Colors.black),
+//           ),
+//           centerTitle: true,
+//           elevation: 2.0,
+//           backgroundColor: Colors.white,
+//         ),
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -31,7 +43,7 @@ class _ReviewPageState extends State<ReviewPage> {
     _width = size.width;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amber[400],
+        iconTheme: IconThemeData(color: Colors.black),
         centerTitle: true,
         title: Text(
           widget.product.name + " 리뷰",
@@ -40,6 +52,7 @@ class _ReviewPageState extends State<ReviewPage> {
               fontSize: 22,
               color: Colors.black),
         ),
+        backgroundColor: Colors.white,
       ),
       body: _scorll(widget.ratingContainer),
     );

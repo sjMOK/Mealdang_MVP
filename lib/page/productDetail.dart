@@ -129,10 +129,6 @@ class _ProductDetailState extends State<ProductDetail> {
               ),
               ReviewPartListview(widget.product, _ratingContainer(context),
                   _review, widget.database),
-              Divider(
-                color: Colors.grey[300],
-                thickness: 2.0,
-              )
             ],
           ),
         ),
