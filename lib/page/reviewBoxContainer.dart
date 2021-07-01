@@ -53,11 +53,11 @@ class _ReviewBoxState extends State<ReviewBox> {
                     Row(
                       children: [
                         Text(
-                          "매운맛:${widget.review.spicyLevel}",
+                          "매운맛:${widget.review.spicyLevel} ",
                           style: TextStyle(fontSize: 10),
                         ),
                         Text(
-                          "짠맛:${widget.review.saltyLevel}",
+                          "짠맛:${widget.review.saltyLevel} ",
                           style: TextStyle(fontSize: 10),
                         ),
                         Text(

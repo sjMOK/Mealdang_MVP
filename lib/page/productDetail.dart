@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:intl/intl.dart';
-
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/data/review.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/style/font.dart';
-//import 'package:intl/intl.dart';
-import 'package:mealdang_mvp/page/reviewPage.dart' as review;
+import 'package:mealdang_mvp/page/reviewPage.dart';
 import 'package:mealdang_mvp/page/reviewBoxContainer.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/utils/util.dart';
@@ -57,6 +54,7 @@ class _ProductDetailState extends State<ProductDetail> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.black),
           title: Text(
             '[${product.companyName}] ${product.name}',
             style: TextStyle(
@@ -104,35 +102,6 @@ class _ProductDetailState extends State<ProductDetail> {
         ));
   }
 
-  // Container(
-  //       child: ElevatedButton(
-  //         child: Text(
-  //           '구매하기',
-  //           style: TextStyle(fontWeight: FontWeight.bold),
-  //         ),
-  // onPressed: () {
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(
-  //       builder: (context) => Scaffold(
-  //         backgroundColor: Colors.white,
-  //         body: SafeArea(
-  //           child: InAppWebView(
-  //             initialUrlRequest: URLRequest(
-  //               url: Uri.parse(product.pageUrl),
-  //             ),
-  //           ),
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  //         },
-  //         style: ElevatedButton.styleFrom(
-  //           primary: const Color.fromRGBO(255, 156, 30, 1),
-  //           minimumSize: Size(double.infinity, _height * 0.02),
-  //         ),
-  //       ),
-  //     ),
   SingleChildScrollView _scroll(Product product) {
     return SingleChildScrollView(
       child: Center(
@@ -266,7 +235,7 @@ class _ProductDetailState extends State<ProductDetail> {
             child: InkWell(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => review.ReviewPage(
+                    builder: (context) => ReviewPage(
                         widget.database, product, ratingContainer, _review)));
               },
               child: Row(
@@ -456,7 +425,7 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
     return InkWell(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => review.ReviewPage(widget.database,
+              builder: (context) => ReviewPage(widget.database,
                   widget.product, widget.ratingContainer, widget._review)));
         },
         child: FutureBuilder(

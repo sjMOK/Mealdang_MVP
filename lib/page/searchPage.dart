@@ -36,6 +36,7 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         title: Image.asset(
           'assets/images/logo/logo_appbar.png',
           height: 50,
