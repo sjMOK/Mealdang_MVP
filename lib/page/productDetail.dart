@@ -129,7 +129,10 @@ class _ProductDetailState extends State<ProductDetail> {
               ),
               ReviewPartListview(widget.product, _ratingContainer(context),
                   _review, widget.database),
-              //_reviewSection(product),
+              Divider(
+                color: Colors.grey[300],
+                thickness: 2.0,
+              )
             ],
           ),
         ),
@@ -425,8 +428,8 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
     return InkWell(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => ReviewPage(widget.database,
-                  widget.product, widget.ratingContainer, widget._review)));
+              builder: (context) => ReviewPage(widget.database, widget.product,
+                  widget.ratingContainer, widget._review)));
         },
         child: FutureBuilder(
             future: widget._review,
@@ -434,19 +437,39 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
               if (snapshot.connectionState == ConnectionState.done) {
                 if (snapshot.data.length != 0) {
                   print(snapshot.data);
-                  return ListView.separated(
-                    primary: false,
-                    shrinkWrap: true,
-                    padding: EdgeInsets.all(1),
-                    itemBuilder: (context, index) {
-                      Review review = snapshot.data[index];
-                      return ReviewBox(review, partReview);
-                    },
-                    itemCount: 2,
-                    separatorBuilder: (BuildContext context, index) {
-                      return Container(
-                          height: 1, color: Colors.black.withOpacity(0.4));
-                    },
+                  return Column(
+                    children: [
+                      ListView.separated(
+                        primary: false,
+                        shrinkWrap: true,
+                        padding: EdgeInsets.all(1),
+                        itemBuilder: (context, index) {
+                          Review review = snapshot.data[index];
+                          return ReviewBox(review, partReview);
+                        },
+                        itemCount: 2,
+                        separatorBuilder: (BuildContext context, index) {
+                          return Container(
+                              height: 1, color: Colors.black.withOpacity(0.4));
+                        },
+                      ),
+                      OutlinedButton.icon(
+                        style: OutlinedButton.styleFrom(primary: Colors.white),
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => ReviewPage(
+                                    widget.database,
+                                    widget.product,
+                                    widget.ratingContainer,
+                                    _review)),
+                          );
+                        },
+                        icon: Icon(Icons.add, size: 24, color: Colors.black),
+                        label: Text("리뷰 모두보기",
+                            style: TextStyle(color: Colors.black)),
+                      ),
+                    ],
                   );
                 } else
                   return Text('아직 달린 댓글이 없습니다.');
