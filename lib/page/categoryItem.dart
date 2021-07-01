@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mealdang_mvp/data/categoryData.dart';
 import 'package:mealdang_mvp/data/review.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/data/product.dart';

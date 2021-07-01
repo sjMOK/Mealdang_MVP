@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:intl/intl.dart';
 
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/data/review.dart';
@@ -104,35 +103,6 @@ class _ProductDetailState extends State<ProductDetail> {
         ));
   }
 
-  // Container(
-  //       child: ElevatedButton(
-  //         child: Text(
-  //           '구매하기',
-  //           style: TextStyle(fontWeight: FontWeight.bold),
-  //         ),
-  // onPressed: () {
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(
-  //       builder: (context) => Scaffold(
-  //         backgroundColor: Colors.white,
-  //         body: SafeArea(
-  //           child: InAppWebView(
-  //             initialUrlRequest: URLRequest(
-  //               url: Uri.parse(product.pageUrl),
-  //             ),
-  //           ),
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  //         },
-  //         style: ElevatedButton.styleFrom(
-  //           primary: const Color.fromRGBO(255, 156, 30, 1),
-  //           minimumSize: Size(double.infinity, _height * 0.02),
-  //         ),
-  //       ),
-  //     ),
   SingleChildScrollView _scroll(Product product) {
     return SingleChildScrollView(
       child: Center(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mealdang_mvp/database/db.dart';
+import 'package:mealdang_mvp/page/homePage.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/page/category.dart';
 import 'package:mealdang_mvp/page/searchPage.dart';
@@ -21,8 +22,9 @@ class _MealdangHomeState extends State<MealdangHome> {
     _selectedIndex = 0;
     database = initDatabase();
     _widgetOptions = [
-      Category(database),
+      HomePage(),
       Container(),
+      Category(database),
       Center(child: Text('manual', style: TextStyle(fontSize: 32))),
       Center(child: Text('servey', style: TextStyle(fontSize: 32))),
     ];
@@ -91,6 +93,12 @@ class _MealdangHomeState extends State<MealdangHome> {
                 Icons.search,
               ),
               label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.category,
+              ),
+              label: 'Category',
             ),
             BottomNavigationBarItem(
               icon: Icon(
