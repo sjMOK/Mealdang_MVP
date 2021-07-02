@@ -113,7 +113,7 @@ List<Map<String, dynamic>> reviewData = [
     'rating': 5
   },
   {
-    'product_id': 2, //프레시지 장흥회관 낙지곱창전골 리뷰
+    'product_id': 2,
     'id': 11,
     'spicy_level': 2,
     'salty_level': 2,
@@ -2260,17 +2260,6 @@ List<Map<String, dynamic>> reviewData = [
     'content_bad': '저한테는 좀 맵더라구요 저희 남편은 잘 먹는데 저한테는 많이 매웠어용 ㅜ',
     'content_kick': '매운거 좋아하시는 분은 이 상품,매운거 싫어하시면 오리지널로 드시는게 좋을 듯 하네요',
     'rating': 4
-  },
-  {
-    'product_id': 21,
-    'id': 205,
-    'spicy_level': 3,
-    'salty_level': 2,
-    'sweet_level': 2,
-    'content_good': '맛있네요 많이 매콤하진 않았지만 딱 적당히 느끼하지 않을 정도로 매콤해서 좋았어요~',
-    'content_bad': '배송이 오래 걸려서 오래 기다리느라 혼났네요 ㅜ',
-    'content_kick': '칼국수 사리 넣어먹으면 맛있습니다 ㅎㅎ',
-    'rating': 5
   },
   {
     'product_id': 21,
@@ -4975,6 +4964,226 @@ List<Map<String, dynamic>> reviewData = [
     'content_good': '우연히 알게된 국떡 넘 맛있어요 왜 이제 알았을까요 ㅜㅜ 요즘 매일매일 떡볶이 먹어요 ㅎㅎ 떡이 넘나 쫄깃하고 양념도 잘 베어 있어서 맛나요 ~!!',
     'content_bad': '아쉬운 것은 딱히 없었어요 ~',
     'content_kick': '전 쫄면사리 넣어먹었어요 쫄면 좋아하시는 분들은 너무 좋아하실 것 같네요 ~!',
+    'rating': 5
+  },
+  {
+    'product_id': 46,
+    'id': 451,
+    'spicy_level': 2,
+    'salty_level': 3,
+    'sweet_level': 2,
+    'content_good': '조리법이 정말 간편해요 그리고 제가 곱창을 별로 안 좋아하는데 곱창냄새도 안나고 너무 좋았어요 떡볶이는 매콤한게 많이 먹으면 맵지만 첨에는 달달하고 매콤해요 ㅎㅎ 잘 먹었습니다 !!',
+    'content_bad': '곱창을 따로 튀겨야된다는 점과 곱창과 튀김 옷이 잘 분리된다는게 좀 아쉽네요 ㅜㅜ!',
+    'content_kick': '조리법대로 해 먹는게 제일 맛있는 것 같아요 ㅎㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 46,
+    'id': 452,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 3,
+    'content_good': '제 입에는 딱이었어요 매콤한 것도 너무 좋았고 달달한 느낌도 있고요 또 제가 곱창 엄청 좋아하는데 떡볶이와 정말 환상궁합이에요 ㅎㅎ',
+    'content_bad': '양이 은근히 아쉬웠어요 ㅎㅎ..',
+    'content_kick': '전 떡 다 건져먹고 라면사리까지 넣어 먹었네요 너무 맛있었어요 !!!',
+    'rating': 5
+  },
+  {
+    'product_id': 46,
+    'id': 453,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '배송 잘 받았습니다 떡볶이는 국물 떡볶이 느낌으로 맛있네요 간이나 매콤함 달달함 정도가 저하고는 딱 맞았어요~',
+    'content_bad': '가장 흠인 것은 곱창입니다.. 곱창에서 냄새가 엄청 나네요 이게 오면서 해동이 되서 그런가요 ? ...',
+    'content_kick': '곱창만 빼면 떡볶이는 정말 훌륭한 맛이에요 너무 맛있어요 곱창 냄새 잘 못 느끼시는 분들은 드셔도 좋을 것 같아요 !',
+    'rating': 3
+  },
+  {
+    'product_id': 46,
+    'id': 454,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '정말 신기하게 곱창에서 냄새가 안나네요 한번 튀겨서 그런가요 ? 곱창 별로 안 좋아하는데 정말 맛있게 먹었습니다',
+    'content_bad': '아쉽게도 떡볶이가 제 타입이 아니네요 .. 떡볶이가 너무 자극적이네요 엄청 매워요 ㅜㅜ',
+    'content_kick': '매우면서 달게 드시는 분들한테는 정말 이 떡볶이 잘 맞을 것 같아요~',
+    'rating': 4
+  },
+  {
+    'product_id': 46,
+    'id': 455,
+    'spicy_level': 2,
+    'salty_level': 3,
+    'sweet_level': 3,
+    'content_good': '정말 맛있었어요 !! 맵긴한데 죽을 정도로 매운 맛은 아니고 단 맛은 또 있어서 너무 좋았어요 ㅎㅎ',
+    'content_bad': '곱창 너무 맛있었는데 양이 적어서 아쉬웠어요 곱창 추가 옵션도 있으면 좋을 것 같아요 !',
+    'content_kick': '전 주먹밥을 따로 만들어서 엽떡처럼 먹어봤어요 너무 맛있네요 ㅎㅎ~!',
+    'rating': 5
+  },
+  {
+    'product_id': 46,
+    'id': 456,
+    'spicy_level': 3,
+    'salty_level': 3,
+    'sweet_level': 2,
+    'content_good': '떡볶이 맛 괜찮습니다 매콤하고 단 맛도 적당히 들어가있고 간도 짜게먹는 저치고는 잘 되어있는 것 같아요 곱창 냄새도 안나구요 ~',
+    'content_bad': '곱창이 튀김옷하고 잘 벗겨지네요 그래서 좀 따로 먹어야하는게 아쉬웠어요',
+    'content_kick': '조리법에는 후라이펜에 기름 넉넉히 두루고 구우라했는데 전 튀김기가 집에 있어서 거기에 튀겨먹으니 더 바삭하고 맛있어요 ~!',
+    'rating': 5
+  },
+  {
+    'product_id': 46,
+    'id': 457,
+    'spicy_level': 2,
+    'salty_level': 3,
+    'sweet_level': 1,
+    'content_good': '빠른 배송 감사드리고 포장도 꼼꼼히 보내주셔서 잘 받았어요 한 끼 식사 대용으로 괜찮네여',
+    'content_bad': '제 입맛 기준으로 아쉬운 점들 말씀드려볼게요 일단 단 맛이 너무 강해요 그리고 간이 좀 심심하네요',
+    'content_kick': '한 끼 간식으로는 괜찮아요 순대나 라면사리 등을 곁들어 먹으면 꽤 푸짐한 간식이 되요 ~',
+    'rating': 4
+  },
+  {
+    'product_id': 46,
+    'id': 458,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 3,
+    'content_good': '배송 빠르게 잘 받았구 떡볶이는 맛있어요 간도 적절하고 단 맛도 올라오니 기분좋게 매운맛도 있고 좋았습니다',
+    'content_bad': '곱창에서 냄새가 꽤 많이 나네요 곱 양도 부실해서 곱창 먹는 느낌은 덜 났어요',
+    'content_kick': '곱창말고는 떡볶이로는 저한테 훌륭했어요 잘 판단하시고 신중한 구매 바래요',
+    'rating': 4
+  },
+  {
+    'product_id': 46,
+    'id': 459,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 3,
+    'content_good': '너무 맛있게 먹었어요 ! 떡볶이도 제 입맛에 완전 찰떡이구 특히나 곱창튀김이 너무 맛있어요 곱창튀김을 처음 먹어보는데 냄새 하나도 안나고 곱 양은 꽤 많아서 너무 맛있게 잘 먹었습니다~!',
+    'content_bad': '아쉬운 거라면 양이 쪼~금 아쉬웠어요 !',
+    'content_kick': '소주 안주로 정말 짱이에요 곱창도 소주 안주고 떡볶이도 의외로 소주안주여서 딱이에요 ㅎㅎㅎ!',
+    'rating': 5
+  },
+  {
+    'product_id': 46,
+    'id': 460,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '잘 먹었습니다 완전 잘 먹었어요 제 입맛엔 딱 맞았구 특히 곱창이 정말 맛있네요 ㅎㅎㅎ',
+    'content_bad': '아쉬운 점은 딱히 없었어요 ~',
+    'content_kick': '라면사리 넣어먹으면 정말 든든하게 한끼 먹을 수 있어요 ㅎㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 47,
+    'id': 461,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '덜 매운 맛으로 주문했는데 제 입에는 딱이었어요 ㅎㅎ 매콤함도 적당하구 떡볶이 워낙 좋아해서요 ㅎㅎ',
+    'content_bad': '타사 떡볶이보다는 조금 더 비싼 편이에요 ~',
+    'content_kick': '라면사리 좋아하시면 꼭 넣어드세요 완전 짱이에요 ㅎㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 47,
+    'id': 462,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '매운 맛 떡볶이로 주문해봤는데요 너무 좋았어요 제 입에도 매콤할 정도로 매웠구요 단 맛도 적어서 프렌차이즈 떡볶이보다 더 맛있었어요 ㅎㅎㅎ~',
+    'content_bad': '양이 조금 아쉬웠어요 이 가격이면 꽤 비싼 편인데요 ..ㅎ',
+    'content_kick': '저는 분식집에서 순대하고 오뎅 포장해서 한 상차림으로 먹었어요 ㅎㅎ 이렇게 먹으니 기분도 나고 좋네요 ~!',
+    'rating': 5
+  },
+  {
+    'product_id': 47,
+    'id': 463,
+    'spicy_level': 2,
+    'salty_level': 3,
+    'sweet_level': 3,
+    'content_good': '배송은 빨랐고 포장도 꼼꼼해서 좋았어요 배송적인 측면에서는 깔 게 없네요',
+    'content_bad': '제 입에는 정말 안 맞았어요 일단 매운맛 시켰는데 너무 매웠고 전 단 맛이 있는 걸 좀 선호하는데 여기는 단 맛 거의 없이 자극적이기만 하네요',
+    'content_kick': '정말 매운 떡볶이 단 맛 없는 것들 좋아하시면 이 떡볶이 잘 드실 것 같아요',
+    'rating': 2
+  },
+  {
+    'product_id': 47,
+    'id': 464,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '맛 괜찮았습니다 타칭 맵찔이인데 덜 매운 맛 주문했더니 맵긴한데 죽을 정도는 아니고 단 맛도 있고 좋았어요',
+    'content_bad': '가격이 좀 쌔다는 느낌을 받았어요',
+    'content_kick': '후추가루 좀 뿌려드시면 맛있어요 ㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 47,
+    'id': 465,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 3,
+    'content_good': '판밀떡이라 너무 좋았어요 요새 판밀떡 쓰는 떡볶이집 거의 없는데 너무 쫄깃하고 맛있었어요 입에도 잘 맞구요 전 덜 매운 맛 시켰어요 !!',
+    'content_bad': '아쉬운 점은 딱히 없었어요 ~!',
+    'content_kick': '어묵이나 계란등 사리 넣어서 드시면 더욱 맛있게 드실 수 있어요 ㅎㅎ!!',
+    'rating': 5
+  },
+  {
+    'product_id': 47,
+    'id': 466,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '아주 매운맛 시켰는데요 너무너무 맛있었어요 매운 걸로 스트레스 푸는데 정말 저한테도 맵더군요 그래도 계속 땡기는 느낌이 드는 매운 맛이라 너무 좋았습니다 ㅎ~',
+    'content_bad': '배송 지연이 되서 너무 아쉬웠네요 ㅜㅜ',
+    'content_kick': '청양고추로 매운 맛을 낸 것 같은데 후추가루 좀 넣으시면 완전 입 얼얼하고 짱이에요 !!ㅎㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 47,
+    'id': 467,
+    'spicy_level': 2,
+    'salty_level': 2,
+    'sweet_level': 3,
+    'content_good': '매운 맛 시켰어요 적당히 맵고 좋았어요 수제양념인데 천연조미료를 사용하시나봐요 뒷 맛 깔끔하게 맵고 좋았어요 !!',
+    'content_bad': '떡 유통기한이 짧아서 많이 아쉬웠네요 ㅜ',
+    'content_kick': '어묵이나 양배추 넣어 드시면 완전 맛있어요 ㅎㅎㅎ',
+    'rating': 5
+  },
+  {
+    'product_id': 47,
+    'id': 468,
+    'spicy_level': 1,
+    'salty_level': 2,
+    'sweet_level': 3,
+    'content_good': '떡이 처음엔 쫄깃해요 간도 적절하고 처음엔 좋았어요',
+    'content_bad': '양이 많아서 재가열 하니 너무 딱딱하고 두번 째 가열하니 떡 중간에 하얀 심이 보여요 그리고 너무 비싸네요;; 후기 읽다보니 양배추 및 어묵 개별 준비하신다는게 이해가 갈 정도로 양도 너무 적어요',
+    'content_kick': '딱히 추천드리고 싶은 레시피가 없네요 ;;',
+    'rating': 2
+  },
+  {
+    'product_id': 47,
+    'id': 469,
+    'spicy_level': 3,
+    'salty_level': 2,
+    'sweet_level': 2,
+    'content_good': '좋은 점이 없었어요',
+    'content_bad': '배송이 한달 넘게 걸렸고 동네 떡볶이가 더 맛있엇어요 ;;',
+    'content_kick': '추천드리고싶은 팁은 없어요 ..;',
+    'rating': 1
+  },
+  {
+    'product_id': 47,
+    'id': 470,
+    'spicy_level': 2,
+    'salty_level': 1,
+    'sweet_level': 2,
+    'content_good': '덜 매운 맛 시켰어요 천연조미료를 사용해서 그런지 정말 깔끔해요 조미료 특유의 텁텁한 맛이 안나요 떡도 판밀떡 사용해서 너무 쫄깃하구요 ㅎㅎ',
+    'content_bad': '배송이 2일정도 늦어서 아쉬웠어요ㅜ',
+    'content_kick': '배송이 쫌 걸리는 제품인 것 같으니 드시고 싶으신 분들은 미리 주문하시면 좋을 것 같아요~',
     'rating': 5
   },
 ];

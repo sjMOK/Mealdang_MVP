@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mealdang_mvp/data/categoryData.dart';
-import 'package:mealdang_mvp/data/review.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/page/productDetail.dart';
-import 'package:mealdang_mvp/style/font.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/utils/util.dart';
-
-Future<List<Product>> _products;
+import 'package:mealdang_mvp/data/categoryData.dart';
 
 class CategoryItem extends StatefulWidget {
   final Future<Database> database;
@@ -17,13 +13,12 @@ class CategoryItem extends StatefulWidget {
   CategoryItem(this.database, this.categoryName);
 
   @override
-  _CategoryItemState createState() {
-    _products = getProducts(database, categoryName);
-    return _CategoryItemState();
-  }
+  _CategoryItemState createState() => _CategoryItemState();
 }
 
 class _CategoryItemState extends State<CategoryItem> {
+  Future<List<Product>> _products;
+
   @override
   void initState() {
     super.initState();
@@ -33,28 +28,29 @@ class _CategoryItemState extends State<CategoryItem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        title: Image.asset(
-          'assets/images/logo/logo_appbar.png',
-          height: 50,
-          fit: BoxFit.contain,
-        ),
-        centerTitle: true,
-        elevation: 1.0,
         backgroundColor: Colors.white,
-      ),
-      body: _myListView(widget.database),
-    );
+        appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.black),
+          title: Text(
+            '${categoryData[widget.categoryName]['name']}',
+            style: TextStyle(
+              color: Color.fromRGBO(255, 156, 30, 1),
+              fontFamily: 'NotoSans',
+              fontWeight: FontWeight.w700,
+              fontSize: 32,
+            ),
+          ),
+          centerTitle: true,
+          elevation: 1.0,
+          backgroundColor: Colors.white,
+        ),
+        body: Padding(
+          padding: EdgeInsets.symmetric(vertical: 10),
+          child: _myListView(widget.database),
+        ));
   }
 
   Widget _myListView(Future<Database> database) {
-    final Size size = MediaQuery.of(context).size;
-    final double _width = size.width;
-    final double _height = size.height;
-    Future<List<Review>> _reviews;
-
     return FutureBuilder(
       future: _products,
       builder: (context, snapshot) {
@@ -64,7 +60,6 @@ class _CategoryItemState extends State<CategoryItem> {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               itemBuilder: (context, index) {
                 Product product = snapshot.data[index];
-                _reviews = getReviews(widget.database, product.id);
                 return GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(
@@ -74,14 +69,12 @@ class _CategoryItemState extends State<CategoryItem> {
                       ),
                     );
                   },
-                  child:
-                      _itemContainer(product, index, _width, _height, _reviews),
+                  child: _itemContainer(product, index),
                 );
               },
               itemCount: snapshot.data.length,
-              separatorBuilder: (BuildContext context, int index) {
-                return const Divider(color: Colors.grey);
-              },
+              separatorBuilder: (context, index) =>
+                  const Divider(color: Colors.grey),
             );
           } else
             return Text('No Data');
@@ -91,59 +84,12 @@ class _CategoryItemState extends State<CategoryItem> {
     );
   }
 
-  Container _itemContainer(Product product, int index, double width,
-      double height, Future<List<Review>> reviews) {
-    Widget getAvg(Future<List<Review>> _reviews) {
-      return FutureBuilder(
-          future: _reviews,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              if (snapshot.hasData) {
-                int sum = 0;
-                int cnt = 0;
-                double avg;
-                for (Review review in snapshot.data) {
-                  sum += review.rating;
-                  cnt++;
-                }
-                avg = sum / cnt;
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Icon(
-                      Icons.star,
-                      color: Colors.amber[600],
-                    ),
-                    Text(
-                      '$avg', //_foodList[index]["rating"],
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(width: width * 0.02),
-                    Icon(
-                      Icons.messenger_outline_rounded,
-                      color: Colors.orange[800],
-                      size: height * 0.025,
-                    ),
-                    SizedBox(width: width * 0.01),
-                    Text(
-                      '$cnt', //_foodList[index]["rating"],
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                );
-              }
-            }
-            return Text(
-              '0', //_foodList[index]["rating"],
-              style: TextStyle(fontWeight: FontWeight.bold),
-            );
-          });
-    }
-
+  Widget _itemContainer(Product product, int index) {
+    final Size size = MediaQuery.of(context).size;
+    double width = size.width;
+    double height = size.height;
     return Container(
-      color: Colors.transparent, //상품 어디를 눌러도 OnTap가능하게만듬
-      padding: const EdgeInsets.symmetric(vertical: 9),
+      color: Colors.transparent,
       child: Row(
         children: <Widget>[
           ClipRRect(
@@ -159,24 +105,59 @@ class _CategoryItemState extends State<CategoryItem> {
           ),
           Expanded(
             child: Container(
-              height: width * 0.30,
+              height: width * 0.32,
               padding: const EdgeInsets.only(left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    '[${product.companyName}] ${product.name}',
-                    overflow: TextOverflow.ellipsis,
+                    '[${product.companyName}]',
                     style: TextStyle(
-                      fontFamily: MyFontFamily.BMJUA,
+                        fontFamily: 'NotoSans',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                        color: Colors.grey[700]),
+                  ),
+                  Text(
+                    '${product.name}',
+                    style: TextStyle(
+                      fontFamily: 'NotoSans',
+                      fontWeight: FontWeight.w500,
                       fontSize: 15,
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: height * 0.04),
-                  _denotePrice(product.price, product.discountedPrice),
+                  _buildPrice(product.price, product.discountedPrice),
                   Expanded(
-                    child: getAvg(reviews),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: Colors.amber[600],
+                        ),
+                        Text(
+                          '${product.rating}',
+                          style: TextStyle(
+                              fontFamily: 'NotoSans',
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(width: width * 0.02),
+                        Icon(
+                          Icons.messenger_outline_rounded,
+                          color: Colors.orange[800],
+                          size: height * 0.025,
+                        ),
+                        SizedBox(width: width * 0.01),
+                        Text(
+                          '${product.reviewCount}',
+                          style: TextStyle(
+                              fontFamily: 'NotoSans',
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -187,36 +168,52 @@ class _CategoryItemState extends State<CategoryItem> {
     );
   }
 
-  Container _denotePrice(int realprice, int discountprice) {
-    String realPrice = setPriceFormat(realprice);
-    if (discountprice == null) {
+  Container _buildPrice(int realPrice, int discountedPrice) {
+    if (discountedPrice == null) {
       return Container(
         child: Text(
-          realPrice,
+          setPriceFormat(realPrice),
           style: TextStyle(
-              fontFamily: MyFontFamily.BMJUA,
+              fontFamily: 'NotoSans',
+              fontWeight: FontWeight.w700,
               fontSize: 20,
               color: Colors.red[600]),
         ),
       );
     } else {
-      String discountPrice = setPriceFormat(discountprice);
+      int discountedRate = ((1 - discountedPrice / realPrice) * 100).round();
+
       return Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              realPrice,
-              style: TextStyle(
-                  fontFamily: MyFontFamily.BMJUA,
-                  fontSize: 15,
-                  color: Colors.grey[400],
-                  decoration: TextDecoration.lineThrough),
+            Row(
+              children: <Widget>[
+                Text(
+                  '$discountedRate%',
+                  style: TextStyle(
+                    fontFamily: 'NotoSans',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 15,
+                  ),
+                ),
+                SizedBox(width: 7),
+                Text(
+                  setPriceFormat(realPrice),
+                  style: TextStyle(
+                      fontFamily: 'NotoSans',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
+                      color: Colors.grey[400],
+                      decoration: TextDecoration.lineThrough),
+                ),
+              ],
             ),
             Text(
-              discountPrice,
+              setPriceFormat(discountedPrice),
               style: TextStyle(
-                  fontFamily: MyFontFamily.BMJUA,
+                  fontFamily: 'NotoSans',
+                  fontWeight: FontWeight.w700,
                   fontSize: 20,
                   color: Colors.red[600]),
             ),

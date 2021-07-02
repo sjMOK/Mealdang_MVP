@@ -75,8 +75,17 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: BMJUA
+    - family: NotoSans
       fonts:
-        - asset: fonts/BMJUA_ttf.ttf
+        - asset: assets/fonts/NotoSansCJKkr-Regular.otf
+        - asset: assets/fonts/NotoSansCJKkr-Black.otf
+          weight: 900
+        - asset: assets/fonts/NotoSansCJKkr-Bold.otf
+          weight: 700
+        - asset: assets/fonts/NotoSansCJKkr-Medium.otf
+          weight: 500
+        - asset: assets/fonts/NotoSansCJKkr-Light.otf
+          weight: 300
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

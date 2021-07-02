@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mealdang_mvp/page/categoryItem.dart';
-import '../style/font.dart';
 import 'package:mealdang_mvp/data/categoryData.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -83,7 +82,8 @@ class _CategoryState extends State<Category> {
           Text(
             categoryData[categoryName]['name'], // 카테고리 이름
             style: TextStyle(
-              fontFamily: MyFontFamily.BMJUA,
+              fontFamily: 'NotoSans',
+              fontWeight: FontWeight.w700,
               fontSize: 30,
             ),
           ),

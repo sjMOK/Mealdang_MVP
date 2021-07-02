@@ -637,12 +637,12 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_6.jpeg',
     'page_url': 'https://smartstore.naver.com/udfc1991/products/4741430645',
     'review_count': 10,
-    'rating' : 0.0
+    'rating' : 4.5
   },
   {
     'id': 47,
     'category': 'snackFood',
-    'name': '[청주 떡볶이] 아씨떡볶이',
+    'name': '아씨떡볶이',
     'company_name': '인생식탁',
     'serving_size': null,
     'price': 6900,

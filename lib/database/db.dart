@@ -23,10 +23,12 @@ Future<Database> initDatabase() async {
           'price INTEGER NOT NULL,'
           'discounted_price INTEGER NULL,'
           'image_path TEXT NULL,'
-          'page_url TEXT NULL'
+          'page_url TEXT NULL,'
+          'review_count INTEGER NULL,'
+          'rating REAL NULL'
           ')');
       await db.execute('CREATE TABLE REVIEW ('
-          'id INTEGER ,' //PRIMARY KEY AUTOINCREMENT NOT NULL
+          'id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,'
           'product_id INTEGER NOT NULL,'
           'spicy_level INTEGER NOT NULL,'
           'salty_level INTEGER NOT NULL,'
@@ -69,6 +71,8 @@ Future<List<Product>> getProducts(
       discountedPrice: map['discounted_price'],
       imagePath: map['image_path'],
       pageUrl: map['page_url'],
+      reviewCount: map['review_count'],
+      rating: map['rating']
     );
   });
 }

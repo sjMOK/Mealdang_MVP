@@ -8,6 +8,9 @@ class Product {
   int discountedPrice;
   String imagePath;
   String pageUrl;
+  int reviewCount;
+  num rating;
+
   Product({
     this.id,
     this.category,
@@ -18,5 +21,7 @@ class Product {
     this.discountedPrice,
     this.imagePath,
     this.pageUrl,
+    this.reviewCount,
+    this.rating
   });
 }
