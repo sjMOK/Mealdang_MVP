@@ -82,7 +82,14 @@ class _ReviewListviewState extends State<ReviewListview> {
                 },
               );
             } else
-              return Text('Nodata', style: TextStyle(fontSize: 18.sp));
+              return Text(
+                'Nodata',
+                style: TextStyle(
+                  fontFamily: 'NotoSans',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 18.sp,
+                ),
+              );
           } else
             return CircularProgressIndicator();
         });

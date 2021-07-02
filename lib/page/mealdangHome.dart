@@ -28,23 +28,9 @@ class _MealdangHomeState extends State<MealdangHome> {
       HomePage(),
       Container(),
       Category(),
-<<<<<<< HEAD
-      Center(child: Text('manual', style: TextStyle(fontSize: 32))),
-      Survey()
+      Survey(),
     ];
   }
-
-  @override
-  dispose() {
-    print('mdHome dispse');
-    super.dispose();
-  }
-=======
-      Center(child: Text('servey', style: TextStyle(fontSize: 32))),
-    ];
-  }
-
->>>>>>> refs/remotes/origin/master
 
   void _onItemTapped(int index) {
     if (index == 1) {
@@ -92,9 +78,9 @@ class _MealdangHomeState extends State<MealdangHome> {
           backgroundColor: Colors.white,
         ),
         body: IndexedStack(
-            index: _selectedIndex,
-            children: _widgetOptions,
-          ),
+          index: _selectedIndex,
+          children: _widgetOptions,
+        ),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(

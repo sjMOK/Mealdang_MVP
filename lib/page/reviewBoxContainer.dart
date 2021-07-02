@@ -13,12 +13,20 @@ class ReviewBox extends StatefulWidget {
       return Text(
         "$text",
         maxLines: 2,
-        style: TextStyle(fontSize: 16.sp),
+        style: TextStyle(
+          fontFamily: 'NotoSans',
+          fontWeight: FontWeight.w500,
+          fontSize: 16.sp,
+        ),
         overflow: TextOverflow.ellipsis,
       );
     return Text(
       "$text",
-      style: TextStyle(fontSize: 16.sp),
+      style: TextStyle(
+        fontFamily: 'NotoSans',
+        fontWeight: FontWeight.w500,
+        fontSize: 16.sp,
+      ),
     );
   }
 
@@ -49,22 +57,37 @@ class _ReviewBoxState extends State<ReviewBox> {
                   children: [
                     Text(
                       "${getRandomName()}",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                      style: TextStyle(
+                        fontFamily: 'NotoSans',
+                        fontWeight: FontWeight.w800,
+                        fontSize: 15.sp,
+                      ),
                     ),
                     Row(
                       children: [
                         Text(
                           "매운맛:${widget.review.spicyLevel} ",
-                          style: TextStyle(fontSize: 11.sp),
+                          style: TextStyle(
+                            fontFamily: 'NotoSans',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 11.sp,
+                          ),
                         ),
                         Text(
                           "짠맛:${widget.review.saltyLevel} ",
-                          style: TextStyle(fontSize: 11.sp),
+                          style: TextStyle(
+                            fontFamily: 'NotoSans',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 11.sp,
+                          ),
                         ),
                         Text(
                           "단맛:${widget.review.sweetLevel}",
-                          style: TextStyle(fontSize: 11.sp),
+                          style: TextStyle(
+                            fontFamily: 'NotoSans',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 11.sp,
+                          ),
                         ),
                       ],
                     ),

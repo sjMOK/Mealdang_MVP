@@ -57,8 +57,12 @@ class _SurveyState extends State<Survey> {
                         children: [
                           Text(
                             "설문조사하고 스타벅스 받기",
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 18.sp),
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'NotoSans',
+                              fontWeight: FontWeight.w900,
+                              fontSize: 18.sp,
+                            ),
                           ),
                         ],
                       ),

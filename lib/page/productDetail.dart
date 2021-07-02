@@ -59,7 +59,8 @@ class _ProductDetailState extends State<ProductDetail> {
           title: Text(
             '[${product.companyName}] ${product.name}',
             style: TextStyle(
-                fontFamily: MyFontFamily.BMJUA,
+                fontFamily: "NotoSans",
+                fontWeight: FontWeight.w800,
                 fontSize: 22.sp,
                 color: Colors.black),
           ),
@@ -96,7 +97,9 @@ class _ProductDetailState extends State<ProductDetail> {
                     Text(
                       "구매하기",
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 18.sp),
+                          fontFamily: 'NotoSans',
+                          fontWeight: FontWeight.w800,
+                          fontSize: 18.sp),
                     )
                   ],
                 ),
@@ -178,7 +181,8 @@ class _ProductDetailState extends State<ProductDetail> {
           Text(
             '[${product.companyName}] ${product.name}',
             style: TextStyle(
-              fontFamily: MyFontFamily.BMJUA,
+              fontFamily: 'NotoSans',
+              fontWeight: FontWeight.w800,
               fontSize: 17.sp,
             ),
           ),
@@ -207,25 +211,51 @@ class _ProductDetailState extends State<ProductDetail> {
                         avg = sum / cnt;
                         return Row(
                           children: [
-                            Text("$avg($cnt)",
-                                style: TextStyle(fontSize: 16.sp)),
+                            Text(
+                              "$avg($cnt)",
+                              style: TextStyle(
+                                fontFamily: 'NotoSans',
+                                fontWeight: FontWeight.w800,
+                                fontSize: 16.sp,
+                              ),
+                            ),
                             Text(
                               " / ",
                               style: TextStyle(
-                                  color: Colors.grey, fontSize: 17.sp),
+                                fontFamily: 'NotoSans',
+                                fontWeight: FontWeight.w800,
+                                fontSize: 17.sp,
+                              ),
                             ),
                             SizedBox(width: 4.1.w),
-                            Text(setPriceFormat(price),
-                                style: TextStyle(fontSize: 16.sp)),
+                            Text(
+                              setPriceFormat(price),
+                              style: TextStyle(
+                                fontFamily: 'NotoSans',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16.sp,
+                              ),
+                            ),
                             SizedBox(width: 4.1.w),
                             Text(
                               "($serving)",
-                              style: TextStyle(fontSize: 16.sp),
+                              style: TextStyle(
+                                fontFamily: 'NotoSans',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16.sp,
+                              ),
                             ),
                           ],
                         );
                       }
-                      return Text("0", style: TextStyle(fontSize: 16.sp));
+                      return Text(
+                        "0",
+                        style: TextStyle(
+                          fontFamily: 'NotoSans',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16.sp,
+                        ),
+                      );
                     } else
                       return CircularProgressIndicator();
                   }),
@@ -254,15 +284,19 @@ class _ProductDetailState extends State<ProductDetail> {
                   Text(
                     "  리뷰  ",
                     style: TextStyle(
-                        fontFamily: MyFontFamily.BMJUA, fontSize: 20.sp),
+                      fontFamily: 'NotoSans',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                    ),
                   ),
                   Text(
                     '${snapshot.data.length}',
                     //widget.datas["review"],
                     style: TextStyle(
-                        fontFamily: MyFontFamily.BMJUA,
-                        fontSize: 20.sp,
-                        color: Colors.amber[900]),
+                      fontFamily: 'NotoSans',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                    ),
                   ),
                   SizedBox(width: 263.w),
                   Icon(Icons.arrow_forward_ios_sharp, size: 25.sp)
@@ -304,7 +338,8 @@ class _ProductDetailState extends State<ProductDetail> {
                       '$avg',
                       //'widget.datas["rating"]',
                       style: TextStyle(
-                        fontFamily: MyFontFamily.BMJUA,
+                        fontFamily: 'NotoSans',
+                        fontWeight: FontWeight.w500,
                         fontSize: 50.sp,
                       ),
                     ),
@@ -342,7 +377,14 @@ class _ProductDetailState extends State<ProductDetail> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text('$score점  ', style: TextStyle(fontSize: 15.sp)),
+        Text(
+          '$score점  ',
+          style: TextStyle(
+            fontFamily: 'NotoSans',
+            fontWeight: FontWeight.w500,
+            fontSize: 15.sp,
+          ),
+        ),
         Stack(
           children: [
             Container(
@@ -475,15 +517,26 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
                           );
                         },
                         icon: Icon(Icons.add, size: 24.sp, color: Colors.black),
-                        label: Text("리뷰 모두보기",
-                            style: TextStyle(
-                                color: Colors.black, fontSize: 17.sp)),
+                        label: Text(
+                          "리뷰 모두보기",
+                          style: TextStyle(
+                            fontFamily: 'NotoSans',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 17.sp,
+                          ),
+                        ),
                       ),
                     ],
                   );
                 } else
-                  return Text('아직 달린 댓글이 없습니다.',
-                      style: TextStyle(fontSize: 17.sp));
+                  return Text(
+                    '아직 달린 댓글이 없습니다.',
+                    style: TextStyle(
+                      fontFamily: 'NotoSans',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 17.sp,
+                    ),
+                  );
               } else
                 return CircularProgressIndicator();
             }));

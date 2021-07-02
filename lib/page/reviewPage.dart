@@ -17,8 +17,6 @@ class ReviewPage extends StatefulWidget {
 }
 
 class _ReviewPageState extends State<ReviewPage> {
-  double _width;
-  double _height;
   List<int> filter = [4, 4, 4];
   List selected = ["전체", "전체", "전체"];
   List listSpicy = ["맵아이콘1", "맵아이콘x2", "맵아이콘x3", "전체"];
@@ -27,9 +25,6 @@ class _ReviewPageState extends State<ReviewPage> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    _height = size.height;
-    _width = size.width;
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
@@ -37,9 +32,10 @@ class _ReviewPageState extends State<ReviewPage> {
         title: Text(
           widget.product.name + " 리뷰",
           style: TextStyle(
-              fontFamily: MyFontFamily.BMJUA,
-              fontSize: 22.sp,
-              color: Colors.black),
+            fontFamily: 'NotoSans',
+            fontWeight: FontWeight.w500,
+            fontSize: 22.sp,
+          ),
         ),
         backgroundColor: Colors.white,
       ),
@@ -76,7 +72,11 @@ class _ReviewPageState extends State<ReviewPage> {
                           value: value,
                           child: Text(
                             value,
-                            style: TextStyle(fontSize: 16.sp),
+                            style: TextStyle(
+                              fontFamily: 'NotoSans',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16.sp,
+                            ),
                           ),
                         );
                       },
@@ -97,7 +97,11 @@ class _ReviewPageState extends State<ReviewPage> {
                           value: value,
                           child: Text(
                             value,
-                            style: TextStyle(fontSize: 16.sp),
+                            style: TextStyle(
+                              fontFamily: 'NotoSans',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16.sp,
+                            ),
                           ),
                         );
                       },
@@ -118,7 +122,11 @@ class _ReviewPageState extends State<ReviewPage> {
                           value: value,
                           child: Text(
                             value,
-                            style: TextStyle(fontSize: 16.sp),
+                            style: TextStyle(
+                              fontFamily: 'NotoSans',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16.sp,
+                            ),
                           ),
                         );
                       },
