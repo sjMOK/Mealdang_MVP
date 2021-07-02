@@ -89,11 +89,11 @@ class _HomePageState extends State<HomePage> {
   Widget _buildRecommendProduct(int mode, List<Product> products) {
     String title;
 
-    switch(mode){
+    switch (mode) {
       case 0:
         title = '밀.잘.알. 밀당이 추천하는 밀키트를 접해보세요!';
         break;
-      case 1: 
+      case 1:
         title = '평점이 높은 밀키트';
         break;
       case 2:
@@ -184,7 +184,10 @@ class _HomePageState extends State<HomePage> {
               Text(setPriceFormat(price)),
               Row(
                 children: <Widget>[
-                  Icon(Icons.star, color: Colors.yellow[700],),
+                  Icon(
+                    Icons.star,
+                    color: Colors.yellow[700],
+                  ),
                   Text(
                     '$rating',
                     style: TextStyle(color: Colors.red),
@@ -224,13 +227,11 @@ class _ManualState extends State<Manual> {
     });
 
     Timer.periodic(Duration(seconds: 5), (Timer timer) {
-      setState(() {
-        if (_currentPage == 2) {
-          _currentPage = 0;
-        } else {
-          _currentPage++;
-        }
-      });
+      if (_currentPage == 2) {
+        _currentPage = 0;
+      } else {
+        _currentPage++;
+      }
 
       if (_pageController.page % 1 == 0) {
         _pageController.animateToPage(
