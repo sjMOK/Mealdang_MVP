@@ -457,7 +457,8 @@ List<Map<String, dynamic>> productData = [
     'image_path':
         'assets/images/food_pictures/late_night_meal/LateNightFood_1.jpeg',
     'page_url': 'https://smartstore.naver.com/foodmax/products/235264149',
-    'review_count': 10
+    'review_count': 10,
+    'rating' : 4.2
   },
   {
     'id': 34,
@@ -655,14 +656,14 @@ List<Map<String, dynamic>> productData = [
   {
     'id': 48,
     'category': 'snackFood',
-    'name': '매콤 고기 듬뿍 떡볶이',
-    'company_name': '푸드어셈블',
+    'name': '사과떡볶이',
+    'company_name': '사과떡볶이',
     'serving_size': 2,
-    'price': 11900,
-    'discounted_price': null,
+    'price': 7300,
+    'discounted_price': 6900,
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_8.jpeg',
-    'page_url': 'https://smartstore.naver.com/foodasb/products/4684795005',
+    'page_url': 'https://smartstore.naver.com/a2bbu/products/4504424703?NaPm=ct%3Dkqm8d8i0%7Cci%3Dc6f39843a14dad8664d7961cb76a9af674270920%7Ctr%3Dslsl%7Csn%3D397212%7Chk%3Df79c913a274234ab3728263ff1845f86c4632d60',
     'review_count': 10,
-    'rating' : 0.0
+    'rating' : 4.9
   }
 ];
