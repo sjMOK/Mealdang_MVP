@@ -4,12 +4,28 @@ import 'package:path/path.dart';
 import 'package:mealdang_mvp/data/review.dart';
 import 'package:mealdang_mvp/data/ProductData.dart';
 import 'package:mealdang_mvp/data/product.dart';
+import 'dart:math';
+
+class DBHelper {
+  static Database _db;
+
+  Future<Database> get db async {
+    if (_db != null) {
+      return _db;
+    }
+    _db = await initDatabase();
+    return _db;
+  }
+
+  void closeDB(){
+    _db.close();
+  }
+}
 
 Future<Database> initDatabase() async {
   var databasesPath = await getDatabasesPath();
   String path = join(databasesPath, 'mealdang_database.db');
 
-  await deleteDatabase(path);
   return openDatabase(
     path,
     version: 1,
@@ -47,11 +63,6 @@ Future<Database> initDatabase() async {
   );
 }
 
-Future<Database> closeDb() {
-  Database db;
-  return db.close();
-}
-
 Future<List<Product>> getProducts(
     Future<Database> db, String categoryName) async {
   Database database = await db;
@@ -62,18 +73,98 @@ Future<List<Product>> getProducts(
   return List.generate(maps.length, (i) {
     var map = maps[i];
     return Product(
-      id: map['id'],
-      category: map['category'],
-      name: map['name'],
-      companyName: map['company_name'],
-      servingSize: map['serving_size'],
-      price: map['price'],
-      discountedPrice: map['discounted_price'],
-      imagePath: map['image_path'],
-      pageUrl: map['page_url'],
-      reviewCount: map['review_count'],
-      rating: map['rating']
-    );
+        id: map['id'],
+        category: map['category'],
+        name: map['name'],
+        companyName: map['company_name'],
+        servingSize: map['serving_size'],
+        price: map['price'],
+        discountedPrice: map['discounted_price'],
+        imagePath: map['image_path'],
+        pageUrl: map['page_url'],
+        reviewCount: map['review_count'],
+        rating: map['rating']);
+  });
+}
+
+Future<List<Product>> getRecommendedProducts(Future<Database> db) async {
+  List<int> random = [];
+  var rng = new Random();
+  for (var i = 0; i < 6; i++) {
+    int r = rng.nextInt(48) + 1;
+    while(random.contains(r))
+      r = rng.nextInt(48) + 1;
+    random.add(r);
+  }
+
+  Database database = await db;
+  final List<Map<String, dynamic>> maps = await database.rawQuery(
+      'SELECT * FROM Product WHERE id IN (${random[0]}, ${random[1]}, ${random[2]}, ${random[3]}, ${random[4]}, ${random[5]})');
+
+  print('${maps.length} recommended rows returned');
+
+  return List.generate(maps.length, (i) {
+    var map = maps[i];
+    return Product(
+        id: map['id'],
+        category: map['category'],
+        name: map['name'],
+        companyName: map['company_name'],
+        servingSize: map['serving_size'],
+        price: map['price'],
+        discountedPrice: map['discounted_price'],
+        imagePath: map['image_path'],
+        pageUrl: map['page_url'],
+        reviewCount: map['review_count'],
+        rating: map['rating']);
+  });
+}
+
+Future<List<Product>> getTopRatingProducts(Future<Database> db) async {
+  Database database = await db;
+  final List<Map<String, dynamic>> maps = await database
+      .rawQuery('SELECT * FROM Product ORDER BY rating DESC LIMIT 6');
+
+  print('${maps.length} top rating rows returned');
+
+  return List.generate(maps.length, (i) {
+    var map = maps[i];
+    return Product(
+        id: map['id'],
+        category: map['category'],
+        name: map['name'],
+        companyName: map['company_name'],
+        servingSize: map['serving_size'],
+        price: map['price'],
+        discountedPrice: map['discounted_price'],
+        imagePath: map['image_path'],
+        pageUrl: map['page_url'],
+        reviewCount: map['review_count'],
+        rating: map['rating']);
+  });
+}
+
+Future<List<Product>> getLowPriceProducts(Future<Database> db) async {
+  Database database = await db;
+  final List<Map<String, dynamic>> maps =
+      await database.rawQuery('SELECT * FROM Product ORDER BY price LIMIT 6');
+
+  print('${maps.length} low price rows returned');
+
+  return List.generate(maps.length, (i) {
+    var map = maps[i];
+    return Product(
+        id: map['id'],
+        category: map['category'],
+        name: map['name'],
+        companyName: map['company_name'],
+        servingSize: map['serving_size'],
+        price: map['price'],
+        discountedPrice: map['discounted_price'],
+        imagePath: map['image_path'],
+        pageUrl: map['page_url'],
+        reviewCount: map['review_count'],
+        rating: map['rating']);
   });
 }
 
