@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mealdang_mvp/database/db.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Splash extends StatefulWidget {
@@ -34,6 +35,7 @@ class _SplashState extends State<Splash> {
     super.initState();
     print('spalsh init');
 
+    DBHelper().db;
     Future.delayed(Duration(seconds: 3), () {
       checkFirstSeen();
     });
