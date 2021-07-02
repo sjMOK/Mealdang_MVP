@@ -25,7 +25,6 @@ class _MealdangHomeState extends State<MealdangHome> {
       HomePage(),
       Container(),
       Category(),
-      Center(child: Text('manual', style: TextStyle(fontSize: 32))),
       Center(child: Text('servey', style: TextStyle(fontSize: 32))),
     ];
   }
@@ -101,12 +100,6 @@ class _MealdangHomeState extends State<MealdangHome> {
                 Icons.category,
               ),
               label: 'Category',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.description,
-              ),
-              label: 'Manual',
             ),
             BottomNavigationBarItem(
               icon: Icon(
