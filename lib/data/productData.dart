@@ -184,8 +184,7 @@ List<Map<String, dynamic>> productData = [
     'price': 15900,
     'discounted_price': null,
     'image_path': 'assets/images/food_pictures/chinese_food/ChineseFood_6.jpeg',
-    'page_url':
-        'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/5301793406',
+    'page_url': 'https://shopping.naver.com/fresh/homemeal/stores/100069073/products/5301793406',
     'review_count': 10,
     'rating' : 4.4
   },
@@ -625,7 +624,7 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_5.jpeg',
     'page_url': 'https://smartstore.naver.com/8dobiz/products/218741783',
     'review_count': 10,
-    'rating' : 0.0
+    'rating' : 4.1
   },
   {
     'id': 46,
@@ -638,12 +637,12 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_6.jpeg',
     'page_url': 'https://smartstore.naver.com/udfc1991/products/4741430645',
     'review_count': 10,
-    'rating' : 0.0
+    'rating' : 4.5
   },
   {
     'id': 47,
     'category': 'snackFood',
-    'name': '[청주 떡볶이] 아씨떡볶이',
+    'name': '아씨떡볶이',
     'company_name': '인생식탁',
     'serving_size': null,
     'price': 6900,
