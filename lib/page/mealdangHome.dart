@@ -32,7 +32,8 @@ class _MealdangHomeState extends State<MealdangHome> {
     ];
   }
 
-  @override dispose(){
+  @override
+  dispose() {
     print('mdHome dispse');
     super.dispose();
   }
@@ -58,7 +59,7 @@ class _MealdangHomeState extends State<MealdangHome> {
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         appBar: AppBar(
-          toolbarHeight: 80.h,
+          toolbarHeight: 70.h,
           automaticallyImplyLeading: false,
           title: Image.asset(
             'assets/images/logo/logo_appbar.png',

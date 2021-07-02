@@ -17,7 +17,7 @@ class _SurveyState extends State<Survey> {
         width: MediaQuery.of(context).size.width,
         child: Column(
           children: [
-            Container(color: Colors.red, height: 430.h
+            Container(color: Colors.red, height: 480.h
                 //child: Image.asset("assets/images/logo/logo_splash.jpg"),
                 ),
             Container(

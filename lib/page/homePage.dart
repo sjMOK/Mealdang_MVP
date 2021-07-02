@@ -140,7 +140,17 @@ class _HomePageState extends State<HomePage> {
     if (product.discountedPrice != null) {
       price = product.discountedPrice;
     }
-
+    //  ClipRRect(
+    //         borderRadius: BorderRadius.all(Radius.circular(10)),
+    //         child: Hero(
+    //           tag: product.id,
+    //           child: Image.asset(
+    //             product.imagePath,
+    //             width: 131.w,
+    //             height: 131.w,
+    //           ),
+    //         ),
+    //       ),
     return Container(
       width: _width * 0.4,
       margin: EdgeInsets.fromLTRB(10, 6, 10, 6),
@@ -148,18 +158,24 @@ class _HomePageState extends State<HomePage> {
         elevation: 0.0,
         child: InkWell(
           onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => ProductDetail(_dbHelper.db, product)));
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => ProductDetail(_dbHelper.db, product),
+              ),
+            );
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Image.asset(
-                product.imagePath,
-                width: _width * 0.4,
-                height: _width * 0.4,
-                fit: BoxFit.fill,
+              ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                child: Image.asset(
+                  product.imagePath,
+                  width: _width * 0.4,
+                  height: _width * 0.4,
+                  fit: BoxFit.fill,
+                ),
               ),
               Text(
                 '[${product.companyName}]',

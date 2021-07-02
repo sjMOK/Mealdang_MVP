@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mealdang_mvp/data/review.dart';
-<<<<<<< HEAD
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-=======
 import 'package:mealdang_mvp/utils/util.dart';
->>>>>>> refs/remotes/origin/master
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReviewBox extends StatefulWidget {
   Review review;
@@ -51,15 +48,9 @@ class _ReviewBoxState extends State<ReviewBox> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-<<<<<<< HEAD
-                      "${widget.review.id}",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 15.sp),
-=======
                       "${getRandomName()}",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
->>>>>>> refs/remotes/origin/master
                     ),
                     Row(
                       children: [

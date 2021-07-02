@@ -30,7 +30,7 @@ class _CategoryState extends State<Category> {
 
     return Container(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 40, horizontal: 60),
+        padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 60.w),
         child: Column(
           children: [
             Row(
@@ -77,13 +77,13 @@ class _CategoryState extends State<Category> {
                 width: _width * 0.2,
                 height: _width * 0.2,
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Text(
                 categoryData[categoryName]['name'],
                 style: TextStyle(
                   fontFamily: 'NotoSans',
                   fontWeight: FontWeight.w700,
-                  fontSize: 30,
+                  fontSize: 30.sp,
                 ),
               ),
             ],

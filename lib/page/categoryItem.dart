@@ -46,13 +46,8 @@ class _CategoryItemState extends State<CategoryItem> {
           backgroundColor: Colors.white,
         ),
         body: Padding(
-<<<<<<< HEAD
           padding: EdgeInsets.symmetric(vertical: 10.h),
-          child: _myListView(widget.database),
-=======
-          padding: EdgeInsets.symmetric(vertical: 10),
           child: _myListView(_dbHelper.db),
->>>>>>> refs/remotes/origin/master
         ));
   }
 
@@ -91,9 +86,6 @@ class _CategoryItemState extends State<CategoryItem> {
   }
 
   Widget _itemContainer(Product product, int index) {
-    final Size size = MediaQuery.of(context).size;
-    double width = size.width;
-    double height = size.height;
     return Container(
       color: Colors.transparent,
       child: Row(
@@ -101,7 +93,7 @@ class _CategoryItemState extends State<CategoryItem> {
           ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(10)),
             child: Hero(
-              tag: product.id,
+              tag: product.id, //product.id,
               child: Image.asset(
                 product.imagePath,
                 width: 131.w,
