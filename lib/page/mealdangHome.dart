@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/page/homePage.dart';
 import 'package:mealdang_mvp/page/survey.dart';
@@ -52,18 +53,16 @@ class _MealdangHomeState extends State<MealdangHome> {
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         appBar: AppBar(
+          toolbarHeight: 80.h,
           automaticallyImplyLeading: false,
           title: Image.asset(
             'assets/images/logo/logo_appbar.png',
-            height: 50,
+            height: 50.h,
             fit: BoxFit.contain,
           ),
-          // title: Text(
-          //   'width: $physicalWidth, heigth: $physicalHeight, statusBarHeight: $statusBarHeight',
-          //   style: TextStyle(color: Colors.black, fontSize: 14),
-          // ),
           actions: [
             IconButton(
+              iconSize: 40.sp,
               icon: Icon(
                 Icons.search,
                 color: mainColor,

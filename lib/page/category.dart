@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mealdang_mvp/page/categoryItem.dart';
 import 'package:mealdang_mvp/data/categoryData.dart';
 import 'package:sqflite/sqflite.dart';
@@ -27,12 +28,14 @@ class _CategoryState extends State<Category> {
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
     final _height = _size.height;
+    print(_height.toString() + "높이");
+    print(_size.width.toString() + "넓이");
     return Container(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 60),
+        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 60.w),
         child: Column(
           children: [
-            SizedBox(height: _height * 0.12),
+            SizedBox(height: 70.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -42,7 +45,7 @@ class _CategoryState extends State<Category> {
               ],
             ),
             SizedBox(
-              height: _height * 0.2,
+              height: 136.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,6 +70,8 @@ class _CategoryState extends State<Category> {
             child: IconButton(
               icon: Image.asset(
                 categoryData[categoryName]['img_path'], // 아이콘 이미지 경로
+                width: 60.w,
+                height: 60.h,
               ),
               onPressed: () {
                 Navigator.of(context).push(
@@ -78,13 +83,13 @@ class _CategoryState extends State<Category> {
               },
             ),
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 30.h),
           Text(
             categoryData[categoryName]['name'], // 카테고리 이름
             style: TextStyle(
               fontFamily: 'NotoSans',
               fontWeight: FontWeight.w700,
-              fontSize: 30,
+              fontSize: 30.sp,
             ),
           ),
         ],

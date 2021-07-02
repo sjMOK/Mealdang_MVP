@@ -5,6 +5,7 @@ import 'package:mealdang_mvp/page/productDetail.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:mealdang_mvp/data/categoryData.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryItem extends StatefulWidget {
   final Future<Database> database;
@@ -37,7 +38,7 @@ class _CategoryItemState extends State<CategoryItem> {
               color: Color.fromRGBO(255, 156, 30, 1),
               fontFamily: 'NotoSans',
               fontWeight: FontWeight.w700,
-              fontSize: 32,
+              fontSize: 32.sp,
             ),
           ),
           centerTitle: true,
@@ -45,7 +46,7 @@ class _CategoryItemState extends State<CategoryItem> {
           backgroundColor: Colors.white,
         ),
         body: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(vertical: 10.h),
           child: _myListView(widget.database),
         ));
   }
@@ -98,14 +99,14 @@ class _CategoryItemState extends State<CategoryItem> {
               tag: product.id,
               child: Image.asset(
                 product.imagePath,
-                width: width * 0.32,
-                height: width * 0.32,
+                width: 131.w,
+                height: 131.w,
               ),
             ),
           ),
           Expanded(
             child: Container(
-              height: width * 0.32,
+              height: 131.w,
               padding: const EdgeInsets.only(left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,7 +117,7 @@ class _CategoryItemState extends State<CategoryItem> {
                     style: TextStyle(
                         fontFamily: 'NotoSans',
                         fontWeight: FontWeight.w500,
-                        fontSize: 12,
+                        fontSize: 12.sp,
                         color: Colors.grey[700]),
                   ),
                   Text(
@@ -124,7 +125,7 @@ class _CategoryItemState extends State<CategoryItem> {
                     style: TextStyle(
                       fontFamily: 'NotoSans',
                       fontWeight: FontWeight.w500,
-                      fontSize: 15,
+                      fontSize: 15.sp,
                     ),
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -135,26 +136,31 @@ class _CategoryItemState extends State<CategoryItem> {
                       children: [
                         Icon(
                           Icons.star,
+                          size: 20.sp,
                           color: Colors.amber[600],
                         ),
                         Text(
                           '${product.rating}',
                           style: TextStyle(
-                              fontFamily: 'NotoSans',
-                              fontWeight: FontWeight.w500),
+                            fontFamily: 'NotoSans',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14.sp,
+                          ),
                         ),
-                        SizedBox(width: width * 0.02),
+                        SizedBox(width: 8.2.w),
                         Icon(
                           Icons.messenger_outline_rounded,
                           color: Colors.orange[800],
-                          size: height * 0.025,
+                          size: 20.sp,
                         ),
-                        SizedBox(width: width * 0.01),
+                        SizedBox(width: 4.1.w),
                         Text(
                           '${product.reviewCount}',
                           style: TextStyle(
-                              fontFamily: 'NotoSans',
-                              fontWeight: FontWeight.w500),
+                            fontFamily: 'NotoSans',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14.sp,
+                          ),
                         ),
                       ],
                     ),
@@ -176,7 +182,7 @@ class _CategoryItemState extends State<CategoryItem> {
           style: TextStyle(
               fontFamily: 'NotoSans',
               fontWeight: FontWeight.w700,
-              fontSize: 20,
+              fontSize: 20.sp,
               color: Colors.red[600]),
         ),
       );
@@ -194,16 +200,16 @@ class _CategoryItemState extends State<CategoryItem> {
                   style: TextStyle(
                     fontFamily: 'NotoSans',
                     fontWeight: FontWeight.w500,
-                    fontSize: 15,
+                    fontSize: 15.sp,
                   ),
                 ),
-                SizedBox(width: 7),
+                SizedBox(width: 7.w),
                 Text(
                   setPriceFormat(realPrice),
                   style: TextStyle(
                       fontFamily: 'NotoSans',
                       fontWeight: FontWeight.w500,
-                      fontSize: 15,
+                      fontSize: 15.sp,
                       color: Colors.grey[400],
                       decoration: TextDecoration.lineThrough),
                 ),
@@ -214,7 +220,7 @@ class _CategoryItemState extends State<CategoryItem> {
               style: TextStyle(
                   fontFamily: 'NotoSans',
                   fontWeight: FontWeight.w700,
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   color: Colors.red[600]),
             ),
           ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 import '../data/review.dart';
 import 'reviewBoxContainer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //futre<database> database 삭제하기
 class ReviewListview extends StatefulWidget {
@@ -43,12 +44,6 @@ class _ReviewListviewState extends State<ReviewListview> {
       if (filter[2] != 4) {
         sweetGap = review.sweetLevel - filter[2];
       }
-      // for (int i in filter) {
-      //   if (i != 0) {
-      //     gap += tastyLevel[cnt] - filter[cnt];
-      //   }
-      // }
-
       gap = saltyGap.abs() + spicyGap.abs() + sweetGap.abs();
       saltyGap = 0;
       spicyGap = 0;
@@ -75,7 +70,7 @@ class _ReviewListviewState extends State<ReviewListview> {
               return ListView.separated(
                 primary: false,
                 shrinkWrap: true,
-                padding: EdgeInsets.all(1),
+                padding: EdgeInsets.all(1.sp),
                 itemBuilder: (BuildContext context, int index) {
                   Review review = snapshot.data[index];
                   return ReviewBox(review, allReview);
@@ -83,11 +78,11 @@ class _ReviewListviewState extends State<ReviewListview> {
                 itemCount: snapshot.data.length,
                 separatorBuilder: (BuildContext context, int index) {
                   return Container(
-                      height: 1, color: Colors.black.withOpacity(0.4));
+                      height: 1, color: Colors.black.withOpacity(0.4.sp));
                 },
               );
             } else
-              return Text('Nodata');
+              return Text('Nodata', style: TextStyle(fontSize: 18.sp));
           } else
             return CircularProgressIndicator();
         });

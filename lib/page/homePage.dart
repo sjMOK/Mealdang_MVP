@@ -5,6 +5,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'dart:async';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatefulWidget {
   final Future<Database> database;
@@ -46,18 +47,18 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 15),
+                    margin: EdgeInsets.only(top: 15.h),
                     width: _width,
                     height: _width * 9 / 16,
                     child: Manual(),
                   ),
                   Container(
-                    height: 14,
+                    height: 14.h,
                     color: Colors.grey[200],
                   ),
                   _buildRecommendProduct(0, snapshot.data[0]),
                   Container(
-                    height: 14,
+                    height: 14.h,
                     color: Colors.grey[200],
                   ),
                   _buildRecommendProduct(1, snapshot.data[1]),
@@ -89,11 +90,11 @@ class _HomePageState extends State<HomePage> {
   Widget _buildRecommendProduct(int mode, List<Product> products) {
     String title;
 
-    switch(mode){
+    switch (mode) {
       case 0:
         title = '밀.잘.알. 밀당이 추천하는 밀키트를 접해보세요!';
         break;
-      case 1: 
+      case 1:
         title = '평점이 높은 밀키트';
         break;
       case 2:
@@ -106,7 +107,7 @@ class _HomePageState extends State<HomePage> {
         Text(
           title,
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 16.sp,
             fontFamily: 'notoSans',
             fontWeight: FontWeight.w700,
           ),
@@ -169,7 +170,7 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(
                     fontFamily: 'NotoSans',
                     fontWeight: FontWeight.w500,
-                    fontSize: 12,
+                    fontSize: 12.sp,
                     color: Colors.grey[700]),
               ),
               Text(
@@ -177,14 +178,17 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(
                   fontFamily: 'NotoSans',
                   fontWeight: FontWeight.w500,
-                  fontSize: 15,
+                  fontSize: 15.sp,
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
               Text(setPriceFormat(price)),
               Row(
                 children: <Widget>[
-                  Icon(Icons.star, color: Colors.yellow[700],),
+                  Icon(
+                    Icons.star,
+                    color: Colors.yellow[700],
+                  ),
                   Text(
                     '$rating',
                     style: TextStyle(color: Colors.red),
@@ -254,24 +258,24 @@ class _ManualState extends State<Manual> {
       children: <Widget>[
         _buildPageView(),
         Positioned(
-          bottom: 10,
-          right: 10,
+          bottom: 10.h,
+          right: 10.w,
           child: Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
                   '${_currentPage + 1}',
-                  style: TextStyle(fontSize: 20, color: Colors.red),
+                  style: TextStyle(fontSize: 20.sp, color: Colors.red),
                 ),
                 Text(
                   '/ 3',
-                  style: TextStyle(fontSize: 20, color: Colors.white),
+                  style: TextStyle(fontSize: 20.sp, color: Colors.white),
                 ),
               ],
             ),
-            width: 100,
-            height: 30,
+            width: 100.w,
+            height: 30.h,
             decoration: BoxDecoration(
                 color: Color.fromRGBO(5, 5, 5, 0.5),
                 border: Border.all(color: Colors.black),
