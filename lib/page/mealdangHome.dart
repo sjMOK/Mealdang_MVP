@@ -22,7 +22,7 @@ class _MealdangHomeState extends State<MealdangHome> {
     _selectedIndex = 0;
     database = initDatabase();
     _widgetOptions = [
-      HomePage(),
+      HomePage(database),
       Container(),
       Category(database),
       Center(child: Text('manual', style: TextStyle(fontSize: 32))),
@@ -41,32 +41,21 @@ class _MealdangHomeState extends State<MealdangHome> {
     setState(() {
       _selectedIndex = index;
     });
-
-    //FocusScope.of(context).unfocus();
   }
 
   @override
   Widget build(BuildContext context) {
     const Color mainColor = Color.fromRGBO(255, 156, 30, 1);
-    Size size = MediaQuery.of(context).size;
-    double ratio = MediaQuery.of(context).devicePixelRatio;
-    double physicalWidth = size.width * ratio;
-    double physicalHeight = size.height * ratio;
-    double statusBarHeight = MediaQuery.of(context).padding.top * ratio;
     return WillPopScope(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          // title: Image.asset(
-          //   'assets/images/logo/logo_appbar.png',
-          //   height: 50,
-          //   fit: BoxFit.contain,
-          // ),
-          title: Text(
-            'width: $physicalWidth, heigth: $physicalHeight, statusBarHeight: $statusBarHeight',
-            style: TextStyle(color: Colors.black, fontSize: 14),
+          title: Image.asset(
+            'assets/images/logo/logo_appbar.png',
+            height: 50,
+            fit: BoxFit.contain,
           ),
           actions: [
             IconButton(
