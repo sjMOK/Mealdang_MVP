@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:mealdang_mvp/page/mealdangHome.dart';
 
 class IntroductionPage extends StatefulWidget {
   @override
@@ -11,8 +10,7 @@ class IntroductionPage extends StatefulWidget {
 class _IntroductionPageState extends State<IntroductionPage> {
   void _onIntroEnd(BuildContext context) {
     print('intro done');
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (_) => MealdangHome()));
+    Navigator.of(context).pushReplacementNamed('/home');
   }
 
   @override

@@ -29,9 +29,20 @@ class _HomePageState extends State<HomePage> {
     _lowPriceProducts = getLowPriceProducts(_dbHelper.db);
   }
 
+  Future<Null> _onRefresh() async {
+    await Future.delayed(Duration(milliseconds: 1000));
+    
+    setState((){
+      _recommendedProducts = getRecommendedProducts(_dbHelper.db);
+    });
+  }
+
   Widget build(BuildContext context) {
     _width = MediaQuery.of(context).size.width;
-    return _buildScroll();
+    return RefreshIndicator(
+      onRefresh: _onRefresh,
+      child: _buildScroll(),
+    );
   }
 
   Widget _buildScroll() {
