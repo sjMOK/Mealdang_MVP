@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/page/productDetail.dart';
@@ -133,24 +135,46 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget _buildPriceTag(Product product) {
+    if (product.discountedPrice == null) {
+      return Text(setPriceFormat(product.price));
+    } else {
+      return Container(
+          child: Row(
+        children: [
+          Text(
+            setPriceFormat(
+              product.price,
+            ),
+            style: TextStyle(
+                fontFamily: 'NotoSans',
+                fontWeight: FontWeight.w600,
+                color: Colors.grey[400],
+                decoration: TextDecoration.lineThrough),
+          ),
+          SizedBox(width: 8.w),
+          Text(
+            setPriceFormat(
+              product.discountedPrice,
+            ),
+            style: TextStyle(
+              fontFamily: 'NotoSans',
+              fontWeight: FontWeight.bold,
+            ),
+          )
+        ],
+      ));
+    }
+  }
+
   Widget _buildProductCard(Product product) {
     int price = product.price;
+    int discountedPrice = product.discountedPrice;
     double rating = product.rating ?? 0.0;
 
     if (product.discountedPrice != null) {
       price = product.discountedPrice;
     }
-    //  ClipRRect(
-    //         borderRadius: BorderRadius.all(Radius.circular(10)),
-    //         child: Hero(
-    //           tag: product.id,
-    //           child: Image.asset(
-    //             product.imagePath,
-    //             width: 131.w,
-    //             height: 131.w,
-    //           ),
-    //         ),
-    //       ),
     return Container(
       width: _width * 0.4,
       margin: EdgeInsets.fromLTRB(10, 6, 10, 6),
@@ -194,7 +218,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
-              Text(setPriceFormat(price)),
+              _buildPriceTag(product),
               Row(
                 children: <Widget>[
                   Icon(
