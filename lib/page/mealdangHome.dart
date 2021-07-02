@@ -24,12 +24,17 @@ class _MealdangHomeState extends State<MealdangHome> {
     _selectedIndex = 0;
     database = initDatabase();
     _widgetOptions = [
-      HomePage(database),
+      HomePage(),
       Container(),
-      Category(database),
+      Category(),
       Center(child: Text('manual', style: TextStyle(fontSize: 32))),
       Survey()
     ];
+  }
+
+  @override dispose(){
+    print('mdHome dispse');
+    super.dispose();
   }
 
   void _onItemTapped(int index) {

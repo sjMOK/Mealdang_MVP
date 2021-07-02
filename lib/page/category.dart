@@ -2,17 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mealdang_mvp/page/categoryItem.dart';
 import 'package:mealdang_mvp/data/categoryData.dart';
-import 'package:sqflite/sqflite.dart';
 
 class Category extends StatefulWidget {
-  final Future<Database> database;
-  Category(this.database);
-
   @override
   _CategoryState createState() => _CategoryState();
 }
 
 class _CategoryState extends State<Category> {
+  double _width;
+  double _height;
   @override
   void initState() {
     super.initState();
@@ -27,15 +25,14 @@ class _CategoryState extends State<Category> {
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
-    final _height = _size.height;
-    print(_height.toString() + "높이");
-    print(_size.width.toString() + "넓이");
+    _height = _size.height;
+    _width = _size.width;
+
     return Container(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 60.w),
+        padding: EdgeInsets.symmetric(vertical: 40, horizontal: 60),
         child: Column(
           children: [
-            SizedBox(height: 70.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -45,7 +42,7 @@ class _CategoryState extends State<Category> {
               ],
             ),
             SizedBox(
-              height: 136.h,
+              height: _height * 0.08,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -63,37 +60,65 @@ class _CategoryState extends State<Category> {
 
   Container _catergoryContainer(String categoryName) {
     return Container(
-      child: Column(
-        children: [
-          Transform.scale(
-            scale: 3,
-            child: IconButton(
-              icon: Image.asset(
-                categoryData[categoryName]['img_path'], // 아이콘 이미지 경로
-                width: 60.w,
-                height: 60.h,
+      child: Card(
+        elevation: 0.0,
+        child: InkWell(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => CategoryItem(categoryName),
               ),
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        CategoryItem(widget.database, categoryName),
-                  ),
-                );
-              },
-            ),
+            );
+          },
+          child: Column(
+            children: [
+              Image.asset(
+                categoryData[categoryName]['img_path'],
+                width: _width * 0.2,
+                height: _width * 0.2,
+              ),
+              SizedBox(height: 20),
+              Text(
+                categoryData[categoryName]['name'],
+                style: TextStyle(
+                  fontFamily: 'NotoSans',
+                  fontWeight: FontWeight.w700,
+                  fontSize: 30,
+                ),
+              ),
+            ],
           ),
-          SizedBox(height: 30.h),
-          Text(
-            categoryData[categoryName]['name'], // 카테고리 이름
-            style: TextStyle(
-              fontFamily: 'NotoSans',
-              fontWeight: FontWeight.w700,
-              fontSize: 30.sp,
-            ),
-          ),
-        ],
+        ),
       ),
     );
+    // child: Column(
+    //   children: [
+    //     Transform.scale(
+    //       scale: 3,
+    //       child: IconButton(
+    //         icon: Image.asset(
+    //           categoryData[categoryName]['img_path'], // 아이콘 이미지 경로
+    //         ),
+    //         onPressed: () {
+    //           Navigator.of(context).push(
+    //             MaterialPageRoute(
+    //               builder: (context) =>
+    //                   CategoryItem(categoryName),
+    //             ),
+    //           );
+    //         },
+    //       ),
+    //     ),
+    //     SizedBox(height: 30),
+    //     Text(
+    //       categoryData[categoryName]['name'], // 카테고리 이름
+    //       style: TextStyle(
+    //         fontFamily: 'NotoSans',
+    //         fontWeight: FontWeight.w700,
+    //         fontSize: 30,
+    //       ),
+    //     ),
+    //   ],
+    // ),
   }
 }

@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/page/productDetail.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'dart:async';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatefulWidget {
-  final Future<Database> database;
-
-  HomePage(this.database);
-
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   double _width;
+  DBHelper _dbHelper = DBHelper();
 
   Future<List<Product>> _recommendedProducts;
   Future<List<Product>> _topRatingProducts;
@@ -26,9 +22,9 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _recommendedProducts = getRecommendedProducts(widget.database);
-    _topRatingProducts = getTopRatingProducts(widget.database);
-    _lowPriceProducts = getLowPriceProducts(widget.database);
+    _recommendedProducts = getRecommendedProducts(_dbHelper.db);
+    _topRatingProducts = getTopRatingProducts(_dbHelper.db);
+    _lowPriceProducts = getLowPriceProducts(_dbHelper.db);
   }
 
   Widget build(BuildContext context) {
@@ -153,7 +149,7 @@ class _HomePageState extends State<HomePage> {
         child: InkWell(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => ProductDetail(widget.database, product)));
+                builder: (context) => ProductDetail(_dbHelper.db, product)));
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -228,20 +224,20 @@ class _ManualState extends State<Manual> {
     });
 
     Timer.periodic(Duration(seconds: 5), (Timer timer) {
-      setState(() {
+      if (_pageController.hasClients) {
         if (_currentPage == 2) {
           _currentPage = 0;
         } else {
           _currentPage++;
         }
-      });
 
-      if (_pageController.page % 1 == 0) {
-        _pageController.animateToPage(
-          _currentPage % 3,
-          duration: Duration(milliseconds: 350),
-          curve: Curves.easeIn,
-        );
+        if (_pageController.page % 1 == 0) {
+          _pageController.animateToPage(
+            _currentPage % 3,
+            duration: Duration(milliseconds: 350),
+            curve: Curves.easeIn,
+          );
+        }
       }
     });
   }

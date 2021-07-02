@@ -6,11 +6,26 @@ import 'package:mealdang_mvp/data/ProductData.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'dart:math';
 
+class DBHelper {
+  static Database _db;
+
+  Future<Database> get db async {
+    if (_db != null) {
+      return _db;
+    }
+    _db = await initDatabase();
+    return _db;
+  }
+
+  void closeDB(){
+    _db.close();
+  }
+}
+
 Future<Database> initDatabase() async {
   var databasesPath = await getDatabasesPath();
   String path = join(databasesPath, 'mealdang_database.db');
 
-  await deleteDatabase(path);
   return openDatabase(
     path,
     version: 1,
@@ -46,11 +61,6 @@ Future<Database> initDatabase() async {
       for (var review in reviewData) await db.insert('REVIEW', review);
     },
   );
-}
-
-Future<Database> closeDb() {
-  Database db;
-  return db.close();
 }
 
 Future<List<Product>> getProducts(

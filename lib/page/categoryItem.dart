@@ -8,10 +8,9 @@ import 'package:mealdang_mvp/data/categoryData.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryItem extends StatefulWidget {
-  final Future<Database> database;
   final String categoryName;
 
-  CategoryItem(this.database, this.categoryName);
+  CategoryItem(this.categoryName);
 
   @override
   _CategoryItemState createState() => _CategoryItemState();
@@ -19,11 +18,12 @@ class CategoryItem extends StatefulWidget {
 
 class _CategoryItemState extends State<CategoryItem> {
   Future<List<Product>> _products;
+  DBHelper _dbHelper = DBHelper();
 
   @override
   void initState() {
     super.initState();
-    _products = getProducts(widget.database, widget.categoryName);
+    _products = getProducts(_dbHelper.db, widget.categoryName);
   }
 
   @override
@@ -46,8 +46,13 @@ class _CategoryItemState extends State<CategoryItem> {
           backgroundColor: Colors.white,
         ),
         body: Padding(
+<<<<<<< HEAD
           padding: EdgeInsets.symmetric(vertical: 10.h),
           child: _myListView(widget.database),
+=======
+          padding: EdgeInsets.symmetric(vertical: 10),
+          child: _myListView(_dbHelper.db),
+>>>>>>> refs/remotes/origin/master
         ));
   }
 
@@ -66,7 +71,7 @@ class _CategoryItemState extends State<CategoryItem> {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) =>
-                            ProductDetail(widget.database, product),
+                            ProductDetail(_dbHelper.db, product),
                       ),
                     );
                   },
