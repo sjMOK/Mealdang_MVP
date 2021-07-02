@@ -80,7 +80,13 @@ class _CategoryItemState extends State<CategoryItem> {
           } else
             return Text('No Data');
         } else
-          return CircularProgressIndicator();
+          return Center(
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(
+                Color.fromRGBO(255, 156, 30, 1),
+              ),
+            ),
+          );
       },
     );
   }

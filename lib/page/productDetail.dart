@@ -257,7 +257,13 @@ class _ProductDetailState extends State<ProductDetail> {
                         ),
                       );
                     } else
-                      return CircularProgressIndicator();
+                      return Center(
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            Color.fromRGBO(255, 156, 30, 1),
+                          ),
+                        ),
+                      );
                   }),
             ],
           ),
@@ -285,7 +291,7 @@ class _ProductDetailState extends State<ProductDetail> {
                     "  리뷰  ",
                     style: TextStyle(
                       fontFamily: 'NotoSans',
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w700,
                       fontSize: 20.sp,
                     ),
                   ),
@@ -293,8 +299,9 @@ class _ProductDetailState extends State<ProductDetail> {
                     '${snapshot.data.length}',
                     //widget.datas["review"],
                     style: TextStyle(
+                      color: Colors.red,
                       fontFamily: 'NotoSans',
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w700,
                       fontSize: 20.sp,
                     ),
                   ),
@@ -305,7 +312,13 @@ class _ProductDetailState extends State<ProductDetail> {
             ),
           );
         }
-        return CircularProgressIndicator();
+        return Center(
+          child: CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color>(
+              Color.fromRGBO(255, 156, 30, 1),
+            ),
+          ),
+        );
       },
     );
   }
@@ -316,7 +329,13 @@ class _ProductDetailState extends State<ProductDetail> {
       // ignore: missing_return
       builder: (context, snapshot) {
         if (snapshot.connectionState != ConnectionState.done) {
-          return CircularProgressIndicator();
+          return Center(
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(
+                Color.fromRGBO(255, 156, 30, 1),
+              ),
+            ),
+          );
         }
         int sum = 0;
         double avg = 0;
@@ -446,7 +465,13 @@ class _ProductDetailState extends State<ProductDetail> {
             ],
           );
         }
-        return CircularProgressIndicator();
+        return Center(
+          child: CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color>(
+              Color.fromRGBO(255, 156, 30, 1),
+            ),
+          ),
+        );
       },
     );
   }
@@ -520,6 +545,7 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
                         label: Text(
                           "리뷰 모두보기",
                           style: TextStyle(
+                            color: Colors.black,
                             fontFamily: 'NotoSans',
                             fontWeight: FontWeight.w500,
                             fontSize: 17.sp,
@@ -538,7 +564,13 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
                     ),
                   );
               } else
-                return CircularProgressIndicator();
+                return Center(
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Color.fromRGBO(255, 156, 30, 1),
+                    ),
+                  ),
+                );
             }));
   }
 }

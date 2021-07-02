@@ -32,8 +32,9 @@ class _ReviewPageState extends State<ReviewPage> {
         title: Text(
           widget.product.name + " 리뷰",
           style: TextStyle(
+            color: Colors.black,
             fontFamily: 'NotoSans',
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w800,
             fontSize: 22.sp,
           ),
         ),

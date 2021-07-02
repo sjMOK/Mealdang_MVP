@@ -91,7 +91,13 @@ class _ReviewListviewState extends State<ReviewListview> {
                 ),
               );
           } else
-            return CircularProgressIndicator();
+            return Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  Color.fromRGBO(255, 156, 30, 1),
+                ),
+              ),
+            );
         });
   }
 }
