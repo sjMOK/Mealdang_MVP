@@ -11,45 +11,50 @@ class Survey extends StatefulWidget {
 class _SurveyState extends State<Survey> {
   @override
   Widget build(BuildContext context) {
+    const Color mainColor = Color.fromRGBO(255, 156, 30, 1);
     return Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: 454.h,
+            height: 420.h,
             color: Colors.red,
             //child: Image.asset("assets/images/logo/logo_splash.jpg"),
           ),
-          Expanded(
-            child: ElevatedButton(
-              style: TextButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(0.0)),
-                backgroundColor: Color.fromRGBO(255, 156, 30, 1),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Scaffold(
-                      backgroundColor: Colors.white,
-                      body: SafeArea(
-                        child: InAppWebView(
-                          initialUrlRequest: URLRequest(
-                            url: Uri.parse(
-                              'https://docs.google.com/forms/d/e/1FAIpQLScwNuDVNimw1J7rCHLzk-bAfzXPzevrTxwyKrvUfJXkUx2POQ/viewform',
+          Container(
+            color: mainColor,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: mainColor,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Scaffold(
+                          backgroundColor: Colors.white,
+                          body: SafeArea(
+                            child: InAppWebView(
+                              initialUrlRequest: URLRequest(
+                                url: Uri.parse(
+                                  'https://docs.google.com/forms/d/e/1FAIpQLScwNuDVNimw1J7rCHLzk-bAfzXPzevrTxwyKrvUfJXkUx2POQ/viewform',
+                                ),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
+                    );
+                  },
+                  child: Text(
+                    "설문조사하고 스타벅스 받기",
+                    style: TextStyle(color: Colors.black, fontSize: 18.sp),
                   ),
-                );
-              },
-              child: Text(
-                "설문조사하고 스타벅스 받기",
-                style: TextStyle(color: Colors.black, fontSize: 18.sp),
-              ),
+                ),
+              ],
             ),
           )
         ],
