@@ -30,7 +30,7 @@ class _CategoryState extends State<Category> {
 
     return Container(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 40.w),
+        padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 40.w),
         child: Column(
           children: [
             SizedBox(height: 40.h),
