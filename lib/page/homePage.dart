@@ -179,13 +179,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildProductCard(Product product) {
-    int price = product.price;
-    int discountedPrice = product.discountedPrice;
     double rating = product.rating ?? 0.0;
 
-    if (product.discountedPrice != null) {
-      price = product.discountedPrice;
-    }
     return Container(
       width: _width * 0.4,
       margin: EdgeInsets.fromLTRB(10, 6, 10, 6),
