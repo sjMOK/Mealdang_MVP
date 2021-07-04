@@ -7,6 +7,9 @@ import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/page/category.dart';
 import 'package:mealdang_mvp/page/searchPage.dart';
 
+const int HOME = 0;
+const int SEARCH = 1;
+
 class MealdangHome extends StatefulWidget {
   @override
   _MealdangHomeState createState() => _MealdangHomeState();
@@ -18,6 +21,8 @@ class _MealdangHomeState extends State<MealdangHome> {
   List<Widget> _widgetOptions;
   DateTime currentBackPressTime;
 
+  ScrollController _scrollController = ScrollController();
+
   @override
   void initState() {
     super.initState();
@@ -25,7 +30,7 @@ class _MealdangHomeState extends State<MealdangHome> {
     _selectedIndex = 0;
     database = initDatabase();
     _widgetOptions = [
-      HomePage(),
+      HomePage(_scrollController),
       Container(),
       Category(),
       Survey(),
@@ -33,16 +38,17 @@ class _MealdangHomeState extends State<MealdangHome> {
   }
 
   void _onItemTapped(int index) {
-    if (index == 1) {
-      print('search tapped');
+    if (index == SEARCH) {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (_) => SearchPage(database)));
-      return;
+    } else if (_selectedIndex != index) {
+      setState(() {
+        _selectedIndex = index;
+      });
+    } else if (index == HOME) {
+      _scrollController.animateTo(0.0,
+          duration: Duration(milliseconds: 300), curve: Curves.easeIn);
     }
-
-    setState(() {
-      _selectedIndex = index;
-    });
   }
 
   @override

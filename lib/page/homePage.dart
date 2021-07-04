@@ -9,6 +9,10 @@ import 'dart:async';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatefulWidget {
+  final ScrollController _scrollController;
+
+  HomePage(this._scrollController);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -31,8 +35,8 @@ class _HomePageState extends State<HomePage> {
 
   Future<Null> _onRefresh() async {
     await Future.delayed(Duration(milliseconds: 1000));
-    
-    setState((){
+
+    setState(() {
       _recommendedProducts = getRecommendedProducts(_dbHelper.db);
     });
   }
@@ -53,6 +57,7 @@ class _HomePageState extends State<HomePage> {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasData) {
             return SingleChildScrollView(
+              controller: widget._scrollController,
               child: Column(
                 children: [
                   Container(
