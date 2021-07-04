@@ -5,9 +5,12 @@ import 'package:mealdang_mvp/page/splash.dart';
 import 'package:mealdang_mvp/page/introductionPage.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-  runApp(MyApp());
+
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((value) => runApp(MyApp()));
 }
 
 class MyApp extends StatelessWidget {
