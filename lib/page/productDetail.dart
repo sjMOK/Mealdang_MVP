@@ -5,7 +5,7 @@ import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/data/review.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/page/reviewPage.dart';
-import 'package:mealdang_mvp/page/reviewBoxContainer.dart';
+import 'package:mealdang_mvp/page/reviewUI.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +15,7 @@ Future<List<Review>> _review;
 class ProductDetail extends StatefulWidget {
   final Future<Database> database;
   final Product product;
-  //ProductInfo({Key key, this.data}) : super(key: key);
+  
   ProductDetail(
     this.database,
     this.product,
@@ -129,8 +129,8 @@ class _ProductDetailState extends State<ProductDetail> {
                 color: Colors.grey[300],
                 thickness: 2.0.w,
               ),
-              ReviewPartListview(widget.product, _ratingContainer(context),
-                  _review, widget.database),
+              ReviewPartListview(
+                  widget.product, _ratingContainer(context), _review),
             ],
           ),
         ),
@@ -276,8 +276,8 @@ class _ProductDetailState extends State<ProductDetail> {
             child: InkWell(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => ReviewPage(
-                        widget.database, product, ratingContainer, _review)));
+                    builder: (context) =>
+                        ReviewPage(product, ratingContainer, _review)));
               },
               child: Row(
                 children: [
@@ -472,12 +472,12 @@ class _ProductDetailState extends State<ProductDetail> {
 }
 
 class ReviewPartListview extends StatefulWidget {
-  Product product;
-  FutureBuilder ratingContainer;
-  Future<List<Review>> _review;
-  Future<Database> database;
-  ReviewPartListview(
-      this.product, this.ratingContainer, this._review, this.database);
+  final Product product;
+  final FutureBuilder ratingContainer;
+  final Future<List<Review>> _review;
+
+  ReviewPartListview(this.product, this.ratingContainer, this._review);
+
   @override
   _ReviewPartListviewState createState() => _ReviewPartListviewState();
 }
@@ -495,76 +495,74 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
 
   InkWell reviewPart() {
     return InkWell(
-        onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => ReviewPage(widget.database, widget.product,
-                  widget.ratingContainer, widget._review)));
-        },
-        child: FutureBuilder(
-            future: widget._review,
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                if (snapshot.data.length != 0) {
-                  print(snapshot.data);
-                  return Column(
-                    children: [
-                      ListView.separated(
-                        primary: false,
-                        shrinkWrap: true,
-                        padding: EdgeInsets.all(1.sp),
-                        itemBuilder: (context, index) {
-                          Review review = snapshot.data[index];
-                          return ReviewBox(review, partReview);
-                        },
-                        itemCount: 2,
-                        separatorBuilder: (BuildContext context, index) {
-                          return Container(
-                              height: 1.h,
-                              color: Colors.black.withOpacity(0.4.sp));
-                        },
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => ReviewPage(
+                widget.product, widget.ratingContainer, widget._review)));
+      },
+      child: FutureBuilder(
+        future: widget._review,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.data.length != 0) {
+              print(snapshot.data);
+              return Column(
+                children: [
+                  ListView.separated(
+                    primary: false,
+                    shrinkWrap: true,
+                    padding: EdgeInsets.all(1.sp),
+                    itemBuilder: (context, index) {
+                      Review review = snapshot.data[index];
+                      return ReviewBox(review, partReview);
+                    },
+                    itemCount: 2,
+                    separatorBuilder: (BuildContext context, index) {
+                      return Container(
+                          height: 1.h, color: Colors.black.withOpacity(0.4.sp));
+                    },
+                  ),
+                  OutlinedButton.icon(
+                    style: OutlinedButton.styleFrom(primary: Colors.white),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => ReviewPage(widget.product,
+                                widget.ratingContainer, _review)),
+                      );
+                    },
+                    icon: Icon(Icons.add, size: 24.sp, color: Colors.black),
+                    label: Text(
+                      "리뷰 모두보기",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'NotoSans',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 17.sp,
                       ),
-                      OutlinedButton.icon(
-                        style: OutlinedButton.styleFrom(primary: Colors.white),
-                        onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                                builder: (context) => ReviewPage(
-                                    widget.database,
-                                    widget.product,
-                                    widget.ratingContainer,
-                                    _review)),
-                          );
-                        },
-                        icon: Icon(Icons.add, size: 24.sp, color: Colors.black),
-                        label: Text(
-                          "리뷰 모두보기",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'NotoSans',
-                            fontWeight: FontWeight.w500,
-                            fontSize: 17.sp,
-                          ),
-                        ),
-                      ),
-                    ],
-                  );
-                } else
-                  return Text(
-                    '아직 달린 댓글이 없습니다.',
-                    style: TextStyle(
-                      fontFamily: 'NotoSans',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 17.sp,
-                    ),
-                  );
-              } else
-                return Center(
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      Color.fromRGBO(255, 156, 30, 1),
                     ),
                   ),
-                );
-            }));
+                ],
+              );
+            } else
+              return Text(
+                '아직 달린 댓글이 없습니다.',
+                style: TextStyle(
+                  fontFamily: 'NotoSans',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 17.sp,
+                ),
+              );
+          } else
+            return Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  Color.fromRGBO(255, 156, 30, 1),
+                ),
+              ),
+            );
+        },
+      ),
+    );
   }
 }

@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
 import '../data/review.dart';
-import 'reviewBoxContainer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mealdang_mvp/page/reviewUI.dart';
 
-//futre<database> database 삭제하기
 class ReviewListview extends StatefulWidget {
-  final Future<Database> database;
   final int productId;
-  Future<List<Review>> _review;
-  List<int> score;
-  ReviewListview(this.database, this.productId, this._review, this.score); //생성자
+  final Future<List<Review>> _review;
+  final List<int> score;
+
+  ReviewListview(this.productId, this._review, this.score); 
   @override
   _ReviewListviewState createState() => _ReviewListviewState();
 }
@@ -62,44 +60,45 @@ class _ReviewListviewState extends State<ReviewListview> {
   FutureBuilder _reviewListView(Future<List<Review>> filterReview) {
     final allReview = 0;
     return FutureBuilder(
-        future: filterReview,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.data.length != 0) {
-              //
-              return ListView.separated(
-                primary: false,
-                shrinkWrap: true,
-                padding: EdgeInsets.all(1.sp),
-                itemBuilder: (BuildContext context, int index) {
-                  Review review = snapshot.data[index];
-                  ReviewBox reviewbox = new ReviewBox(review, allReview);
-                  reviewbox.score = widget.score;
-                  return reviewbox;
-                },
-                itemCount: snapshot.data.length,
-                separatorBuilder: (BuildContext context, int index) {
-                  return Container(
-                      height: 1, color: Colors.black.withOpacity(0.4.sp));
-                },
-              );
-            } else
-              return Text(
-                'Nodata',
-                style: TextStyle(
-                  fontFamily: 'NotoSans',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 18.sp,
-                ),
-              );
+      future: filterReview,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          if (snapshot.data.length != 0) {
+            //
+            return ListView.separated(
+              primary: false,
+              shrinkWrap: true,
+              padding: EdgeInsets.all(1.sp),
+              itemBuilder: (BuildContext context, int index) {
+                Review review = snapshot.data[index];
+                ReviewBox reviewbox = new ReviewBox(review, allReview);
+                reviewbox.score = widget.score;
+                return reviewbox;
+              },
+              itemCount: snapshot.data.length,
+              separatorBuilder: (BuildContext context, int index) {
+                return Container(
+                    height: 1, color: Colors.black.withOpacity(0.4.sp));
+              },
+            );
           } else
-            return Center(
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(
-                  Color.fromRGBO(255, 156, 30, 1),
-                ),
+            return Text(
+              'Nodata',
+              style: TextStyle(
+                fontFamily: 'NotoSans',
+                fontWeight: FontWeight.w500,
+                fontSize: 18.sp,
               ),
             );
-        });
+        } else
+          return Center(
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(
+                Color.fromRGBO(255, 156, 30, 1),
+              ),
+            ),
+          );
+      },
+    );
   }
 }
