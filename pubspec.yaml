@@ -64,6 +64,7 @@ flutter:
     - assets/images/food_pictures/western_food/
     - assets/images/logo/
     - assets/images/survey_image/
+    - assets/images/tasty_icon/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

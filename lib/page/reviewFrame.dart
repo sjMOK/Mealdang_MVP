@@ -73,7 +73,9 @@ class _ReviewListviewState extends State<ReviewListview> {
                 padding: EdgeInsets.all(1.sp),
                 itemBuilder: (BuildContext context, int index) {
                   Review review = snapshot.data[index];
-                  return ReviewBox(review, allReview);
+                  ReviewBox reviewbox = new ReviewBox(review, allReview);
+                  reviewbox.score = widget.score;
+                  return reviewbox;
                 },
                 itemCount: snapshot.data.length,
                 separatorBuilder: (BuildContext context, int index) {

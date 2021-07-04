@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ReviewBox extends StatefulWidget {
   Review review;
   int separator;
+  List<int> score;
   ReviewBox(this.review, this.separator);
   Text textEffectPDetail(String text) {
     if (this.separator == 1)
@@ -35,8 +36,58 @@ class ReviewBox extends StatefulWidget {
 }
 
 class _ReviewBoxState extends State<ReviewBox> {
+  Color highlightText(int compareScore, int reviewScore) {
+    Color highlightColor;
+    if (compareScore != 4 && compareScore == reviewScore) {
+      highlightColor = Colors.orange[100];
+    } else {
+      highlightColor = Colors.white;
+    }
+    return highlightColor;
+  }
+
+  Container _buildtastyImage(int count, Image image) {
+    if (count == 1) {
+      return Container(width: 40.w, height: 30.h, child: image);
+    }
+    if (count == 2) {
+      return Container(width: 40.w, height: 30.h, child: image);
+    }
+    if (count == 3) {
+      return Container(width: 40.w, height: 30.h, child: image);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    String spicyUrl, saltyUrl, sweetUrl;
+    if (widget.review.spicyLevel == 1) {
+      spicyUrl = 'assets/images/tasty_icon/spicy_icon1.png';
+    }
+    if (widget.review.spicyLevel == 2) {
+      spicyUrl = 'assets/images/tasty_icon/spicy_icon2.png';
+    }
+    if (widget.review.spicyLevel == 3) {
+      spicyUrl = 'assets/images/tasty_icon/spicy_icon2.png';
+    }
+    if (widget.review.saltyLevel == 1) {
+      saltyUrl = 'assets/images/tasty_icon/salty_icon1.png';
+    }
+    if (widget.review.saltyLevel == 2) {
+      saltyUrl = 'assets/images/tasty_icon/salty_icon2.png';
+    }
+    if (widget.review.saltyLevel == 3) {
+      saltyUrl = 'assets/images/tasty_icon/salty_icon3.png';
+    }
+    if (widget.review.sweetLevel == 1) {
+      sweetUrl = 'assets/images/tasty_icon/sweet_icon1.png';
+    }
+    if (widget.review.sweetLevel == 2) {
+      sweetUrl = 'assets/images/tasty_icon/sweet_icon2.png';
+    }
+    if (widget.review.sweetLevel == 3) {
+      sweetUrl = 'assets/images/tasty_icon/sweet_icon3.png';
+    }
     return Container(
       width: 411.w,
       child: Column(
@@ -64,29 +115,87 @@ class _ReviewBoxState extends State<ReviewBox> {
                       ),
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          "매운맛:${widget.review.spicyLevel} ",
-                          style: TextStyle(
-                            fontFamily: 'NotoSans',
-                            fontWeight: FontWeight.w500,
-                            fontSize: 11.sp,
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              WidgetSpan(
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      _buildtastyImage(
+                                        widget.review.spicyLevel,
+                                        Image.asset(spicyUrl),
+                                      ),
+                                    ],
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: widget.separator == 0
+                                        ? highlightText(widget.score[0],
+                                            widget.review.spicyLevel)
+                                        : Colors.white,
+                                    borderRadius: BorderRadius.circular(9),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         Text(
-                          "짠맛:${widget.review.saltyLevel} ",
+                          "/",
                           style: TextStyle(
-                            fontFamily: 'NotoSans',
-                            fontWeight: FontWeight.w500,
-                            fontSize: 11.sp,
+                              fontWeight: FontWeight.bold, fontSize: 25.sp),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              WidgetSpan(
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      _buildtastyImage(widget.review.saltyLevel,
+                                          Image.asset(saltyUrl)),
+                                    ],
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: widget.separator == 0
+                                        ? highlightText(widget.score[1],
+                                            widget.review.saltyLevel)
+                                        : Colors.white,
+                                    borderRadius: BorderRadius.circular(9),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         Text(
-                          "단맛:${widget.review.sweetLevel}",
+                          "/",
                           style: TextStyle(
-                            fontFamily: 'NotoSans',
-                            fontWeight: FontWeight.w500,
-                            fontSize: 11.sp,
+                              fontWeight: FontWeight.bold, fontSize: 25.sp),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              WidgetSpan(
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      _buildtastyImage(widget.review.saltyLevel,
+                                          Image.asset(sweetUrl))
+                                    ],
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: widget.separator == 0
+                                        ? highlightText(widget.score[2],
+                                            widget.review.sweetLevel)
+                                        : Colors.white,
+                                    borderRadius: BorderRadius.circular(9),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],

@@ -4,7 +4,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/data/review.dart';
 import 'package:mealdang_mvp/database/db.dart';
-import 'package:mealdang_mvp/style/font.dart';
 import 'package:mealdang_mvp/page/reviewPage.dart';
 import 'package:mealdang_mvp/page/reviewBoxContainer.dart';
 import 'package:sqflite/sqflite.dart';
@@ -30,8 +29,6 @@ class ProductDetail extends StatefulWidget {
 }
 
 class _ProductDetailState extends State<ProductDetail> {
-  double _height;
-  double _width;
   List<Review> reviews;
 
   @override
@@ -48,9 +45,6 @@ class _ProductDetailState extends State<ProductDetail> {
 
   @override
   Widget build(BuildContext context) {
-    MediaQueryData _media = MediaQuery.of(context);
-    _height = _media.size.height;
-    _width = _media.size.width;
     Product product = widget.product;
     return Scaffold(
         backgroundColor: Colors.white,

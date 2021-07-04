@@ -30,9 +30,10 @@ class _CategoryState extends State<Category> {
 
     return Container(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 60.w),
+        padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 40.w),
         child: Column(
           children: [
+            SizedBox(height: 40.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -74,8 +75,8 @@ class _CategoryState extends State<Category> {
             children: [
               Image.asset(
                 categoryData[categoryName]['img_path'],
-                width: _width * 0.2,
-                height: _width * 0.2,
+                width: 95.w,
+                height: 95.w,
               ),
               SizedBox(height: 20.h),
               Text(
