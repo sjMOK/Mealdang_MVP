@@ -651,7 +651,7 @@ List<Map<String, dynamic>> productData = [
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_7.jpeg',
     'page_url': 'https://smartstore.naver.com/latin/products/4569010470',
     'review_count': 10,
-    'rating' : 0.0
+    'rating' : 4.0
   },
   {
     'id': 48,
