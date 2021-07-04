@@ -36,7 +36,7 @@ class _SplashState extends State<Splash> {
     print('spalsh init');
 
     DBHelper().db;
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(milliseconds: 1500), () {
       checkFirstSeen();
     });
   }

@@ -127,7 +127,7 @@ class _MealdangHomeState extends State<MealdangHome> {
   Future<bool> _onWillPop() {
     DateTime now = DateTime.now();
     if (currentBackPressTime == null ||
-        now.difference(currentBackPressTime) > Duration(seconds: 2)) {
+        now.difference(currentBackPressTime) > Duration(milliseconds: 1500)) {
       currentBackPressTime = now;
 
       ScaffoldMessenger.of(context).showSnackBar(
