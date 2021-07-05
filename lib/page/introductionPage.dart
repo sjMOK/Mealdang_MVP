@@ -39,17 +39,29 @@ class _IntroductionPageState extends State<IntroductionPage> {
           globalBackgroundColor: Colors.white,
           pages: [
             PageViewModel(
-              title: "밀당",
-              body: "밀키트는 맛있습니다.",
+              title: "밀키트",
+              body: "정리 안된 밀키트 카테고리별로 정리",
               image: _buildImage(
-                  'food_pictures/korean_food/KoreanFood_1.jpeg', 411.4.w),
+                  'introduction_image/IntroductionImage_1.png', 510.w),
               decoration: pageDecoration,
             ),
             PageViewModel(
                 title: "맛있으면",
                 body: '"바나나"',
                 image: _buildImage(
-                    'food_pictures/korean_food/KoreanFood_2.jpeg', 411.w),
+                    'introduction_image/IntroductionImage_2.png', 510.w),
+                decoration: pageDecoration),
+            PageViewModel(
+                title: "맛있으면",
+                body: '"바나나"',
+                image: _buildImage(
+                    'introduction_image/IntroductionImage_3.png', 510.w),
+                decoration: pageDecoration),
+            PageViewModel(
+                title: "맛있으면",
+                body: '"바나나"',
+                image: _buildImage(
+                    'introduction_image/IntroductionImage_4.png', 510.w),
                 decoration: pageDecoration),
           ],
           onDone: () => _onIntroEnd(context),

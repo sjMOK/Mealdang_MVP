@@ -3,7 +3,6 @@ import 'package:mealdang_mvp/database/db.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/page/productDetail.dart';
-import 'package:mealdang_mvp/style/font.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchPage extends StatefulWidget {

@@ -9,7 +9,6 @@ class Category extends StatefulWidget {
 }
 
 class _CategoryState extends State<Category> {
-  double _width;
   double _height;
   @override
   void initState() {
@@ -26,7 +25,6 @@ class _CategoryState extends State<Category> {
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
     _height = _size.height;
-    _width = _size.width;
 
     return Container(
       child: Padding(
@@ -92,34 +90,6 @@ class _CategoryState extends State<Category> {
         ),
       ),
     );
-    // child: Column(
-    //   children: [
-    //     Transform.scale(
-    //       scale: 3,
-    //       child: IconButton(
-    //         icon: Image.asset(
-    //           categoryData[categoryName]['img_path'], // 아이콘 이미지 경로
-    //         ),
-    //         onPressed: () {
-    //           Navigator.of(context).push(
-    //             MaterialPageRoute(
-    //               builder: (context) =>
-    //                   CategoryItem(categoryName),
-    //             ),
-    //           );
-    //         },
-    //       ),
-    //     ),
-    //     SizedBox(height: 30),
-    //     Text(
-    //       categoryData[categoryName]['name'], // 카테고리 이름
-    //       style: TextStyle(
-    //         fontFamily: 'NotoSans',
-    //         fontWeight: FontWeight.w700,
-    //         fontSize: 30,
-    //       ),
-    //     ),
-    //   ],
-    // ),
+    
   }
 }

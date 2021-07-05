@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:mealdang_mvp/page/reviewUI.dart';
-import 'package:sqflite/sqflite.dart';
 import '../data/review.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mealdang_mvp/page/reviewUI.dart';
 
-//futre<database> database 삭제하기
 class ReviewFrame extends StatefulWidget {
-  final Future<Database> database;
   final int productId;
-  Future<List<Review>> _review;
-  List<int> score;
-  ReviewFrame(this.database, this.productId, this._review, this.score); //생성자
+  final Future<List<Review>> _review;
+  final List<int> score;
+
+  ReviewFrame(this.productId, this._review, this.score);
   @override
   _ReviewFrameState createState() => _ReviewFrameState();
 }

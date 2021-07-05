@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/data/review.dart';
 import 'package:mealdang_mvp/page/reviewFrame.dart';
-import 'package:sqflite/sqlite_api.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReviewPage extends StatefulWidget {
-  final Future<Database> database;
-  Product product;
-  Widget ratingContainer;
-  Future<List<Review>> _review;
-  ReviewPage(this.database, this.product, this.ratingContainer, this._review);
+  final Product product;
+  final Widget ratingContainer;
+  final Future<List<Review>> _review;
+
+  ReviewPage(this.product, this.ratingContainer, this._review);
+
   @override
   _ReviewPageState createState() => _ReviewPageState();
 }
@@ -156,8 +156,7 @@ class _ReviewPageState extends State<ReviewPage> {
                 ],
               ),
             ),
-            ReviewFrame(
-                widget.database, widget.product.id, widget._review, filter),
+            ReviewFrame(widget.product.id, widget._review, filter),
           ],
         ),
       ),

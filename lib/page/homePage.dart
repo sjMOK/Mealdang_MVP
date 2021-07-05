@@ -9,6 +9,10 @@ import 'dart:async';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatefulWidget {
+  final ScrollController _scrollController;
+
+  HomePage(this._scrollController);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -31,8 +35,8 @@ class _HomePageState extends State<HomePage> {
 
   Future<Null> _onRefresh() async {
     await Future.delayed(Duration(milliseconds: 1000));
-    
-    setState((){
+
+    setState(() {
       _recommendedProducts = getRecommendedProducts(_dbHelper.db);
     });
   }
@@ -53,6 +57,7 @@ class _HomePageState extends State<HomePage> {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasData) {
             return SingleChildScrollView(
+              controller: widget._scrollController,
               child: Column(
                 children: [
                   Container(
@@ -179,13 +184,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildProductCard(Product product) {
-    int price = product.price;
-    int discountedPrice = product.discountedPrice;
     double rating = product.rating ?? 0.0;
 
-    if (product.discountedPrice != null) {
-      price = product.discountedPrice;
-    }
     return Container(
       width: _width * 0.4,
       margin: EdgeInsets.fromLTRB(10, 6, 10, 6),
@@ -335,7 +335,7 @@ class _ManualState extends State<Manual> {
 
   Widget _buildPageView() {
     final List<String> images = <String>[
-      "assets/images/food_pictures/korean_food/KoreanFood_1.jpeg",
+      "assets/images/pageview_image/PageView_spicyLevel.png",
       "assets/images/food_pictures/korean_food/KoreanFood_2.jpeg",
       "assets/images/food_pictures/korean_food/KoreanFood_3.jpeg"
     ];
