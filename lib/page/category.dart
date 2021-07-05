@@ -9,7 +9,6 @@ class Category extends StatefulWidget {
 }
 
 class _CategoryState extends State<Category> {
-  double _width;
   double _height;
   @override
   void initState() {
@@ -26,13 +25,13 @@ class _CategoryState extends State<Category> {
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
     _height = _size.height;
-    _width = _size.width;
 
     return Container(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 60.w),
+        padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 40.w),
         child: Column(
           children: [
+            SizedBox(height: 40.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -74,8 +73,8 @@ class _CategoryState extends State<Category> {
             children: [
               Image.asset(
                 categoryData[categoryName]['img_path'],
-                width: _width * 0.2,
-                height: _width * 0.2,
+                width: 95.w,
+                height: 95.w,
               ),
               SizedBox(height: 20.h),
               Text(
@@ -91,34 +90,6 @@ class _CategoryState extends State<Category> {
         ),
       ),
     );
-    // child: Column(
-    //   children: [
-    //     Transform.scale(
-    //       scale: 3,
-    //       child: IconButton(
-    //         icon: Image.asset(
-    //           categoryData[categoryName]['img_path'], // 아이콘 이미지 경로
-    //         ),
-    //         onPressed: () {
-    //           Navigator.of(context).push(
-    //             MaterialPageRoute(
-    //               builder: (context) =>
-    //                   CategoryItem(categoryName),
-    //             ),
-    //           );
-    //         },
-    //       ),
-    //     ),
-    //     SizedBox(height: 30),
-    //     Text(
-    //       categoryData[categoryName]['name'], // 카테고리 이름
-    //       style: TextStyle(
-    //         fontFamily: 'NotoSans',
-    //         fontWeight: FontWeight.w700,
-    //         fontSize: 30,
-    //       ),
-    //     ),
-    //   ],
-    // ),
+    
   }
 }
