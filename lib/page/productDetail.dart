@@ -5,7 +5,7 @@ import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/data/review.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/page/reviewPage.dart';
-import 'package:mealdang_mvp/page/reviewBoxContainer.dart';
+import 'package:mealdang_mvp/page/reviewUI.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -165,8 +165,6 @@ class _ProductDetailState extends State<ProductDetail> {
   Widget _productInfo(Product product) {
     String serving = '';
     int price = product.price;
-    if (product.servingSize != null) serving = '${product.servingSize}인분';
-
     if (product.discountedPrice != null) price = product.discountedPrice;
 
     return Container(
@@ -231,14 +229,15 @@ class _ProductDetailState extends State<ProductDetail> {
                               ),
                             ),
                             SizedBox(width: 4.1.w),
-                            Text(
-                              "($serving)",
-                              style: TextStyle(
-                                fontFamily: 'NotoSans',
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16.sp,
-                              ),
-                            ),
+                            if (product.servingSize != null)
+                              Text(
+                                '(${product.servingSize}인분)',
+                                style: TextStyle(
+                                  fontFamily: 'NotoSans',
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16.sp,
+                                ),
+                              )
                           ],
                         );
                       }
@@ -514,7 +513,7 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
                         padding: EdgeInsets.all(1.sp),
                         itemBuilder: (context, index) {
                           Review review = snapshot.data[index];
-                          return ReviewBox(review, partReview);
+                          return ReviewUI(review, partReview);
                         },
                         itemCount: 2,
                         separatorBuilder: (BuildContext context, index) {
