@@ -16,7 +16,7 @@ class _SurveyState extends State<Survey> {
           Container(
             child: Image.asset("assets/images/survey_image/survey_image.png"),
           ),
-          SizedBox(height: 5.h),
+          SizedBox(height: 30.h),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
                 primary: Colors.white,
