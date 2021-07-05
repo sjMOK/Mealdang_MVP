@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/data/review.dart';
+import 'package:mealdang_mvp/page/reviewFrame.dart';
 import 'package:sqflite/sqlite_api.dart';
-import 'package:mealdang_mvp/page/reviewListview.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReviewPage extends StatefulWidget {
@@ -156,7 +156,7 @@ class _ReviewPageState extends State<ReviewPage> {
                 ],
               ),
             ),
-            ReviewListview(
+            ReviewFrame(
                 widget.database, widget.product.id, widget._review, filter),
           ],
         ),

@@ -4,11 +4,11 @@ import 'package:mealdang_mvp/data/review.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ReviewBox extends StatefulWidget {
+class ReviewUI extends StatefulWidget {
   Review review;
   int separator;
   List<int> score;
-  ReviewBox(this.review, this.separator);
+  ReviewUI(this.review, this.separator);
   Text textEffectPDetail(String text) {
     if (this.separator == 1)
       return Text(
@@ -32,10 +32,10 @@ class ReviewBox extends StatefulWidget {
   }
 
   @override
-  _ReviewBoxState createState() => _ReviewBoxState();
+  _ReviewUIState createState() => _ReviewUIState();
 }
 
-class _ReviewBoxState extends State<ReviewBox> {
+class _ReviewUIState extends State<ReviewUI> {
   Color highlightText(int compareScore, int reviewScore) {
     Color highlightColor;
     if (compareScore != 4 && compareScore == reviewScore) {
@@ -68,7 +68,7 @@ class _ReviewBoxState extends State<ReviewBox> {
       spicyUrl = 'assets/images/tasty_icon/spicy_icon2.png';
     }
     if (widget.review.spicyLevel == 3) {
-      spicyUrl = 'assets/images/tasty_icon/spicy_icon2.png';
+      spicyUrl = 'assets/images/tasty_icon/spicy_icon3.png';
     }
     if (widget.review.saltyLevel == 1) {
       saltyUrl = 'assets/images/tasty_icon/salty_icon1.png';

@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:mealdang_mvp/page/reviewUI.dart';
 import 'package:sqflite/sqflite.dart';
 import '../data/review.dart';
-import 'reviewBoxContainer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //futre<database> database 삭제하기
-class ReviewListview extends StatefulWidget {
+class ReviewFrame extends StatefulWidget {
   final Future<Database> database;
   final int productId;
   Future<List<Review>> _review;
   List<int> score;
-  ReviewListview(this.database, this.productId, this._review, this.score); //생성자
+  ReviewFrame(this.database, this.productId, this._review, this.score); //생성자
   @override
-  _ReviewListviewState createState() => _ReviewListviewState();
+  _ReviewFrameState createState() => _ReviewFrameState();
 }
 
-class _ReviewListviewState extends State<ReviewListview> {
+class _ReviewFrameState extends State<ReviewFrame> {
   @override
   Widget build(BuildContext context) {
     Future<List<Review>> filteredReview = filteringReview(widget.score);
@@ -73,7 +73,7 @@ class _ReviewListviewState extends State<ReviewListview> {
                 padding: EdgeInsets.all(1.sp),
                 itemBuilder: (BuildContext context, int index) {
                   Review review = snapshot.data[index];
-                  ReviewBox reviewbox = new ReviewBox(review, allReview);
+                  ReviewUI reviewbox = new ReviewUI(review, allReview);
                   reviewbox.score = widget.score;
                   return reviewbox;
                 },
