@@ -335,7 +335,7 @@ class _ManualState extends State<Manual> {
 
   Widget _buildPageView() {
     final List<String> images = <String>[
-      "assets/images/food_pictures/korean_food/KoreanFood_1.jpeg",
+      "assets/images/pageview_image/PageView_spicyLevel.png",
       "assets/images/food_pictures/korean_food/KoreanFood_2.jpeg",
       "assets/images/food_pictures/korean_food/KoreanFood_3.jpeg"
     ];
