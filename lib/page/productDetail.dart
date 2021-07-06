@@ -149,7 +149,7 @@ class _ProductDetailState extends State<ProductDetail> {
     return Container(
       padding: EdgeInsets.only(top: 30.h),
       child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+        borderRadius: BorderRadius.all(Radius.circular(10.r)),
         child: Hero(
           tag: product.id,
           child: Image.asset(
@@ -512,7 +512,6 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
                   ListView.separated(
                     primary: false,
                     shrinkWrap: true,
-                    padding: EdgeInsets.all(1.sp),
                     itemBuilder: (context, index) {
                       Review review = snapshot.data[index];
                       return ReviewUI(review, partReview);
