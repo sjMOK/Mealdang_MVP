@@ -68,17 +68,19 @@ class _ReviewUIState extends State<ReviewUI> {
   Widget build(BuildContext context) {
     return Container(
       width: 411.w,
+      alignment: Alignment.centerLeft,
       child: Column(
         children: [
           Container(
-            //프사,아이디,태그들 적는 곳
-            padding: EdgeInsets.fromLTRB(30.sp, 20.sp, 20.sp, 20.sp),
+            //리뷰프로필사진 및 평점 나오는 박스
+            padding: EdgeInsets.fromLTRB(20.w, 20.h, 30.w, 20.h),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
-                  backgroundColor: Colors.black,
-                  radius: 23.w,
+                  child: Image.asset('assets/images/profile_image/profile.png'),
+                  radius: 23.r,
+                  backgroundColor: Colors.white,
                 ),
                 SizedBox(width: 12.3.h),
                 Column(
@@ -116,7 +118,7 @@ class _ReviewUIState extends State<ReviewUI> {
                                         ? highlightText(widget.score[0],
                                             widget.review.spicyLevel)
                                         : Colors.white,
-                                    borderRadius: BorderRadius.circular(9),
+                                    borderRadius: BorderRadius.circular(9.r),
                                   ),
                                 ),
                               ),
@@ -149,7 +151,7 @@ class _ReviewUIState extends State<ReviewUI> {
                                         ? highlightText(widget.score[1],
                                             widget.review.saltyLevel)
                                         : Colors.white,
-                                    borderRadius: BorderRadius.circular(9),
+                                    borderRadius: BorderRadius.circular(9.r),
                                   ),
                                 ),
                               ),
@@ -181,7 +183,7 @@ class _ReviewUIState extends State<ReviewUI> {
                                         ? highlightText(widget.score[2],
                                             widget.review.sweetLevel)
                                         : Colors.white,
-                                    borderRadius: BorderRadius.circular(9),
+                                    borderRadius: BorderRadius.circular(9.r),
                                   ),
                                 ),
                               ),
@@ -208,8 +210,9 @@ class _ReviewUIState extends State<ReviewUI> {
           ),
           Container(
             // 리뷰 작성 된 곳
-            width: 410.w,
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            width: 1.sw,
+            padding: EdgeInsets.fromLTRB(30.w, 0.h, 30.w, 20.h),
+            child: Row(children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
