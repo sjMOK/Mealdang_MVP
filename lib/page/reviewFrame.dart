@@ -67,8 +67,8 @@ class _ReviewFrameState extends State<ReviewFrame> {
                 padding: EdgeInsets.all(1.sp),
                 itemBuilder: (BuildContext context, int index) {
                   Review review = snapshot.data[index];
-                  ReviewUI reviewbox = new ReviewUI(review, allReview);
-                  reviewbox.score = widget.score;
+                  ReviewUI reviewbox =
+                      new ReviewUI(review, allReview, widget.score);
                   return reviewbox;
                 },
                 itemCount: snapshot.data.length,

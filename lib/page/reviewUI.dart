@@ -7,8 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ReviewUI extends StatefulWidget {
   final Review review;
   final int separator;
-  List<int> score; // productDetail에서
-  ReviewUI(this.review, this.separator);
+  final List<int> score; // productDetail에서
+  ReviewUI(this.review, this.separator, this.score);
   Text textEffectPDetail(String text) {
     if (this.separator == 1)
       return Text(
@@ -72,7 +72,6 @@ class _ReviewUIState extends State<ReviewUI> {
       child: Column(
         children: [
           Container(
-            //리뷰프로필사진 및 평점 나오는 박스
             padding: EdgeInsets.fromLTRB(20.w, 20.h, 30.w, 20.h),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,

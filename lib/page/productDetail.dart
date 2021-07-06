@@ -368,14 +368,12 @@ class _ProductDetailState extends State<ProductDetail> {
     List<int> arrayRating = [0, 0, 0, 0, 0, 0];
     return FutureBuilder(
       future: _review,
-      // ignore: missing_return
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.data.length != 0) {
             for (var review in snapshot.data) {
               arrayRating[review.rating]++;
             }
-            print(arrayRating[5]);
             return Column(
               children: [
                 reviewScoreBox(5, snapshot.data.length, arrayRating[5]),
@@ -462,7 +460,6 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.data.length != 0) {
-              print(snapshot.data);
               return Column(
                 children: [
                   ListView.separated(
@@ -470,7 +467,7 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       Review review = snapshot.data[index];
-                      return ReviewUI(review, partReview);
+                      return ReviewUI(review, partReview, []);
                     },
                     itemCount: 2,
                     separatorBuilder: (BuildContext context, index) {
