@@ -57,6 +57,7 @@ class _HomePageState extends State<HomePage> {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasData) {
             return SingleChildScrollView(
+              controller: widget._scrollController,
               child: Column(
                 children: [
                   Container(
@@ -65,29 +66,24 @@ class _HomePageState extends State<HomePage> {
                     height: _width * 9 / 16,
                     child: Manual(),
                   ),
-                  Container(
-                    height: 14.h,
-                    color: Colors.grey[200],
-                  ),
+                  _buildGreyDivider(),
                   _buildRecommendProduct(0, snapshot.data[0]),
-                  Container(
-                    height: 14.h,
-                    color: Colors.grey[200],
-                  ),
+                  _buildGreyDivider(),
                   _buildRecommendProduct(1, snapshot.data[1]),
-                  Container(
-                    height: 14,
-                    color: Colors.grey[200],
-                  ),
+                  _buildGreyDivider(),
                   _buildRecommendProduct(2, snapshot.data[2]),
-                  Container(
-                    height: 14,
-                    color: Colors.grey[200],
-                  ),
+                  _buildGreyDivider(),
                 ],
               ),
             );
           }
+          return Center(
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(
+                Color.fromRGBO(255, 156, 30, 1),
+              ),
+            ),
+          );
         }
         return Center(
           child: CircularProgressIndicator(
@@ -97,6 +93,13 @@ class _HomePageState extends State<HomePage> {
           ),
         );
       },
+    );
+  }
+
+  Widget _buildGreyDivider() {
+    return Container(
+      height: 10.h,
+      color: Colors.grey[200],
     );
   }
 
@@ -115,38 +118,46 @@ class _HomePageState extends State<HomePage> {
         break;
     }
 
-    return Column(
-      children: <Widget>[
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 16.sp,
-            fontFamily: 'notoSans',
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+    return Center(
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 10.h),
+        width: 365.w,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            _buildProductCard(products[0]),
-            _buildProductCard(products[1]),
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 22.sp,
+                fontFamily: 'notoSans',
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+            SizedBox(height: 5.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                _buildProductCard(products[0]),
+                _buildProductCard(products[1]),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                _buildProductCard(products[2]),
+                _buildProductCard(products[3]),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                _buildProductCard(products[4]),
+                _buildProductCard(products[5]),
+              ],
+            ),
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _buildProductCard(products[2]),
-            _buildProductCard(products[3]),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _buildProductCard(products[4]),
-            _buildProductCard(products[5]),
-          ],
-        ),
-      ],
+      ),
     );
   }
 
@@ -155,45 +166,47 @@ class _HomePageState extends State<HomePage> {
       return Text(setPriceFormat(product.price));
     } else {
       return Container(
-          child: Row(
-        children: [
-          Text(
-            setPriceFormat(
-              product.price,
+        child: Row(
+          children: [
+            Text(
+              setPriceFormat(
+                product.price,
+              ),
+              style: TextStyle(
+                  fontFamily: 'NotoSans',
+                  fontWeight: FontWeight.w600,
+                  color: Colors.grey[400],
+                  decoration: TextDecoration.lineThrough),
             ),
-            style: TextStyle(
+            SizedBox(width: 8.w),
+            Text(
+              setPriceFormat(
+                product.discountedPrice,
+              ),
+              style: TextStyle(
                 fontFamily: 'NotoSans',
-                fontWeight: FontWeight.w600,
-                color: Colors.grey[400],
-                decoration: TextDecoration.lineThrough),
-          ),
-          SizedBox(width: 8.w),
-          Text(
-            setPriceFormat(
-              product.discountedPrice,
-            ),
-            style: TextStyle(
-              fontFamily: 'NotoSans',
-              fontWeight: FontWeight.bold,
-            ),
-          )
-        ],
-      ));
+                fontWeight: FontWeight.bold,
+              ),
+            )
+          ],
+        ),
+      );
     }
   }
 
   Widget _buildProductCard(Product product) {
     double rating = product.rating ?? 0.0;
     return Container(
-      width: _width * 0.4,
-      margin: EdgeInsets.fromLTRB(10.w, 6.h, 10.w, 6.h),
+      width: 174.w,
+      margin: EdgeInsets.fromLTRB(0, 5.h, 0, 5.h),
       child: Card(
+        margin: const EdgeInsets.all(0.0),
         elevation: 0.0,
         child: InkWell(
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => ProductDetail(_dbHelper.db, product),
+                builder: (context) => ProductDetail(product),
               ),
             );
           },
@@ -203,11 +216,13 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
-                child: Image.asset(
-                  product.imagePath,
-                  width: _width * 0.4,
-                  height: _width * 0.4,
-                  fit: BoxFit.fill,
+                child: Container(
+                  width: 174.w,
+                  height: 174.w,
+                  child: Image.asset(
+                    product.imagePath,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               Text(
@@ -265,28 +280,15 @@ class _ManualState extends State<Manual> {
     super.initState();
 
     _pageController.addListener(() {
-      if (_pageController.page % 1 == 0) {
+      // if (_pageController.page % 1 == 0) {
+      //   setState(() {
+      //     _currentPage = _pageController.page.toInt();
+      //   });
+      // }
+      if ((_currentPage - _pageController.page).abs() > 0.5) {
         setState(() {
-          _currentPage = _pageController.page.toInt();
+          _currentPage = _pageController.page.round().toInt();
         });
-      }
-    });
-
-    Timer.periodic(Duration(seconds: 5), (Timer timer) {
-      if (_pageController.hasClients) {
-        if (_currentPage == 2) {
-          _currentPage = 0;
-        } else {
-          _currentPage++;
-        }
-
-        if (_pageController.page % 1 == 0) {
-          _pageController.animateToPage(
-            _currentPage % 3,
-            duration: Duration(milliseconds: 350),
-            curve: Curves.easeIn,
-          );
-        }
       }
     });
   }
@@ -303,28 +305,28 @@ class _ManualState extends State<Manual> {
       children: <Widget>[
         _buildPageView(),
         Positioned(
-          bottom: 10.h,
-          right: 10.w,
+          bottom: 5.h,
+          right: 5.w,
           child: Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
                   '${_currentPage + 1}',
-                  style: TextStyle(fontSize: 20.sp, color: Colors.red),
+                  style: TextStyle(fontSize: 18.sp, color: Colors.red),
                 ),
                 Text(
-                  '/ 3',
-                  style: TextStyle(fontSize: 20.sp, color: Colors.white),
+                  ' / 4',
+                  style: TextStyle(fontSize: 18.sp, color: Colors.white),
                 ),
               ],
             ),
-            width: 100.w,
-            height: 30.h,
+            width: 80.w,
+            height: 22.h,
             decoration: BoxDecoration(
                 color: Color.fromRGBO(5, 5, 5, 0.5),
                 border: Border.all(color: Colors.black),
-                borderRadius: BorderRadius.circular(8)),
+                borderRadius: BorderRadius.circular(10)),
           ),
         )
       ],
@@ -333,9 +335,10 @@ class _ManualState extends State<Manual> {
 
   Widget _buildPageView() {
     final List<String> images = <String>[
-      "assets/images/food_pictures/korean_food/KoreanFood_1.jpeg",
-      "assets/images/food_pictures/korean_food/KoreanFood_2.jpeg",
-      "assets/images/food_pictures/korean_food/KoreanFood_3.jpeg"
+      'assets/images/pageview_image/preview_1.png',
+      'assets/images/pageview_image/preview_2.png',
+      'assets/images/pageview_image/preview_3.png',
+      'assets/images/pageview_image/preview_4.png',
     ];
     return PageView.builder(
       controller: _pageController,
