@@ -57,6 +57,7 @@ class _HomePageState extends State<HomePage> {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasData) {
             return SingleChildScrollView(
+              controller: widget._scrollController,
               child: Column(
                 children: [
                   Container(

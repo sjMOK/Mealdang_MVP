@@ -163,7 +163,6 @@ class _ProductDetailState extends State<ProductDetail> {
   }
 
   Widget _productInfo(Product product) {
-    String serving = '';
     int price = product.price;
     if (product.discountedPrice != null) price = product.discountedPrice;
 
