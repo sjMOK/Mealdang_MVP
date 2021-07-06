@@ -57,7 +57,6 @@ class _HomePageState extends State<HomePage> {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasData) {
             return SingleChildScrollView(
-              controller: widget._scrollController,
               child: Column(
                 children: [
                   Container(
@@ -185,10 +184,9 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildProductCard(Product product) {
     double rating = product.rating ?? 0.0;
-
     return Container(
       width: _width * 0.4,
-      margin: EdgeInsets.fromLTRB(10, 6, 10, 6),
+      margin: EdgeInsets.fromLTRB(10.w, 6.h, 10.w, 6.h),
       child: Card(
         elevation: 0.0,
         child: InkWell(
@@ -335,7 +333,7 @@ class _ManualState extends State<Manual> {
 
   Widget _buildPageView() {
     final List<String> images = <String>[
-      "assets/images/pageview_image/PageView_spicyLevel.png",
+      "assets/images/food_pictures/korean_food/KoreanFood_1.jpeg",
       "assets/images/food_pictures/korean_food/KoreanFood_2.jpeg",
       "assets/images/food_pictures/korean_food/KoreanFood_3.jpeg"
     ];

@@ -19,22 +19,46 @@ class _ReviewPageState extends State<ReviewPage> {
   List<int> filter = [4, 4, 4];
   List selected = [null, null, null];
   List listSpicy = [
-    Image.asset('assets/images/tasty_icon/spicy_icon1.png', fit: BoxFit.cover),
-    Image.asset('assets/images/tasty_icon/spicy_icon2.png', fit: BoxFit.cover),
-    Image.asset('assets/images/tasty_icon/spicy_icon3.png', fit: BoxFit.cover),
-    Text("전체"),
+    Image.asset('assets/images/tasty_icon/spicy_icon1.png'),
+    Image.asset('assets/images/tasty_icon/spicy_icon2.png'),
+    Image.asset('assets/images/tasty_icon/spicy_icon3.png'),
+    Text(
+      "전체",
+      style: TextStyle(
+        fontFamily: 'NotoSans',
+        fontWeight: FontWeight.w600,
+        fontSize: 15.sp,
+        color: Colors.grey[700],
+      ),
+    ),
   ];
   List listSalty = [
-    Image.asset('assets/images/tasty_icon/salty_icon1.png', fit: BoxFit.cover),
-    Image.asset('assets/images/tasty_icon/salty_icon2.png', fit: BoxFit.cover),
-    Image.asset('assets/images/tasty_icon/salty_icon3.png', fit: BoxFit.cover),
-    Text("전체"),
+    Image.asset('assets/images/tasty_icon/salty_icon1.png'),
+    Image.asset('assets/images/tasty_icon/salty_icon2.png'),
+    Image.asset('assets/images/tasty_icon/salty_icon3.png'),
+    Text(
+      "전체",
+      style: TextStyle(
+        fontFamily: 'NotoSans',
+        fontWeight: FontWeight.w600,
+        fontSize: 15.sp,
+        color: Colors.grey[700],
+      ),
+    ),
   ];
   List listSweety = [
-    Image.asset('assets/images/tasty_icon/sweet_icon1.png', fit: BoxFit.cover),
-    Image.asset('assets/images/tasty_icon/sweet_icon2.png', fit: BoxFit.cover),
-    Image.asset('assets/images/tasty_icon/sweet_icon3.png', fit: BoxFit.cover),
-    Text("전체"),
+    Image.asset('assets/images/tasty_icon/sweet_icon1.png'),
+    Image.asset('assets/images/tasty_icon/sweet_icon2.png'),
+    Image.asset('assets/images/tasty_icon/sweet_icon3.png'),
+    Text(
+      "전체",
+      style: TextStyle(
+        fontFamily: 'NotoSans',
+        fontWeight: FontWeight.w600,
+        fontSize: 15.sp,
+        color: Colors.grey[700],
+      ),
+    ),
   ];
 
   @override
@@ -72,17 +96,24 @@ class _ReviewPageState extends State<ReviewPage> {
             ratingContainer,
             SizedBox(height: 20.5.h),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 40.w),
+              height: 30.h,
+              margin: EdgeInsets.symmetric(horizontal: 20.w),
               padding: EdgeInsets.symmetric(horizontal: 10.w),
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
+                border: Border.all(color: Colors.grey[400]),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBox(width: 20.5.w),
                   DropdownButtonHideUnderline(
                     child: DropdownButton(
-                      underline: null,
+                      hint: Text("매운맛",
+                          style: TextStyle(
+                              fontFamily: 'NotoSans',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15.sp,
+                              color: Colors.grey[500])),
                       focusColor: Colors.grey,
                       value: selected[0],
                       onChanged: (var values) {
@@ -96,18 +127,25 @@ class _ReviewPageState extends State<ReviewPage> {
                           return DropdownMenuItem(
                             value: value,
                             child: Container(
-                                color: Colors.red,
-                                width: 40.w,
-                                height: 30.h,
-                                child: value),
+                              width: 50.w,
+                              height: 20.h,
+                              alignment: Alignment.center,
+                              child: value,
+                            ),
                           );
                         },
                       ).toList(),
                     ),
                   ),
-                  SizedBox(width: 40.5.w),
+                  SizedBox(width: 35.5.w),
                   DropdownButtonHideUnderline(
                     child: DropdownButton(
+                      hint: Text("짠맛",
+                          style: TextStyle(
+                              fontFamily: 'NotoSans',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15.sp,
+                              color: Colors.grey[500])),
                       value: selected[1],
                       onChanged: (var values) {
                         setState(() {
@@ -120,8 +158,9 @@ class _ReviewPageState extends State<ReviewPage> {
                           return DropdownMenuItem(
                             value: value,
                             child: Container(
-                              width: 40.w,
-                              height: 30.h,
+                              width: 50.w,
+                              height: 20.h,
+                              alignment: Alignment.center,
                               child: value,
                             ),
                           );
@@ -129,9 +168,15 @@ class _ReviewPageState extends State<ReviewPage> {
                       ).toList(),
                     ),
                   ),
-                  SizedBox(width: 40.5.w),
+                  SizedBox(width: 35.5.w),
                   DropdownButtonHideUnderline(
                     child: DropdownButton(
+                      hint: Text("단맛",
+                          style: TextStyle(
+                              fontFamily: 'NotoSans',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15.sp,
+                              color: Colors.grey[500])),
                       value: selected[2],
                       onChanged: (var values) {
                         setState(() {
@@ -144,8 +189,9 @@ class _ReviewPageState extends State<ReviewPage> {
                           return DropdownMenuItem(
                             value: value,
                             child: new Container(
-                              width: 40.w,
-                              height: 30.h,
+                              width: 50.w,
+                              height: 20.h,
+                              alignment: Alignment.center,
                               child: value,
                             ),
                           );
