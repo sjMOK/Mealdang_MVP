@@ -106,13 +106,13 @@ class _HomePageState extends State<HomePage> {
 
     switch (mode) {
       case 0:
-        title = '밀.잘.알. 밀당이 추천하는 밀키트를 접해보세요!';
+        title = '오늘 저녁 이 상품 어떠세요?';
         break;
       case 1:
-        title = '평점이 높은 밀키트';
+        title = '밀당에서 제일 잘 나가는 상품이에요 :)';
         break;
       case 2:
-        title = '가성비 갑!';
+        title = '이 금액으로는 외식 못할 거예요.';
         break;
     }
 
