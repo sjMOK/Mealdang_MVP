@@ -6,136 +6,147 @@ import 'package:mealdang_mvp/data/review.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/page/reviewPage.dart';
 import 'package:mealdang_mvp/page/reviewUI.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Future<List<Review>> _review;
 
 class ProductDetail extends StatefulWidget {
-  final Future<Database> database;
   final Product product;
 
-  ProductDetail(
-    this.database,
-    this.product,
-  );
+  ProductDetail(this.product);
 
   @override
-  _ProductDetailState createState() {
-    _review = getReviews(database, product.id);
-    return _ProductDetailState();
-  }
+  _ProductDetailState createState() => _ProductDetailState();
 }
 
 class _ProductDetailState extends State<ProductDetail> {
-  List<Review> reviews;
+  Future<List<Review>> reviews;
+  DBHelper _dbHelper = DBHelper();
 
   @override
   void initState() {
-    _review = getReviews(widget.database, widget.product.id);
-
     super.initState();
-  }
-
-  Future getFutureReview(Future<List<Review>> _review) async {
-    reviews = await _review;
-    return reviews;
+    _review = getReviews(_dbHelper.db, widget.product.id);
   }
 
   @override
   Widget build(BuildContext context) {
     Product product = widget.product;
+
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.black),
-          title: Text(
-            '[${product.companyName}] ${product.name}',
-            style: TextStyle(
-                fontFamily: "NotoSans",
-                fontWeight: FontWeight.w800,
-                fontSize: 22.sp,
-                color: Colors.black),
-          ),
-          centerTitle: true,
-          elevation: 2.0,
-          backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text(
+          '[${product.companyName}] ${product.name}',
+          style: TextStyle(
+              fontFamily: "NotoSans",
+              fontWeight: FontWeight.w800,
+              fontSize: 22.sp,
+              color: Colors.black),
         ),
-        body: _scroll(product),
-        bottomNavigationBar: GestureDetector(
-          child: Container(
-            height: 48.h,
-            color: const Color.fromRGBO(255, 156, 30, 1),
-            child: InkWell(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Scaffold(
-                    backgroundColor: Colors.white,
-                    body: SafeArea(
-                      child: InAppWebView(
-                        initialUrlRequest: URLRequest(
-                          url: Uri.parse(product.pageUrl),
-                        ),
+        centerTitle: true,
+        elevation: 2.0,
+        backgroundColor: Colors.white,
+      ),
+      body: _scroll(product),
+      bottomNavigationBar: GestureDetector(
+        child: Container(
+          height: 48.h,
+          color: const Color.fromRGBO(255, 156, 30, 1),
+          child: InkWell(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Scaffold(
+                  backgroundColor: Colors.white,
+                  body: SafeArea(
+                    child: InAppWebView(
+                      initialUrlRequest: URLRequest(
+                        url: Uri.parse(product.pageUrl),
                       ),
                     ),
                   ),
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(0.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "구매하기",
-                      style: TextStyle(
-                          fontFamily: 'NotoSans',
-                          fontWeight: FontWeight.w800,
-                          fontSize: 18.sp),
-                    )
-                  ],
-                ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(0.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "구매하기",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'NotoSans',
+                        fontWeight: FontWeight.w800,
+                        fontSize: 18.sp),
+                  )
+                ],
               ),
             ),
-          ),
-        ));
-  }
-
-  SingleChildScrollView _scroll(Product product) {
-    return SingleChildScrollView(
-      child: Center(
-        child: Container(
-          width: 390.w,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _productImg(product),
-              _divider(),
-              _productInfo(product),
-              //Container(color:Colors.red[50],width: 300,height: 100,), //제품정보)
-              Divider(
-                color: Colors.grey[300],
-                thickness: 2.0.w,
-              ),
-              _reviewInkwellContainer(product, context),
-              Divider(
-                color: Colors.grey[300],
-                thickness: 2.0.w,
-              ),
-              _ratingContainer(context),
-              Divider(
-                color: Colors.grey[300],
-                thickness: 2.0.w,
-              ),
-              ReviewPartListview(
-                  widget.product, _ratingContainer(context), _review),
-            ],
           ),
         ),
       ),
     );
+  }
+
+  Widget _scroll(Product product) {
+    return FutureBuilder(
+        future: _review,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasData) {
+              return SingleChildScrollView(
+                child: Center(
+                  child: Container(
+                    width: 390.w,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        _productImg(product),
+                        _divider(),
+                        _productInfo(product),
+                        Divider(
+                          color: Colors.grey[300],
+                          thickness: 2.0.w,
+                        ),
+                        _reviewInkwellContainer(product, context),
+                        Divider(
+                          color: Colors.grey[300],
+                          thickness: 2.0.w,
+                        ),
+                        _ratingContainer(product, context),
+                        Divider(
+                          color: Colors.grey[300],
+                          thickness: 2.0.w,
+                        ),
+                        ReviewPartListview(
+                            widget.product, _ratingContainer(product, context)),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            }
+            return Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  Color.fromRGBO(255, 156, 30, 1),
+                ),
+              ),
+            );
+          }
+          return Center(
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(
+                Color.fromRGBO(255, 156, 30, 1),
+              ),
+            ),
+          );
+        });
   }
 
   Widget _divider() {
@@ -165,7 +176,14 @@ class _ProductDetailState extends State<ProductDetail> {
   Widget _productInfo(Product product) {
     String serving = '';
     int price = product.price;
-    if (product.discountedPrice != null) price = product.discountedPrice;
+
+    if (product.discountedPrice != null) {
+      price = product.discountedPrice;
+    }
+
+    if (product.servingSize != null) {
+      serving = '${product.servingSize}인분';
+    }
 
     return Container(
       child: Column(
@@ -188,76 +206,40 @@ class _ProductDetailState extends State<ProductDetail> {
                 size: 20.5.w,
               ),
               SizedBox(width: 2.w),
-              FutureBuilder(
-                  future: _review,
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.done) {
-                      int sum = 0;
-                      int cnt = 0;
-                      double avg = 0;
-                      if (snapshot.data.length != 0) {
-                        for (Review review in snapshot.data) {
-                          sum += review.rating;
-                          cnt++;
-                        }
-                        avg = sum / cnt;
-                        return Row(
-                          children: [
-                            Text(
-                              "$avg($cnt)",
-                              style: TextStyle(
-                                fontFamily: 'NotoSans',
-                                fontWeight: FontWeight.w800,
-                                fontSize: 16.sp,
-                              ),
-                            ),
-                            Text(
-                              " / ",
-                              style: TextStyle(
-                                fontFamily: 'NotoSans',
-                                fontWeight: FontWeight.w800,
-                                fontSize: 17.sp,
-                              ),
-                            ),
-                            SizedBox(width: 4.1.w),
-                            Text(
-                              setPriceFormat(price),
-                              style: TextStyle(
-                                fontFamily: 'NotoSans',
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16.sp,
-                              ),
-                            ),
-                            SizedBox(width: 4.1.w),
-                            if (product.servingSize != null)
-                              Text(
-                                '(${product.servingSize}인분)',
-                                style: TextStyle(
-                                  fontFamily: 'NotoSans',
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 16.sp,
-                                ),
-                              )
-                          ],
-                        );
-                      }
-                      return Text(
-                        "0",
-                        style: TextStyle(
-                          fontFamily: 'NotoSans',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16.sp,
-                        ),
-                      );
-                    } else
-                      return Center(
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            Color.fromRGBO(255, 156, 30, 1),
-                          ),
-                        ),
-                      );
-                  }),
+              Text(
+                '${product.rating}',
+                style: TextStyle(
+                  fontFamily: 'NotoSans',
+                  fontWeight: FontWeight.w800,
+                  fontSize: 16.sp,
+                ),
+              ),
+              Text(
+                " / ",
+                style: TextStyle(
+                  fontFamily: 'NotoSans',
+                  fontWeight: FontWeight.w800,
+                  fontSize: 17.sp,
+                ),
+              ),
+              SizedBox(width: 4.1.w),
+              Text(
+                setPriceFormat(price),
+                style: TextStyle(
+                  fontFamily: 'NotoSans',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16.sp,
+                ),
+              ),
+              SizedBox(width: 4.1.w),
+              Text(
+                '($serving)',
+                style: TextStyle(
+                  fontFamily: 'NotoSans',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16.sp,
+                ),
+              )
             ],
           ),
         ],
@@ -265,126 +247,87 @@ class _ProductDetailState extends State<ProductDetail> {
     );
   }
 
-  FutureBuilder _reviewInkwellContainer(Product product, BuildContext context) {
-    FutureBuilder ratingContainer = _ratingContainer(context);
-    return FutureBuilder(
-      future: _review,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          return Container(
-            child: InkWell(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>
-                        ReviewPage(product, ratingContainer, _review)));
-              },
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 3.w),
-                child: Row(
-                  children: [
-                    Text(
-                      "  리뷰  ",
-                      style: TextStyle(
-                        fontFamily: 'NotoSans',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 20.sp,
-                      ),
-                    ),
-                    Text(
-                      '${snapshot.data.length}',
-                      //widget.datas["review"],
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontFamily: 'NotoSans',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 20.sp,
-                      ),
-                    ),
-                    Spacer(),
-                    Icon(Icons.arrow_forward_ios_sharp, size: 25.sp)
-                  ],
+  Widget _reviewInkwellContainer(Product product, BuildContext context) {
+    Container ratingContainer = _ratingContainer(product, context);
+    return Container(
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) =>
+                  ReviewPage(product, ratingContainer, _review)));
+        },
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 3.w),
+          child: Row(
+            children: [
+              Text(
+                "  리뷰  ",
+                style: TextStyle(
+                  fontFamily: 'NotoSans',
+                  fontWeight: FontWeight.w700,
+                  fontSize: 20.sp,
                 ),
               ),
-            ),
-          );
-        }
-        return Center(
-          child: CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(
-              Color.fromRGBO(255, 156, 30, 1),
-            ),
+              Text(
+                '${product.reviewCount}',
+                style: TextStyle(
+                  color: Colors.red,
+                  fontFamily: 'NotoSans',
+                  fontWeight: FontWeight.w700,
+                  fontSize: 20.sp,
+                ),
+              ),
+              Spacer(),
+              Icon(Icons.arrow_forward_ios_sharp, size: 25.sp)
+            ],
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 
-  FutureBuilder _ratingContainer(BuildContext context) {
-    return FutureBuilder(
-      future: _review,
-      // ignore: missing_return
-      builder: (context, snapshot) {
-        if (snapshot.connectionState != ConnectionState.done) {
-          return Center(
-            child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(
-                Color.fromRGBO(255, 156, 30, 1),
-              ),
-            ),
-          );
-        }
-        int sum = 0;
-        double avg = 0;
-        if (snapshot.data.length != 0) {
-          for (var review in snapshot.data) {
-            sum = sum + review.rating;
-          }
-          avg = sum / snapshot.data.length;
-        }
-        return Container(
-          child: IntrinsicHeight(
-            child: Row(
+  Widget _ratingContainer(Product product, BuildContext context) {
+    return Container(
+      child: IntrinsicHeight(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '$avg',
-                      //'widget.datas["rating"]',
-                      style: TextStyle(
-                        fontFamily: 'NotoSans',
-                        fontWeight: FontWeight.w500,
-                        fontSize: 50.sp,
-                      ),
-                    ),
-                    RatingBarIndicator(
-                      rating: avg,
-                      //double.parse(widget.datas["rating"]),
-                      itemPadding:
-                          EdgeInsets.symmetric(vertical: 5.h, horizontal: 0),
-                      itemBuilder: (context, index) => Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      itemCount: 5,
-                      itemSize: 21.sp,
-                    ),
-                  ],
+                Text(
+                  '${product.rating}',
+                  style: TextStyle(
+                    fontFamily: 'NotoSans',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 50.sp,
+                  ),
                 ),
-                VerticalDivider(
-                  color: const Color.fromRGBO(255, 156, 30, 1),
-                  thickness: 1.5.w,
-                  indent: 5.h,
-                  endIndent: 5.h,
-                  width: 82.w,
+                RatingBarIndicator(
+                  rating: product.rating,
+                  //double.parse(widget.datas["rating"]),
+                  itemPadding:
+                      EdgeInsets.symmetric(vertical: 5.h, horizontal: 0),
+                  itemBuilder: (context, index) => Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                  ),
+                  itemCount: 5,
+                  itemSize: 21.sp,
                 ),
-                _reviewRating(context),
               ],
             ),
-          ),
-        );
-      },
+            VerticalDivider(
+              color: const Color.fromRGBO(255, 156, 30, 1),
+              thickness: 1.5.w,
+              indent: 5.h,
+              endIndent: 5.h,
+              width: 82.w,
+            ),
+            _reviewRating(context),
+          ],
+        ),
+      ),
     );
   }
 
@@ -475,10 +418,9 @@ class _ProductDetailState extends State<ProductDetail> {
 
 class ReviewPartListview extends StatefulWidget {
   final Product product;
-  final FutureBuilder ratingContainer;
-  final Future<List<Review>> _review;
+  final Container ratingContainer;
 
-  ReviewPartListview(this.product, this.ratingContainer, this._review);
+  ReviewPartListview(this.product, this.ratingContainer);
 
   @override
   _ReviewPartListviewState createState() => _ReviewPartListviewState();
@@ -490,6 +432,16 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
   List<int> filter = [0, 0, 0];
   int change = 1;
 
+  DBHelper _dbHelper = DBHelper();
+  Future<List<Review>> _reviews;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _reviews = getReviews(_dbHelper.db, widget.product.id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return reviewPart();
@@ -498,12 +450,15 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
   InkWell reviewPart() {
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => ReviewPage(
-                widget.product, widget.ratingContainer, widget._review)));
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) =>
+                ReviewPage(widget.product, widget.ratingContainer, _reviews),
+          ),
+        );
       },
       child: FutureBuilder(
-        future: widget._review,
+        future: _reviews,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.data.length != 0) {

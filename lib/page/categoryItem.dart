@@ -66,7 +66,7 @@ class _CategoryItemState extends State<CategoryItem> {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) =>
-                            ProductDetail(_dbHelper.db, product),
+                            ProductDetail(product),
                       ),
                     );
                   },

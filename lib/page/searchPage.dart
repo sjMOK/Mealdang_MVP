@@ -86,7 +86,7 @@ class _SearchPageState extends State<SearchPage> {
             Product product = _products[index];
             Navigator.of(context).push(
               MaterialPageRoute(builder: (context) {
-                return ProductDetail(widget.database, product);
+                return ProductDetail(product);
               }),
             );
           },
