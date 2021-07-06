@@ -5,9 +5,9 @@ import 'package:mealdang_mvp/utils/util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReviewUI extends StatefulWidget {
-  Review review;
-  int separator;
-  List<int> score;
+  final Review review;
+  final int separator;
+  List<int> score; // productDetail에서
   ReviewUI(this.review, this.separator);
   Text textEffectPDetail(String text) {
     if (this.separator == 1)
@@ -55,39 +55,17 @@ class _ReviewUIState extends State<ReviewUI> {
     }
     if (count == 3) {
       return Container(width: 40.w, height: 30.h, child: image);
+    } else {
+      return null;
     }
+  }
+
+  String getTastyIconUrl(String tasty, String level) {
+    return 'assets/images/tasty_icon/${tasty}_icon$level.png';
   }
 
   @override
   Widget build(BuildContext context) {
-    String spicyUrl, saltyUrl, sweetUrl;
-    if (widget.review.spicyLevel == 1) {
-      spicyUrl = 'assets/images/tasty_icon/spicy_icon1.png';
-    }
-    if (widget.review.spicyLevel == 2) {
-      spicyUrl = 'assets/images/tasty_icon/spicy_icon2.png';
-    }
-    if (widget.review.spicyLevel == 3) {
-      spicyUrl = 'assets/images/tasty_icon/spicy_icon3.png';
-    }
-    if (widget.review.saltyLevel == 1) {
-      saltyUrl = 'assets/images/tasty_icon/salty_icon1.png';
-    }
-    if (widget.review.saltyLevel == 2) {
-      saltyUrl = 'assets/images/tasty_icon/salty_icon2.png';
-    }
-    if (widget.review.saltyLevel == 3) {
-      saltyUrl = 'assets/images/tasty_icon/salty_icon3.png';
-    }
-    if (widget.review.sweetLevel == 1) {
-      sweetUrl = 'assets/images/tasty_icon/sweet_icon1.png';
-    }
-    if (widget.review.sweetLevel == 2) {
-      sweetUrl = 'assets/images/tasty_icon/sweet_icon2.png';
-    }
-    if (widget.review.sweetLevel == 3) {
-      sweetUrl = 'assets/images/tasty_icon/sweet_icon3.png';
-    }
     return Container(
       width: 411.w,
       child: Column(
@@ -126,7 +104,10 @@ class _ReviewUIState extends State<ReviewUI> {
                                     children: [
                                       _buildtastyImage(
                                         widget.review.spicyLevel,
-                                        Image.asset(spicyUrl),
+                                        Image.asset(getTastyIconUrl(
+                                            'spicy',
+                                            widget.review.spicyLevel
+                                                .toString())),
                                       ),
                                     ],
                                   ),
@@ -154,8 +135,13 @@ class _ReviewUIState extends State<ReviewUI> {
                                 child: Container(
                                   child: Row(
                                     children: [
-                                      _buildtastyImage(widget.review.saltyLevel,
-                                          Image.asset(saltyUrl)),
+                                      _buildtastyImage(
+                                        widget.review.saltyLevel,
+                                        Image.asset(getTastyIconUrl(
+                                          'salty',
+                                          widget.review.saltyLevel.toString(),
+                                        )),
+                                      ),
                                     ],
                                   ),
                                   decoration: BoxDecoration(
@@ -182,8 +168,12 @@ class _ReviewUIState extends State<ReviewUI> {
                                 child: Container(
                                   child: Row(
                                     children: [
-                                      _buildtastyImage(widget.review.saltyLevel,
-                                          Image.asset(sweetUrl))
+                                      _buildtastyImage(
+                                          widget.review.saltyLevel,
+                                          Image.asset(getTastyIconUrl(
+                                              'sweet',
+                                              widget.review.sweetLevel
+                                                  .toString())))
                                     ],
                                   ),
                                   decoration: BoxDecoration(
@@ -224,58 +214,32 @@ class _ReviewUIState extends State<ReviewUI> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset("assets/images/review_icon_image/smile.png",
-                          scale: 20.sp),
-                      SizedBox(
-                        width: 16.4.w,
-                      ),
-                      Container(
-                          width: 287.w,
-                          // color: Colors.amber,
-                          child: widget
-                              .textEffectPDetail(widget.review.contentGood)),
-                    ],
-                  ),
+                  _buildReviewContents('smile', widget.review.contentGood),
                   SizedBox(height: 20.5.h),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset("assets/images/review_icon_image/sad.png",
-                          scale: 20.sp),
-                      SizedBox(
-                        width: 16.4.w,
-                      ),
-                      Container(
-                          width: 287.7.w,
-                          // color: Colors.orange,
-                          child: widget
-                              .textEffectPDetail(widget.review.contentBad)),
-                    ],
-                  ),
+                  _buildReviewContents('sad', widget.review.contentBad),
                   SizedBox(height: 20.5.h),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset("assets/images/review_icon_image/fork.png",
-                          scale: 20.sp),
-                      SizedBox(
-                        width: 16.44.w,
-                      ),
-                      Container(
-                          width: 287.7.w,
-                          // color: Colors.red,
-                          child: widget
-                              .textEffectPDetail(widget.review.contentKick)),
-                    ],
-                  ),
+                  _buildReviewContents('fork', widget.review.contentKick),
                   SizedBox(height: 20.5.h),
                 ],
               ),
             ]),
           ),
+        ],
+      ),
+    );
+  }
+
+  Container _buildReviewContents(String item, String contents) {
+    return Container(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset("assets/images/review_icon_image/$item.png",
+              scale: 20.sp),
+          SizedBox(
+            width: 16.4.w,
+          ),
+          Container(width: 287.w, child: widget.textEffectPDetail(contents)),
         ],
       ),
     );
