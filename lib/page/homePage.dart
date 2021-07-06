@@ -203,7 +203,7 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderRadius: BorderRadius.all(Radius.circular(10.r)),
                 child: Image.asset(
                   product.imagePath,
                   width: _width * 0.4,
@@ -325,7 +325,7 @@ class _ManualState extends State<Manual> {
             decoration: BoxDecoration(
                 color: Color.fromRGBO(5, 5, 5, 0.5),
                 border: Border.all(color: Colors.black),
-                borderRadius: BorderRadius.circular(8)),
+                borderRadius: BorderRadius.circular(8.r)),
           ),
         )
       ],
