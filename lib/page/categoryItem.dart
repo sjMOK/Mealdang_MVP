@@ -97,7 +97,7 @@ class _CategoryItemState extends State<CategoryItem> {
       child: Row(
         children: <Widget>[
           ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderRadius: BorderRadius.all(Radius.circular(10.r)),
             child: Hero(
               tag: product.id, //product.id,
               child: Image.asset(

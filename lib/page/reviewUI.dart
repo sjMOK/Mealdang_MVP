@@ -5,9 +5,9 @@ import 'package:mealdang_mvp/utils/util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReviewUI extends StatefulWidget {
-  Review review;
-  int separator;
-  List<int> score;
+  final Review review;
+  final int separator;
+  List<int> score; // productDetail에서
   ReviewUI(this.review, this.separator);
   Text textEffectPDetail(String text) {
     if (this.separator == 1)
@@ -55,52 +55,32 @@ class _ReviewUIState extends State<ReviewUI> {
     }
     if (count == 3) {
       return Container(width: 40.w, height: 30.h, child: image);
+    } else {
+      return null;
     }
+  }
+
+  String getTastyIconUrl(String tasty, String level) {
+    return 'assets/images/tasty_icon/${tasty}_icon$level.png';
   }
 
   @override
   Widget build(BuildContext context) {
-    String spicyUrl, saltyUrl, sweetUrl;
-    if (widget.review.spicyLevel == 1) {
-      spicyUrl = 'assets/images/tasty_icon/spicy_icon1.png';
-    }
-    if (widget.review.spicyLevel == 2) {
-      spicyUrl = 'assets/images/tasty_icon/spicy_icon2.png';
-    }
-    if (widget.review.spicyLevel == 3) {
-      spicyUrl = 'assets/images/tasty_icon/spicy_icon3.png';
-    }
-    if (widget.review.saltyLevel == 1) {
-      saltyUrl = 'assets/images/tasty_icon/salty_icon1.png';
-    }
-    if (widget.review.saltyLevel == 2) {
-      saltyUrl = 'assets/images/tasty_icon/salty_icon2.png';
-    }
-    if (widget.review.saltyLevel == 3) {
-      saltyUrl = 'assets/images/tasty_icon/salty_icon3.png';
-    }
-    if (widget.review.sweetLevel == 1) {
-      sweetUrl = 'assets/images/tasty_icon/sweet_icon1.png';
-    }
-    if (widget.review.sweetLevel == 2) {
-      sweetUrl = 'assets/images/tasty_icon/sweet_icon2.png';
-    }
-    if (widget.review.sweetLevel == 3) {
-      sweetUrl = 'assets/images/tasty_icon/sweet_icon3.png';
-    }
     return Container(
       width: 411.w,
+      alignment: Alignment.centerLeft,
       child: Column(
         children: [
           Container(
-            //프사,아이디,태그들 적는 곳
-            padding: EdgeInsets.fromLTRB(30.sp, 20.sp, 20.sp, 20.sp),
+            //리뷰프로필사진 및 평점 나오는 박스
+            padding: EdgeInsets.fromLTRB(20.w, 20.h, 30.w, 20.h),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
-                  backgroundColor: Colors.black,
-                  radius: 23.w,
+                  child: Image.asset('assets/images/profile_image/profile.png'),
+                  radius: 23.r,
+                  backgroundColor: Colors.white,
                 ),
                 SizedBox(width: 12.3.h),
                 Column(
@@ -126,7 +106,10 @@ class _ReviewUIState extends State<ReviewUI> {
                                     children: [
                                       _buildtastyImage(
                                         widget.review.spicyLevel,
-                                        Image.asset(spicyUrl),
+                                        Image.asset(getTastyIconUrl(
+                                            'spicy',
+                                            widget.review.spicyLevel
+                                                .toString())),
                                       ),
                                     ],
                                   ),
@@ -135,7 +118,7 @@ class _ReviewUIState extends State<ReviewUI> {
                                         ? highlightText(widget.score[0],
                                             widget.review.spicyLevel)
                                         : Colors.white,
-                                    borderRadius: BorderRadius.circular(9),
+                                    borderRadius: BorderRadius.circular(9.r),
                                   ),
                                 ),
                               ),
@@ -154,8 +137,13 @@ class _ReviewUIState extends State<ReviewUI> {
                                 child: Container(
                                   child: Row(
                                     children: [
-                                      _buildtastyImage(widget.review.saltyLevel,
-                                          Image.asset(saltyUrl)),
+                                      _buildtastyImage(
+                                        widget.review.saltyLevel,
+                                        Image.asset(getTastyIconUrl(
+                                          'salty',
+                                          widget.review.saltyLevel.toString(),
+                                        )),
+                                      ),
                                     ],
                                   ),
                                   decoration: BoxDecoration(
@@ -163,7 +151,7 @@ class _ReviewUIState extends State<ReviewUI> {
                                         ? highlightText(widget.score[1],
                                             widget.review.saltyLevel)
                                         : Colors.white,
-                                    borderRadius: BorderRadius.circular(9),
+                                    borderRadius: BorderRadius.circular(9.r),
                                   ),
                                 ),
                               ),
@@ -182,8 +170,12 @@ class _ReviewUIState extends State<ReviewUI> {
                                 child: Container(
                                   child: Row(
                                     children: [
-                                      _buildtastyImage(widget.review.saltyLevel,
-                                          Image.asset(sweetUrl))
+                                      _buildtastyImage(
+                                          widget.review.saltyLevel,
+                                          Image.asset(getTastyIconUrl(
+                                              'sweet',
+                                              widget.review.sweetLevel
+                                                  .toString())))
                                     ],
                                   ),
                                   decoration: BoxDecoration(
@@ -191,7 +183,7 @@ class _ReviewUIState extends State<ReviewUI> {
                                         ? highlightText(widget.score[2],
                                             widget.review.sweetLevel)
                                         : Colors.white,
-                                    borderRadius: BorderRadius.circular(9),
+                                    borderRadius: BorderRadius.circular(9.r),
                                   ),
                                 ),
                               ),
@@ -218,64 +210,39 @@ class _ReviewUIState extends State<ReviewUI> {
           ),
           Container(
             // 리뷰 작성 된 곳
-            width: 410.w,
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            width: 1.sw,
+            padding: EdgeInsets.fromLTRB(30.w, 0.h, 30.w, 20.h),
+            child: Row(children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset("assets/images/review_icon_image/smile.png",
-                          scale: 20.sp),
-                      SizedBox(
-                        width: 16.4.w,
-                      ),
-                      Container(
-                          width: 287.w,
-                          // color: Colors.amber,
-                          child: widget
-                              .textEffectPDetail(widget.review.contentGood)),
-                    ],
-                  ),
+                  _buildReviewContents('smile', widget.review.contentGood),
                   SizedBox(height: 20.5.h),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset("assets/images/review_icon_image/sad.png",
-                          scale: 20.sp),
-                      SizedBox(
-                        width: 16.4.w,
-                      ),
-                      Container(
-                          width: 287.7.w,
-                          // color: Colors.orange,
-                          child: widget
-                              .textEffectPDetail(widget.review.contentBad)),
-                    ],
-                  ),
+                  _buildReviewContents('sad', widget.review.contentBad),
                   SizedBox(height: 20.5.h),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset("assets/images/review_icon_image/fork.png",
-                          scale: 20.sp),
-                      SizedBox(
-                        width: 16.44.w,
-                      ),
-                      Container(
-                          width: 287.7.w,
-                          // color: Colors.red,
-                          child: widget
-                              .textEffectPDetail(widget.review.contentKick)),
-                    ],
-                  ),
+                  _buildReviewContents('fork', widget.review.contentKick),
                   SizedBox(height: 20.5.h),
                 ],
               ),
             ]),
           ),
+        ],
+      ),
+    );
+  }
+
+  Container _buildReviewContents(String item, String contents) {
+    return Container(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset("assets/images/review_icon_image/$item.png",
+              scale: 20.sp),
+          SizedBox(
+            width: 16.4.w,
+          ),
+          Container(width: 287.w, child: widget.textEffectPDetail(contents)),
         ],
       ),
     );

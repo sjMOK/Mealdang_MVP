@@ -17,8 +17,6 @@ class _ReviewFrameState extends State<ReviewFrame> {
   @override
   Widget build(BuildContext context) {
     Future<List<Review>> filteredReview = filteringReview(widget.score);
-    print("현재 입력된 필터");
-    print(widget.score);
     return _reviewListView(filteredReview);
   }
 
@@ -49,8 +47,6 @@ class _ReviewFrameState extends State<ReviewFrame> {
       mapping1.add({'gap': gap, 'review': review});
     }
     mapping1.sort((a, b) => a['gap'].compareTo(b['gap']));
-    print("check the sorted data");
-    print(mapping1);
     for (var i in mapping1) {
       filterReview.add(i['review']);
     }

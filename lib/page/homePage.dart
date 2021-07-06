@@ -215,14 +215,12 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                child: Container(
-                  width: 174.w,
-                  height: 174.w,
-                  child: Image.asset(
-                    product.imagePath,
-                    fit: BoxFit.fill,
-                  ),
+                borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                child: Image.asset(
+                  product.imagePath,
+                  width: _width * 0.4,
+                  height: _width * 0.4,
+                  fit: BoxFit.fill,
                 ),
               ),
               Text(
@@ -326,7 +324,7 @@ class _ManualState extends State<Manual> {
             decoration: BoxDecoration(
                 color: Color.fromRGBO(5, 5, 5, 0.5),
                 border: Border.all(color: Colors.black),
-                borderRadius: BorderRadius.circular(10)),
+                borderRadius: BorderRadius.circular(8.r)),
           ),
         )
       ],
