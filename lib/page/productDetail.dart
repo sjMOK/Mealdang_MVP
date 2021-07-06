@@ -174,15 +174,10 @@ class _ProductDetailState extends State<ProductDetail> {
   }
 
   Widget _productInfo(Product product) {
-    String serving;
     int price = product.price;
 
     if (product.discountedPrice != null) {
       price = product.discountedPrice;
-    }
-
-    if (product.servingSize != null) {
-      serving = '${product.servingSize}인분';
     }
 
     return Container(
@@ -232,14 +227,15 @@ class _ProductDetailState extends State<ProductDetail> {
                 ),
               ),
               SizedBox(width: 4.1.w),
-              Text(
-                '($serving)',
-                style: TextStyle(
-                  fontFamily: 'NotoSans',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16.sp,
-                ),
-              )
+              if (product.servingSize != null)
+                Text(
+                  '(${product.servingSize}인분)',
+                  style: TextStyle(
+                    fontFamily: 'NotoSans',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16.sp,
+                  ),
+                )
             ],
           ),
         ],
