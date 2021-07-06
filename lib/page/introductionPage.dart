@@ -32,45 +32,42 @@ class _IntroductionPageState extends State<IntroductionPage> {
       return Image.asset('assets/images/$assetName', width: width);
     }
 
-    return ScreenUtilInit(
-      designSize: Size(411.5, 683.4),
-      builder: () => Scaffold(
-        body: IntroductionScreen(
-          globalBackgroundColor: Colors.white,
-          pages: [
-            PageViewModel(
-              title: "밀키트",
-              body: "정리 안된 밀키트 카테고리별로 정리",
+    return Scaffold(
+      body: IntroductionScreen(
+        globalBackgroundColor: Colors.white,
+        pages: [
+          PageViewModel(
+            title: "밀키트",
+            body: "정리 안된 밀키트 카테고리별로 정리",
+            image:
+                _buildImage('introduction_image/IntroductionImage_1.png', 1.sw),
+            decoration: pageDecoration,
+          ),
+          PageViewModel(
+              title: "맛있으면",
+              body: '"바나나"',
               image: _buildImage(
-                  'introduction_image/IntroductionImage_1.png', 510.w),
-              decoration: pageDecoration,
-            ),
-            PageViewModel(
-                title: "맛있으면",
-                body: '"바나나"',
-                image: _buildImage(
-                    'introduction_image/IntroductionImage_2.png', 510.w),
-                decoration: pageDecoration),
-            PageViewModel(
-                title: "맛있으면",
-                body: '"바나나"',
-                image: _buildImage(
-                    'introduction_image/IntroductionImage_3.png', 510.w),
-                decoration: pageDecoration),
-            PageViewModel(
-                title: "맛있으면",
-                body: '"바나나"',
-                image: _buildImage(
-                    'introduction_image/IntroductionImage_4.png', 510.w),
-                decoration: pageDecoration),
-          ],
-          onDone: () => _onIntroEnd(context),
-          skipFlex: 0,
-          nextFlex: 0,
-          skip: const Text("Skip"),
-          next: const Icon(Icons.arrow_forward),
-          done: const Text("Done"),
-        ),
+                  'introduction_image/IntroductionImage_2.png', 1.sw),
+              decoration: pageDecoration),
+          PageViewModel(
+              title: "맛있으면",
+              body: '"바나나"',
+              image: _buildImage(
+                  'introduction_image/IntroductionImage_3.png', 1.sw),
+              decoration: pageDecoration),
+          PageViewModel(
+              title: "맛있으면",
+              body: '"바나나"',
+              image: _buildImage(
+                  'introduction_image/IntroductionImage_4.png', 1.sw),
+              decoration: pageDecoration),
+        ],
+        onDone: () => _onIntroEnd(context),
+        skipFlex: 0,
+        nextFlex: 0,
+        skip: const Text("Skip"),
+        next: const Icon(Icons.arrow_forward),
+        done: const Text("Done"),
       ),
     );
   }
