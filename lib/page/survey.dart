@@ -22,7 +22,7 @@ class _SurveyState extends State<Survey> {
             style: ElevatedButton.styleFrom(
                 primary: Colors.white,
                 shape: new RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(30.0),
+                  borderRadius: new BorderRadius.circular(30.0.r),
                 ),
                 side: BorderSide(
                   width: 1.5.w,
