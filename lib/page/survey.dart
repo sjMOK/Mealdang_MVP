@@ -13,11 +13,11 @@ class _SurveyState extends State<Survey> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(height: 20.h),
+          SizedBox(height: 5.h),
           Container(
             child: Image.asset("assets/images/survey_image/survey_image.png"),
           ),
-          SizedBox(height: 65.h),
+          SizedBox(height: 60.h),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
                 primary: Colors.white,
