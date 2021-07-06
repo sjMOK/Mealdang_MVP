@@ -278,29 +278,32 @@ class _ProductDetailState extends State<ProductDetail> {
                     builder: (context) =>
                         ReviewPage(product, ratingContainer, _review)));
               },
-              child: Row(
-                children: [
-                  Text(
-                    "  리뷰  ",
-                    style: TextStyle(
-                      fontFamily: 'NotoSans',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20.sp,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 3.w),
+                child: Row(
+                  children: [
+                    Text(
+                      "  리뷰  ",
+                      style: TextStyle(
+                        fontFamily: 'NotoSans',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20.sp,
+                      ),
                     ),
-                  ),
-                  Text(
-                    '${snapshot.data.length}',
-                    //widget.datas["review"],
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontFamily: 'NotoSans',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20.sp,
+                    Text(
+                      '${snapshot.data.length}',
+                      //widget.datas["review"],
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontFamily: 'NotoSans',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20.sp,
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 263.w),
-                  Icon(Icons.arrow_forward_ios_sharp, size: 25.sp)
-                ],
+                    Spacer(),
+                    Icon(Icons.arrow_forward_ios_sharp, size: 25.sp)
+                  ],
+                ),
               ),
             ),
           );
