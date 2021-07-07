@@ -17,18 +17,15 @@ class _SplashState extends State<Splash> {
     }
 
     if (_seen) {
-      _handleStartScreen();
-      print('handle');
-      await prefs.setBool('seen', false);
+      Navigator.popAndPushNamed(context, '/home');
     } else {
       Navigator.popAndPushNamed(context, '/intro');
     }
   }
 
-  Future<void> _handleStartScreen() async {
-    Navigator.popAndPushNamed(context, '/home');
-    print('mealdang');
-  }
+  // Future<void> _handleStartScreen() async {
+  //   Navigator.popAndPushNamed(context, '/home');
+  // }
 
   @override
   void initState() {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:mealdang_mvp/utils/util.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class IntroductionPage extends StatefulWidget {
   @override
@@ -63,7 +64,9 @@ class _IntroductionPageState extends State<IntroductionPage> {
           width: 190.w,
           height: 42.h,
           child: ElevatedButton(
-            onPressed: () {
+            onPressed: () async{
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              prefs.setBool('seen', true);
               Navigator.of(context).pushReplacementNamed('/home');
             },
             style: ElevatedButton.styleFrom(
