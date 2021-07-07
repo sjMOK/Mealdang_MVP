@@ -9,8 +9,6 @@ import 'package:mealdang_mvp/page/reviewUI.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Future<List<Review>> _review;
-
 class ProductDetail extends StatefulWidget {
   final Product product;
 
@@ -21,13 +19,13 @@ class ProductDetail extends StatefulWidget {
 }
 
 class _ProductDetailState extends State<ProductDetail> {
-  Future<List<Review>> reviews;
+  Future<List<Review>> _reviews;
   DBHelper _dbHelper = DBHelper();
 
   @override
   void initState() {
     super.initState();
-    _review = getReviews(_dbHelper.db, widget.product.id);
+    _reviews = getReviews(_dbHelper.db, widget.product.id);
   }
 
   @override
@@ -39,7 +37,7 @@ class _ProductDetailState extends State<ProductDetail> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
-          '[${product.companyName}] ${product.name}',
+          '상품 정보',
           style: TextStyle(
               fontFamily: "NotoSans",
               fontWeight: FontWeight.w800,
@@ -54,12 +52,27 @@ class _ProductDetailState extends State<ProductDetail> {
       bottomNavigationBar: GestureDetector(
         child: Container(
           height: 48.h,
-          color: const Color.fromRGBO(255, 156, 30, 1),
+          color: MAINCOLOR,
           child: InkWell(
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => Scaffold(
+                  appBar: AppBar(
+                    iconTheme: IconThemeData(color: Colors.black),
+                    title: Text(
+                      '밀당',
+                      style: TextStyle(
+                        color: MAINCOLOR,
+                        fontFamily: 'NotoSans',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 32.sp,
+                      ),
+                    ),
+                    centerTitle: true,
+                    elevation: 1.0,
+                    backgroundColor: Colors.white,
+                  ),
                   backgroundColor: Colors.white,
                   body: SafeArea(
                     child: InAppWebView(
@@ -95,7 +108,7 @@ class _ProductDetailState extends State<ProductDetail> {
 
   Widget _scroll(Product product) {
     return FutureBuilder(
-        future: _review,
+        future: _reviews,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasData) {
@@ -134,7 +147,7 @@ class _ProductDetailState extends State<ProductDetail> {
             return Center(
               child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(
-                  Color.fromRGBO(255, 156, 30, 1),
+                  MAINCOLOR,
                 ),
               ),
             );
@@ -142,7 +155,7 @@ class _ProductDetailState extends State<ProductDetail> {
           return Center(
             child: CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(
-                Color.fromRGBO(255, 156, 30, 1),
+                MAINCOLOR,
               ),
             ),
           );
@@ -197,7 +210,7 @@ class _ProductDetailState extends State<ProductDetail> {
             children: [
               Icon(
                 Icons.star,
-                color: Colors.red,
+                color: Colors.yellow[700],
                 size: 20.5.w,
               ),
               SizedBox(width: 2.w),
@@ -250,7 +263,7 @@ class _ProductDetailState extends State<ProductDetail> {
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) =>
-                  ReviewPage(product, ratingContainer, _review)));
+                  ReviewPage(product, ratingContainer, _reviews)));
         },
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -314,7 +327,7 @@ class _ProductDetailState extends State<ProductDetail> {
               ],
             ),
             VerticalDivider(
-              color: const Color.fromRGBO(255, 156, 30, 1),
+              color: MAINCOLOR,
               thickness: 1.5.w,
               indent: 5.h,
               endIndent: 5.h,
@@ -350,7 +363,7 @@ class _ProductDetailState extends State<ProductDetail> {
             Container(
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.black, width: 1.w),
-                  color: const Color.fromRGBO(255, 156, 30, 1)),
+                  color: MAINCOLOR),
               width: 100 * (part / all).w,
               height: 15.h,
             ),
@@ -363,7 +376,7 @@ class _ProductDetailState extends State<ProductDetail> {
   FutureBuilder _reviewRating(BuildContext context) {
     List<int> arrayRating;
     return FutureBuilder(
-      future: _review,
+      future: _reviews,
       builder: (context, snapshot) {
         arrayRating = [0, 0, 0, 0, 0, 0];
         if (snapshot.connectionState == ConnectionState.done) {
@@ -402,7 +415,7 @@ class _ProductDetailState extends State<ProductDetail> {
         return Center(
           child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(
-              Color.fromRGBO(255, 156, 30, 1),
+              MAINCOLOR,
             ),
           ),
         );
@@ -478,7 +491,7 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                             builder: (context) => ReviewPage(widget.product,
-                                widget.ratingContainer, _review)),
+                                widget.ratingContainer, _reviews)),
                       );
                     },
                     icon: Icon(Icons.add, size: 24.sp, color: Colors.black),
@@ -507,7 +520,7 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
             return Center(
               child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(
-                  Color.fromRGBO(255, 156, 30, 1),
+                  MAINCOLOR,
                 ),
               ),
             );

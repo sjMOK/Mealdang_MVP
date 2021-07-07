@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/page/homePage.dart';
 import 'package:mealdang_mvp/page/survey.dart';
+import 'package:mealdang_mvp/utils/util.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/page/category.dart';
 import 'package:mealdang_mvp/page/searchPage.dart';
@@ -53,7 +54,6 @@ class _MealdangHomeState extends State<MealdangHome> {
 
   @override
   Widget build(BuildContext context) {
-    const Color mainColor = Color.fromRGBO(255, 156, 30, 1);
     return WillPopScope(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -71,7 +71,7 @@ class _MealdangHomeState extends State<MealdangHome> {
               iconSize: 40.sp,
               icon: Icon(
                 Icons.search,
-                color: mainColor,
+                color: MAINCOLOR,
               ),
               onPressed: () {
                 Navigator.of(context).push(
@@ -114,9 +114,9 @@ class _MealdangHomeState extends State<MealdangHome> {
               label: '설문조사',
             ),
           ],
-          selectedItemColor: mainColor,
+          selectedItemColor: MAINCOLOR,
           unselectedItemColor: Colors.grey,
-          selectedIconTheme: IconThemeData(color: mainColor),
+          selectedIconTheme: IconThemeData(color: MAINCOLOR),
           unselectedIconTheme: IconThemeData(color: Colors.grey),
           showUnselectedLabels: true,
           selectedFontSize: 12.0,
@@ -145,7 +145,6 @@ class _MealdangHomeState extends State<MealdangHome> {
         ),
       );
 
-      print('종료');
       return Future.value(false);
     }
     return Future.value(true);

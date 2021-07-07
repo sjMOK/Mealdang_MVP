@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
           return Center(
             child: CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(
-                Color.fromRGBO(255, 156, 30, 1),
+                MAINCOLOR,
               ),
             ),
           );
@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
         return Center(
           child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(
-              Color.fromRGBO(255, 156, 30, 1),
+              MAINCOLOR,
             ),
           ),
         );
@@ -163,7 +163,13 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildPriceTag(Product product) {
     if (product.discountedPrice == null) {
-      return Text(setPriceFormat(product.price));
+      return Text(
+        setPriceFormat(product.price),
+        style: TextStyle(
+          fontFamily: 'NotoSans',
+          fontWeight: FontWeight.bold,
+        ),
+      );
     } else {
       return Container(
         child: Row(
@@ -278,12 +284,7 @@ class _ManualState extends State<Manual> {
     super.initState();
 
     _pageController.addListener(() {
-      // if (_pageController.page % 1 == 0) {
-      //   setState(() {
-      //     _currentPage = _pageController.page.toInt();
-      //   });
-      // }
-      if ((_currentPage - _pageController.page).abs() > 0.5) {
+      if (isPageSwitched()) {
         setState(() {
           _currentPage = _pageController.page.round().toInt();
         });
@@ -295,6 +296,14 @@ class _ManualState extends State<Manual> {
   void dispose() {
     _pageController.dispose();
     super.dispose();
+  }
+
+  bool isPageSwitched() {
+    if ((_currentPage - _pageController.page).abs() > 0.5) {
+      return true;
+    }
+
+    return false;
   }
 
   @override
@@ -322,7 +331,7 @@ class _ManualState extends State<Manual> {
             width: 80.w,
             height: 22.h,
             decoration: BoxDecoration(
-                color: Color.fromRGBO(5, 5, 5, 0.5),
+                color: Color.fromRGBO(10, 10, 10, 0.4),
                 border: Border.all(color: Colors.black),
                 borderRadius: BorderRadius.circular(8.r)),
           ),

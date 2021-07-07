@@ -10,16 +10,6 @@ class Category extends StatefulWidget {
 
 class _CategoryState extends State<Category> {
   double _height;
-  @override
-  void initState() {
-    super.initState();
-    print('Category initState()');
-  }
-
-  void dispose() {
-    print('Category dispose()');
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {

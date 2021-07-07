@@ -1,10 +1,11 @@
 import 'package:intl/intl.dart';
 import 'dart:math';
+import 'package:flutter/material.dart';
 
 String setPriceFormat(int price) {
   final oCcy = new NumberFormat("#,###", "ko_KR");
   return "${oCcy.format(price)}원";
-} // 가격 만원단위 형변환
+}
 
 String getRandomName() {
   List<String> prefix = [
@@ -60,3 +61,5 @@ String getRandomName() {
 
   return '${prefix[preIdx]} ${suffix[sufIdx]}';
 }
+
+const Color MAINCOLOR = Color.fromRGBO(255, 156, 30, 1);

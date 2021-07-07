@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mealdang_mvp/database/db.dart';
+import 'package:mealdang_mvp/utils/util.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/page/productDetail.dart';
@@ -21,12 +22,6 @@ class _SearchPageState extends State<SearchPage> {
   void initState() {
     super.initState();
     _products = List.empty();
-  }
-
-  @override
-  void dispose() {
-    print('searchPage dispose');
-    super.dispose();
   }
 
   @override
@@ -82,7 +77,6 @@ class _SearchPageState extends State<SearchPage> {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            print('product tapped');
             Product product = _products[index];
             Navigator.of(context).push(
               MaterialPageRoute(builder: (context) {
@@ -92,7 +86,10 @@ class _SearchPageState extends State<SearchPage> {
           },
           child: Row(
             children: <Widget>[
-              Icon(Icons.search, color: Color.fromRGBO(255, 156, 30, 1)),
+              Icon(
+                Icons.search,
+                color: MAINCOLOR,
+              ),
               SizedBox(width: 20.w),
               Expanded(
                 child: Text(
