@@ -37,7 +37,7 @@ class _ProductDetailState extends State<ProductDetail> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
-          '[${product.companyName}] ${product.name}',
+          '상품 정보',
           style: TextStyle(
               fontFamily: "NotoSans",
               fontWeight: FontWeight.w800,
@@ -52,12 +52,27 @@ class _ProductDetailState extends State<ProductDetail> {
       bottomNavigationBar: GestureDetector(
         child: Container(
           height: 48.h,
-          color: const Color.fromRGBO(255, 156, 30, 1),
+          color: MAINCOLOR,
           child: InkWell(
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => Scaffold(
+                  appBar: AppBar(
+                    iconTheme: IconThemeData(color: Colors.black),
+                    title: Text(
+                      '밀당',
+                      style: TextStyle(
+                        color: MAINCOLOR,
+                        fontFamily: 'NotoSans',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 32.sp,
+                      ),
+                    ),
+                    centerTitle: true,
+                    elevation: 1.0,
+                    backgroundColor: Colors.white,
+                  ),
                   backgroundColor: Colors.white,
                   body: SafeArea(
                     child: InAppWebView(
@@ -132,7 +147,7 @@ class _ProductDetailState extends State<ProductDetail> {
             return Center(
               child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(
-                  Color.fromRGBO(255, 156, 30, 1),
+                  MAINCOLOR,
                 ),
               ),
             );
@@ -140,7 +155,7 @@ class _ProductDetailState extends State<ProductDetail> {
           return Center(
             child: CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(
-                Color.fromRGBO(255, 156, 30, 1),
+                MAINCOLOR,
               ),
             ),
           );
@@ -195,7 +210,7 @@ class _ProductDetailState extends State<ProductDetail> {
             children: [
               Icon(
                 Icons.star,
-                color: Colors.red,
+                color: Colors.yellow[700],
                 size: 20.5.w,
               ),
               SizedBox(width: 2.w),
@@ -312,7 +327,7 @@ class _ProductDetailState extends State<ProductDetail> {
               ],
             ),
             VerticalDivider(
-              color: const Color.fromRGBO(255, 156, 30, 1),
+              color: MAINCOLOR,
               thickness: 1.5.w,
               indent: 5.h,
               endIndent: 5.h,
@@ -348,7 +363,7 @@ class _ProductDetailState extends State<ProductDetail> {
             Container(
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.black, width: 1.w),
-                  color: const Color.fromRGBO(255, 156, 30, 1)),
+                  color: MAINCOLOR),
               width: 100 * (part / all).w,
               height: 15.h,
             ),
@@ -400,7 +415,7 @@ class _ProductDetailState extends State<ProductDetail> {
         return Center(
           child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(
-              Color.fromRGBO(255, 156, 30, 1),
+              MAINCOLOR,
             ),
           ),
         );
@@ -505,7 +520,7 @@ class _ReviewPartListviewState extends State<ReviewPartListview> {
             return Center(
               child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(
-                  Color.fromRGBO(255, 156, 30, 1),
+                  MAINCOLOR,
                 ),
               ),
             );
