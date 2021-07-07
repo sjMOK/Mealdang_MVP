@@ -67,9 +67,8 @@ Future<List<Product>> getProducts(
     Future<Database> db, String categoryName) async {
   Database database = await db;
   final List<Map<String, dynamic>> maps = await database
-      .rawQuery('SELECT * FROM Product WHERE category= "$categoryName"');
+      .rawQuery("SELECT * FROM Product WHERE category= '$categoryName'");
 
-  print('${maps.length} $categoryName rows returned');
   return List.generate(maps.length, (i) {
     var map = maps[i];
     return Product(
@@ -92,15 +91,17 @@ Future<List<Product>> getRecommendedProducts(Future<Database> db) async {
   var rng = new Random();
   for (var i = 0; i < 6; i++) {
     int r = rng.nextInt(48) + 1;
-    while (random.contains(r)) r = rng.nextInt(48) + 1;
+
+    while (random.contains(r)) {
+      r = rng.nextInt(48) + 1;
+    }
+
     random.add(r);
   }
 
   Database database = await db;
   final List<Map<String, dynamic>> maps = await database.rawQuery(
       'SELECT * FROM Product WHERE id IN (${random[0]}, ${random[1]}, ${random[2]}, ${random[3]}, ${random[4]}, ${random[5]})');
-
-  print('${maps.length} recommended rows returned');
 
   return List.generate(maps.length, (i) {
     var map = maps[i];
@@ -124,8 +125,6 @@ Future<List<Product>> getTopRatingProducts(Future<Database> db) async {
   final List<Map<String, dynamic>> maps = await database
       .rawQuery('SELECT * FROM Product ORDER BY rating DESC LIMIT 6');
 
-  print('${maps.length} top rating rows returned');
-
   return List.generate(maps.length, (i) {
     var map = maps[i];
     return Product(
@@ -148,8 +147,6 @@ Future<List<Product>> getLowPriceProducts(Future<Database> db) async {
   final List<Map<String, dynamic>> maps =
       await database.rawQuery('SELECT * FROM Product ORDER BY price LIMIT 6');
 
-  print('${maps.length} low price rows returned');
-
   return List.generate(maps.length, (i) {
     var map = maps[i];
     return Product(
@@ -170,8 +167,8 @@ Future<List<Product>> getLowPriceProducts(Future<Database> db) async {
 Future<List<Review>> getReviews(Future<Database> db, int productid) async {
   Database database = await db;
   final List<Map<String, dynamic>> maps = await database
-      .rawQuery('SELECT * FROM REVIEW WHERE product_id="$productid"');
-  print('${maps.length} $productid rows returned');
+      .rawQuery('SELECT * FROM REVIEW WHERE product_id=$productid');
+
   return List.generate(maps.length, (i) {
     var map = maps[i];
     return Review(

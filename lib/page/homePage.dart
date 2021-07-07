@@ -278,12 +278,7 @@ class _ManualState extends State<Manual> {
     super.initState();
 
     _pageController.addListener(() {
-      // if (_pageController.page % 1 == 0) {
-      //   setState(() {
-      //     _currentPage = _pageController.page.toInt();
-      //   });
-      // }
-      if ((_currentPage - _pageController.page).abs() > 0.5) {
+      if (isPageFilped()) {
         setState(() {
           _currentPage = _pageController.page.round().toInt();
         });
@@ -295,6 +290,14 @@ class _ManualState extends State<Manual> {
   void dispose() {
     _pageController.dispose();
     super.dispose();
+  }
+
+  bool isPageFilped(){
+    if((_currentPage - _pageController.page).abs() > 0.5){
+      return true;
+    }
+
+    return false;
   }
 
   @override

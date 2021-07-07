@@ -24,12 +24,6 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   @override
-  void dispose() {
-    print('searchPage dispose');
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -82,7 +76,6 @@ class _SearchPageState extends State<SearchPage> {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            print('product tapped');
             Product product = _products[index];
             Navigator.of(context).push(
               MaterialPageRoute(builder: (context) {

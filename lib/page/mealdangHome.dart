@@ -145,7 +145,6 @@ class _MealdangHomeState extends State<MealdangHome> {
         ),
       );
 
-      print('종료');
       return Future.value(false);
     }
     return Future.value(true);
