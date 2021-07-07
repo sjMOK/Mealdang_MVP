@@ -361,10 +361,11 @@ class _ProductDetailState extends State<ProductDetail> {
   }
 
   FutureBuilder _reviewRating(BuildContext context) {
-    List<int> arrayRating = [0, 0, 0, 0, 0, 0];
+    List<int> arrayRating;
     return FutureBuilder(
       future: _review,
       builder: (context, snapshot) {
+        arrayRating = [0, 0, 0, 0, 0, 0];
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.data.length != 0) {
             for (var review in snapshot.data) {
