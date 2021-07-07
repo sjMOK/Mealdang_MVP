@@ -14,30 +14,27 @@ class _IntroductionPageState extends State<IntroductionPage> {
     _width = MediaQuery.of(context).size.width;
     _height = MediaQuery.of(context).size.height;
 
-    return ScreenUtilInit(
-      designSize: Size(411.5, 683.4),
-      builder: () => Scaffold(
-        body: IntroductionScreen(
-          globalBackgroundColor: Colors.white,
-          rawPages: [
-            _buildImageContainer('introduction_image/introduction_image_1.png'),
-            _buildImageContainer('introduction_image/introduction_image_2.png'),
-            _buildImageContainer('introduction_image/introduction_image_3.png'),
-            _buildStack(),
-          ],
-          skipFlex: 0,
-          nextFlex: 0,
-          showDoneButton: false,
-          showNextButton: false,
-          showSkipButton: false,
-          dotsDecorator: const DotsDecorator(
-            activeColor: Color.fromRGBO(255, 156, 30, 1),
-            size: Size(10.0, 10.0),
-            color: Color(0xFFBDBDBD),
-            activeSize: Size(20.0, 10.0),
-            activeShape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(25.0)),
-            ),
+    return Scaffold(
+      body: IntroductionScreen(
+        globalBackgroundColor: Colors.white,
+        rawPages: [
+          _buildImageContainer('introduction_image/introduction_image_1.png'),
+          _buildImageContainer('introduction_image/introduction_image_2.png'),
+          _buildImageContainer('introduction_image/introduction_image_3.png'),
+          _buildStack(),
+        ],
+        skipFlex: 0,
+        nextFlex: 0,
+        showDoneButton: false,
+        showNextButton: false,
+        showSkipButton: false,
+        dotsDecorator: const DotsDecorator(
+          activeColor: Color.fromRGBO(255, 156, 30, 1),
+          size: Size(10.0, 10.0),
+          color: Color(0xFFBDBDBD),
+          activeSize: Size(20.0, 10.0),
+          activeShape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(25.0)),
           ),
         ),
       ),
