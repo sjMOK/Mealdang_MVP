@@ -5,10 +5,10 @@ import 'package:mealdang_mvp/page/reviewUI.dart';
 
 class ReviewFrame extends StatefulWidget {
   final int productId;
-  final Future<List<Review>> _review;
+  final Future<List<Review>> _reviews;
   final List<int> score;
 
-  ReviewFrame(this.productId, this._review, this.score);
+  ReviewFrame(this.productId, this._reviews, this.score);
   @override
   _ReviewFrameState createState() => _ReviewFrameState();
 }
@@ -26,7 +26,7 @@ class _ReviewFrameState extends State<ReviewFrame> {
     int saltyGap = 0, spicyGap = 0, sweetGap = 0;
     List<Map<String, dynamic>> mapping1 = [];
     int gap;
-    for (Review review in await widget._review) {
+    for (Review review in await widget._reviews) {
       tastyLevel[0] = review.spicyLevel;
       tastyLevel[1] = review.saltyLevel;
       tastyLevel[2] = review.sweetLevel;

@@ -7,9 +7,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ReviewPage extends StatefulWidget {
   final Product product;
   final Widget ratingContainer;
-  final Future<List<Review>> _review;
+  final Future<List<Review>> _reviews;
 
-  ReviewPage(this.product, this.ratingContainer, this._review);
+  ReviewPage(this.product, this.ratingContainer, this._reviews);
 
   @override
   _ReviewPageState createState() => _ReviewPageState();
@@ -203,7 +203,7 @@ class _ReviewPageState extends State<ReviewPage> {
                 ],
               ),
             ),
-            ReviewFrame(widget.product.id, widget._review, filter),
+            ReviewFrame(widget.product.id, widget._reviews, filter),
           ],
         ),
       ),

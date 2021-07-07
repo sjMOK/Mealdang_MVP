@@ -5,10 +5,10 @@ import 'package:mealdang_mvp/utils/util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReviewUI extends StatefulWidget {
-  final Review review;
+  final Review reviews;
   final int separator;
   final List<int> score; // productDetail에서
-  ReviewUI(this.review, this.separator, this.score);
+  ReviewUI(this.reviews, this.separator, this.score);
   Text textEffectPDetail(String text) {
     if (this.separator == 1)
       return Text(
@@ -105,10 +105,10 @@ class _ReviewUIState extends State<ReviewUI> {
                                   child: Row(
                                     children: [
                                       _buildtastyImage(
-                                        widget.review.spicyLevel,
+                                        widget.reviews.spicyLevel,
                                         Image.asset(getTastyIconUrl(
                                             'spicy',
-                                            widget.review.spicyLevel
+                                            widget.reviews.spicyLevel
                                                 .toString())),
                                       ),
                                     ],
@@ -116,7 +116,7 @@ class _ReviewUIState extends State<ReviewUI> {
                                   decoration: BoxDecoration(
                                     color: widget.separator == 0
                                         ? highlightText(widget.score[0],
-                                            widget.review.spicyLevel)
+                                            widget.reviews.spicyLevel)
                                         : Colors.white,
                                     borderRadius: BorderRadius.circular(9.r),
                                   ),
@@ -138,10 +138,10 @@ class _ReviewUIState extends State<ReviewUI> {
                                   child: Row(
                                     children: [
                                       _buildtastyImage(
-                                        widget.review.saltyLevel,
+                                        widget.reviews.saltyLevel,
                                         Image.asset(getTastyIconUrl(
                                           'salty',
-                                          widget.review.saltyLevel.toString(),
+                                          widget.reviews.saltyLevel.toString(),
                                         )),
                                       ),
                                     ],
@@ -149,7 +149,7 @@ class _ReviewUIState extends State<ReviewUI> {
                                   decoration: BoxDecoration(
                                     color: widget.separator == 0
                                         ? highlightText(widget.score[1],
-                                            widget.review.saltyLevel)
+                                            widget.reviews.saltyLevel)
                                         : Colors.white,
                                     borderRadius: BorderRadius.circular(9.r),
                                   ),
@@ -171,17 +171,17 @@ class _ReviewUIState extends State<ReviewUI> {
                                   child: Row(
                                     children: [
                                       _buildtastyImage(
-                                          widget.review.saltyLevel,
+                                          widget.reviews.saltyLevel,
                                           Image.asset(getTastyIconUrl(
                                               'sweet',
-                                              widget.review.sweetLevel
+                                              widget.reviews.sweetLevel
                                                   .toString())))
                                     ],
                                   ),
                                   decoration: BoxDecoration(
                                     color: widget.separator == 0
                                         ? highlightText(widget.score[2],
-                                            widget.review.sweetLevel)
+                                            widget.reviews.sweetLevel)
                                         : Colors.white,
                                     borderRadius: BorderRadius.circular(9.r),
                                   ),
@@ -193,7 +193,7 @@ class _ReviewUIState extends State<ReviewUI> {
                       ],
                     ),
                     RatingBarIndicator(
-                      rating: widget.review.rating.toDouble(),
+                      rating: widget.reviews.rating.toDouble(),
                       itemPadding:
                           EdgeInsets.symmetric(vertical: 3, horizontal: 0),
                       itemBuilder: (context, index) => Icon(
@@ -208,11 +208,11 @@ class _ReviewUIState extends State<ReviewUI> {
               ],
             ),
           ),
-          _buildReviewContents('smile', widget.review.contentGood),
+          _buildReviewContents('smile', widget.reviews.contentGood),
           SizedBox(height: 20.5.h),
-          _buildReviewContents('sad', widget.review.contentBad),
+          _buildReviewContents('sad', widget.reviews.contentBad),
           SizedBox(height: 20.5.h),
-          _buildReviewContents('fork', widget.review.contentKick),
+          _buildReviewContents('fork', widget.reviews.contentKick),
           SizedBox(height: 20.5.h),
         ],
       ),
