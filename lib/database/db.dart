@@ -17,7 +17,7 @@ class DBHelper {
     return _db;
   }
 
-  void closeDB(){
+  void closeDB() {
     _db.close();
   }
 }
@@ -92,8 +92,7 @@ Future<List<Product>> getRecommendedProducts(Future<Database> db) async {
   var rng = new Random();
   for (var i = 0; i < 6; i++) {
     int r = rng.nextInt(48) + 1;
-    while(random.contains(r))
-      r = rng.nextInt(48) + 1;
+    while (random.contains(r)) r = rng.nextInt(48) + 1;
     random.add(r);
   }
 
@@ -207,6 +206,8 @@ Future<List<Product>> getSearchingProducts(
       discountedPrice: map['discounted_price'],
       imagePath: map['image_path'],
       pageUrl: map['page_url'],
+      reviewCount: map['review_count'],
+      rating: map['rating'],
     );
   });
 }
