@@ -140,7 +140,7 @@ class _MealdangHomeState extends State<MealdangHome> {
         SnackBar(
           duration: Duration(milliseconds: 1500),
           content: Text('뒤로가기 버튼을 한번 더 누르면 앱이 종료됩니다'),
-          backgroundColor: MAINCOLOR,
+          backgroundColor: const Color.fromRGBO(5, 5, 5, 0.8),
           behavior: SnackBarBehavior.floating,
         ),
       );
