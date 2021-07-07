@@ -67,19 +67,20 @@ class _ReviewUIState extends State<ReviewUI> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 411.w,
-      alignment: Alignment.centerLeft,
+      width: 1.sw,
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.fromLTRB(20.w, 20.h, 30.w, 20.h),
+            padding: EdgeInsets.symmetric(vertical: 20.h),
+            width: 0.9.sw,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
+                SizedBox(width: 5.w),
+                Container(
+                  width: 50.w,
+                  height: 50.w,
                   child: Image.asset('assets/images/profile_image/profile.png'),
-                  radius: 23.r,
-                  backgroundColor: Colors.white,
                 ),
                 SizedBox(width: 12.3.h),
                 Column(
@@ -207,25 +208,12 @@ class _ReviewUIState extends State<ReviewUI> {
               ],
             ),
           ),
-          Container(
-            // 리뷰 작성 된 곳
-            width: 1.sw,
-            padding: EdgeInsets.fromLTRB(30.w, 0.h, 30.w, 20.h),
-            child: Row(children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _buildReviewContents('smile', widget.review.contentGood),
-                  SizedBox(height: 20.5.h),
-                  _buildReviewContents('sad', widget.review.contentBad),
-                  SizedBox(height: 20.5.h),
-                  _buildReviewContents('fork', widget.review.contentKick),
-                  SizedBox(height: 20.5.h),
-                ],
-              ),
-            ]),
-          ),
+          _buildReviewContents('smile', widget.review.contentGood),
+          SizedBox(height: 20.5.h),
+          _buildReviewContents('sad', widget.review.contentBad),
+          SizedBox(height: 20.5.h),
+          _buildReviewContents('fork', widget.review.contentKick),
+          SizedBox(height: 20.5.h),
         ],
       ),
     );
@@ -233,15 +221,21 @@ class _ReviewUIState extends State<ReviewUI> {
 
   Container _buildReviewContents(String item, String contents) {
     return Container(
+      alignment: Alignment.centerLeft,
+      width: 0.9.sw,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset("assets/images/review_icon_image/$item.png",
-              scale: 20.sp),
+          Container(
+            width: 30.w,
+            height: 30.w,
+            child: Image.asset("assets/images/review_icon_image/$item.png"),
+          ),
           SizedBox(
             width: 16.4.w,
           ),
-          Container(width: 287.w, child: widget.textEffectPDetail(contents)),
+          Container(width: 0.7.sw, child: widget.textEffectPDetail(contents)),
         ],
       ),
     );
