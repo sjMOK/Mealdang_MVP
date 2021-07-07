@@ -35,7 +35,7 @@ class _CategoryItemState extends State<CategoryItem> {
           title: Text(
             '${categoryData[widget.categoryName]['name']}',
             style: TextStyle(
-              color: Color.fromRGBO(255, 156, 30, 1),
+              color: MAINCOLOR,
               fontFamily: 'NotoSans',
               fontWeight: FontWeight.w700,
               fontSize: 32.sp,
@@ -65,8 +65,7 @@ class _CategoryItemState extends State<CategoryItem> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) =>
-                            ProductDetail(product),
+                        builder: (context) => ProductDetail(product),
                       ),
                     );
                   },
@@ -83,7 +82,7 @@ class _CategoryItemState extends State<CategoryItem> {
           return Center(
             child: CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(
-                Color.fromRGBO(255, 156, 30, 1),
+                MAINCOLOR,
               ),
             ),
           );

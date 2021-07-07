@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mealdang_mvp/utils/util.dart';
 import '../data/review.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mealdang_mvp/page/reviewUI.dart';
@@ -90,7 +91,7 @@ class _ReviewFrameState extends State<ReviewFrame> {
             return Center(
               child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(
-                  Color.fromRGBO(255, 156, 30, 1),
+                  MAINCOLOR,
                 ),
               ),
             );

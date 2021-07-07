@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:mealdang_mvp/utils/util.dart';
 
 class IntroductionPage extends StatefulWidget {
   @override
@@ -29,7 +30,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
         showNextButton: false,
         showSkipButton: false,
         dotsDecorator: const DotsDecorator(
-          activeColor: Color.fromRGBO(255, 156, 30, 1),
+          activeColor: MAINCOLOR,
           size: Size(10.0, 10.0),
           color: Color(0xFFBDBDBD),
           activeSize: Size(20.0, 10.0),
@@ -72,7 +73,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
               ),
               side: BorderSide(
                 width: 1.5.w,
-                color: Color.fromRGBO(255, 156, 30, 1),
+                color: MAINCOLOR,
               ),
             ),
             child: Text(
