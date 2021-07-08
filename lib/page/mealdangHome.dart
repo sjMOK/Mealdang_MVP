@@ -87,46 +87,43 @@ class _MealdangHomeState extends State<MealdangHome> {
           index: _selectedIndex,
           children: _widgetOptions,
         ),
-        bottomNavigationBar: SizedBox(
-          height: 0.1.sh,
-          child: BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                ),
-                label: '홈',
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.search,
-                ),
-                label: '검색',
+              label: '홈',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.search,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.category_rounded,
-                ),
-                label: '카테고리',
+              label: '검색',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.category_rounded,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.email,
-                ),
-                label: '설문조사',
+              label: '카테고리',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.email,
               ),
-            ],
-            selectedItemColor: MAINCOLOR,
-            unselectedItemColor: Colors.grey,
-            selectedIconTheme: IconThemeData(color: MAINCOLOR),
-            unselectedIconTheme: IconThemeData(color: Colors.grey),
-            showUnselectedLabels: true,
-            selectedFontSize: 12.0,
-            currentIndex: _selectedIndex,
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.white,
-            onTap: _onItemTapped,
-          ),
+              label: '설문조사',
+            ),
+          ],
+          selectedItemColor: MAINCOLOR,
+          unselectedItemColor: Colors.grey,
+          selectedIconTheme: IconThemeData(color: MAINCOLOR),
+          unselectedIconTheme: IconThemeData(color: Colors.grey),
+          showUnselectedLabels: true,
+          selectedFontSize: 12.0,
+          currentIndex: _selectedIndex,
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.white,
+          onTap: _onItemTapped,
         ),
       ),
       onWillPop: _onWillPop,
