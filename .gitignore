@@ -48,3 +48,6 @@ app.*.map.json
 .packages
 .flutter-plugins
 .flutter-plugins-dependencies
+
+# Release related
+**/android/key.properties
