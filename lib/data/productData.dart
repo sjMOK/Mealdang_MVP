@@ -19,7 +19,7 @@ List<Map<String, dynamic>> productData = [
     'name': '장흥회관 낙지곱창전골',
     'company_name': '프레시지',
     'serving_size': 2,
-    'price': 26900,
+    'price': 29900,
     'discounted_price': null,
     'image_path': 'assets/images/food_pictures/korean_food/KoreanFood_2.jpeg',
     'page_url':
@@ -34,7 +34,7 @@ List<Map<String, dynamic>> productData = [
     'company_name': '마이셰프',
     'serving_size': 2,
     'price': 19800,
-    'discounted_price': 14900,
+    'discounted_price': 13900,
     'image_path': 'assets/images/food_pictures/korean_food/KoreanFood_3.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100073657/products/4858796389',
@@ -48,7 +48,7 @@ List<Map<String, dynamic>> productData = [
     'company_name': '삼삼해물',
     'serving_size': 2,
     'price': 19800,
-    'discounted_price': 15800,
+    'discounted_price': 15000,
     'image_path': 'assets/images/food_pictures/korean_food/KoreanFood_4.jpeg',
     'page_url': 'https://smartstore.naver.com/samsamheamul/products/4714276510',
     'review_count': 10,
@@ -60,7 +60,7 @@ List<Map<String, dynamic>> productData = [
     'name': '기승전골 대창전골',
     'company_name': '푸드어셈블',
     'serving_size': 2,
-    'price': 25900,
+    'price': 26900,
     'discounted_price': null,
     'image_path': 'assets/images/food_pictures/korean_food/KoreanFood_5.jpeg',
     'page_url': 'https://smartstore.naver.com/foodasb/products/4797604813',
@@ -73,7 +73,7 @@ List<Map<String, dynamic>> productData = [
     'name': '연남동 통삼겹 김치찌개',
     'company_name': '푸드어셈블',
     'serving_size': 2,
-    'price': 13900,
+    'price': 15900,
     'discounted_price': null,
     'image_path': 'assets/images/food_pictures/korean_food/KoreanFood_6.jpeg',
     'page_url': 'https://smartstore.naver.com/foodasb/products/4912014692',
@@ -128,8 +128,8 @@ List<Map<String, dynamic>> productData = [
     'name': '양장피 밀키트',
     'company_name': '마이셰프',
     'serving_size': 2,
-    'price': 20000,
-    'discounted_price': 13900,
+    'price': 19800,
+    'discounted_price': null,
     'image_path': 'assets/images/food_pictures/chinese_food/ChineseFood_2.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100073657/products/2246511992',
@@ -268,8 +268,8 @@ List<Map<String, dynamic>> productData = [
     'name': '소고기 샤브샤브',
     'company_name': '프레시지',
     'serving_size': 2,
-    'price': 15900,
-    'discounted_price': 14310,
+    'price': 17900,
+    'discounted_price': null,
     'image_path':
         'assets/images/food_pictures/japanese_food/JapaneseFood_4.jpeg',
     'page_url':
@@ -284,7 +284,7 @@ List<Map<String, dynamic>> productData = [
     'company_name': '프레시지',
     'serving_size': 2,
     'price': 17900,
-    'discounted_price': 15210,
+    'discounted_price': null,
     'image_path':
         'assets/images/food_pictures/japanese_food/JapaneseFood_5.jpeg',
     'page_url':
@@ -327,7 +327,7 @@ List<Map<String, dynamic>> productData = [
     'name': '채선당 프리미엄 샤브샤브',
     'company_name': '푸드어셈블',
     'serving_size': 2,
-    'price': 18900,
+    'price': 19900,
     'discounted_price': null,
     'image_path':
         'assets/images/food_pictures/japanese_food/JapaneseFood_8.jpeg',
@@ -343,7 +343,7 @@ List<Map<String, dynamic>> productData = [
     'company_name': '애슐리 쉐프박스',
     'serving_size': 2,
     'price': 17900,
-    'discounted_price': null,
+    'discounted_price': 12900,
     'image_path': 'assets/images/food_pictures/western_food/WesternFood_1.jpeg',
     'page_url':
         'https://smartstore.naver.com/elandparkfood/products/4872736184',
@@ -356,7 +356,7 @@ List<Map<String, dynamic>> productData = [
     'name': '짐승파스타 월터 감바스',
     'company_name': '푸드어셈블',
     'serving_size': 2,
-    'price': 15900,
+    'price': 16900,
     'discounted_price': null,
     'image_path': 'assets/images/food_pictures/western_food/WesternFood_2.jpeg',
     'page_url':
@@ -370,7 +370,7 @@ List<Map<String, dynamic>> productData = [
     'name': '소고기 찹스테이크',
     'company_name': '프레시지',
     'serving_size': 2,
-    'price': 10900,
+    'price': 14900,
     'discounted_price': null,
     'image_path': 'assets/images/food_pictures/western_food/WesternFood_3.jpeg',
     'page_url':
@@ -385,7 +385,7 @@ List<Map<String, dynamic>> productData = [
     'company_name': '아내의 쉐프',
     'serving_size': 2,
     'price': 21000,
-    'discounted_price': 12900,
+    'discounted_price': 14900,
     'image_path': 'assets/images/food_pictures/western_food/WesternFood_4.jpeg',
     'page_url': 'https://smartstore.naver.com/wifechef/products/4762670456',
     'review_count': 10,
@@ -411,7 +411,7 @@ List<Map<String, dynamic>> productData = [
     'company_name': '아내의 쉐프',
     'serving_size': 2,
     'price': 14900,
-    'discounted_price': 12990,
+    'discounted_price': 12900,
     'image_path': 'assets/images/food_pictures/western_food/WesternFood_6.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100073444/products/2281473037',
@@ -482,7 +482,7 @@ List<Map<String, dynamic>> productData = [
     'company_name': '쌩도리탕',
     'serving_size': 2,
     'price': 22000,
-    'discounted_price': 18900,
+    'discounted_price': 19900,
     'image_path':
         'assets/images/food_pictures/late_night_meal/LateNightFood_3.jpeg',
     'page_url': 'https://smartstore.naver.com/ssaengdori/products/4467060596',
@@ -509,8 +509,8 @@ List<Map<String, dynamic>> productData = [
     'name': '족만이 순살족발',
     'company_name': '어차피혼자',
     'serving_size': null,
-    'price': 3900,
-    'discounted_price': null,
+    'price': 5900,
+    'discounted_price': 3900,
     'image_path':
         'assets/images/food_pictures/late_night_meal/LateNightFood_5.jpeg',
     'page_url': 'https://smartstore.naver.com/jok_many/products/4427455923',
@@ -567,7 +567,7 @@ List<Map<String, dynamic>> productData = [
     'company_name': '애슐리 쉐프박스',
     'serving_size': 2,
     'price': 13900,
-    'discounted_price': null,
+    'discounted_price': 9900,
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_1.jpeg',
     'page_url':
         'https://shopping.naver.com/fresh/homemeal/stores/100359417/products/5490000146',
@@ -608,7 +608,7 @@ List<Map<String, dynamic>> productData = [
     'company_name': '빨봉분식',
     'serving_size': null,
     'price': 6000,
-    'discounted_price': 3900,
+    'discounted_price': 3500,
     'image_path': 'assets/images/food_pictures/carb_snack/SnackFood_4.jpeg',
     'page_url': 'https://smartstore.naver.com/bnpfood/products/4423947780',
     'review_count': 10,
