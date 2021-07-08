@@ -11,15 +11,15 @@ class Survey extends StatefulWidget {
 class _SurveyState extends State<Survey> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: <Widget>[
         Container(
-          width: 411.5.w,
-          height: 533.2.h,
           child: Image.asset('assets/images/survey_image/survey_image.png'),
+          width: 411.5.w,
+          height: 453.2.h,
         ),
-        Positioned(
-          width: 240.w,
+        SizedBox(height: 20.h,),
+        Container(
           height: 40.h,
           child: ElevatedButton(
             onPressed: () {
@@ -61,8 +61,6 @@ class _SurveyState extends State<Survey> {
               ),
             ),
           ),
-          bottom: 5.h,
-          left: 85.5.w,
         ),
       ],
     );
