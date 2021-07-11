@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: Size(411.5, 683.4),
       builder: () => MaterialApp(
-
         builder: (context, child) {
           return MediaQuery(
             data: MediaQuery.of(context).copyWith(textScaleFactor: 1),

@@ -35,6 +35,8 @@ class _ProductDetailState extends State<ProductDetail> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        toolbarHeight: 70.h,
+        automaticallyImplyLeading: true,
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
           '상품 정보',
@@ -59,6 +61,8 @@ class _ProductDetailState extends State<ProductDetail> {
               MaterialPageRoute(
                 builder: (context) => Scaffold(
                   appBar: AppBar(
+                    toolbarHeight: 70.h,
+                    automaticallyImplyLeading: true,
                     iconTheme: IconThemeData(color: Colors.black),
                     title: Text(
                       '밀당',

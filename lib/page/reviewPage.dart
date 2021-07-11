@@ -66,6 +66,8 @@ class _ReviewPageState extends State<ReviewPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        toolbarHeight: 70.h,
+        automaticallyImplyLeading: true,
         iconTheme: IconThemeData(color: Colors.black),
         centerTitle: true,
         title: Text(

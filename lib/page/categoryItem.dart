@@ -31,6 +31,8 @@ class _CategoryItemState extends State<CategoryItem> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          toolbarHeight: 70.h,
+          automaticallyImplyLeading: true,
           iconTheme: IconThemeData(color: Colors.black),
           title: Text(
             '${categoryData[widget.categoryName]['name']}',
