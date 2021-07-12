@@ -59,16 +59,16 @@ class _MealdangHomeState extends State<MealdangHome> {
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         appBar: AppBar(
-          toolbarHeight: 70.h,
+          toolbarHeight: 50.h,
           automaticallyImplyLeading: false,
           title: Image.asset(
             'assets/images/logo/logo_appbar.png',
-            height: 50.h,
+            height: 40.h,
             fit: BoxFit.contain,
           ),
           actions: [
             IconButton(
-              iconSize: 40.sp,
+              iconSize: 30.sp,
               icon: Icon(
                 Icons.search,
                 color: MAINCOLOR,
