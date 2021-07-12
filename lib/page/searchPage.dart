@@ -29,12 +29,12 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 70.h,
+        toolbarHeight: 50.h,
         automaticallyImplyLeading: true,
         iconTheme: IconThemeData(color: Colors.black),
         title: Image.asset(
           'assets/images/logo/logo_appbar.png',
-          height: 50.h,
+          height: 40.h,
           fit: BoxFit.contain,
         ),
         centerTitle: true,
