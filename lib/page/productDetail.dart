@@ -123,6 +123,7 @@ class _ProductDetailState extends State<ProductDetail> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        SizedBox(height: 8.h),
                         _productImg(product),
                         _divider(),
                         _productInfo(product),
@@ -170,12 +171,12 @@ class _ProductDetailState extends State<ProductDetail> {
     return Divider(
       color: Colors.grey[300],
       thickness: 2.0.w,
+      height: 16.h,
     );
   }
 
   Widget _productImg(Product product) {
     return Container(
-      padding: EdgeInsets.only(top: 30.h),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(10.r)),
         child: Hero(
