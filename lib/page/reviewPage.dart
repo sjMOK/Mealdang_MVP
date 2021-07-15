@@ -3,6 +3,7 @@ import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/data/review.dart';
 import 'package:mealdang_mvp/page/reviewFrame.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ReviewPage extends StatefulWidget {
   final Product product;
@@ -81,7 +82,34 @@ class _ReviewPageState extends State<ReviewPage> {
         ),
         backgroundColor: Colors.white,
       ),
-      body: _scorll(widget.ratingContainer),
+      body: Stack(
+        children: [
+          _scorll(widget.ratingContainer),
+          Positioned(
+            bottom: 20.h,
+            right: -5.w,
+            child: MaterialButton(
+              height: 45.h,
+              color: Colors.yellow,
+              shape: CircleBorder(),
+              child: Container(
+                height: 30.h,
+                width: 30.h,
+                child: Center(
+                  child: Image.asset('assets/images/ask_icon/chat.png'),
+                ),
+              ),
+              onPressed: () {
+                if (canLaunch('http://pf.kakao.com/_iTJBs/chat') != null) {
+                  launch('http://pf.kakao.com/_iTJBs/chat');
+                } else {
+                  print('Could not launch ');
+                }
+              },
+            ),
+          ),
+        ],
+      ), //_scorll(widget.ratingContainer),
     );
   }
 
