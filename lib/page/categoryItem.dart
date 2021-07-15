@@ -6,6 +6,7 @@ import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:mealdang_mvp/data/categoryData.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CategoryItem extends StatefulWidget {
   final String categoryName;
@@ -29,28 +30,60 @@ class _CategoryItemState extends State<CategoryItem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        toolbarHeight: 70.h,
+        automaticallyImplyLeading: true,
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text(
+          '${categoryData[widget.categoryName]['name']}',
+          style: TextStyle(
+            color: MAINCOLOR,
+            fontFamily: 'NotoSans',
+            fontWeight: FontWeight.w700,
+            fontSize: 32.sp,
+          ),
+        ),
+        centerTitle: true,
+        elevation: 1.0,
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          toolbarHeight: 70.h,
-          automaticallyImplyLeading: true,
-          iconTheme: IconThemeData(color: Colors.black),
-          title: Text(
-            '${categoryData[widget.categoryName]['name']}',
-            style: TextStyle(
-              color: MAINCOLOR,
-              fontFamily: 'NotoSans',
-              fontWeight: FontWeight.w700,
-              fontSize: 32.sp,
+      ),
+      body: Stack(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 10.h),
+            child: _myListView(_dbHelper.db),
+          ),
+          Positioned(
+            bottom: 20.h,
+            right: -5.w,
+            child: MaterialButton(
+              height: 45.h,
+              color: Colors.yellow,
+              shape: CircleBorder(),
+              child: Container(
+                height: 35.h,
+                width: 35.h,
+                child: Center(
+                  child: Image.asset('assets/images/ask_icon/chat.png'),
+                ),
+              ),
+              onPressed: () {
+                if (canLaunch('http://pf.kakao.com/_iTJBs/chat') != null) {
+                  launch('http://pf.kakao.com/_iTJBs/chat');
+                } else {
+                  print('Could not launch ');
+                }
+              },
             ),
           ),
-          centerTitle: true,
-          elevation: 1.0,
-          backgroundColor: Colors.white,
-        ),
-        body: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10.h),
-          child: _myListView(_dbHelper.db),
-        ));
+        ],
+      ),
+      // body: Padding(
+      //   padding: EdgeInsets.symmetric(vertical: 10.h),
+      //   child: _myListView(_dbHelper.db),
+      // ),
+    );
   }
 
   Widget _myListView(Future<Database> database) {
