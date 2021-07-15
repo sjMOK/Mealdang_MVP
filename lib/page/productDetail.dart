@@ -8,6 +8,7 @@ import 'package:mealdang_mvp/page/reviewPage.dart';
 import 'package:mealdang_mvp/page/reviewUI.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProductDetail extends StatefulWidget {
   final Product product;
@@ -50,7 +51,34 @@ class _ProductDetailState extends State<ProductDetail> {
         elevation: 2.0,
         backgroundColor: Colors.white,
       ),
-      body: _scroll(product),
+      body: Stack(
+        children: [
+          _scroll(product),
+          Positioned(
+            bottom: 20.h,
+            right: -5.w,
+            child: MaterialButton(
+              height: 45.h,
+              color: Colors.yellow,
+              shape: CircleBorder(),
+              child: Container(
+                height: 35.h,
+                width: 35.h,
+                child: Center(
+                  child: Image.asset('assets/images/ask_icon/chat.png'),
+                ),
+              ),
+              onPressed: () {
+                if (canLaunch('http://pf.kakao.com/_iTJBs/chat') != null) {
+                  launch('http://pf.kakao.com/_iTJBs/chat');
+                } else {
+                  print('Could not launch ');
+                }
+              },
+            ),
+          ),
+        ],
+      ), //_scroll(product),
       bottomNavigationBar: GestureDetector(
         child: Container(
           height: 48.h,
