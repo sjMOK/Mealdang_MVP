@@ -1,3 +1,4 @@
+import 'package:bubble/bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mealdang_mvp/database/db.dart';
@@ -7,6 +8,7 @@ import 'package:mealdang_mvp/utils/util.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/page/category.dart';
 import 'package:mealdang_mvp/page/searchPage.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 const int HOME = 0;
 const int SEARCH = 1;
@@ -21,7 +23,6 @@ class _MealdangHomeState extends State<MealdangHome> {
   Future<Database> database;
   List<Widget> _widgetOptions;
   DateTime currentBackPressTime;
-
   ScrollController _scrollController = ScrollController();
 
   @override
@@ -83,9 +84,36 @@ class _MealdangHomeState extends State<MealdangHome> {
           elevation: 0.0,
           backgroundColor: Colors.white,
         ),
-        body: IndexedStack(
-          index: _selectedIndex,
-          children: _widgetOptions,
+        body: Stack(
+          children: [
+            IndexedStack(
+              index: _selectedIndex,
+              children: _widgetOptions,
+            ),
+            Positioned(
+              bottom: 20.h,
+              right: -5.w,
+              child: MaterialButton(
+                height: 45.h,
+                color: Colors.yellow,
+                shape: CircleBorder(),
+                child: Container(
+                  height: 30.h,
+                  width: 30.h,
+                  child: Center(
+                    child: Image.asset('assets/images/ask_icon/chat.png'),
+                  ),
+                ),
+                onPressed: () {
+                  if (canLaunch('http://pf.kakao.com/_iTJBs/chat') != null) {
+                    launch('http://pf.kakao.com/_iTJBs/chat');
+                  } else {
+                    print('Could not launch ');
+                  }
+                },
+              ),
+            ),
+          ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
