@@ -104,11 +104,7 @@ class _MealdangHomeState extends State<MealdangHome> {
                   ),
                 ),
                 onPressed: () {
-                  if (canLaunch('http://pf.kakao.com/_iTJBs/chat') != null) {
-                    launch('http://pf.kakao.com/_iTJBs/chat');
-                  } else {
-                    print('Could not launch ');
-                  }
+                  openKakaoAsking();
                 },
               ),
             ),
@@ -175,5 +171,13 @@ class _MealdangHomeState extends State<MealdangHome> {
       return Future.value(false);
     }
     return Future.value(true);
+  }
+}
+
+void openKakaoAsking() {
+  if (canLaunch('http://pf.kakao.com/_iTJBs/chat') != null) {
+    launch('http://pf.kakao.com/_iTJBs/chat');
+  } else {
+    print('Could not launch ');
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/data/review.dart';
 import 'package:mealdang_mvp/database/db.dart';
+import 'package:mealdang_mvp/page/mealdangHome.dart';
 import 'package:mealdang_mvp/page/reviewPage.dart';
 import 'package:mealdang_mvp/page/reviewUI.dart';
 import 'package:mealdang_mvp/utils/util.dart';
@@ -69,11 +70,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 ),
               ),
               onPressed: () {
-                if (canLaunch('http://pf.kakao.com/_iTJBs/chat') != null) {
-                  launch('http://pf.kakao.com/_iTJBs/chat');
-                } else {
-                  print('Could not launch ');
-                }
+                openKakaoAsking();
               },
             ),
           ),

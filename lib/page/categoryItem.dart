@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mealdang_mvp/page/mealdangHome.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/page/productDetail.dart';
@@ -69,20 +70,12 @@ class _CategoryItemState extends State<CategoryItem> {
                 ),
               ),
               onPressed: () {
-                if (canLaunch('http://pf.kakao.com/_iTJBs/chat') != null) {
-                  launch('http://pf.kakao.com/_iTJBs/chat');
-                } else {
-                  print('Could not launch ');
-                }
+                openKakaoAsking();
               },
             ),
           ),
         ],
       ),
-      // body: Padding(
-      //   padding: EdgeInsets.symmetric(vertical: 10.h),
-      //   child: _myListView(_dbHelper.db),
-      // ),
     );
   }
 
