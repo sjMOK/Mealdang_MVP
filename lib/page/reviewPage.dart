@@ -4,7 +4,6 @@ import 'package:mealdang_mvp/data/review.dart';
 import 'package:mealdang_mvp/page/mealdangHome.dart';
 import 'package:mealdang_mvp/page/reviewFrame.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ReviewPage extends StatefulWidget {
   final Product product;
