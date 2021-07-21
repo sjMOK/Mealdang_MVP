@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mealdang_mvp/data/product.dart';
+import 'package:mealdang_mvp/page/individualLike.dart';
 import 'package:mealdang_mvp/page/productDetail.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:mealdang_mvp/database/db.dart';
@@ -64,8 +65,6 @@ class _HomePageState extends State<HomePage> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasData) {
-            print(snapshot.data[3]);
-            print("==========위에는 스냅샷[3]===========");
             return SingleChildScrollView(
               controller: widget._scrollController,
               child: Column(
@@ -128,8 +127,7 @@ class _HomePageState extends State<HomePage> {
         title = '이 금액으로는 외식 못할 거예요.';
         break;
     }
-    print(findLikeProduct(products[0].id, likeProducts));
-    print("==========위에는 findlikeproduct 결과물======");
+
     return Center(
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 10.h),
@@ -149,31 +147,127 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                ProductCard(products[0], _width * 0.4, _dbHelper,
-                    findLikeProduct(products[0].id, likeProducts)),
-                ProductCard(products[1], _width * 0.4, _dbHelper,
-                    findLikeProduct(products[1].id, likeProducts))
+                _buildProductCard(products[0], likeProducts),
+                _buildProductCard(products[1], likeProducts)
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                ProductCard(products[2], _width * 0.4, _dbHelper,
-                    findLikeProduct(products[2].id, likeProducts)),
-                ProductCard(products[3], _width * 0.4, _dbHelper,
-                    findLikeProduct(products[3].id, likeProducts))
+                _buildProductCard(products[2], likeProducts),
+                _buildProductCard(products[3], likeProducts)
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                ProductCard(products[4], _width * 0.4, _dbHelper,
-                    findLikeProduct(products[4].id, likeProducts)),
-                ProductCard(products[5], _width * 0.4, _dbHelper,
-                    findLikeProduct(products[5].id, likeProducts))
+                _buildProductCard(products[4], likeProducts),
+                _buildProductCard(products[5], likeProducts)
               ],
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPriceTag(Product product) {
+    if (product.discountedPrice == null) {
+      return Text(
+        setPriceFormat(product.price),
+        style: TextStyle(
+          fontFamily: 'NotoSans',
+          fontWeight: FontWeight.bold,
+        ),
+      );
+    } else {
+      return Container(
+        child: Row(
+          children: [
+            Text(
+              setPriceFormat(
+                product.price,
+              ),
+              style: TextStyle(
+                  fontFamily: 'NotoSans',
+                  fontWeight: FontWeight.w600,
+                  color: Colors.grey[400],
+                  decoration: TextDecoration.lineThrough),
+            ),
+            SizedBox(width: 8.w),
+            Text(
+              setPriceFormat(
+                product.discountedPrice,
+              ),
+              style: TextStyle(
+                fontFamily: 'NotoSans',
+                fontWeight: FontWeight.bold,
+              ),
+            )
+          ],
+        ),
+      );
+    }
+  }
+
+  Widget _buildProductCard(Product product, List<Product> likeProducts) {
+    bool isLike = findLikeProduct(product.id, likeProducts);
+    Get.put(new LikeControllerWithGetx());
+    double rating = product.rating ?? 0.0;
+    return Container(
+      width: 174.w,
+      margin: EdgeInsets.fromLTRB(0, 5.h, 0, 5.h),
+      child: Card(
+        margin: const EdgeInsets.all(0.0),
+        elevation: 0.0,
+        child: InkWell(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => ProductDetail(product),
+              ),
+            );
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                child: LikeOverImage(product, isLike, _dbHelper, _width * 0.4),
+              ),
+              Text(
+                '[${product.companyName}]',
+                style: TextStyle(
+                    fontFamily: 'NotoSans',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12.sp,
+                    color: Colors.grey[700]),
+              ),
+              Text(
+                '${product.name}',
+                style: TextStyle(
+                  fontFamily: 'NotoSans',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 15.sp,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+              _buildPriceTag(product),
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.star,
+                    color: Colors.yellow[700],
+                  ),
+                  Text(
+                    '$rating',
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -273,157 +367,61 @@ class _ManualState extends State<Manual> {
   }
 }
 
-class ProductCard extends StatefulWidget {
-  final Product product;
-  final double width;
-  final DBHelper _dbHelper;
-  bool isLike;
-  ProductCard(this.product, this.width, this._dbHelper, this.isLike);
-  @override
-  _ProductCardState createState() => _ProductCardState();
-}
-
-class _ProductCardState extends State<ProductCard> {
-  @override
-  Widget build(BuildContext context) {
-    return _buildProductCard(widget.product);
-  }
-
-  Widget _buildPriceTag(Product product) {
-    if (product.discountedPrice == null) {
-      return Text(
-        setPriceFormat(product.price),
-        style: TextStyle(
-          fontFamily: 'NotoSans',
-          fontWeight: FontWeight.bold,
-        ),
-      );
-    } else {
-      return Container(
-        child: Row(
-          children: [
-            Text(
-              setPriceFormat(
-                product.price,
-              ),
-              style: TextStyle(
-                  fontFamily: 'NotoSans',
-                  fontWeight: FontWeight.w600,
-                  color: Colors.grey[400],
-                  decoration: TextDecoration.lineThrough),
-            ),
-            SizedBox(width: 8.w),
-            Text(
-              setPriceFormat(
-                product.discountedPrice,
-              ),
-              style: TextStyle(
-                fontFamily: 'NotoSans',
-                fontWeight: FontWeight.bold,
-              ),
-            )
-          ],
-        ),
-      );
-    }
-  }
-
-  Widget _buildProductCard(Product product) {
-    Get.put(new LikeControllerWithGetx());
-    double rating = product.rating ?? 0.0;
-    return Container(
-      width: 174.w,
-      margin: EdgeInsets.fromLTRB(0, 5.h, 0, 5.h),
-      child: Card(
-        margin: const EdgeInsets.all(0.0),
-        elevation: 0.0,
-        child: InkWell(
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => ProductDetail(product),
-              ),
-            );
-          },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10.r)),
-                child: Stack(
-                  children: [
-                    Image.asset(
-                      product.imagePath,
-                      width: widget.width, //_width * 0.4,
-                      height: widget.width,
-                      fit: BoxFit.fill,
-                    ),
-                    Positioned(
-                      bottom: 5.w,
-                      right: 5.w,
-                      child: InkWell(
-                        child: GetBuilder<LikeControllerWithGetx>(
-                          id: product.id,
-                          builder: (controller) {
-                            controller.init(widget.isLike);
-                            print(widget.isLike);
-                            return controller.icon;
-                          },
-                        ),
-                        onTap: () {
-                          Get.find<LikeControllerWithGetx>().clicked(
-                              product, widget.isLike, widget._dbHelper);
-                          widget.isLike = !widget.isLike;
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Text(
-                '[${product.companyName}]',
-                style: TextStyle(
-                    fontFamily: 'NotoSans',
-                    fontWeight: FontWeight.w500,
-                    fontSize: 12.sp,
-                    color: Colors.grey[700]),
-              ),
-              Text(
-                '${product.name}',
-                style: TextStyle(
-                  fontFamily: 'NotoSans',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15.sp,
-                ),
-                overflow: TextOverflow.ellipsis,
-              ),
-              _buildPriceTag(product),
-              Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow[700],
-                  ),
-                  Text(
-                    '$rating',
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 bool findLikeProduct(int id, List<Product> likeProducts) {
   for (var i in likeProducts) {
     if (id == i.id) return true;
   }
   return false;
+}
+
+class LikeOverImage extends StatefulWidget {
+  final Product product;
+  bool isLike;
+  final DBHelper _dbHelper;
+  final double _width;
+  LikeOverImage(this.product, this.isLike, this._dbHelper, this._width);
+  @override
+  _LikeOverImageState createState() => _LikeOverImageState();
+}
+
+class _LikeOverImageState extends State<LikeOverImage> {
+  @override
+  Widget build(BuildContext context) {
+    return _buildLikeOverImage(
+        widget.product, widget.isLike, widget._dbHelper, widget._width);
+  }
+
+  Widget _buildLikeOverImage(
+      Product product, bool isLike, DBHelper _dbHelper, double _width) {
+    return Stack(
+      children: [
+        Image.asset(
+          product.imagePath,
+          width: _width,
+          height: _width,
+          fit: BoxFit.fill,
+        ),
+        Positioned(
+          bottom: 5.w,
+          right: 5.w,
+          child: InkWell(
+            child: GetBuilder<LikeControllerWithGetx>(
+              id: product.id,
+              builder: (controller) {
+                controller.init(isLike);
+                return controller.icon;
+              },
+            ),
+            onTap: () {
+              Get.find<LikeControllerWithGetx>()
+                  .clicked(product, isLike, _dbHelper);
+              isLike = !isLike;
+            },
+          ),
+        ),
+      ],
+    );
+  }
 }
 
 class LikeControllerWithGetx extends GetxController {
@@ -437,7 +435,6 @@ class LikeControllerWithGetx extends GetxController {
       setLike(_dbHelper.db, product);
     }
     update([product.id]);
-    _likeProducts = getLike(_dbHelper.db);
   }
 
   void init(bool isLike) {

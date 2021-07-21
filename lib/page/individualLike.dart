@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/page/homePage.dart';
+import 'package:mealdang_mvp/page/productDetail.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 
 class IndividualLike extends StatefulWidget {
@@ -81,8 +82,11 @@ class _LikedBuilderState extends State<LikedBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: _likeProducts,
+    _likeProducts = getLike(_dbHelper.db);
+    final Stream<dynamic> likeData = Stream.fromFuture(_likeProducts);
+    double width = MediaQuery.of(context).size.width;
+    return StreamBuilder(
+        stream: likeData,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasData) {
@@ -90,10 +94,9 @@ class _LikedBuilderState extends State<LikedBuilder> {
               return GridView.builder(
                 itemCount: snapshot.data.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3),
+                    crossAxisCount: 3, childAspectRatio: 0.7.w),
                 itemBuilder: (context, index) {
-                  return ProductCard(
-                      snapshot.data[index], 40.w, _dbHelper, true);
+                  return productCard(snapshot.data[index], width * 0.3);
                 },
               );
             } else
@@ -107,6 +110,56 @@ class _LikedBuilderState extends State<LikedBuilder> {
             ),
           );
         });
+  }
+
+  Widget productCard(Product product, double width) {
+    return Container(
+      color: Colors.red,
+      width: width * 0.33,
+      margin: EdgeInsets.fromLTRB(0, 5.h, 0, 5.h),
+      child: Center(
+        child: Card(
+          margin: const EdgeInsets.all(0.0),
+          elevation: 0.0,
+          child: InkWell(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => ProductDetail(product),
+                ),
+              );
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                  child: LikeOverImage(product, true, _dbHelper, width),
+                ),
+                Text(
+                  '[${product.companyName}]',
+                  style: TextStyle(
+                      fontFamily: 'NotoSans',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 8.sp,
+                      color: Colors.grey[700]),
+                ),
+                Text(
+                  '${product.name}',
+                  style: TextStyle(
+                    fontFamily: 'NotoSans',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12.sp,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 
