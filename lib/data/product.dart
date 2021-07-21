@@ -11,17 +11,16 @@ class Product {
   int reviewCount;
   num rating;
 
-  Product({
-    this.id,
-    this.category,
-    this.name,
-    this.companyName,
-    this.servingSize,
-    this.price,
-    this.discountedPrice,
-    this.imagePath,
-    this.pageUrl,
-    this.reviewCount,
-    this.rating
-  });
+  Product(
+      {this.id,
+      this.category,
+      this.name,
+      this.companyName,
+      this.servingSize,
+      this.price,
+      this.discountedPrice,
+      this.imagePath,
+      this.pageUrl,
+      this.reviewCount,
+      this.rating});
 }

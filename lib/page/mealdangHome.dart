@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/page/homePage.dart';
+import 'package:mealdang_mvp/page/individualLike.dart';
 import 'package:mealdang_mvp/page/survey.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:sqflite/sqflite.dart';
@@ -11,6 +12,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 const int HOME = 0;
 const int SEARCH = 1;
+const int LIKE = 3;
 
 class MealdangHome extends StatefulWidget {
   @override
@@ -34,6 +36,7 @@ class _MealdangHomeState extends State<MealdangHome> {
       HomePage(_scrollController),
       Container(),
       Category(),
+      IndividualLike(),
       Survey(),
     ];
   }
@@ -58,31 +61,7 @@ class _MealdangHomeState extends State<MealdangHome> {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          toolbarHeight: 50.h,
-          automaticallyImplyLeading: false,
-          title: Image.asset(
-            'assets/images/logo/logo_appbar.png',
-            height: 40.h,
-            fit: BoxFit.contain,
-          ),
-          actions: [
-            IconButton(
-              iconSize: 30.sp,
-              icon: Icon(
-                Icons.search,
-                color: MAINCOLOR,
-              ),
-              onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => SearchPage(database)));
-              },
-            ),
-          ],
-          centerTitle: true,
-          elevation: 0.0,
-          backgroundColor: Colors.white,
-        ),
+        appBar: buildAppBar(_selectedIndex),
         body: Stack(
           children: [
             IndexedStack(
@@ -132,6 +111,12 @@ class _MealdangHomeState extends State<MealdangHome> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
+                Icons.favorite_border_outlined,
+              ),
+              label: '찜하기',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
                 Icons.email,
               ),
               label: '설문조사',
@@ -171,6 +156,37 @@ class _MealdangHomeState extends State<MealdangHome> {
       return Future.value(false);
     }
     return Future.value(true);
+  }
+
+  Widget buildAppBar(int index) {
+    if (index != LIKE) {
+      return AppBar(
+        toolbarHeight: 50.h,
+        automaticallyImplyLeading: false,
+        title: Image.asset(
+          'assets/images/logo/logo_appbar.png',
+          height: 40.h,
+          fit: BoxFit.contain,
+        ),
+        actions: [
+          IconButton(
+            iconSize: 30.sp,
+            icon: Icon(
+              Icons.search,
+              color: MAINCOLOR,
+            ),
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => SearchPage(database)));
+            },
+          ),
+        ],
+        centerTitle: true,
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+      );
+    }
+    return null;
   }
 }
 

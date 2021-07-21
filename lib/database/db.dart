@@ -43,6 +43,12 @@ Future<Database> initDatabase() async {
           'review_count INTEGER NULL,'
           'rating REAL NULL'
           ')');
+
+      await db.execute('CREATE TABLE USERLIKE ('
+          'id INTEGER PRIMARY KEY NOT NULL,'
+          'FOREIGN KEY (id) REFERENCES Product(id) ON DELETE NO ACTION'
+          ')');
+
       await db.execute('CREATE TABLE REVIEW ('
           'id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,'
           'product_id INTEGER NOT NULL,'
@@ -162,6 +168,41 @@ Future<List<Product>> getLowPriceProducts(Future<Database> db) async {
         reviewCount: map['review_count'],
         rating: map['rating']);
   });
+}
+
+Future<List<Product>> getLike(Future<Database> db) async {
+  Database database = await db;
+  final List<Map<String, dynamic>> maps = await database.rawQuery(
+      'SELECT * FROM Product LEFT OUTER JOIN USERLIKE WHERE Product.id=USERLIKE.id');
+
+  return List.generate(maps.length, (i) {
+    var map = maps[i];
+    print(map);
+    return Product(
+        id: map['id'],
+        category: map['category'],
+        name: map['name'],
+        companyName: map['company_name'],
+        servingSize: map['serving_size'],
+        price: map['price'],
+        discountedPrice: map['discounted_price'],
+        imagePath: map['image_path'],
+        pageUrl: map['page_url'],
+        reviewCount: map['review_count'],
+        rating: map['rating']);
+  });
+}
+
+void setLike(Future<Database> db, Product product) async {
+  Database database = await db;
+
+  await database.rawQuery('INSERT INTO USERLIKE VALUES'
+      '(${product.id})');
+}
+
+void deleteLike(Future<Database> db, int productID) async {
+  Database database = await db;
+  await database.rawQuery('DELETE FROM USERLIKE WHERE id=$productID');
 }
 
 Future<List<Review>> getReviews(Future<Database> db, int productid) async {

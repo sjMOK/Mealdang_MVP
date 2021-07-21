@@ -7,7 +7,6 @@ import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:mealdang_mvp/data/categoryData.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class CategoryItem extends StatefulWidget {
   final String categoryName;

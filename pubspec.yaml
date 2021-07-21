@@ -36,6 +36,7 @@ dependencies:
   bubble: ^1.2.1
   flutter_screenutil: ^5.0.0+2
   url_launcher: ^6.0.9
+  get: ^4.1.4
 
 dev_dependencies:
   flutter_test:
