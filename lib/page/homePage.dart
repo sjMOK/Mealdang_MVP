@@ -3,14 +3,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mealdang_mvp/data/product.dart';
-import 'package:mealdang_mvp/page/individualLike.dart';
 import 'package:mealdang_mvp/page/productDetail.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'dart:async';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-Future<List<Product>> _likeProducts;
 
 class HomePage extends StatefulWidget {
   final ScrollController _scrollController;
@@ -28,6 +25,7 @@ class _HomePageState extends State<HomePage> {
   Future<List<Product>> _recommendedProducts;
   Future<List<Product>> _topRatingProducts;
   Future<List<Product>> _lowPriceProducts;
+  Future<List<Product>> _likeProducts;
 
   @override
   void initState() {
@@ -48,6 +46,8 @@ class _HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     _width = MediaQuery.of(context).size.width;
+
+    _likeProducts = getLike(_dbHelper.db);
     return RefreshIndicator(
       onRefresh: _onRefresh,
       child: _buildScroll(),
@@ -65,6 +65,7 @@ class _HomePageState extends State<HomePage> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasData) {
+            print("데이터존재");
             return SingleChildScrollView(
               controller: widget._scrollController,
               child: Column(
@@ -86,6 +87,8 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           }
+
+          print("home 데이터없음");
           return Center(
             child: CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(
@@ -94,6 +97,7 @@ class _HomePageState extends State<HomePage> {
             ),
           );
         }
+        print("home 연결안됌");
         return Center(
           child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(
@@ -213,6 +217,7 @@ class _HomePageState extends State<HomePage> {
   Widget _buildProductCard(Product product, List<Product> likeProducts) {
     bool isLike = findLikeProduct(product.id, likeProducts);
     Get.put(new LikeControllerWithGetx());
+    LikeControllerWithGetx().init(isLike, _dbHelper);
     double rating = product.rating ?? 0.0;
     return Container(
       width: 174.w,
@@ -376,7 +381,7 @@ bool findLikeProduct(int id, List<Product> likeProducts) {
 
 class LikeOverImage extends StatefulWidget {
   final Product product;
-  bool isLike;
+  final bool isLike;
   final DBHelper _dbHelper;
   final double _width;
   LikeOverImage(this.product, this.isLike, this._dbHelper, this._width);
@@ -406,9 +411,8 @@ class _LikeOverImageState extends State<LikeOverImage> {
           right: 5.w,
           child: InkWell(
             child: GetBuilder<LikeControllerWithGetx>(
-              id: product.id,
               builder: (controller) {
-                controller.init(isLike);
+                controller.init(isLike, _dbHelper);
                 return controller.icon;
               },
             ),
@@ -426,6 +430,8 @@ class _LikeOverImageState extends State<LikeOverImage> {
 
 class LikeControllerWithGetx extends GetxController {
   var icon;
+  final likeList = Future.value().obs;
+
   void clicked(Product product, bool isClicked, DBHelper _dbHelper) {
     if (isClicked) {
       icon = Icon(Icons.favorite_border);
@@ -434,14 +440,16 @@ class LikeControllerWithGetx extends GetxController {
       icon = Icon(Icons.favorite, color: Colors.red);
       setLike(_dbHelper.db, product);
     }
-    update([product.id]);
+    likeList.value = getLike(_dbHelper.db);
+    update();
   }
 
-  void init(bool isLike) {
+  void init(bool isLike, DBHelper _dbHelper) {
     if (isLike) {
       icon = Icon(Icons.favorite, color: Colors.red);
     } else {
       icon = Icon(Icons.favorite_border);
     }
+    likeList.value = getLike(_dbHelper.db);
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/page/homePage.dart';
@@ -72,49 +73,53 @@ class LikedBuilder extends StatefulWidget {
 }
 
 class _LikedBuilderState extends State<LikedBuilder> {
-  Future<List<Product>> _likeProducts;
   DBHelper _dbHelper = DBHelper();
+  var data;
   @override
   void initState() {
     super.initState();
-    _likeProducts = getLike(_dbHelper.db);
   }
 
   @override
   Widget build(BuildContext context) {
-    _likeProducts = getLike(_dbHelper.db);
-    final Stream<dynamic> likeData = Stream.fromFuture(_likeProducts);
     double width = MediaQuery.of(context).size.width;
-    return StreamBuilder(
-        stream: likeData,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.hasData) {
-              print(snapshot.data.length);
-              return GridView.builder(
-                itemCount: snapshot.data.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3, childAspectRatio: 0.7.w),
-                itemBuilder: (context, index) {
-                  return productCard(snapshot.data[index], width * 0.3);
-                },
-              );
-            } else
+    return GetBuilder<LikeControllerWithGetx>(
+      init: LikeControllerWithGetx(),
+      builder: (controller) {
+        controller.init(true, _dbHelper);
+        return FutureBuilder(
+          future: controller.likeList.value,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              print("연결성공");
+              if (snapshot.hasData) {
+                print(snapshot.data.length);
+                return GridView.builder(
+                  itemCount: snapshot.data.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3, childAspectRatio: 0.7.w),
+                  itemBuilder: (context, index) {
+                    return productCard(snapshot.data[index], width * 0.3);
+                  },
+                );
+              }
               return Text('찜한 상품이 없습니다.');
-          }
-          return Center(
-            child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(
-                MAINCOLOR,
+            }
+            return Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  MAINCOLOR,
+                ),
               ),
-            ),
-          );
-        });
+            );
+          },
+        );
+      },
+    );
   }
 
   Widget productCard(Product product, double width) {
     return Container(
-      color: Colors.red,
       width: width * 0.33,
       margin: EdgeInsets.fromLTRB(0, 5.h, 0, 5.h),
       child: Center(
