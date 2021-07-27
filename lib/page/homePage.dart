@@ -13,7 +13,6 @@ class HomePage extends StatefulWidget {
   final ScrollController _scrollController;
 
   HomePage(this._scrollController);
-
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -25,7 +24,6 @@ class _HomePageState extends State<HomePage> {
   Future<List<Product>> _recommendedProducts;
   Future<List<Product>> _topRatingProducts;
   Future<List<Product>> _lowPriceProducts;
-  Future<List<Product>> _likeProducts;
 
   @override
   void initState() {
@@ -33,7 +31,6 @@ class _HomePageState extends State<HomePage> {
     _recommendedProducts = getRecommendedProducts(_dbHelper.db);
     _topRatingProducts = getTopRatingProducts(_dbHelper.db);
     _lowPriceProducts = getLowPriceProducts(_dbHelper.db);
-    _likeProducts = getLike(_dbHelper.db);
   }
 
   Future<Null> _onRefresh() async {
@@ -47,7 +44,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     _width = MediaQuery.of(context).size.width;
 
-    _likeProducts = getLike(_dbHelper.db);
     return RefreshIndicator(
       onRefresh: _onRefresh,
       child: _buildScroll(),
@@ -60,7 +56,6 @@ class _HomePageState extends State<HomePage> {
         _recommendedProducts,
         _topRatingProducts,
         _lowPriceProducts,
-        _likeProducts
       ]),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
@@ -77,22 +72,24 @@ class _HomePageState extends State<HomePage> {
                     child: Manual(),
                   ),
                   _buildGreyDivider(),
-                  _buildRecommendProduct(0, snapshot.data[0], snapshot.data[3]),
+                  _buildRecommendProduct(0, snapshot.data[0]),
                   _buildGreyDivider(),
-                  _buildRecommendProduct(1, snapshot.data[1], snapshot.data[3]),
+                  _buildRecommendProduct(1, snapshot.data[1]),
                   _buildGreyDivider(),
-                  _buildRecommendProduct(2, snapshot.data[2], snapshot.data[3]),
+                  _buildRecommendProduct(2, snapshot.data[2]),
                   _buildGreyDivider(),
                 ],
               ),
             );
+          } else if (snapshot.hasError) {
+            print("has error");
+            print(snapshot.data);
           }
-
           print("home 데이터없음");
           return Center(
             child: CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(
-                MAINCOLOR,
+                Colors.transparent,
               ),
             ),
           );
@@ -100,9 +97,7 @@ class _HomePageState extends State<HomePage> {
         print("home 연결안됌");
         return Center(
           child: CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(
-              MAINCOLOR,
-            ),
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.transparent),
           ),
         );
       },
@@ -116,8 +111,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildRecommendProduct(
-      int mode, List<Product> products, List<Product> likeProducts) {
+  Widget _buildRecommendProduct(int mode, List<Product> products) {
     String title;
 
     switch (mode) {
@@ -151,22 +145,22 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                _buildProductCard(products[0], likeProducts),
-                _buildProductCard(products[1], likeProducts)
+                _buildProductCard(products[0]),
+                _buildProductCard(products[1])
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                _buildProductCard(products[2], likeProducts),
-                _buildProductCard(products[3], likeProducts)
+                _buildProductCard(products[2]),
+                _buildProductCard(products[3])
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                _buildProductCard(products[4], likeProducts),
-                _buildProductCard(products[5], likeProducts)
+                _buildProductCard(products[4]),
+                _buildProductCard(products[5])
               ],
             ),
           ],
@@ -214,10 +208,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Widget _buildProductCard(Product product, List<Product> likeProducts) {
-    bool isLike = findLikeProduct(product.id, likeProducts);
-    Get.put(new LikeControllerWithGetx());
-    LikeControllerWithGetx().init(isLike, _dbHelper);
+  Widget _buildProductCard(Product product) {
     double rating = product.rating ?? 0.0;
     return Container(
       width: 174.w,
@@ -238,9 +229,22 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10.r)),
-                child: LikeOverImage(product, isLike, _dbHelper, _width * 0.4),
-              ),
+                  borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        product.imagePath,
+                        width: _width * 0.4,
+                        height: _width * 0.4,
+                        fit: BoxFit.fill,
+                      ),
+                      Positioned(
+                          bottom: 5.w,
+                          right: 5.w,
+                          child: LikeIcon(product, _dbHelper) //여기에 하트 생성
+                          ),
+                    ],
+                  )),
               Text(
                 '[${product.companyName}]',
                 style: TextStyle(
@@ -372,84 +376,109 @@ class _ManualState extends State<Manual> {
   }
 }
 
-bool findLikeProduct(int id, List<Product> likeProducts) {
-  for (var i in likeProducts) {
-    if (id == i.id) return true;
-  }
-  return false;
-}
-
-class LikeOverImage extends StatefulWidget {
+class LikeIcon extends StatefulWidget {
   final Product product;
-  final bool isLike;
   final DBHelper _dbHelper;
-  final double _width;
-  LikeOverImage(this.product, this.isLike, this._dbHelper, this._width);
+  LikeIcon(this.product, this._dbHelper);
   @override
-  _LikeOverImageState createState() => _LikeOverImageState();
+  _LikeIconState createState() => _LikeIconState();
 }
 
-class _LikeOverImageState extends State<LikeOverImage> {
+class _LikeIconState extends State<LikeIcon> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return _buildLikeOverImage(
-        widget.product, widget.isLike, widget._dbHelper, widget._width);
+    return _buildLikeIcon(widget.product, widget._dbHelper, context);
   }
 
-  Widget _buildLikeOverImage(
-      Product product, bool isLike, DBHelper _dbHelper, double _width) {
-    return Stack(
-      children: [
-        Image.asset(
-          product.imagePath,
-          width: _width,
-          height: _width,
-          fit: BoxFit.fill,
-        ),
-        Positioned(
-          bottom: 5.w,
-          right: 5.w,
-          child: InkWell(
-            child: GetBuilder<LikeControllerWithGetx>(
-              builder: (controller) {
-                controller.init(isLike, _dbHelper);
-                return controller.icon;
-              },
-            ),
-            onTap: () {
-              Get.find<LikeControllerWithGetx>()
-                  .clicked(product, isLike, _dbHelper);
-              isLike = !isLike;
-            },
-          ),
-        ),
-      ],
+  Widget _buildLikeIcon(
+      Product product, DBHelper _dbHelper, BuildContext context) {
+    return GetBuilder<LikeControllerWithGetx>(
+      init: LikeControllerWithGetx(),
+      id: product.id,
+      builder: (controller) {
+        controller.dataInit(_dbHelper);
+
+        controller.iconInit(product.id);
+        return FutureBuilder(
+          future: controller.likeList.value,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              controller.findLikeproduct(product.id, snapshot.data);
+              if (snapshot.hasData) {
+                return GestureDetector(
+                  child: controller.icon,
+                  onTap: () {
+                    controller.findLikeproduct(product.id, snapshot.data);
+                    controller.clicked(product, _dbHelper);
+                    controller.dataChange(_dbHelper);
+                  },
+                );
+              } else {
+                print("nodata");
+              }
+            }
+            return Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  Colors.transparent,
+                ),
+              ),
+            );
+          },
+        );
+      },
     );
   }
 }
 
 class LikeControllerWithGetx extends GetxController {
-  var icon;
   final likeList = Future.value().obs;
+  bool click;
+  var icon;
 
-  void clicked(Product product, bool isClicked, DBHelper _dbHelper) {
-    if (isClicked) {
-      icon = Icon(Icons.favorite_border);
+  void clicked(Product product, DBHelper _dbHelper) {
+    if (click) {
       deleteLike(_dbHelper.db, product.id);
     } else {
-      icon = Icon(Icons.favorite, color: Colors.red);
       setLike(_dbHelper.db, product);
     }
     likeList.value = getLike(_dbHelper.db);
-    update();
+    update([product.id]);
   }
 
-  void init(bool isLike, DBHelper _dbHelper) {
-    if (isLike) {
-      icon = Icon(Icons.favorite, color: Colors.red);
-    } else {
-      icon = Icon(Icons.favorite_border);
-    }
+  void dataInit(DBHelper _dbHelper) {
     likeList.value = getLike(_dbHelper.db);
+  }
+
+  void dataChange(DBHelper _dbHelper) {
+    likeList.value = getLike(_dbHelper.db);
+    update(['likePage']);
+  }
+
+  void iconInit(int id) async {
+    icon = Icon(Icons.favorite_border);
+    for (var i in await likeList.value) {
+      if (id == i.id) {
+        icon = Icon(Icons.favorite, color: Colors.red);
+      }
+    }
+  }
+
+  void findLikeproduct(int id, List<Product> likeList) {
+    click = false;
+    icon = Icon(Icons.favorite_border);
+    for (var i in likeList) {
+      if (id == i.id) {
+        click = true;
+
+        icon = Icon(Icons.favorite, color: Colors.red);
+        break;
+      }
+    }
   }
 }

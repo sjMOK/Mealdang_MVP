@@ -8,6 +8,8 @@ import 'package:mealdang_mvp/utils/util.dart';
 import 'package:mealdang_mvp/data/categoryData.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'homePage.dart';
+
 class CategoryItem extends StatefulWidget {
   final String categoryName;
 
@@ -126,10 +128,20 @@ class _CategoryItemState extends State<CategoryItem> {
             borderRadius: BorderRadius.all(Radius.circular(10.r)),
             child: Hero(
               tag: product.id, //product.id,
-              child: Image.asset(
-                product.imagePath,
-                width: 131.w,
-                height: 131.w,
+              child: Stack(
+                children: [
+                  Image.asset(
+                    product.imagePath,
+                    width: 131.w,
+                    height: 131.w,
+                    fit: BoxFit.fill,
+                  ),
+                  Positioned(
+                      bottom: 5.w,
+                      right: 5.w,
+                      child: LikeIcon(product, _dbHelper) //여기에 하트 생성
+                      ),
+                ],
               ),
             ),
           ),

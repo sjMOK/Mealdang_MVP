@@ -84,16 +84,16 @@ class _LikedBuilderState extends State<LikedBuilder> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return GetBuilder<LikeControllerWithGetx>(
+      id: 'likePage',
       init: LikeControllerWithGetx(),
       builder: (controller) {
-        controller.init(true, _dbHelper);
+        controller.dataInit(_dbHelper);
         return FutureBuilder(
           future: controller.likeList.value,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               print("연결성공");
               if (snapshot.hasData) {
-                print(snapshot.data.length);
                 return GridView.builder(
                   itemCount: snapshot.data.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -139,9 +139,22 @@ class _LikedBuilderState extends State<LikedBuilder> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(10.r)),
-                  child: LikeOverImage(product, true, _dbHelper, width),
-                ),
+                    borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                    child: Stack(
+                      children: [
+                        Image.asset(
+                          product.imagePath,
+                          width: 130.w,
+                          height: 130.w,
+                          fit: BoxFit.fill,
+                        ),
+                        Positioned(
+                            bottom: 5.w,
+                            right: 5.w,
+                            child: LikeIcon(product, _dbHelper) //여기에 하트 생성
+                            ),
+                      ],
+                    )),
                 Text(
                   '[${product.companyName}]',
                   style: TextStyle(

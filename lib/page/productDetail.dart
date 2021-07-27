@@ -4,6 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/data/review.dart';
 import 'package:mealdang_mvp/database/db.dart';
+import 'package:mealdang_mvp/page/homePage.dart';
 import 'package:mealdang_mvp/page/mealdangHome.dart';
 import 'package:mealdang_mvp/page/reviewPage.dart';
 import 'package:mealdang_mvp/page/reviewUI.dart';
@@ -114,17 +115,25 @@ class _ProductDetailState extends State<ProductDetail> {
             ),
             child: Padding(
               padding: const EdgeInsets.all(0.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Row(
                 children: [
-                  Text(
-                    "구매하기",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'NotoSans',
-                        fontWeight: FontWeight.w800,
-                        fontSize: 18.sp),
-                  )
+                  Container(
+                    width: 70.w,
+                    child: LikeIcon(product, _dbHelper),
+                  ),
+                  Container(
+                    width: 1.sw - 70,
+                    child: Center(
+                      child: Text(
+                        "구매하기",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'NotoSans',
+                            fontWeight: FontWeight.w800,
+                            fontSize: 18.sp),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
