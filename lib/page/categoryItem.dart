@@ -22,7 +22,7 @@ class CategoryItem extends StatefulWidget {
 class _CategoryItemState extends State<CategoryItem> {
   Future<List<Product>> _products;
   DBHelper _dbHelper = DBHelper();
-
+  // RecentViewController controller;
   @override
   void initState() {
     super.initState();
@@ -214,59 +214,59 @@ class _CategoryItemState extends State<CategoryItem> {
       ),
     );
   }
+}
 
-  Container _buildPrice(int realPrice, int discountedPrice) {
-    if (discountedPrice == null) {
-      return Container(
-        child: Text(
-          setPriceFormat(realPrice),
-          style: TextStyle(
-              fontFamily: 'NotoSans',
-              fontWeight: FontWeight.w700,
-              fontSize: 20.sp,
-              color: Colors.red[600]),
-        ),
-      );
-    } else {
-      int discountedRate = ((1 - discountedPrice / realPrice) * 100).round();
+Container _buildPrice(int realPrice, int discountedPrice) {
+  if (discountedPrice == null) {
+    return Container(
+      child: Text(
+        setPriceFormat(realPrice),
+        style: TextStyle(
+            fontFamily: 'NotoSans',
+            fontWeight: FontWeight.w700,
+            fontSize: 20.sp,
+            color: Colors.red[600]),
+      ),
+    );
+  } else {
+    int discountedRate = ((1 - discountedPrice / realPrice) * 100).round();
 
-      return Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: <Widget>[
-                Text(
-                  '$discountedRate%',
-                  style: TextStyle(
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: <Widget>[
+              Text(
+                '$discountedRate%',
+                style: TextStyle(
+                  fontFamily: 'NotoSans',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 15.sp,
+                ),
+              ),
+              SizedBox(width: 7.w),
+              Text(
+                setPriceFormat(realPrice),
+                style: TextStyle(
                     fontFamily: 'NotoSans',
                     fontWeight: FontWeight.w500,
                     fontSize: 15.sp,
-                  ),
-                ),
-                SizedBox(width: 7.w),
-                Text(
-                  setPriceFormat(realPrice),
-                  style: TextStyle(
-                      fontFamily: 'NotoSans',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15.sp,
-                      color: Colors.grey[400],
-                      decoration: TextDecoration.lineThrough),
-                ),
-              ],
-            ),
-            Text(
-              setPriceFormat(discountedPrice),
-              style: TextStyle(
-                  fontFamily: 'NotoSans',
-                  fontWeight: FontWeight.w700,
-                  fontSize: 20.sp,
-                  color: Colors.red[600]),
-            ),
-          ],
-        ),
-      );
-    }
+                    color: Colors.grey[400],
+                    decoration: TextDecoration.lineThrough),
+              ),
+            ],
+          ),
+          Text(
+            setPriceFormat(discountedPrice),
+            style: TextStyle(
+                fontFamily: 'NotoSans',
+                fontWeight: FontWeight.w700,
+                fontSize: 20.sp,
+                color: Colors.red[600]),
+          ),
+        ],
+      ),
+    );
   }
 }

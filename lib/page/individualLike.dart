@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/page/homePage.dart';
-import 'package:mealdang_mvp/page/productDetail.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 
 class IndividualLike extends StatefulWidget {
@@ -59,7 +57,7 @@ class _IndividualLikeState extends State<IndividualLike> {
                 child: LikedBuilder(),
               ),
               Tab(
-                text: "2",
+                child: RecentlyViewedBuilder(),
               ),
             ],
           )),
@@ -74,7 +72,6 @@ class LikedBuilder extends StatefulWidget {
 
 class _LikedBuilderState extends State<LikedBuilder> {
   DBHelper _dbHelper = DBHelper();
-  var data;
   @override
   void initState() {
     super.initState();
@@ -97,9 +94,10 @@ class _LikedBuilderState extends State<LikedBuilder> {
                 return GridView.builder(
                   itemCount: snapshot.data.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3, childAspectRatio: 0.7.w),
+                      crossAxisCount: 3, childAspectRatio: 0.6.w),
                   itemBuilder: (context, index) {
-                    return productCard(snapshot.data[index], width * 0.3);
+                    return ProductCard(
+                        snapshot.data[index], width * 0.33, 130.w);
                   },
                 );
               }
@@ -117,68 +115,6 @@ class _LikedBuilderState extends State<LikedBuilder> {
       },
     );
   }
-
-  Widget productCard(Product product, double width) {
-    return Container(
-      width: width * 0.33,
-      margin: EdgeInsets.fromLTRB(0, 5.h, 0, 5.h),
-      child: Center(
-        child: Card(
-          margin: const EdgeInsets.all(0.0),
-          elevation: 0.0,
-          child: InkWell(
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => ProductDetail(product),
-                ),
-              );
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(10.r)),
-                    child: Stack(
-                      children: [
-                        Image.asset(
-                          product.imagePath,
-                          width: 130.w,
-                          height: 130.w,
-                          fit: BoxFit.fill,
-                        ),
-                        Positioned(
-                            bottom: 5.w,
-                            right: 5.w,
-                            child: LikeIcon(product, _dbHelper) //여기에 하트 생성
-                            ),
-                      ],
-                    )),
-                Text(
-                  '[${product.companyName}]',
-                  style: TextStyle(
-                      fontFamily: 'NotoSans',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 8.sp,
-                      color: Colors.grey[700]),
-                ),
-                Text(
-                  '${product.name}',
-                  style: TextStyle(
-                    fontFamily: 'NotoSans',
-                    fontWeight: FontWeight.w500,
-                    fontSize: 12.sp,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 }
 
 class RecentlyViewedBuilder extends StatefulWidget {
@@ -187,8 +123,44 @@ class RecentlyViewedBuilder extends StatefulWidget {
 }
 
 class _RecentlyViewedBuilderState extends State<RecentlyViewedBuilder> {
+  DBHelper _dbHelper = new DBHelper();
   @override
   Widget build(BuildContext context) {
-    return Container();
+    double width = MediaQuery.of(context).size.width;
+    return GetBuilder<RecentViewController>(
+      id: 'recentPage',
+      init: RecentViewController(),
+      builder: (controller) {
+        controller.dataInit(_dbHelper);
+        print("update recent page");
+        return FutureBuilder(
+          future: controller.recentViewList.value,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              print("연결성공");
+              if (snapshot.hasData) {
+                return GridView.builder(
+                  itemCount: snapshot.data.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3, childAspectRatio: 0.6.w),
+                  itemBuilder: (context, index) {
+                    return ProductCard(
+                        snapshot.data[index], width * 0.33, 130.w);
+                  },
+                );
+              }
+              return Text('최근 본 상품이 없습니다.');
+            }
+            return Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  MAINCOLOR,
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
   }
 }

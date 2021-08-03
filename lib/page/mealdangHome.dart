@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/page/homePage.dart';
 import 'package:mealdang_mvp/page/individualLike.dart';
-import 'package:mealdang_mvp/page/survey.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/page/category.dart';
@@ -37,7 +36,6 @@ class _MealdangHomeState extends State<MealdangHome> {
       Container(),
       Category(),
       IndividualLike(),
-      Survey(),
     ];
   }
 
@@ -114,12 +112,6 @@ class _MealdangHomeState extends State<MealdangHome> {
                 Icons.favorite_border_outlined,
               ),
               label: '찜하기',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.email,
-              ),
-              label: '설문조사',
             ),
           ],
           selectedItemColor: MAINCOLOR,

@@ -145,138 +145,25 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                _buildProductCard(products[0]),
-                _buildProductCard(products[1])
+                ProductCard(products[0], 174.w, _width * 0.4),
+                ProductCard(products[1], 174.w, _width * 0.4)
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                _buildProductCard(products[2]),
-                _buildProductCard(products[3])
+                ProductCard(products[2], 174.w, _width * 0.4),
+                ProductCard(products[3], 174.w, _width * 0.4)
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                _buildProductCard(products[4]),
-                _buildProductCard(products[5])
+                ProductCard(products[4], 174.w, _width * 0.4),
+                ProductCard(products[5], 174.w, _width * 0.4)
               ],
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildPriceTag(Product product) {
-    if (product.discountedPrice == null) {
-      return Text(
-        setPriceFormat(product.price),
-        style: TextStyle(
-          fontFamily: 'NotoSans',
-          fontWeight: FontWeight.bold,
-        ),
-      );
-    } else {
-      return Container(
-        child: Row(
-          children: [
-            Text(
-              setPriceFormat(
-                product.price,
-              ),
-              style: TextStyle(
-                  fontFamily: 'NotoSans',
-                  fontWeight: FontWeight.w600,
-                  color: Colors.grey[400],
-                  decoration: TextDecoration.lineThrough),
-            ),
-            SizedBox(width: 8.w),
-            Text(
-              setPriceFormat(
-                product.discountedPrice,
-              ),
-              style: TextStyle(
-                fontFamily: 'NotoSans',
-                fontWeight: FontWeight.bold,
-              ),
-            )
-          ],
-        ),
-      );
-    }
-  }
-
-  Widget _buildProductCard(Product product) {
-    double rating = product.rating ?? 0.0;
-    return Container(
-      width: 174.w,
-      margin: EdgeInsets.fromLTRB(0, 5.h, 0, 5.h),
-      child: Card(
-        margin: const EdgeInsets.all(0.0),
-        elevation: 0.0,
-        child: InkWell(
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => ProductDetail(product),
-              ),
-            );
-          },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(10.r)),
-                  child: Stack(
-                    children: [
-                      Image.asset(
-                        product.imagePath,
-                        width: _width * 0.4,
-                        height: _width * 0.4,
-                        fit: BoxFit.fill,
-                      ),
-                      Positioned(
-                          bottom: 5.w,
-                          right: 5.w,
-                          child: LikeIcon(product, _dbHelper) //여기에 하트 생성
-                          ),
-                    ],
-                  )),
-              Text(
-                '[${product.companyName}]',
-                style: TextStyle(
-                    fontFamily: 'NotoSans',
-                    fontWeight: FontWeight.w500,
-                    fontSize: 12.sp,
-                    color: Colors.grey[700]),
-              ),
-              Text(
-                '${product.name}',
-                style: TextStyle(
-                  fontFamily: 'NotoSans',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15.sp,
-                ),
-                overflow: TextOverflow.ellipsis,
-              ),
-              _buildPriceTag(product),
-              Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow[700],
-                  ),
-                  Text(
-                    '$rating',
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ],
-              )
-            ],
-          ),
         ),
       ),
     );
@@ -376,6 +263,144 @@ class _ManualState extends State<Manual> {
   }
 }
 
+class ProductCard extends StatefulWidget {
+  final Product product;
+  final double cardWidth;
+  final double imageWidth;
+  ProductCard(this.product, this.cardWidth, this.imageWidth);
+  @override
+  _ProductCardState createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  DBHelper _dbHelper = DBHelper();
+  @override
+  Widget build(BuildContext context) {
+    double rating = widget.product.rating ?? 0.0;
+    return Container(
+      width: widget.cardWidth,
+      margin: EdgeInsets.fromLTRB(0, 5.h, 0, 5.h),
+      child: Center(
+        child: Card(
+          margin: const EdgeInsets.all(0.0),
+          elevation: 0.0,
+          child: InkWell(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => ProductDetail(widget.product),
+                ),
+              );
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        widget.product.imagePath,
+                        width: widget.imageWidth,
+                        height: widget.imageWidth,
+                        fit: BoxFit.fill,
+                      ),
+                      Positioned(
+                          bottom: 5.w,
+                          right: 5.w,
+                          child: LikeIcon(widget.product, _dbHelper) //여기에 하트 생성
+                          ),
+                    ],
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '[${widget.product.companyName}]',
+                      style: TextStyle(
+                          fontFamily: 'NotoSans',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12.sp,
+                          color: Colors.grey[700]),
+                    ),
+                    Text(
+                      '${widget.product.name}',
+                      style: TextStyle(
+                        fontFamily: 'NotoSans',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15.sp,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    _buildPriceTag(widget.product),
+                    Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.star,
+                          color: Colors.yellow[700],
+                          size: 15.sp,
+                        ),
+                        Text(
+                          '$rating',
+                          style: TextStyle(color: Colors.red, fontSize: 15.sp),
+                        ),
+                      ],
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPriceTag(Product product) {
+    if (product.discountedPrice == null) {
+      return Text(
+        setPriceFormat(product.price),
+        style: TextStyle(
+          fontSize: widget.imageWidth * 0.1,
+          fontFamily: 'NotoSans',
+          fontWeight: FontWeight.bold,
+        ),
+      );
+    } else {
+      return Container(
+        child: Row(
+          children: [
+            Text(
+              setPriceFormat(
+                product.price,
+              ),
+              style: TextStyle(
+                  fontFamily: 'NotoSans',
+                  fontSize: widget.imageWidth * 0.1,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.grey[400],
+                  decoration: TextDecoration.lineThrough),
+            ),
+            SizedBox(width: 8.w),
+            Text(
+              setPriceFormat(
+                product.discountedPrice,
+              ),
+              style: TextStyle(
+                fontFamily: 'NotoSans',
+                fontSize: widget.imageWidth * 0.1,
+                fontWeight: FontWeight.bold,
+              ),
+            )
+          ],
+        ),
+      );
+    }
+  }
+}
+
 class LikeIcon extends StatefulWidget {
   final Product product;
   final DBHelper _dbHelper;
@@ -416,6 +441,10 @@ class _LikeIconState extends State<LikeIcon> {
                     controller.findLikeproduct(product.id, snapshot.data);
                     controller.clicked(product, _dbHelper);
                     controller.dataChange(_dbHelper);
+                    if (!controller.isClicked())
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          duration: Duration(milliseconds: 1500),
+                          content: Text('찜목록에 추가되었습니다.')));
                   },
                 );
               } else {
@@ -461,7 +490,11 @@ class LikeControllerWithGetx extends GetxController {
   }
 
   void iconInit(int id) async {
-    icon = Icon(Icons.favorite_border);
+    icon = Icon(
+      Icons.favorite_border,
+      color: Colors.grey[500],
+      size: 18.sp,
+    );
     for (var i in await likeList.value) {
       if (id == i.id) {
         icon = Icon(Icons.favorite, color: Colors.red);
@@ -471,7 +504,7 @@ class LikeControllerWithGetx extends GetxController {
 
   void findLikeproduct(int id, List<Product> likeList) {
     click = false;
-    icon = Icon(Icons.favorite_border);
+    icon = Icon(Icons.favorite_border, color: Colors.grey[500]);
     for (var i in likeList) {
       if (id == i.id) {
         click = true;
@@ -480,5 +513,34 @@ class LikeControllerWithGetx extends GetxController {
         break;
       }
     }
+  }
+
+  bool isClicked() {
+    return click;
+  }
+}
+
+class RecentViewController extends GetxController {
+  final recentViewList = Future.value().obs;
+
+  void dataInit(DBHelper _dbHelper) {
+    recentViewList.value = getRecentView(_dbHelper.db);
+  }
+
+  void productInsert(Product product, DBHelper _dbHelper) async {
+    int listCount = 0;
+    for (var i in await recentViewList.value) {
+      listCount++;
+      if (i.id == product.id) {
+        deleteRecent(_dbHelper.db, product.id);
+        break;
+      } else if (listCount > 14) {
+        deleteOldestRecent(_dbHelper.db);
+        print(listCount);
+        break;
+      }
+    }
+    setRecentView(_dbHelper.db, product);
+    update(['recentPage']);
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
 import 'package:mealdang_mvp/data/product.dart';
 import 'package:mealdang_mvp/data/review.dart';
 import 'package:mealdang_mvp/database/db.dart';
@@ -10,6 +12,7 @@ import 'package:mealdang_mvp/page/reviewPage.dart';
 import 'package:mealdang_mvp/page/reviewUI.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mealdang_mvp/page/categoryItem.dart';
 
 class ProductDetail extends StatefulWidget {
   final Product product;
@@ -22,18 +25,20 @@ class ProductDetail extends StatefulWidget {
 
 class _ProductDetailState extends State<ProductDetail> {
   Future<List<Review>> _reviews;
+  RecentViewController controller;
   DBHelper _dbHelper = DBHelper();
-
   @override
   void initState() {
     super.initState();
     _reviews = getReviews(_dbHelper.db, widget.product.id);
+    controller = Get.put(RecentViewController());
+    controller.dataInit(_dbHelper);
+    controller.productInsert(widget.product, _dbHelper);
   }
 
   @override
   Widget build(BuildContext context) {
     Product product = widget.product;
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -75,67 +80,73 @@ class _ProductDetailState extends State<ProductDetail> {
             ),
           ),
         ],
-      ), //_scroll(product),
-      bottomNavigationBar: GestureDetector(
-        child: Container(
-          height: 48.h,
-          color: MAINCOLOR,
-          child: InkWell(
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Scaffold(
-                  appBar: AppBar(
-                    toolbarHeight: 70.h,
-                    automaticallyImplyLeading: true,
-                    iconTheme: IconThemeData(color: Colors.black),
-                    title: Text(
-                      '밀당',
-                      style: TextStyle(
-                        color: MAINCOLOR,
-                        fontFamily: 'NotoSans',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 32.sp,
-                      ),
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+            border:
+                Border(top: BorderSide(color: Colors.grey[300], width: 1.w))),
+        height: 53.h,
+        child: InkWell(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Scaffold(
+                appBar: AppBar(
+                  toolbarHeight: 70.h,
+                  automaticallyImplyLeading: true,
+                  iconTheme: IconThemeData(color: Colors.black),
+                  title: Text(
+                    '밀당',
+                    style: TextStyle(
+                      color: MAINCOLOR,
+                      fontFamily: 'NotoSans',
+                      fontWeight: FontWeight.w700,
+                      fontSize: 32.sp,
                     ),
-                    centerTitle: true,
-                    elevation: 1.0,
-                    backgroundColor: Colors.white,
                   ),
+                  centerTitle: true,
+                  elevation: 1.0,
                   backgroundColor: Colors.white,
-                  body: SafeArea(
-                    child: InAppWebView(
-                      initialUrlRequest: URLRequest(
-                        url: Uri.parse(product.pageUrl),
-                      ),
+                ),
+                backgroundColor: Colors.white,
+                body: SafeArea(
+                  child: InAppWebView(
+                    initialUrlRequest: URLRequest(
+                      url: Uri.parse(product.pageUrl),
                     ),
                   ),
                 ),
               ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(0.0),
-              child: Row(
-                children: [
-                  Container(
-                    width: 70.w,
-                    child: LikeIcon(product, _dbHelper),
-                  ),
-                  Container(
-                    width: 1.sw - 70,
-                    child: Center(
-                      child: Text(
-                        "구매하기",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'NotoSans',
-                            fontWeight: FontWeight.w800,
-                            fontSize: 18.sp),
-                      ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 50.w,
+                  height: 50.w,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey[300], width: 2.w)),
+                  child: LikeIcon(product, _dbHelper),
+                ),
+                SizedBox(width: 5.w),
+                Container(
+                  color: MAINCOLOR,
+                  width: 345.w,
+                  child: Center(
+                    child: Text(
+                      "구매하기",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'NotoSans',
+                          fontWeight: FontWeight.w800,
+                          fontSize: 18.sp),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
