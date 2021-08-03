@@ -25,9 +25,6 @@ class DBHelper {
 Future<Database> initDatabase() async {
   var databasesPath = await getDatabasesPath();
   String path = join(databasesPath, 'mealdang_database.db');
-
-  //await deleteDatabase(path);
-  print('open database');
   return openDatabase(
     path,
     version: 3,
