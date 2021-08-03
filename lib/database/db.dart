@@ -30,15 +30,7 @@ Future<Database> initDatabase() async {
   print('open database');
   return openDatabase(
     path,
-    version: 2,
-    onUpgrade: (Database db, int oldVersion, int newVersion) async {
-      if (oldVersion < newVersion) {
-        await db.execute('CREATE TABLE USERLIKE ('
-            'id INTEGER PRIMARY KEY NOT NULL,'
-            'FOREIGN KEY (id) REFERENCES Product(id) ON DELETE NO ACTION'
-            ')');
-      }
-    },
+    version: 3,
     onCreate: (Database db, int version) async {
       await db.execute('CREATE TABLE Product ('
           'id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,'
@@ -56,11 +48,13 @@ Future<Database> initDatabase() async {
 
       await db.execute('CREATE TABLE USERLIKE ('
           'id INTEGER PRIMARY KEY NOT NULL,'
+          'time DATETIME,'
           'FOREIGN KEY (id) REFERENCES Product(id) ON DELETE NO ACTION'
           ')');
 
       await db.execute('CREATE TABLE RECENTVIEW ('
           'id INTEGER PRIMARY KEY NOT NULL,'
+          'time DATETIME,'
           'FOREIGN KEY (id) REFERENCES Product(id) ON DELETE NO ACTION'
           ')');
 
@@ -124,21 +118,24 @@ Future<List<Product>> getRecommendedProducts(Future<Database> db) async {
   final List<Map<String, dynamic>> maps = await database.rawQuery(
       'SELECT * FROM Product WHERE id IN (${random[0]}, ${random[1]}, ${random[2]}, ${random[3]}, ${random[4]}, ${random[5]})');
 
-  return List.generate(maps.length, (i) {
-    var map = maps[i];
-    return Product(
-        id: map['id'],
-        category: map['category'],
-        name: map['name'],
-        companyName: map['company_name'],
-        servingSize: map['serving_size'],
-        price: map['price'],
-        discountedPrice: map['discounted_price'],
-        imagePath: map['image_path'],
-        pageUrl: map['page_url'],
-        reviewCount: map['review_count'],
-        rating: map['rating']);
-  });
+  return List.generate(
+    maps.length,
+    (i) {
+      var map = maps[i];
+      return Product(
+          id: map['id'],
+          category: map['category'],
+          name: map['name'],
+          companyName: map['company_name'],
+          servingSize: map['serving_size'],
+          price: map['price'],
+          discountedPrice: map['discounted_price'],
+          imagePath: map['image_path'],
+          pageUrl: map['page_url'],
+          reviewCount: map['review_count'],
+          rating: map['rating']);
+    },
+  );
 }
 
 Future<List<Product>> getTopRatingProducts(Future<Database> db) async {
@@ -188,7 +185,7 @@ Future<List<Product>> getLowPriceProducts(Future<Database> db) async {
 Future<List<Product>> getLike(Future<Database> db) async {
   Database database = await db;
   final List<Map<String, dynamic>> maps = await database.rawQuery(
-      'SELECT * FROM Product LEFT OUTER JOIN USERLIKE WHERE Product.id=USERLIKE.id');
+      'SELECT * FROM USERLIKE LEFT OUTER JOIN Product WHERE Product.id=USERLIKE.id ORDER BY time DESC');
 
   return List.generate(maps.length, (i) {
     var map = maps[i];
@@ -210,7 +207,7 @@ Future<List<Product>> getLike(Future<Database> db) async {
 Future<List<Product>> getRecentView(Future<Database> db) async {
   Database database = await db;
   final List<Map<String, dynamic>> maps = await database.rawQuery(
-      'SELECT * FROM Product LEFT OUTER JOIN RECENTVIEW WHERE Product.id=RECENTVIEW.id');
+      'SELECT * FROM RECENTVIEW LEFT OUTER JOIN Product WHERE Product.id=RECENTVIEW.id ORDER BY time DESC');
 
   return List.generate(maps.length, (i) {
     var map = maps[i];
@@ -232,19 +229,30 @@ Future<List<Product>> getRecentView(Future<Database> db) async {
 void setLike(Future<Database> db, Product product) async {
   Database database = await db;
 
-  await database.rawQuery('INSERT INTO USERLIKE VALUES'
-      '(${product.id})');
+  await database
+      .rawQuery('INSERT INTO USERLIKE VALUES(${product.id},CURRENT_TIMESTAMP)');
 }
 
 void setRecentView(Future<Database> db, Product product) async {
   Database database = await db;
-  await database.rawQuery('INSERT INTO RECENTVIEW VALUES'
-      '(${product.id})');
+  await database.rawQuery(
+      'INSERT INTO RECENTVIEW VALUES(${product.id},CURRENT_TIMESTAMP)');
 }
 
 void deleteLike(Future<Database> db, int productID) async {
   Database database = await db;
   await database.rawQuery('DELETE FROM USERLIKE WHERE id=$productID');
+}
+
+void deleteRecent(Future<Database> db, int productID) async {
+  Database database = await db;
+  await database.rawQuery('DELETE FROM RECENTVIEW WHERE id=$productID');
+}
+
+void deleteOldestRecent(Future<Database> db) async {
+  Database database = await db;
+  await database.rawQuery(
+      'DELETE FROM RECENTVIEW WHERE id=(SELECT id FROM RECENTVIEW LIMIT 1,1)');
 }
 
 Future<List<Review>> getReviews(Future<Database> db, int productid) async {
