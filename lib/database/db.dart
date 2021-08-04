@@ -28,7 +28,25 @@ Future<Database> initDatabase() async {
   return openDatabase(
     path,
     version: 3,
+    onUpgrade: (Database db, int oldVersion, int newVersion) async {
+      print("onupgrade");
+      if (oldVersion < 4) {
+        await db.execute('CREATE TABLE USERLIKE ('
+            'id INTEGER PRIMARY KEY NOT NULL,'
+            'time DATETIME,'
+            'FOREIGN KEY (id) REFERENCES Product(id) ON DELETE NO ACTION'
+            ')');
+
+        await db.execute('CREATE TABLE RECENTVIEW ('
+            'id INTEGER PRIMARY KEY NOT NULL,'
+            'time DATETIME,'
+            'FOREIGN KEY (id) REFERENCES Product(id) ON DELETE NO ACTION'
+            ')');
+      }
+      db.setVersion(3);
+    },
     onCreate: (Database db, int version) async {
+      print("oncreate");
       await db.execute('CREATE TABLE Product ('
           'id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,'
           'category TEXT NOT NULL,'
