@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ReviewUI extends StatefulWidget {
   final Review reviews;
   final int separator;
-  final List<int> score; // productDetail에서
+  final List<int> score;
   ReviewUI(this.reviews, this.separator, this.score);
   Text textEffectPDetail(String text) {
     if (this.separator == 1)

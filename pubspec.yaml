@@ -26,7 +26,7 @@ dependencies:
   intl: ^0.17.0
   flutter_rating_bar: ^4.0.0
   flutter_inappwebview: ^5.3.2
-  sqflite: ^1.3.0
+  sqflite: ^2.0.0+3
   introduction_screen: ^2.1.0
   shared_preferences: ^2.0.6
 

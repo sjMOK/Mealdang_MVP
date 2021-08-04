@@ -89,7 +89,6 @@ class _LikedBuilderState extends State<LikedBuilder> {
           future: controller.likeList.value,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
-              print("연결성공");
               if (snapshot.hasData) {
                 return GridView.builder(
                   itemCount: snapshot.data.length,
@@ -137,7 +136,6 @@ class _RecentlyViewedBuilderState extends State<RecentlyViewedBuilder> {
           future: controller.recentViewList.value,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
-              print("연결성공");
               if (snapshot.hasData) {
                 return GridView.builder(
                   itemCount: snapshot.data.length,

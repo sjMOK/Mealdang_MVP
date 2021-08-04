@@ -60,7 +60,6 @@ class _HomePageState extends State<HomePage> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasData) {
-            print("데이터존재");
             return SingleChildScrollView(
               controller: widget._scrollController,
               child: Column(
@@ -82,10 +81,8 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           } else if (snapshot.hasError) {
-            print("has error");
             print(snapshot.data);
           }
-          print("home 데이터없음");
           return Center(
             child: CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(
@@ -94,7 +91,6 @@ class _HomePageState extends State<HomePage> {
             ),
           );
         }
-        print("home 연결안됌");
         return Center(
           child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(Colors.transparent),
@@ -536,7 +532,6 @@ class RecentViewController extends GetxController {
         break;
       } else if (listCount > 14) {
         deleteOldestRecent(_dbHelper.db);
-        print(listCount);
         break;
       }
     }

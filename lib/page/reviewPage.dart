@@ -105,7 +105,7 @@ class _ReviewPageState extends State<ReviewPage> {
             ),
           ),
         ],
-      ), //_scorll(widget.ratingContainer),
+      ),
     );
   }
 

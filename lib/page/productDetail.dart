@@ -12,7 +12,6 @@ import 'package:mealdang_mvp/page/reviewPage.dart';
 import 'package:mealdang_mvp/page/reviewUI.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mealdang_mvp/page/categoryItem.dart';
 
 class ProductDetail extends StatefulWidget {
   final Product product;
@@ -134,7 +133,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 SizedBox(width: 5.w),
                 Container(
                   color: MAINCOLOR,
-                  width: 345.w,
+                  width: 1.sw - 70.w,
                   child: Center(
                     child: Text(
                       "구매하기",
