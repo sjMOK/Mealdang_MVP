@@ -27,7 +27,7 @@ Future<Database> initDatabase() async {
   String path = join(databasesPath, 'mealdang_database.db');
   return openDatabase(
     path,
-    version: 3,
+    version: 4,
     onUpgrade: (Database db, int oldVersion, int newVersion) async {
       print("onupgrade");
       if (oldVersion < 4) {
@@ -43,7 +43,6 @@ Future<Database> initDatabase() async {
             'FOREIGN KEY (id) REFERENCES Product(id) ON DELETE NO ACTION'
             ')');
       }
-      db.setVersion(3);
     },
     onCreate: (Database db, int version) async {
       print("oncreate");
