@@ -139,7 +139,8 @@ class _CategoryItemState extends State<CategoryItem> {
                   Positioned(
                       bottom: 5.w,
                       right: 5.w,
-                      child: LikeIcon(product, _dbHelper) //여기에 하트 생성
+                      child: LikeIcon(
+                          product, _dbHelper, 30.w, Colors.white) //여기에 하트 생성
                       ),
                 ],
               ),

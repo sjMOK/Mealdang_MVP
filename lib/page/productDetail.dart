@@ -128,7 +128,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   height: 50.w,
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey[300], width: 2.w)),
-                  child: LikeIcon(product, _dbHelper),
+                  child: LikeIcon(product, _dbHelper, 35.w, Colors.grey[500]),
                 ),
                 SizedBox(width: 5.w),
                 Container(

@@ -22,7 +22,6 @@ class _IntroductionPageState extends State<IntroductionPage> {
         rawPages: [
           _buildImageContainer('introduction_image/introduction_image_1.png'),
           _buildImageContainer('introduction_image/introduction_image_2.png'),
-          _buildImageContainer('introduction_image/introduction_image_3.png'),
           _buildStack(),
         ],
         skipFlex: 0,
@@ -58,13 +57,13 @@ class _IntroductionPageState extends State<IntroductionPage> {
           width: _width,
           height: _height,
           child: Image.asset(
-              'assets/images/introduction_image/introduction_image_4.png'),
+              'assets/images/introduction_image/introduction_image_3.png'),
         ),
         Positioned(
           width: 190.w,
           height: 42.h,
           child: ElevatedButton(
-            onPressed: () async{
+            onPressed: () async {
               SharedPreferences prefs = await SharedPreferences.getInstance();
               prefs.setBool('seen', true);
               Navigator.of(context).pushReplacementNamed('/home');

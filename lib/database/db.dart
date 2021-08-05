@@ -31,13 +31,13 @@ Future<Database> initDatabase() async {
     onUpgrade: (Database db, int oldVersion, int newVersion) async {
       print("onupgrade");
       if (oldVersion < 4) {
-        await db.execute('CREATE TABLE USERLIKE ('
+        await db.execute('CREATE TABLE IF NOT EXISTS USERLIKE ('
             'id INTEGER PRIMARY KEY NOT NULL,'
             'time DATETIME,'
             'FOREIGN KEY (id) REFERENCES Product(id) ON DELETE NO ACTION'
             ')');
 
-        await db.execute('CREATE TABLE RECENTVIEW ('
+        await db.execute('CREATE TABLE IF NOT EXISTS RECENTVIEW ('
             'id INTEGER PRIMARY KEY NOT NULL,'
             'time DATETIME,'
             'FOREIGN KEY (id) REFERENCES Product(id) ON DELETE NO ACTION'
