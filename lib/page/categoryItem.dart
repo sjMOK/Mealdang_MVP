@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:mealdang_mvp/page/mealdangHome.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:mealdang_mvp/data/product.dart';
@@ -7,7 +8,7 @@ import 'package:mealdang_mvp/database/db.dart';
 import 'package:mealdang_mvp/utils/util.dart';
 import 'package:mealdang_mvp/data/categoryData.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:get/get.dart';
 import 'homePage.dart';
 
 class CategoryItem extends StatefulWidget {
@@ -20,13 +21,16 @@ class CategoryItem extends StatefulWidget {
 }
 
 class _CategoryItemState extends State<CategoryItem> {
-  Future<List<Product>> _products;
+  //Future<List<Product>> _products;
   DBHelper _dbHelper = DBHelper();
+  SortProductController controller;
   // RecentViewController controller;
   @override
   void initState() {
     super.initState();
-    _products = getProducts(_dbHelper.db, widget.categoryName);
+    controller = SortProductController();
+    controller.dataInit(_dbHelper, widget.categoryName);
+    //_products = getProducts(_dbHelper.db, widget.categoryName);
   }
 
   @override
@@ -34,21 +38,40 @@ class _CategoryItemState extends State<CategoryItem> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 70.h,
+        toolbarHeight: 140.h,
         automaticallyImplyLeading: true,
         iconTheme: IconThemeData(color: Colors.black),
-        title: Text(
-          '${categoryData[widget.categoryName]['name']}',
-          style: TextStyle(
-            color: MAINCOLOR,
-            fontFamily: 'NotoSans',
-            fontWeight: FontWeight.w700,
-            fontSize: 32.sp,
-          ),
+        title: Column(
+          children: [
+            Text(
+              '${categoryData[widget.categoryName]['name']}',
+              style: TextStyle(
+                color: MAINCOLOR,
+                fontFamily: 'NotoSans',
+                fontWeight: FontWeight.w700,
+                fontSize: 32.sp,
+              ),
+            ),
+          ],
         ),
         centerTitle: true,
         elevation: 1.0,
         backgroundColor: Colors.white,
+        bottom: PreferredSize(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Divider(),
+                _buildSortButton("별점 순", controller),
+                SizedBox(width: 10.w),
+                _buildSortButton("리뷰 순", controller),
+                SizedBox(width: 10.w),
+                _buildSortButton("가격 순", controller),
+                SizedBox(width: 10.w),
+                _buildSortButton("인분 순", controller),
+              ],
+            ),
+            preferredSize: Size.fromHeight(1.0)),
       ),
       body: Stack(
         children: [
@@ -81,40 +104,28 @@ class _CategoryItemState extends State<CategoryItem> {
   }
 
   Widget _myListView(Future<Database> database) {
-    return FutureBuilder(
-      future: _products,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          if (snapshot.hasData) {
-            return ListView.separated(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              itemBuilder: (context, index) {
-                Product product = snapshot.data[index];
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => ProductDetail(product),
-                      ),
-                    );
-                  },
-                  child: _itemContainer(product, index),
+    return GetBuilder<SortProductController>(
+      init: controller,
+      builder: (controller) {
+        return ListView.separated(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          itemBuilder: (context, index) {
+            Product product = controller.sortProductList[index];
+            return GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ProductDetail(product),
+                  ),
                 );
               },
-              itemCount: snapshot.data.length,
-              separatorBuilder: (context, index) =>
-                  const Divider(color: Colors.grey),
+              child: _itemContainer(product, index),
             );
-          } else
-            return Text('No Data');
-        } else
-          return Center(
-            child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(
-                MAINCOLOR,
-              ),
-            ),
-          );
+          },
+          itemCount: controller.sortProductList.length,
+          separatorBuilder: (context, index) =>
+              const Divider(color: Colors.grey),
+        );
       },
     );
   }
@@ -217,6 +228,37 @@ class _CategoryItemState extends State<CategoryItem> {
   }
 }
 
+Widget _buildSortButton(String sortType, SortProductController controller) {
+  return OutlinedButton(
+    style: OutlinedButton.styleFrom(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18.0),
+      ),
+      side: BorderSide(width: 2, color: Colors.grey[400]),
+    ),
+    onPressed: () {
+      switch (sortType) {
+        case "별점 순":
+          controller.sortByRatings();
+          break;
+        case "인분 순":
+          controller.sortByServings();
+          break;
+        case "가격 순":
+          controller.sortByPrices();
+          break;
+        case "리뷰 순":
+          controller.sortByReview();
+          break;
+      }
+    },
+    child: Text(
+      "$sortType",
+      style: TextStyle(fontFamily: "Notosans", color: Colors.grey[400]),
+    ),
+  );
+}
+
 Container _buildPrice(int realPrice, int discountedPrice) {
   if (discountedPrice == null) {
     return Container(
@@ -269,5 +311,37 @@ Container _buildPrice(int realPrice, int discountedPrice) {
         ],
       ),
     );
+  }
+}
+
+class SortProductController extends GetxController {
+  var productList = Future.value();
+  var sortProductList = [].obs;
+  void dataInit(DBHelper _dbHelper, String categoryName) async {
+    productList = getProducts(_dbHelper.db, categoryName);
+    sortProductList.addAll(await productList);
+    print(sortProductList);
+  }
+
+  void sortByRatings() {
+    sortProductList.sort((a, b) => b.rating.compareTo(a.rating));
+    update();
+  }
+
+  void sortByReview() {
+    sortProductList.sort((a, b) => b.reviewCount.compareTo(a.reviewCount));
+    update();
+  }
+
+  void sortByPrices() {
+    sortProductList.sort((a, b) => (b.discountedPrice ?? b.price)
+        .compareTo((a.discountedPrice ?? a.price)));
+    update();
+  }
+
+  void sortByServings() {
+    sortProductList.sort((a, b) => (b.servingSize ?? 0)
+        .compareTo(a.servingSize ?? 0)); //servingSize 없으면 null로 해놓음
+    update();
   }
 }
