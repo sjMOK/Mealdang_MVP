@@ -68,7 +68,7 @@ flutter:
     - assets/images/tasty_icon/
     - assets/images/pageview_image/
     - assets/images/profile_image/
-    - assets/images/ask_icon/
+    - assets/images/ui_icon/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

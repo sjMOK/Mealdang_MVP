@@ -70,7 +70,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 height: 35.h,
                 width: 35.h,
                 child: Center(
-                  child: Image.asset('assets/images/ask_icon/chat.png'),
+                  child: Image.asset('assets/images/ui_icon/chat.png'),
                 ),
               ),
               onPressed: () {

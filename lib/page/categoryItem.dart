@@ -21,16 +21,13 @@ class CategoryItem extends StatefulWidget {
 }
 
 class _CategoryItemState extends State<CategoryItem> {
-  //Future<List<Product>> _products;
   DBHelper _dbHelper = DBHelper();
   SortProductController controller;
-  // RecentViewController controller;
   @override
   void initState() {
     super.initState();
     controller = SortProductController();
     controller.dataInit(_dbHelper, widget.categoryName);
-    //_products = getProducts(_dbHelper.db, widget.categoryName);
   }
 
   @override
@@ -38,7 +35,7 @@ class _CategoryItemState extends State<CategoryItem> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 140.h,
+        toolbarHeight: 65.h,
         automaticallyImplyLeading: true,
         iconTheme: IconThemeData(color: Colors.black),
         title: Column(
@@ -54,24 +51,39 @@ class _CategoryItemState extends State<CategoryItem> {
             ),
           ],
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: GestureDetector(
+              child: Container(
+                width: 25,
+                height: 25,
+                child: Image.asset('assets/images/ui_icon/sort.png'),
+              ),
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: _buildSortBottomSheet,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ), //BorderRadius.circular(20.0),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
         centerTitle: true,
         elevation: 1.0,
         backgroundColor: Colors.white,
-        bottom: PreferredSize(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Divider(),
-                _buildSortButton("별점 순", controller),
-                SizedBox(width: 10.w),
-                _buildSortButton("리뷰 순", controller),
-                SizedBox(width: 10.w),
-                _buildSortButton("가격 순", controller),
-                SizedBox(width: 10.w),
-                _buildSortButton("인분 순", controller),
-              ],
-            ),
-            preferredSize: Size.fromHeight(1.0)),
+        // bottom: PreferredSize(
+        //     child: Row(
+        //       mainAxisAlignment: MainAxisAlignment.center,
+        //       children: [],
+        //     ),
+        //     preferredSize: Size.fromHeight(1.0)),
       ),
       body: Stack(
         children: [
@@ -90,13 +102,98 @@ class _CategoryItemState extends State<CategoryItem> {
                 height: 35.h,
                 width: 35.h,
                 child: Center(
-                  child: Image.asset('assets/images/ask_icon/chat.png'),
+                  child: Image.asset('assets/images/ui_icon/chat.png'),
                 ),
               ),
               onPressed: () {
                 openKakaoAsking();
               },
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSortBottomSheet(BuildContext context) {
+    return Container(
+      height: 250.h,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0),
+            child: Container(
+              child: Row(
+                children: [
+                  Text(
+                    "정렬",
+                    style: TextStyle(
+                        fontFamily: "NotoSans",
+                        color: Colors.grey[800],
+                        fontWeight: FontWeight.w700),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _buildSortButton("별점 순", controller),
+                SizedBox(width: 10.w),
+                _buildSortButton("가격 순", controller),
+                SizedBox(width: 10.w),
+                _buildSortButton("인분 순", controller),
+                SizedBox(width: 10.w),
+                _buildSortButton("난이도 순", controller),
+                SizedBox(width: 10.w),
+              ],
+            ),
+          ),
+          SizedBox(height: 15.h),
+          const Divider(color: Colors.grey),
+          SizedBox(height: 15.h),
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0),
+            child: Container(
+              child: Row(
+                children: [
+                  Text(
+                    "가격대",
+                    style: TextStyle(
+                        fontFamily: "NotoSans",
+                        color: Colors.grey[800],
+                        fontWeight: FontWeight.w700),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          GetBuilder<SortProductController>(
+            init: controller,
+            builder: (controller) {
+              return RangeSlider(
+                values: controller.productRange.value,
+                min: 10000,
+                max: 100000,
+                activeColor: MAINCOLOR,
+                inactiveColor: Colors.grey[400],
+                divisions: 9,
+                labels: RangeLabels(
+                  controller.productRange.value.start.round().toString(),
+                  controller.productRange.value.end.round().toString(),
+                ),
+                onChanged: (RangeValues values) {
+                  setState(
+                    () {
+                      controller.priceRangeChanged(values);
+                    },
+                  );
+                },
+              );
+            },
           ),
         ],
       ),
@@ -168,7 +265,7 @@ class _CategoryItemState extends State<CategoryItem> {
                   Text(
                     '[${product.companyName}]',
                     style: TextStyle(
-                        fontFamily: 'NotoSans',
+                        fontFamily: 'Notosans',
                         fontWeight: FontWeight.w500,
                         fontSize: 12.sp,
                         color: Colors.grey[700]),
@@ -229,33 +326,41 @@ class _CategoryItemState extends State<CategoryItem> {
 }
 
 Widget _buildSortButton(String sortType, SortProductController controller) {
-  return OutlinedButton(
-    style: OutlinedButton.styleFrom(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18.0),
-      ),
-      side: BorderSide(width: 2, color: Colors.grey[400]),
-    ),
-    onPressed: () {
-      switch (sortType) {
-        case "별점 순":
-          controller.sortByRatings();
-          break;
-        case "인분 순":
-          controller.sortByServings();
-          break;
-        case "가격 순":
-          controller.sortByPrices();
-          break;
-        case "리뷰 순":
-          controller.sortByReview();
-          break;
-      }
+  return GetBuilder<SortProductController>(
+    init: controller,
+    builder: (controller) {
+      return OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          backgroundColor: controller.buttonHighLight(sortType),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          side: BorderSide(width: 2, color: Colors.grey[400]),
+        ),
+        onPressed: () {
+          switch (sortType) {
+            case "별점 순":
+              controller.sortByRatings();
+              break;
+            case "인분 순":
+              controller.sortByServings();
+              break;
+            case "가격 순":
+              controller.sortByPrices();
+              break;
+          }
+        },
+        child: Text(
+          "$sortType",
+          style: TextStyle(
+            fontFamily: "Notosans",
+            fontSize: 15.sp,
+            fontWeight: FontWeight.w700,
+            color: Colors.black,
+          ),
+        ),
+      );
     },
-    child: Text(
-      "$sortType",
-      style: TextStyle(fontFamily: "Notosans", color: Colors.grey[400]),
-    ),
   );
 }
 
@@ -317,31 +422,61 @@ Container _buildPrice(int realPrice, int discountedPrice) {
 class SortProductController extends GetxController {
   var productList = Future.value();
   var sortProductList = [].obs;
+  var productRange = RangeValues(10000, 100000).obs;
+  var priceRangeList = [].obs;
+  var isClicked = "".obs;
+
   void dataInit(DBHelper _dbHelper, String categoryName) async {
     productList = getProducts(_dbHelper.db, categoryName);
     sortProductList.addAll(await productList);
-    print(sortProductList);
+    update();
+  }
+
+  void notSorted() async {
+    sortProductList.remove(sortProductList);
+    sortProductList.addAll(await productList);
+    update();
   }
 
   void sortByRatings() {
     sortProductList.sort((a, b) => b.rating.compareTo(a.rating));
-    update();
-  }
-
-  void sortByReview() {
-    sortProductList.sort((a, b) => b.reviewCount.compareTo(a.reviewCount));
+    isClicked.value = "별점 순";
     update();
   }
 
   void sortByPrices() {
     sortProductList.sort((a, b) => (b.discountedPrice ?? b.price)
         .compareTo((a.discountedPrice ?? a.price)));
+    isClicked.value = "가격 순";
     update();
   }
 
   void sortByServings() {
     sortProductList.sort((a, b) => (b.servingSize ?? 0)
         .compareTo(a.servingSize ?? 0)); //servingSize 없으면 null로 해놓음
+    isClicked.value = "인분 순";
     update();
+  }
+
+  void priceRangeChanged(RangeValues values) async {
+    productRange.value = values;
+    print(sortProductList);
+    for (var product in await productList) {
+      if ((product.discountedPrice ?? product.price) <= values.end &&
+          (product.discountedPrice ?? product.price) >= values.start) {
+        priceRangeList.add(product);
+      }
+    }
+    sortProductList.clear();
+    sortProductList.addAll(priceRangeList);
+    priceRangeList.clear();
+    update();
+  }
+
+  Color buttonHighLight(String buttonType) {
+    if (buttonType == isClicked.value) {
+      return Colors.amber;
+    }
+    return Colors.transparent;
   }
 }

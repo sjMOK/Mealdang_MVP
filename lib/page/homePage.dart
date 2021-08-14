@@ -452,23 +452,19 @@ class _LikeIconState extends State<LikeIcon> {
             if (snapshot.connectionState == ConnectionState.done) {
               controller.findLikeproduct(
                   product.id, snapshot.data, widget.size, widget.borderColor);
-              if (snapshot.hasData) {
-                return GestureDetector(
-                  child: controller.icon,
-                  onTap: () {
-                    controller.findLikeproduct(product.id, snapshot.data,
-                        widget.size, widget.borderColor);
-                    controller.clicked(product, _dbHelper);
-                    controller.dataChange(_dbHelper);
-                    if (!controller.isClicked())
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          duration: Duration(milliseconds: 1500),
-                          content: Text('찜목록에 추가되었습니다.')));
-                  },
-                );
-              } else {
-                print("nodata");
-              }
+              return GestureDetector(
+                child: controller.icon,
+                onTap: () {
+                  controller.findLikeproduct(product.id, snapshot.data,
+                      widget.size, widget.borderColor);
+                  controller.clicked(product, _dbHelper);
+                  controller.dataChange(_dbHelper);
+                  if (!controller.isClicked())
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        duration: Duration(milliseconds: 1500),
+                        content: Text('찜목록에 추가되었습니다.')));
+                },
+              );
             }
             return Center(
               child: CircularProgressIndicator(

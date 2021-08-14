@@ -77,7 +77,7 @@ class _MealdangHomeState extends State<MealdangHome> {
                   height: 30.h,
                   width: 30.h,
                   child: Center(
-                    child: Image.asset('assets/images/ask_icon/chat.png'),
+                    child: Image.asset('assets/images/ui_icon/chat.png'),
                   ),
                 ),
                 onPressed: () {
